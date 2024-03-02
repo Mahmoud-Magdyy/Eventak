@@ -131,6 +131,10 @@ class AppStyles {
 
 }
 
+
+
+
+
 // sacleFactor
 // responsive font size
 // (min , max) fontsize
