@@ -1,4 +1,4 @@
-import 'package:eventak/routers/app_router.dart';
+import 'package:eventak/core/routers/app_router.dart';
 import 'package:flutter/material.dart';
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
