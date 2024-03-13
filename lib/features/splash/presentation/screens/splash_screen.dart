@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(AppAssets.imagesLogo),
+            SvgPicture.asset(Assets.imagesLogo),
           ],
         ),
       ),
@@ -36,7 +36,7 @@ void delayedNavigate(context) {
   Future.delayed(
     const Duration(seconds: 2),
     () {
-      customNavigate(context, "/OnBoarding");
+  customNavigate(context, "/OnBoardingView");
     },
   );
 }

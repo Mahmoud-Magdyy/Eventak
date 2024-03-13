@@ -7,7 +7,7 @@ class AppStyles {
     return TextStyle(
       color: Colors.black.withOpacity(0.5),
       fontSize: getResponsiveFontSize(context, fontSize: 12),
-      fontFamily: 'Montserrat',
+      fontFamily: 'Metropolis',
       fontWeight: FontWeight.w500,
     );
   }
@@ -16,7 +16,7 @@ class AppStyles {
       color: Colors.black.withOpacity(0.3400000035762787),
 
       fontSize: getResponsiveFontSize(context, fontSize: 10),
-      fontFamily: 'Montserrat',
+      fontFamily: 'Metropolis',
       fontWeight: FontWeight.w500,
     );
   }
@@ -25,7 +25,7 @@ class AppStyles {
       color:const Color(0xFFA2A3A5),
 
       fontSize: getResponsiveFontSize(context, fontSize: 16),
-      fontFamily: 'Montserrat',
+      fontFamily: 'Metropolis',
       fontWeight: FontWeight.w500,
     );
   }
@@ -34,7 +34,7 @@ class AppStyles {
       color: const Color(0xFF376091),
 
       fontSize: getResponsiveFontSize(context, fontSize: 18),
-      fontFamily: 'Montserrat',
+      fontFamily: 'Metropolis',
       fontWeight: FontWeight.w500,
     );
   }
@@ -43,7 +43,7 @@ class AppStyles {
     return TextStyle(
       color: Colors.white,
       fontSize: getResponsiveFontSize(context, fontSize: 24),
-      fontFamily: 'Montserrat',
+      fontFamily: 'Metropolis',
       fontWeight: FontWeight.w600,
     );
   }
@@ -51,7 +51,7 @@ class AppStyles {
     return TextStyle(
       color: Colors.white,
       fontSize: getResponsiveFontSize(context, fontSize: 18),
-      fontFamily: 'Montserrat',
+      fontFamily: 'Metropolis',
       fontWeight: FontWeight.w600,
     );
   }
@@ -59,7 +59,7 @@ class AppStyles {
     return TextStyle(
       // color: Colors.white,
       fontSize: getResponsiveFontSize(context, fontSize: 10),
-      fontFamily: 'Montserrat',
+      fontFamily: 'Metropolis',
       fontWeight: FontWeight.w600,
     );
   }
@@ -67,7 +67,7 @@ class AppStyles {
     return TextStyle(
       color: Colors.black.withOpacity(0.4399999976158142), //?
       fontSize: getResponsiveFontSize(context, fontSize: 12),
-      fontFamily: 'Montserrat',
+      fontFamily: 'Metropolis',
       fontWeight: FontWeight.w600,
     );
   }
@@ -75,7 +75,7 @@ class AppStyles {
     return TextStyle(
       // color: Colors.black.withOpacity(0.4399999976158142), //?
       fontSize: getResponsiveFontSize(context, fontSize: 14),
-      fontFamily: 'Montserrat',
+      fontFamily: 'Metropolis',
       fontWeight: FontWeight.w600,
     );
   }
@@ -83,7 +83,7 @@ class AppStyles {
     return TextStyle(
      color:const Color(0xFF0B2442), //?
       fontSize: getResponsiveFontSize(context, fontSize: 16),
-      fontFamily: 'Montserrat',
+      fontFamily: 'Metropolis',
       fontWeight: FontWeight.w600,
     );
   }
@@ -91,7 +91,7 @@ class AppStyles {
     return TextStyle(
       color: Colors.black, //?
       fontSize: getResponsiveFontSize(context, fontSize: 6),
-      fontFamily: 'Montserrat',
+      fontFamily: 'Metropolis',
   fontWeight: FontWeight.w400,
     );
   }
@@ -99,7 +99,7 @@ class AppStyles {
     return TextStyle(
       color: const Color(0xFF0B2442), //?
       fontSize: getResponsiveFontSize(context, fontSize: 14),
-      fontFamily: 'Montserrat',
+      fontFamily: 'Metropolis',
   fontWeight: FontWeight.w400,
     );
   }
@@ -107,7 +107,7 @@ class AppStyles {
     return TextStyle(
       // color: Colors.black, //?
       fontSize: getResponsiveFontSize(context, fontSize: 6),
-      fontFamily: 'Montserrat',
+      fontFamily: 'Metropolis',
   fontWeight: FontWeight.w700,
     );
   }
@@ -115,7 +115,7 @@ class AppStyles {
     return TextStyle(
       color: const Color(0xFF0B2442),  //?
       fontSize: getResponsiveFontSize(context, fontSize: 36),
-      fontFamily: 'Montserrat',
+      fontFamily: 'Metropolis',
   fontWeight: FontWeight.w700,
     );
   }
@@ -123,7 +123,7 @@ class AppStyles {
     return TextStyle(
       // color: Colors.black, //?
       fontSize: getResponsiveFontSize(context, fontSize: 6),
-      fontFamily: 'Montserrat',
+      fontFamily: 'Metropolis',
   fontWeight: FontWeight.w600,
     );
   }

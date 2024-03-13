@@ -1,4 +1,5 @@
-import 'package:eventak/features/on_borading/presentation/screens/on_boarding_screens.dart';
+import 'package:eventak/features/home/presenation/screens/home_screen.dart';
+import 'package:eventak/features/on_borading/presentation/screens/on_boarding_view.dart';
 import 'package:eventak/features/splash/presentation/screens/splash_screen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -8,7 +9,12 @@ final GoRouter router = GoRouter(routes: [
     builder: (context, state) => const SplashScreen(),
   ),
   GoRoute(
-    path: "/OnBoarding",
-    builder: (context, state) => const OnBoardingScreens(),
+    path: "/OnBoardingView",
+    builder: (context, state) => const OnBoardingView(),
   ),
+  GoRoute(
+    path: "/HomeScreen",
+    builder: (context, state) => const HomeScreen(),
+  ),
+  
 ]);
