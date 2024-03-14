@@ -10,7 +10,7 @@ final GoRouter router = GoRouter(routes: [
   ),
   GoRoute(
     path: "/OnBoardingView",
-    builder: (context, state) => const OnBoardingView(),
+    builder: (context, state) =>const  OnBoardingView(),
   ),
   GoRoute(
     path: "/HomeScreen",

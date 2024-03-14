@@ -36,7 +36,7 @@ void delayedNavigate(context) {
   Future.delayed(
     const Duration(seconds: 2),
     () {
-  customNavigate(context, "/OnBoardingView");
+  customReplacementNavigate(context, "/OnBoardingView");
     },
   );
 }

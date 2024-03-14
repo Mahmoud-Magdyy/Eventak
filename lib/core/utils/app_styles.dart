@@ -31,7 +31,7 @@ class AppStyles {
   }
   static TextStyle styleMedium18(BuildContext context) {
     return TextStyle(
-      color: const Color(0xFF376091),
+      color: const Color(0xFF386192),
 
       fontSize: getResponsiveFontSize(context, fontSize: 18),
       fontFamily: 'Metropolis',
