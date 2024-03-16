@@ -1,10 +1,13 @@
+
+import 'package:eventak/core/locale/app_loacl.dart';
 import 'package:eventak/core/utils/app_styles.dart';
 import 'package:eventak/features/on_borading/data/models/on_boarding_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class OnBoardingBody extends StatelessWidget {
-  const OnBoardingBody({super.key, required this.controller, this.onPageChanged});
+  const OnBoardingBody(
+      {super.key, required this.controller, this.onPageChanged});
   final PageController controller;
   final Function(int)? onPageChanged;
   @override
@@ -12,7 +15,7 @@ class OnBoardingBody extends StatelessWidget {
     return SizedBox(
       height: 580,
       child: PageView.builder(
-        onPageChanged: onPageChanged,
+          onPageChanged: onPageChanged,
           controller: controller,
           itemCount: onBoardingData.length,
           itemBuilder: (context, index) {
@@ -29,8 +32,8 @@ class OnBoardingBody extends StatelessWidget {
                       height: 300,
                       decoration: BoxDecoration(
                           image: DecorationImage(
-                              image:
-                                  AssetImage(onBoardingData[index].imagePath))),
+                              image: AssetImage(
+                                  onBoardingData[index].imagePath))),
                     ),
                   ),
                 ),
@@ -38,13 +41,13 @@ class OnBoardingBody extends StatelessWidget {
                   height: 16,
                 ),
                 Text(
-                  onBoardingData[index].title,
+                  onBoardingData[index].title.tr(context),
                   style: AppStyles.styleBold36(context),
                 ),
                 const SizedBox(
                   height: 16,
                 ),
-                Text(onBoardingData[index].subTitle,
+                Text(onBoardingData[index].subTitle.tr(context),
                     style: AppStyles.styleMedium18(context)),
               ],
             );

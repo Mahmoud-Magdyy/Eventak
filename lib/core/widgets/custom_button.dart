@@ -5,13 +5,14 @@ import '../utils/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
-    super.key, this.height=48, this.width=double.infinity, required this.onPressed, this.background, required this.text,
+    super.key, this.height=48, this.width=double.infinity, required this.onPressed, this.background, required this.text, this.color,
   });
   final double? height;
   final double? width;
   final VoidCallback onPressed;
   final Color? background;
   final String  text;
+  final Color? color;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -26,7 +27,7 @@ class CustomButton extends StatelessWidget {
                 backgroundColor:
                      MaterialStatePropertyAll(
                        background??AppColors.primaryColor)),
-        child:  Text(text,style: AppStyles.styleSemiBold18(context),),
+        child:  Text(text,style: AppStyles.styleSemiBold18(context).copyWith(color: color),),
       ),
     );
   }

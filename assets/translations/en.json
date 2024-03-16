@@ -1,0 +1,18 @@
+{
+    "appName": "Eventak",
+    "skip": "Skip",
+    "onBoradingTitle1": "Welcome to Eventak!",
+    "onBoradingSubTitle1": "Discover & join events with ease! Eventak helps you plan & find exciting activities. Get started now!",
+    
+    "onBoradingTitle2": "Discover Exciting Events",
+    "onBoradingSubTitle2": "Explore diverse events nearby! From concerts to workshops, sports to tournaments, find what interests you.",
+    "onBoradingTitle3": "Create & Manage Your Events",
+    "onBoradingSubTitle3": "Organize events effortlessly! Use Eventak's intuitive tools to set details and manage everything in one place.",
+    "onBoradingTitle4": "Let's Get Started Now!",
+    "onBoradingSubTitle4": "Join Eventak! Sign in or register to start exploring events.",
+    "signIn": "Sign In",
+    "register": "Register",
+    "back": "Back"
+    
+    
+}

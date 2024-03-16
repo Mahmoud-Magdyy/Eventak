@@ -10,7 +10,7 @@ final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
+      height: 56,
       width: 56,
       decoration: ShapeDecoration(
           color: AppColors.primaryColor,
