@@ -26,7 +26,7 @@ class OnBoardingAppBar extends StatelessWidget {
             ? const EnglishAndArabicButton()
             : SvgPicture.asset(
                 Assets.imagesSmallLogo,
-                height: 30,
+                height: 22,
               ),
         currentIndex != 3
             ? GestureDetector(
@@ -34,7 +34,7 @@ class OnBoardingAppBar extends StatelessWidget {
                 child: Text(
                   AppStrings.skip.tr(context),
                   style:
-                      AppStyles.styleRegular14(context).copyWith(fontSize: 15),
+                      AppStyles.styleRegular14(context).copyWith(fontSize: 14),
                 ),
               )
             : GestureDetector(
@@ -44,7 +44,7 @@ class OnBoardingAppBar extends StatelessWidget {
                 child: Text(
                   AppStrings.back.tr(context),
                   style:
-                      AppStyles.styleRegular14(context).copyWith(fontSize: 15),
+                      AppStyles.styleRegular14(context).copyWith(fontSize: 14),
                 ),
               )
       ],

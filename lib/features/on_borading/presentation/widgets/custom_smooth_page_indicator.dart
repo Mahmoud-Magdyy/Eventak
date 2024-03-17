@@ -17,6 +17,7 @@ class CustomSmoothPageIndicator extends StatelessWidget {
       controller: controller,
       count: onBoardingData.length,
       effect: const SwapEffect(
+        dotColor: Color(0xffD9D9D9),
           activeDotColor: AppColors.primaryColor,
           offset: BorderSide.strokeAlignCenter),
     );

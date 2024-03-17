@@ -1,3 +1,4 @@
+
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,7 +19,7 @@ final VoidCallback? onPressed;
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(40))),
       child: IconButton(
         onPressed: onPressed,
-        icon: const Icon(
+        icon:  const Icon(
           FontAwesomeIcons.angleRight,
           color: Colors.white,
           size: 20,

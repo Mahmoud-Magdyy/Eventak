@@ -1,4 +1,4 @@
-// import 'package:device_preview/device_preview.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:eventak/core/bloc/cubit/global_cubit.dart';
 import 'package:eventak/core/bloc/cubit/global_state.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
@@ -16,18 +16,19 @@ class MyApp extends StatelessWidget {
     return BlocBuilder<GlobalCubit, GlobalState>(
       builder: (context, state) {
         return MaterialApp.router(
+          builder: DevicePreview.appBuilder,
           localizationsDelegates: const [
             GlobalMaterialLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            AppLocalizations.delegate
+            // GlobalWidgetsLocalizations.delegate,
+            AppLocalizations.delegate,
+            DefaultMaterialLocalizations.delegate
           ],
           supportedLocales: const [
             Locale('ar', "EG"),
             Locale('en', "US"),
           ],
           locale: Locale(BlocProvider.of<GlobalCubit>(context).langCode),
-         
           routerConfig: router,
           debugShowCheckedModeBanner: false,
           theme: getAppTheme(),

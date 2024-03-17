@@ -16,8 +16,8 @@ class EnglishAndArabicButton extends StatelessWidget {
     return BlocBuilder<GlobalCubit, GlobalState>(
       builder: (context, state) {
         return Container(
-          width: 54,
-          height: 30,
+          width: 52,
+          height: 22,
           padding: const EdgeInsets.all(4),
           clipBehavior: Clip.antiAlias,
           decoration: ShapeDecoration(
