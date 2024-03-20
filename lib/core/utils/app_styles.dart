@@ -1,3 +1,4 @@
+import 'package:eventak/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import 'size_config.dart';
@@ -45,6 +46,14 @@ class AppStyles {
       fontSize: getResponsiveFontSize(context, fontSize: 24),
       fontFamily: 'Metropolis',
       fontWeight: FontWeight.w600,
+    );
+  }
+  static TextStyle styleMedium24(BuildContext context) {
+    return TextStyle(
+      color: AppColors.primaryColor,
+      fontSize: getResponsiveFontSize(context, fontSize: 24),
+      fontFamily: 'Metropolis',
+      fontWeight: FontWeight.w500,
     );
   }
 

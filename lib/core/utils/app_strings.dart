@@ -9,7 +9,7 @@ abstract class AppStrings {
       onBoradingSubTitle2 = 'onBoradingSubTitle2',
       onBoradingSubTitle3 = 'onBoradingSubTitle3',
       onBoradingSubTitle4 = 'onBoradingSubTitle4',
-      signInTitle = 'onBoradingSubTitle4',
+      signInTitle = 'signInTitle',
       signInSubTitle = 'signInSubTitle',
       phone = "phone",
       email = "email",
@@ -17,6 +17,16 @@ abstract class AppStrings {
       userName = "userName",
       register = "register",
       signIn = "signIn",
+      loginHint = "loginHint",
+      confirmPassword = "confirmPassword",
+
       signUp = "signUp",
-      back="back";
+      back="back",
+
+      //!sign in
+         pleaseEnterValidEmail = 'please_enter_email',
+   pleaseEnterValidPassword = 'please_enter_valid_password',
+  pleaseEnterValidPhone = 'please_enter_phone',
+  forgetPassword = 'forgetPassword',
+  dontHaveAcc = 'dontHaveAcc';
 }

@@ -1,5 +1,6 @@
 import 'package:eventak/core/bloc/cubit/global_cubit.dart';
 import 'package:eventak/core/bloc/cubit/global_state.dart';
+import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/utils/app_strings.dart';
@@ -7,9 +8,7 @@ import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/features/on_borading/presentation/widgets/nav_on_boarding_view.dart';
 import 'package:eventak/features/on_borading/presentation/widgets/on_boarding_app_bar.dart';
 import 'package:eventak/features/on_borading/presentation/widgets/on_boarding_body.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OnBoardingView extends StatefulWidget {
@@ -32,7 +31,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             builder: (context, state) {
               return Column(
                 children: [
-                  
                   Expanded(
                     flex: 1,
                     child: OnBoardingAppBar(
@@ -58,19 +56,21 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   ),
                   currentIndex == 3
                       ? Expanded(
-                        flex: 1,
-                        child: Row(
+                          flex: 1,
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              CustomButton(
+                              CustomElevetedButton(
                                 onPressed: () {},
                                 text: AppStrings.register.tr(context),
                                 height: 50,
                                 width: 155,
                               ),
-                              CustomButton(
+                              CustomElevetedButton(
                                 background: Colors.white,
-                                onPressed: () {},
+                                onPressed: () {
+                                  customNavigate(context, '/SignIn');
+                                },
                                 text: AppStrings.signIn.tr(context),
                                 color: AppColors.primaryColor,
                                 height: 50,
@@ -78,13 +78,13 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                               ),
                             ],
                           ),
-                      )
+                        )
                       : Expanded(
-                        flex: 1,
-                        child: NavOnBoardingView(
+                          flex: 1,
+                          child: NavOnBoardingView(
                             controller: controller,
                           ),
-                      ),
+                        ),
                   const SizedBox(
                     height: 10,
                   ),

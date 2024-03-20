@@ -14,13 +14,11 @@ void main() async {
   runApp(
     DevicePreview(
       enabled: false,
-      builder: ((context) => MultiBlocProvider(
-        providers: [
-          BlocProvider(
-        create: (context) => sl<GlobalCubit>()..getCachedLang(),
-      ),
-        ],
-        child: const MyApp())),
+      builder: ((context) => MultiBlocProvider(providers: [
+            BlocProvider(
+              create: (context) => sl<GlobalCubit>()..getCachedLang(),
+            ),
+          ], child: const MyApp())),
     ),
   );
 }

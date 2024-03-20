@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../utils/app_colors.dart';
 
-class CustomButton extends StatelessWidget {
-  const CustomButton({
+class CustomElevetedButton extends StatelessWidget {
+  const CustomElevetedButton({
     super.key, this.height=48, this.width=double.infinity, required this.onPressed, this.background, required this.text, this.color,
   });
   final double? height;
