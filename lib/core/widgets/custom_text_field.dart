@@ -38,7 +38,7 @@ class CustomTextFormField extends StatelessWidget {
         prefixIconColor: AppColors.lightBlue,
           contentPadding:  const EdgeInsets.all(16),
           hintText: hint,
-          hintStyle: AppStyles.styleMedium16(context).copyWith(fontSize: 16),
+          hintStyle: AppStyles.styleMedium16(context),
           labelText: label,
           suffixIcon: IconButton(
             onPressed: suffixIconOnPressed,

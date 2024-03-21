@@ -29,66 +29,61 @@ class _OnBoardingViewState extends State<OnBoardingView> {
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: BlocBuilder<GlobalCubit, GlobalState>(
             builder: (context, state) {
-              return Column(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: OnBoardingAppBar(
+              return SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 24,),
+                    OnBoardingAppBar(
                       currentIndex: currentIndex,
                       onTap: () {
                         controller.jumpToPage(3);
                       },
                     ),
-                  ),
-                  Expanded(
-                    flex: 5,
-                    child: OnBoardingBody(
-                      controller: controller,
-                      onPageChanged: (index) {
-                        setState(() {
-                          currentIndex = index;
-                        });
-                      },
+                    SizedBox(
+                      width: double.infinity,
+                      child: OnBoardingBody(
+                        controller: controller,
+                        onPageChanged: (index) {
+                          setState(() {
+                            currentIndex = index;
+                          });
+                        },
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  currentIndex == 3
-                      ? Expanded(
-                          flex: 1,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              CustomElevetedButton(
-                                onPressed: () {},
-                                text: AppStrings.register.tr(context),
-                                height: 50,
-                                width: 155,
-                              ),
-                              CustomElevetedButton(
-                                background: Colors.white,
-                                onPressed: () {
-                                  customNavigate(context, '/SignIn');
-                                },
-                                text: AppStrings.signIn.tr(context),
-                                color: AppColors.primaryColor,
-                                height: 50,
-                                width: 155,
-                              ),
-                            ],
-                          ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    currentIndex == 3
+                        ? Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CustomElevetedButton(
+                              onPressed: () {},
+                              text: AppStrings.register.tr(context),
+                              height: 50,
+                              width: 155,
+                            ),
+                            CustomElevetedButton(
+                              background: Colors.white,
+                              onPressed: () {
+                                customNavigate(context, '/SignIn');
+                              },
+                              text: AppStrings.signIn.tr(context),
+                              color: AppColors.primaryColor,
+                              height: 50,
+                              width: 155,
+                            ),
+                          ],
                         )
-                      : Expanded(
-                          flex: 1,
-                          child: NavOnBoardingView(
-                            controller: controller,
-                          ),
+                        : NavOnBoardingView(
+                          controller: controller,
                         ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                ],
+                    const SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                ),
               );
             },
           ),
