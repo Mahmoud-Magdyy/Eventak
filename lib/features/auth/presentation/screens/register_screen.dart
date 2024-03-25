@@ -1,3 +1,4 @@
+import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
 import 'package:eventak/core/utils/app_strings.dart';
 import 'package:eventak/core/utils/app_styles.dart';
@@ -42,9 +43,12 @@ class RegisterScreen extends StatelessWidget {
                   height: 32,
                 ),
                 const CustomFormRegister(),
-                const DontHaveAndRegistr(
+                 DontHaveAndRegistr(
                   dontHave: AppStrings.dontHaveAcc,
                   textButton: AppStrings.login,
+                  onPressed: (){
+                    customReplacementNavigate(context, '/SignIn');
+                  },
                 )
               ],
             ),

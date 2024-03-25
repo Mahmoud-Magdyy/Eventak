@@ -48,10 +48,11 @@ class SignIn extends StatelessWidget {
                   height: 56,
                 ),
                 const CustomSignUpForm(),
-                 DontHaveAndRegistr(
+                DontHaveAndRegistr(
                   dontHave: AppStrings.dontHaveAcc,
                   textButton: AppStrings.register,
-                  onPressed: () => customNavigate(context, '/RegisterScreen'),
+                  onPressed: () =>
+                      customReplacementNavigate(context, '/RegisterScreen'),
                 )
               ],
             ),

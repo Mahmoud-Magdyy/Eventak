@@ -9,8 +9,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   TextEditingController emailController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
-
+  //passowrd text field
   bool isLoginPasswordsShowing = true;
   IconData suffixIcon = Icons.remove_red_eye_outlined;
   void changeLoginPasswordSuffixIcon() {
@@ -20,5 +19,16 @@ class RegisterCubit extends Cubit<RegisterState> {
     //     ? Icons.remove_red_eye_outlined
     //     : Icons.visibility_off;
     emit(ChangeLoginPasswordSuffixIcon());
+  }
+
+  //* confirm password text field
+  TextEditingController confirmPasswordController = TextEditingController();
+  bool isConfirmPasswordsShowing = true;
+  IconData suffixIconConfirmPassword = Icons.remove_red_eye_outlined;
+  void changeConfirmPasswordSuffixIcon() {
+    isConfirmPasswordsShowing = !isConfirmPasswordsShowing;
+    // suffixIconConfirmPassword =
+    //     isConfirmPasswordsShowing ? Icons.visibility : Icons.visibility_off;
+    emit(ChangeConfirmPasswordSuffixIcon());
   }
 }
