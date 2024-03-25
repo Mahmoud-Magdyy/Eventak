@@ -26,7 +26,12 @@
     "please_enter_valid_password": "Please Enter valid password",
     "please_enter_phone": "Please Enter valid Phone Number",
     "forgetPassword": "Forget Password?",
-    "dontHaveAcc": "Don’t Have An Account?"
+    "dontHaveAcc": "Don’t Have An Account?",
+    "registerTitle": "Let's Get Started!",
+    "registerSubTitle": "Welcome To Eventak!\nStart Your Journey Now.",
+    "signUp": "Sign Up",
+    "login": "Login"
+    
 
     
     

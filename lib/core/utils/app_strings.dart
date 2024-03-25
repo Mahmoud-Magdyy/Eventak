@@ -22,11 +22,15 @@ abstract class AppStrings {
 
       signUp = "signUp",
       back="back",
+      login="login",
 
       //!sign in
          pleaseEnterValidEmail = 'please_enter_email',
    pleaseEnterValidPassword = 'please_enter_valid_password',
   pleaseEnterValidPhone = 'please_enter_phone',
   forgetPassword = 'forgetPassword',
-  dontHaveAcc = 'dontHaveAcc';
+  dontHaveAcc = 'dontHaveAcc',
+  //!register
+  registerTitle = 'registerTitle',
+  registerSubTitle = 'registerSubTitle';
 }

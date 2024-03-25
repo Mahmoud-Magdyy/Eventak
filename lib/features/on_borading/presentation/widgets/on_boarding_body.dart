@@ -28,8 +28,8 @@ class OnBoardingBody extends StatelessWidget {
                 Center(
                   child: FittedBox(
                     child: Container(
-                      width: 300,
-                      height: 300,
+                      width: 330,
+                      height: 325,
                       decoration: BoxDecoration(
                           image: DecorationImage(
                               image:
@@ -38,7 +38,7 @@ class OnBoardingBody extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 16,
+                  height: 32,
                 ),
                 SizedBox(
                   width: 305,

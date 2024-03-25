@@ -1,6 +1,7 @@
 import 'package:eventak/core/bloc/cubit/global_cubit.dart';
 import 'package:eventak/core/database/cache/cache_helper.dart';
-import 'package:eventak/features/auth/presentation/auth_cubit/cubit/sign_in_cubit.dart';
+import 'package:eventak/features/auth/presentation/auth_cubit/regsiter_cubit/register_cubit.dart';
+import 'package:eventak/features/auth/presentation/auth_cubit/sign_in_cubit/sign_in_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 
@@ -10,4 +11,5 @@ Future<void> setupServiceLocator() async{
    sl.registerLazySingleton(() => CacheHelper());
    sl.registerLazySingleton(() => GlobalCubit());
    sl.registerLazySingleton(() => SignInCubit());
+   sl.registerLazySingleton(() => RegisterCubit());
 }

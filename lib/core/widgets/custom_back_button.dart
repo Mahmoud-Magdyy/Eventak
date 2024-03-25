@@ -10,6 +10,7 @@ class CustomBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
+      alignment: Alignment.centerLeft,
       style: const ButtonStyle(
         alignment: Alignment.centerLeft,
         padding: MaterialStatePropertyAll(
@@ -21,7 +22,7 @@ class CustomBackButton extends StatelessWidget {
             Navigator.pop(context);
           },
       icon: const Icon(
-        Icons.arrow_back_ios_new,
+        Icons.arrow_back_ios,
         size: 24,
         color: AppColors.deepBlue,
       ),

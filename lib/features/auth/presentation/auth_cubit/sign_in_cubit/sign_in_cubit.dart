@@ -1,4 +1,4 @@
-import 'package:eventak/features/auth/presentation/auth_cubit/cubit/sign_in_state.dart';
+import 'package:eventak/features/auth/presentation/auth_cubit/sign_in_cubit/sign_in_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

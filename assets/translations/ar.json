@@ -25,6 +25,10 @@
     "please_enter_valid_password": "من فضلك أدخل كلمة سر صالحة",
     "please_enter_phone": "من فضلك أدخل رقم هاتف صالح",
     "forgetPassword": "هل نسيت كلمة المرور؟",
-    "dontHaveAcc": "ليس لديك حساب؟"
+    "dontHaveAcc": "ليس لديك حساب؟",
+    "registerTitle": "!هيا بنا نبدأ",
+    "registerSubTitle": "مرحبا بكم في إيفينتاك!\nابدأ رحلتك الآن.",
+    "signUp": "تسجيل",
+    "login": "تسجيل الدخول"
 
 }

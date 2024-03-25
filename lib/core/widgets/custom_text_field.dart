@@ -12,7 +12,10 @@ class CustomTextFormField extends StatelessWidget {
     this.passwordIsVisable = false,
     this.validate,
     this.icon,
-    this.suffixIconOnPressed, this.prefixIcon, this.onChanged, this.onFieldSubmitted,
+    this.suffixIconOnPressed,
+    this.prefixIcon,
+    this.onChanged,
+    this.onFieldSubmitted, this.suffixIconColor,
   });
   final TextEditingController controller;
   final String? hint;
@@ -24,25 +27,26 @@ class CustomTextFormField extends StatelessWidget {
   final String? Function(String?)? validate;
   final Function(String)? onChanged;
   final Function(String)? onFieldSubmitted;
+  final Color? suffixIconColor;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       onChanged: onChanged,
-      onFieldSubmitted:onFieldSubmitted ,
+      onFieldSubmitted: onFieldSubmitted,
       controller: controller,
       cursorColor: AppColors.primaryColor,
       validator: validate,
       obscureText: passwordIsVisable,
       decoration: InputDecoration(
-        prefixIcon: prefixIcon,
-        prefixIconColor: AppColors.lightBlue,
-          contentPadding:  const EdgeInsets.all(16),
+          prefixIcon: prefixIcon,
+          prefixIconColor: AppColors.lightBlue,
+          contentPadding: const EdgeInsets.all(16),
           hintText: hint,
           hintStyle: AppStyles.styleMedium16(context),
           labelText: label,
           suffixIcon: IconButton(
             onPressed: suffixIconOnPressed,
-            icon: Icon(icon),
+            icon: Icon(icon,color:suffixIconColor ,),
             color: AppColors.lightBlue,
           )),
     );

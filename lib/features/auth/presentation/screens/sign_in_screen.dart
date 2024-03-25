@@ -1,3 +1,4 @@
+import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
 import 'package:eventak/core/utils/app_strings.dart';
 import 'package:eventak/core/utils/app_styles.dart';
@@ -13,6 +14,11 @@ class SignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        // appBar: AppBar(
+        //   leading:const CustomBackButton(),
+        //   elevation: 0,
+        //   backgroundColor: Colors.white,
+        // ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 26),
           child: SingleChildScrollView(
@@ -41,8 +47,12 @@ class SignIn extends StatelessWidget {
                 const SizedBox(
                   height: 56,
                 ),
-               const CustomSignUpForm(),
-                const DontHaveAndRegistr()
+                const CustomSignUpForm(),
+                 DontHaveAndRegistr(
+                  dontHave: AppStrings.dontHaveAcc,
+                  textButton: AppStrings.register,
+                  onPressed: () => customNavigate(context, '/RegisterScreen'),
+                )
               ],
             ),
           ),
@@ -51,4 +61,3 @@ class SignIn extends StatelessWidget {
     );
   }
 }
-
