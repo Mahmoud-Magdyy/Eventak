@@ -30,7 +30,15 @@
     "registerTitle": "Let's Get Started!",
     "registerSubTitle": "Welcome To Eventak!\nStart Your Journey Now.",
     "signUp": "Sign Up",
-    "login": "Login"
+    "login": "Login",
+    "forgetPasswordTitle": "Forgot\nPassword?",
+    "forgetPasswordSubTitle": "Input The Email Associated With Your Account.",
+    "checkInbox": "Check Your Inbox For Instructions.",
+    "passResetVerification": "Pass Reset\nVerification",
+    "passResetVerificationSubTitle": "Enter The Code We've Just Sent It To You.",
+    "send": "SEND",
+    "verify": "VERIFY",
+    "reset": "RESET"
     
 
     

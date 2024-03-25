@@ -19,18 +19,27 @@ abstract class AppStrings {
       signIn = "signIn",
       loginHint = "loginHint",
       confirmPassword = "confirmPassword",
-
       signUp = "signUp",
-      back="back",
-      login="login",
+      back = "back",
+      login = "login",
+      send = "send",
+      verify = "verify",
+      reset = "reset",
 
       //!sign in
-         pleaseEnterValidEmail = 'please_enter_email',
-   pleaseEnterValidPassword = 'please_enter_valid_password',
-  pleaseEnterValidPhone = 'please_enter_phone',
-  forgetPassword = 'forgetPassword',
-  dontHaveAcc = 'dontHaveAcc',
-  //!register
-  registerTitle = 'registerTitle',
-  registerSubTitle = 'registerSubTitle';
+      pleaseEnterValidEmail = 'please_enter_email',
+      pleaseEnterValidPassword = 'please_enter_valid_password',
+      pleaseEnterValidPhone = 'please_enter_phone',
+      forgetPassword = 'forgetPassword',
+      forgetPasswordTitle = 'forgetPasswordTitle',
+      dontHaveAcc = 'dontHaveAcc',
+      //!register
+      registerTitle = 'registerTitle',
+      registerSubTitle = 'registerSubTitle',
+      //!forget password
+      forgetPasswordSubTitle = 'forgetPasswordSubTitle',
+      checkInbox = 'checkInbox',
+      //!passResetVerification
+      passResetVerification = 'passResetVerification',
+      passResetVerificationSubTitle = 'passResetVerificationSubTitle';
 }

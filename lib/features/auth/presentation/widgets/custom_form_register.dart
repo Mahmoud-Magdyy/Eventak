@@ -81,7 +81,7 @@ class CustomFormRegister extends StatelessWidget {
                   },
                 ),
                 const SizedBox(
-                  height: 16,
+                  height: 32,
                 ),
                 CustomElevetedButton(
                   onPressed: () {
@@ -92,7 +92,8 @@ class CustomFormRegister extends StatelessWidget {
                   },
                   text: AppStrings.signUp.tr(context),
                   color: Colors.white,
-                )
+                ),
+                
               ],
             ));
       },

@@ -1,6 +1,7 @@
 import 'package:eventak/core/services/service_locator.dart';
 import 'package:eventak/features/auth/presentation/auth_cubit/regsiter_cubit/register_cubit.dart';
 import 'package:eventak/features/auth/presentation/auth_cubit/sign_in_cubit/sign_in_cubit.dart';
+import 'package:eventak/features/auth/presentation/screens/forget_password_screen.dart';
 import 'package:eventak/features/auth/presentation/screens/register_screen.dart';
 import 'package:eventak/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:eventak/features/home/presenation/screens/home_screen.dart';
@@ -21,6 +22,10 @@ final GoRouter router = GoRouter(routes: [
   GoRoute(
     path: "/HomeScreen",
     builder: (context, state) => const HomeScreen(),
+  ),
+  GoRoute(
+    path: "/ForgetPasswordScreen",
+    builder: (context, state) => const ForgetPasswordScreen(),
   ),
   GoRoute(
     path: "/RegisterScreen",

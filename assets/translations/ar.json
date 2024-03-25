@@ -27,8 +27,16 @@
     "forgetPassword": "هل نسيت كلمة المرور؟",
     "dontHaveAcc": "ليس لديك حساب؟",
     "registerTitle": "!هيا بنا نبدأ",
-    "registerSubTitle": "مرحبا بكم في إيفينتاك!\nابدأ رحلتك الآن.",
+    "registerSubTitle": ".مرحبا بكم في إيفينتاك!\nابدأ رحلتك الآن",
     "signUp": "تسجيل",
-    "login": "تسجيل الدخول"
+    "login": "تسجيل الدخول",
+    "forgetPasswordTitle": "نسيت كلمة المرور؟",
+    "forgetPasswordSubTitle": ".أدخل البريد الإلكتروني المرتبط بحسابك",
+    "checkInbox": ".تحقق من صندوق الوارد الخاص بك للحصول على التعليمات",
+    "passResetVerification": "التحقق من إعادة تعيين كلمة المرور",
+    "passResetVerificationSubTitle": ".أدخل الرمز الذي أرسلناه إليك للتو",
+    "send": "ارسل",
+    "verify": "تحقق",
+    "reset": "اعادة تعيين"
 
 }

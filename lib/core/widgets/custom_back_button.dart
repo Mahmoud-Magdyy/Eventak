@@ -12,7 +12,7 @@ class CustomBackButton extends StatelessWidget {
     return IconButton(
       alignment: Alignment.centerLeft,
       style: const ButtonStyle(
-        alignment: Alignment.centerLeft,
+        // alignment: Alignment.centerLeft,
         padding: MaterialStatePropertyAll(
           EdgeInsets.all(0),
         ),

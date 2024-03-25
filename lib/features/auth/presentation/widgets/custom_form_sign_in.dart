@@ -1,3 +1,4 @@
+import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
 import 'package:eventak/core/utils/app_strings.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
@@ -49,7 +50,9 @@ class CustomSignUpForm extends StatelessWidget {
               },
             ),
             ForgetPasswordTextButton(
-              onPressed: () {},
+              onPressed: () {
+                customReplacementNavigate(context, '/ForgetPasswordScreen');
+              },
             ),
             const SizedBox(
               height: 100,

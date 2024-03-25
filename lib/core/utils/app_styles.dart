@@ -56,11 +56,27 @@ class AppStyles {
       fontWeight: FontWeight.w500,
     );
   }
+  static TextStyle styleMedium40(BuildContext context) {
+    return TextStyle(
+      color: AppColors.deepBlue,
+      fontSize: getResponsiveFontSize(context, fontSize: 40),
+      fontFamily: 'Metropolis',
+      fontWeight: FontWeight.w500,
+    );
+  }
 
   static TextStyle styleSemiBold18(BuildContext context) {
     return TextStyle(
       color: Colors.white,
       fontSize: getResponsiveFontSize(context, fontSize: 18),
+      fontFamily: 'Metropolis',
+      fontWeight: FontWeight.w600,
+    );
+  }
+  static TextStyle styleSemiBold20(BuildContext context) {
+    return TextStyle(
+      color: AppColors.deepBlue,
+      fontSize: getResponsiveFontSize(context, fontSize: 20),
       fontFamily: 'Metropolis',
       fontWeight: FontWeight.w600,
     );
