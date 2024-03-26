@@ -15,56 +15,55 @@ class CustomSignUpForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignInCubit, SignInState>(
-      listener: (context, state) {
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Form(
-          key: BlocProvider.of<SignInCubit>(context).signInKey,
+            key: BlocProvider.of<SignInCubit>(context).signInKey,
             child: Column(
-          children: [
-            CustomTextFormField(
-              prefixIcon: const Icon(Icons.person_2_outlined),
-              controller: BlocProvider.of<SignInCubit>(context).emailController,
-              hint: AppStrings.loginHint.tr(context),
-              validate: (data) {
-                if (data!.isEmpty || !data.contains('@gmail.com')) {
-                  return AppStrings.pleaseEnterValidEmail;
-                }
-                return null;
-              },
-            ),
-            const SizedBox(
-              height: 24,
-            ),
-            CustomTextFormField(
-              prefixIcon: const Icon(
-                Icons.lock_outline,
-              ),
-              controller: BlocProvider.of<SignInCubit>(context).passwordController,
-              hint: AppStrings.password.tr(context),
-              validate: (data) {
-                if (data!.length < 6 || data.isEmpty) {
-                  return AppStrings.pleaseEnterValidPassword.tr(context);
-                }
-                return null;
-              },
-            ),
-            ForgetPasswordTextButton(
-              onPressed: () {
-                customReplacementNavigate(context, '/ForgetPasswordScreen');
-              },
-            ),
-            const SizedBox(
-              height: 100,
-            ),
-            CustomElevetedButton(
-              onPressed: () {
-                
-              },
-              text: AppStrings.signIn.tr(context),
-            ),
-          ],
-        ));
+              children: [
+                CustomTextFormField(
+                  prefixIcon: const Icon(Icons.person_2_outlined),
+                  controller:
+                      BlocProvider.of<SignInCubit>(context).emailController,
+                  hint: AppStrings.loginHint.tr(context),
+                  validate: (data) {
+                    if (data!.isEmpty || !data.contains('@gmail.com')) {
+                      return AppStrings.pleaseEnterValidEmail;
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                CustomTextFormField(
+                  prefixIcon: const Icon(
+                    Icons.lock_outline,
+                  ),
+                  controller:
+                      BlocProvider.of<SignInCubit>(context).passwordController,
+                  hint: AppStrings.password.tr(context),
+                  validate: (data) {
+                    if (data!.length < 6 || data.isEmpty) {
+                      return AppStrings.pleaseEnterValidPassword.tr(context);
+                    }
+                    return null;
+                  },
+                ),
+                ForgetPasswordTextButton(
+                  onPressed: () {
+                    customReplacementNavigate(context, '/ForgetPasswordScreen');
+                  },
+                ),
+                const SizedBox(
+                  height: 100,
+                ),
+                CustomElevetedButton(
+                  onPressed: () {},
+                  text: AppStrings.signIn.tr(context),
+                ),
+              ],
+            ));
       },
     );
   }

@@ -44,5 +44,7 @@ abstract class AppStrings {
       passResetVerification = 'passResetVerification',
       passResetVerificationSubTitle = 'passResetVerificationSubTitle',
       resend = 'resend',
+      resetPassword = 'resetPassword',
+      resetPasswordSubTitle = 'resetPasswordSubTitle',
       dontCode = 'dontCode';
 }

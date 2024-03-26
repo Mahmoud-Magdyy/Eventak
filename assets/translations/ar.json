@@ -40,6 +40,8 @@
     "reset": "اعادة تعيين",
     "dontCode": "لم تستلم أي رمز؟",
     "resend": "اعادة الارسال",
-    "alredyHaveAcc": "لديك حساب بالفعل؟"
+    "alredyHaveAcc": "لديك حساب بالفعل؟",
+    "resetPassword": "اعادة تعيين كلمة المرور",
+    "resetPasswordSubTitle": "ادخل كلمة مرور جديدة أدناه."
 
 }

@@ -41,7 +41,9 @@
     "reset": "RESET",
     "dontCode": "Didn’t Receive Any Code?",
     "resend": "Resend",
-    "alredyHaveAcc": "Already Have An Account?"
+    "alredyHaveAcc": "Already Have An Account?",
+    "resetPassword": "Reset\nPassword",
+    "resetPasswordSubTitle": "Enter A New Password Below."
     
 
     

@@ -67,7 +67,6 @@ class CustomFormRegister extends StatelessWidget {
                 ),
                 //!confirm password
                 CustomTextFormField(
-
                   prefixIcon: const Icon(Icons.lock_clock_outlined),
                   hint: AppStrings.confirmPassword.tr(context),
                   controller: registerCubit.confirmPasswordController,
@@ -93,7 +92,6 @@ class CustomFormRegister extends StatelessWidget {
                   text: AppStrings.signUp.tr(context),
                   color: Colors.white,
                 ),
-                
               ],
             ));
       },
