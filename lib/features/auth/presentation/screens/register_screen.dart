@@ -23,7 +23,11 @@ class RegisterScreen extends StatelessWidget {
                 const SizedBox(
                   height: 24,
                 ),
-                const CustomBackButton(),
+                 CustomBackButton(
+                  onPressed: (){
+                    customReplacementNavigate(context, '/SignIn');
+                  },
+                ),
                 const SizedBox(
                   height: 24,
                 ),
@@ -44,7 +48,7 @@ class RegisterScreen extends StatelessWidget {
                 ),
                 const CustomFormRegister(),
                  DontHaveAndRegistr(
-                  dontHave: AppStrings.dontHaveAcc,
+                  dontHave: AppStrings.alredyHaveAcc,
                   textButton: AppStrings.login,
                   onPressed: (){
                     customReplacementNavigate(context, '/SignIn');

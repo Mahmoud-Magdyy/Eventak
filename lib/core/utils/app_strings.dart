@@ -36,10 +36,13 @@ abstract class AppStrings {
       //!register
       registerTitle = 'registerTitle',
       registerSubTitle = 'registerSubTitle',
+      alredyHaveAcc = 'alredyHaveAcc',
       //!forget password
       forgetPasswordSubTitle = 'forgetPasswordSubTitle',
       checkInbox = 'checkInbox',
       //!passResetVerification
       passResetVerification = 'passResetVerification',
-      passResetVerificationSubTitle = 'passResetVerificationSubTitle';
+      passResetVerificationSubTitle = 'passResetVerificationSubTitle',
+      resend = 'resend',
+      dontCode = 'dontCode';
 }

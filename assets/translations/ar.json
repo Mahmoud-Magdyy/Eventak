@@ -37,6 +37,9 @@
     "passResetVerificationSubTitle": ".أدخل الرمز الذي أرسلناه إليك للتو",
     "send": "ارسل",
     "verify": "تحقق",
-    "reset": "اعادة تعيين"
+    "reset": "اعادة تعيين",
+    "dontCode": "لم تستلم أي رمز؟",
+    "resend": "اعادة الارسال",
+    "alredyHaveAcc": "لديك حساب بالفعل؟"
 
 }

@@ -14,7 +14,6 @@ void main() async {
   runApp(
     DevicePreview(
       enabled: false,
-      
       builder: ((context) => MultiBlocProvider(
             providers: [
               BlocProvider(
