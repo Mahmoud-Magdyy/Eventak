@@ -14,11 +14,6 @@ class SignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // appBar: AppBar(
-        //   leading:const CustomBackButton(),
-        //   elevation: 0,
-        //   backgroundColor: Colors.white,
-        // ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 26),
           child: SingleChildScrollView(
@@ -28,9 +23,7 @@ class SignIn extends StatelessWidget {
                 const SizedBox(
                   height: 24,
                 ),
-                const CustomBackButton(
-                  
-                ),
+                const CustomBackButton(),
                 const SizedBox(
                   height: 76,
                 ),

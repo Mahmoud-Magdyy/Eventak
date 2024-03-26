@@ -41,6 +41,11 @@ final GoRouter router = GoRouter(routes: [
     path: "/PassResetVerification",
     builder: (context, state) => const PassResetVerification(),
   ),
+  //!navBar
+  // GoRoute(
+  //   path: "/BottomNavBar",
+  //   builder: (context, state) => const BottomNavBar(),
+  // ),
   GoRoute(
     path: "/RegisterScreen",
     builder: (context, state) => BlocProvider(

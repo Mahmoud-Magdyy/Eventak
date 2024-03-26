@@ -59,7 +59,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CustomElevetedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                customNavigate(context, '/RegisterScreen');
+                              },
                               text: AppStrings.register.tr(context),
                               height: 50,
                               width: 155,
