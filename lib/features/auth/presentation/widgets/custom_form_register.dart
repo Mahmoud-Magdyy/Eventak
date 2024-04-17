@@ -67,7 +67,7 @@ class CustomFormRegister extends StatelessWidget {
                 ),
                 //!confirm password
                 CustomTextFormField(
-                  prefixIcon: const Icon(Icons.lock_clock_outlined),
+                  prefixIcon: const Icon(Icons.sync_lock_sharp),
                   hint: AppStrings.confirmPassword.tr(context),
                   controller: registerCubit.confirmPasswordController,
                   passwordIsVisable: registerCubit.isConfirmPasswordsShowing,

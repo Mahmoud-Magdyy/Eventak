@@ -7,6 +7,7 @@ import 'package:eventak/core/widgets/custom_back_button.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/core/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
   const ForgetPasswordScreen({super.key});
@@ -22,7 +23,7 @@ class ForgetPasswordScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: 26,
+                  height: 24,
                 ),
                 CustomBackButton(
                   onPressed: () {
@@ -30,30 +31,32 @@ class ForgetPasswordScreen extends StatelessWidget {
                   },
                 ),
                 const SizedBox(
-                  height: 24,
+                  height: 26,
                 ),
                 Text(
                   AppStrings.forgetPasswordTitle.tr(context),
-                  style: AppStyles.styleMedium40(context),
+                  style: AppStyles.styleBold40(context),
                 ),
                 const SizedBox(
-                  height: 16,
+                  height: 32,
                 ),
-                Image.asset(Assets.imagesOn1),
+                Center(child: SvgPicture.asset(Assets.imagesForgotPassword)),
                 const SizedBox(
-                  height: 24,
+                  height: 32,
                 ),
                 Text(
                   textAlign: TextAlign.center,
                   AppStrings.forgetPasswordSubTitle.tr(context),
                   style: AppStyles.styleSemiBold20(context),
                 ),
+                const SizedBox(height: 16,),
                 CustomTextFormField(
                   controller: TextEditingController(),
                   hint: AppStrings.email.tr(context),
+                  
                 ),
                 const SizedBox(
-                  height: 24,
+                  height: 32,
                 ),
                 CustomElevetedButton(
                   onPressed: () {

@@ -7,6 +7,7 @@ import 'package:eventak/core/widgets/custom_back_button.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/features/auth/presentation/widgets/custom_form_reser_password.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({super.key});
@@ -35,12 +36,12 @@ class ResetPasswordScreen extends StatelessWidget {
                 ),
                 Text(
                   AppStrings.resetPassword.tr(context),
-                  style: AppStyles.styleMedium40(context),
+                  style: AppStyles.styleBold40(context),
                 ),
                 const SizedBox(
                   height: 16,
                 ),
-                Image.asset(Assets.imagesOn1),
+                Center(child: SvgPicture.asset(Assets.imagesResetPassword)),
                 const SizedBox(
                   height: 24,
                 ),
@@ -49,6 +50,9 @@ class ResetPasswordScreen extends StatelessWidget {
                     AppStrings.resetPasswordSubTitle.tr(context),
                     style: AppStyles.styleSemiBold20(context),
                   ),
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
                 const CustomResetPasswordForm(),
                 const SizedBox(

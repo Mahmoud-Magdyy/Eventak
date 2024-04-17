@@ -8,6 +8,7 @@ import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/features/auth/presentation/widgets/dont_have_and_register.dart';
 import 'package:eventak/features/auth/presentation/widgets/otp_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class PassResetVerification extends StatelessWidget {
   const PassResetVerification({super.key});
@@ -35,12 +36,12 @@ class PassResetVerification extends StatelessWidget {
                 ),
                 Text(
                   AppStrings.passResetVerification.tr(context),
-                  style: AppStyles.styleMedium40(context),
+                  style: AppStyles.styleBold40(context),
                 ),
                 const SizedBox(
                   height: 16,
                 ),
-                Image.asset(Assets.imagesOn1),
+                Center(child: SvgPicture.asset(Assets.imagesVerification)),
                 const SizedBox(
                   height: 24,
                 ),
@@ -51,11 +52,14 @@ class PassResetVerification extends StatelessWidget {
                 ),
                 const OtpWidget(),
                 const SizedBox(
-                  height: 6,
+                  height: 20,
                 ),
                 const DontHaveAndRegistr(
                     textButton: AppStrings.resend,
                     dontHave: AppStrings.dontCode),
+                    const SizedBox(
+                  height: 20,
+                ),
                 CustomElevetedButton(
                   onPressed: () {
                     customReplacementNavigate(context, '/ResetPasswordScreen');

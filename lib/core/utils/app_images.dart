@@ -9,6 +9,10 @@ class Assets {
   /// assets/images/en.svg
   static const String imagesEn = "assets/images/en.svg";
 
+  /// Assets for imagesForgotPassword
+  /// assets/images/forgot_password.svg
+  static const String imagesForgotPassword = "assets/images/forgot_password.svg";
+
   /// Assets for imagesForwardArrow
   /// assets/images/forward_arrow.png
   static const String imagesForwardArrow = "assets/images/forward_arrow.png";
@@ -37,8 +41,16 @@ class Assets {
   /// assets/images/on4.png
   static const String imagesOn4 = "assets/images/on4.png";
 
+  /// Assets for imagesResetPassword
+  /// assets/images/reset_password.svg
+  static const String imagesResetPassword = "assets/images/reset_password.svg";
+
   /// Assets for imagesSmallLogo
   /// assets/images/smallLogo.svg
   static const String imagesSmallLogo = "assets/images/smallLogo.svg";
+
+  /// Assets for imagesVerification
+  /// assets/images/verification.svg
+  static const String imagesVerification = "assets/images/verification.svg";
 }
 

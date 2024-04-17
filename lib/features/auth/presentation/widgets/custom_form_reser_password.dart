@@ -37,7 +37,7 @@ class CustomResetPasswordForm extends StatelessWidget {
                   height: 16,
                 ),
                 CustomTextFormField(
-                  prefixIcon: const Icon(Icons.lock_clock_outlined),
+                  prefixIcon: const Icon(Icons.sync_lock_outlined),
                   controller: resetCubit.confirmPasswordController,
                   hint: AppStrings.confirmPassword.tr(context),
                   passwordIsVisable: resetCubit.isConfirmResetPasswordsShowing,

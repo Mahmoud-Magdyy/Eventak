@@ -15,7 +15,8 @@ class CustomTextFormField extends StatelessWidget {
     this.suffixIconOnPressed,
     this.prefixIcon,
     this.onChanged,
-    this.onFieldSubmitted, this.suffixIconColor,
+    this.onFieldSubmitted,
+    this.suffixIconColor,
   });
   final TextEditingController controller;
   final String? hint;
@@ -46,7 +47,10 @@ class CustomTextFormField extends StatelessWidget {
           labelText: label,
           suffixIcon: IconButton(
             onPressed: suffixIconOnPressed,
-            icon: Icon(icon,color:suffixIconColor ,),
+            icon: Icon(
+              icon,
+              color: suffixIconColor,
+            ),
             color: AppColors.lightBlue,
           )),
     );
