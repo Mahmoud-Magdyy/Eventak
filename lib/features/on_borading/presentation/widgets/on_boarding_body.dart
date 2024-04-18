@@ -1,6 +1,7 @@
 import 'package:eventak/core/locale/app_loacl.dart';
 import 'package:eventak/core/utils/app_styles.dart';
 import 'package:eventak/features/on_borading/data/models/on_boarding_model.dart';
+import 'package:eventak/features/on_borading/presentation/widgets/custom_smooth_page_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -22,9 +23,6 @@ class OnBoardingBody extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 30,
-                ),
                 Center(
                   child: FittedBox(
                     child: Container(
@@ -37,6 +35,11 @@ class OnBoardingBody extends StatelessWidget {
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 24,
+                ),
+                Center(
+                    child: CustomSmoothPageIndicator(controller: controller)),
                 const SizedBox(
                   height: 32,
                 ),

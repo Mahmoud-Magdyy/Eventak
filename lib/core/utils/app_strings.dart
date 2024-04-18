@@ -25,6 +25,7 @@ abstract class AppStrings {
       send = "send",
       verify = "verify",
       reset = "reset",
+      next = "next",
 
       //!sign in
       pleaseEnterValidEmail = 'please_enter_email',

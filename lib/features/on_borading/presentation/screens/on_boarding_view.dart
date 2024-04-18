@@ -40,6 +40,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                         controller.jumpToPage(3);
                       },
                     ),
+                    const SizedBox(height: 32,),
                     SizedBox(
                       width: double.infinity,
                       child: OnBoardingBody(
@@ -52,7 +53,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       ),
                     ),
                     const SizedBox(
-                      height: 10,
+                      height: 32,
                     ),
                     currentIndex == 3
                         ? Row(

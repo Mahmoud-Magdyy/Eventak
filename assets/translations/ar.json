@@ -36,6 +36,7 @@
     "passResetVerification": "التحقق من إعادة تعيين كلمة المرور",
     "passResetVerificationSubTitle": ".أدخل الرمز الذي أرسلناه إليك للتو",
     "send": "ارسل",
+    "next": "التالي",
     "verify": "تحقق",
     "reset": "اعادة تعيين",
     "dontCode": "لم تستلم أي رمز؟",

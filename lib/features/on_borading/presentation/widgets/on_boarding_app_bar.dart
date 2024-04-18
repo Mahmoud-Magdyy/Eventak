@@ -19,35 +19,56 @@ class OnBoardingAppBar extends StatelessWidget {
   final Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        currentIndex == 0
-            ? const EnglishAndArabicButton()
-            : SvgPicture.asset(
-                Assets.imagesSmallLogo,
-                height: 22,
-              ),
-        currentIndex != 3
-            ? GestureDetector(
-                onTap: onTap,
-                child: Text(
-                  AppStrings.skip.tr(context),
-                  style:
-                      AppStyles.styleRegular14(context).copyWith(fontSize: 14),
+    if (currentIndex != 3) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          currentIndex == 0
+              ? const EnglishAndArabicButton()
+              : SvgPicture.asset(
+                  Assets.imagesSmallLogo,
+                  height: 22,
                 ),
-              )
-            : GestureDetector(
-                onTap: (){
-                  customReplacementNavigate(context,'/OnBoardingView' );
-                },
-                child: Text(
-                  AppStrings.back.tr(context),
-                  style:
-                      AppStyles.styleRegular14(context).copyWith(fontSize: 14),
-                ),
-              )
-      ],
-    );
+          currentIndex != 3
+              ? GestureDetector(
+                  onTap: onTap,
+                  child: Text(
+                    AppStrings.skip.tr(context),
+                    style: AppStyles.styleRegular14(context)
+                        .copyWith(fontSize: 14),
+                  ),
+                )
+              : GestureDetector(
+                  onTap: () {
+                    customReplacementNavigate(context, '/OnBoardingView');
+                  },
+                  child: Text(
+                    AppStrings.back.tr(context),
+                    style: AppStyles.styleRegular14(context)
+                        .copyWith(fontSize: 14),
+                  ),
+                )
+        ],
+      );
+    } else {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          GestureDetector(
+            onTap: () {
+              customReplacementNavigate(context, '/OnBoardingView');
+            },
+            child: Text(
+              AppStrings.back.tr(context),
+              style: AppStyles.styleRegular14(context).copyWith(fontSize: 14),
+            ),
+          ),
+          SvgPicture.asset(
+            Assets.imagesSmallLogo,
+            height: 22,
+          ),
+        ],
+      );
+    }
   }
 }
