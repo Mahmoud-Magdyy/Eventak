@@ -1,6 +1,6 @@
 import 'package:eventak/core/utils/app_images.dart';
 import 'package:eventak/features/home/data/model/trend_event_model.dart';
-import 'package:eventak/features/home/presenation/widgets/trending_event_item.dart';
+import 'package:eventak/features/home/presenation/widgets/trending_widgets/trending_event_item.dart';
 import 'package:flutter/material.dart';
 
 class TrendingEeventListView extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:eventak/features/home/data/model/category_item_model.dart';
-import 'package:eventak/features/home/presenation/widgets/category_item.dart';
+import 'package:eventak/features/home/presenation/widgets/category_widgets/category_item.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItemListView extends StatelessWidget {

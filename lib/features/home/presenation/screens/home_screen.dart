@@ -1,6 +1,6 @@
-import 'package:eventak/features/home/presenation/widgets/category_list.dart';
+import 'package:eventak/features/home/presenation/widgets/category_widgets/category_section.dart';
 import 'package:eventak/features/home/presenation/widgets/custom_app_bar.dart';
-import 'package:eventak/features/home/presenation/widgets/trending_event_section.dart';
+import 'package:eventak/features/home/presenation/widgets/trending_widgets/trending_event_section.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 24,
               ),
-              CategoryItemListView(),
+              CategorySection(),
             ],
           ),
         ),

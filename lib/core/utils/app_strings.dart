@@ -27,6 +27,7 @@ abstract class AppStrings {
       reset = "reset",
       next = "next",
       trendingEvents ='trendingEvents',
+      categories = 'categories',
 
       //!sign in
       pleaseEnterValidEmail = 'please_enter_email',

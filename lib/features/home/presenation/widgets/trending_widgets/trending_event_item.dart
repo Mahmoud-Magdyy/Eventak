@@ -1,7 +1,7 @@
 import 'package:eventak/features/home/data/model/trend_event_model.dart';
-import 'package:eventak/features/home/presenation/widgets/custom_date_event.dart';
-import 'package:eventak/features/home/presenation/widgets/favorite_button.dart';
-import 'package:eventak/features/home/presenation/widgets/text_loaction_event_trending_item.dart';
+import 'package:eventak/features/home/presenation/widgets/trending_widgets/custom_date_event.dart';
+import 'package:eventak/features/home/presenation/widgets/trending_widgets/favorite_button.dart';
+import 'package:eventak/features/home/presenation/widgets/trending_widgets/text_loaction_event_trending_item.dart';
 import 'package:flutter/material.dart';
 
 class CustomTrendingEventItem extends StatelessWidget {
