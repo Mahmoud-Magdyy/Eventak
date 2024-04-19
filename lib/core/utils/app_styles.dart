@@ -12,6 +12,14 @@ class AppStyles {
       fontWeight: FontWeight.w500,
     );
   }
+  static TextStyle styleMediumBlue12(BuildContext context) {
+    return TextStyle(
+      color: AppColors.colorCategoryName,
+      fontSize: getResponsiveFontSize(context, fontSize: 12),
+      fontFamily: 'Metropolis',
+      fontWeight: FontWeight.w500,
+    );
+  }
   static TextStyle styleMedium6(BuildContext context) {
     return TextStyle(
       color: Colors.white,
