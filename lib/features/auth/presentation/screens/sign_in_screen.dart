@@ -12,9 +12,9 @@ class SignIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 26),
           child: SingleChildScrollView(
             child: Column(
@@ -42,7 +42,7 @@ class SignIn extends StatelessWidget {
                 const SizedBox(
                   height: 56,
                 ),
-                const CustomSignUpForm(),
+                const CustomSignInForm(),
                 DontHaveAndRegistr(
                   dontHave: AppStrings.dontHaveAcc,
                   textButton: AppStrings.register,

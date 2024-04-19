@@ -43,6 +43,7 @@
     "resend": "اعادة الارسال",
     "alredyHaveAcc": "لديك حساب بالفعل؟",
     "resetPassword": "اعادة تعيين كلمة المرور",
-    "resetPasswordSubTitle": "ادخل كلمة مرور جديدة أدناه."
+    "resetPasswordSubTitle": "ادخل كلمة مرور جديدة أدناه.",
+    "trendingEvents": "الاحداث الشائعة"
 
 }

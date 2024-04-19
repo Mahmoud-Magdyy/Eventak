@@ -9,6 +9,10 @@ class Assets {
   /// assets/images/en.svg
   static const String imagesEn = "assets/images/en.svg";
 
+  /// Assets for imagesEventakImage
+  /// assets/images/eventak_image.svg
+  static const String imagesEventakImage = "assets/images/eventak_image.svg";
+
   /// Assets for imagesForgotPassword
   /// assets/images/forgot_password.svg
   static const String imagesForgotPassword = "assets/images/forgot_password.svg";
@@ -20,6 +24,14 @@ class Assets {
   /// Assets for imagesImage
   /// assets/images/Image.svg
   static const String imagesImage = "assets/images/Image.svg";
+
+  /// Assets for imagesImages
+  /// assets/images/images.jpg
+  static const String imagesImages = "assets/images/images.jpg";
+
+  /// Assets for imagesImggg
+  /// assets/images/imggg.jpg
+  static const String imagesImggg = "assets/images/imggg.jpg";
 
   /// Assets for imagesLogo
   /// assets/images/Logo.svg

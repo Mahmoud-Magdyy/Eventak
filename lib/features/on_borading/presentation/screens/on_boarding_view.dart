@@ -23,9 +23,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: BlocBuilder<GlobalCubit, GlobalState>(
             builder: (context, state) {

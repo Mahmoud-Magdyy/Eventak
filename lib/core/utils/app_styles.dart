@@ -12,6 +12,14 @@ class AppStyles {
       fontWeight: FontWeight.w500,
     );
   }
+  static TextStyle styleMedium6(BuildContext context) {
+    return TextStyle(
+      color: Colors.white,
+      fontSize: getResponsiveFontSize(context, fontSize: 6),
+      fontFamily: 'Metropolis',
+      fontWeight: FontWeight.w500,
+    );
+  }
 
   static TextStyle styleMedium10(BuildContext context) {
     return TextStyle(
@@ -139,7 +147,7 @@ class AppStyles {
   static TextStyle styleBold16(BuildContext context) {
     return TextStyle(
       // color: Colors.black, //?
-      fontSize: getResponsiveFontSize(context, fontSize: 6),
+      fontSize: getResponsiveFontSize(context, fontSize: 16),
       fontFamily: 'Metropolis',
       fontWeight: FontWeight.w700,
     );
@@ -169,6 +177,14 @@ class AppStyles {
     return TextStyle(
       // color: Colors.black, //?
       fontSize: getResponsiveFontSize(context, fontSize: 6),
+      fontFamily: 'Metropolis',
+      fontWeight: FontWeight.w600,
+    );
+  }
+  static TextStyle styleSemiBold8(BuildContext context) {
+    return TextStyle(
+      color: AppColors.lightBlue, 
+      fontSize: getResponsiveFontSize(context, fontSize: 8),
       fontFamily: 'Metropolis',
       fontWeight: FontWeight.w600,
     );

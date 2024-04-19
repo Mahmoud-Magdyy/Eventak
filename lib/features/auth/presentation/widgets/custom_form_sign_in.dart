@@ -9,8 +9,8 @@ import 'package:eventak/features/auth/presentation/widgets/forget_password_text_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CustomSignUpForm extends StatelessWidget {
-  const CustomSignUpForm({super.key});
+class CustomSignInForm extends StatelessWidget {
+  const CustomSignInForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +59,9 @@ class CustomSignUpForm extends StatelessWidget {
                   height: 100,
                 ),
                 CustomElevetedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    customReplacementNavigate(context, '/HomeScreen');
+                  },
                   text: AppStrings.signIn.tr(context),
                 ),
               ],
