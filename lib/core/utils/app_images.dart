@@ -1,9 +1,17 @@
 class Assets {
   Assets._();
   
+  /// Assets for images43568355818004288571296517987915713530941523N
+  /// assets/images/435683558_1800428857129651_7987915713530941523_n.jpg
+  static const String images43568355818004288571296517987915713530941523N = "assets/images/435683558_1800428857129651_7987915713530941523_n.jpg";
+
   /// Assets for imagesArabic
   /// assets/images/arabic.svg
   static const String imagesArabic = "assets/images/arabic.svg";
+
+  /// Assets for imagesBackgroundContainer
+  /// assets/images/backgroundContainer.png
+  static const String imagesBackgroundContainer = "assets/images/backgroundContainer.png";
 
   /// Assets for imagesEn
   /// assets/images/en.svg

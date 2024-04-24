@@ -49,5 +49,13 @@ abstract class AppStrings {
       resend = 'resend',
       resetPassword = 'resetPassword',
       resetPasswordSubTitle = 'resetPasswordSubTitle',
-      dontCode = 'dontCode';
+      dontCode = 'dontCode',
+      //!home
+      language= 'language'
+      
+      
+      
+      
+      
+      ;
 }

@@ -100,7 +100,7 @@ class AppStyles {
 
   static TextStyle styleSemiBold10(BuildContext context) {
     return TextStyle(
-      // color: Colors.white,
+      color: Colors.white,
       fontSize: getResponsiveFontSize(context, fontSize: 10),
       fontFamily: 'Metropolis',
       fontWeight: FontWeight.w600,
