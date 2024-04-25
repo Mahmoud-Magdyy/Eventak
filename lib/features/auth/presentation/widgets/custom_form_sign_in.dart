@@ -60,7 +60,7 @@ class CustomSignInForm extends StatelessWidget {
                 ),
                 CustomElevetedButton(
                   onPressed: () {
-                    customReplacementNavigate(context, '/HomeScreen');
+                    customReplacementNavigate(context, '/BottomNavBar');
                   },
                   text: AppStrings.signIn.tr(context),
                 ),

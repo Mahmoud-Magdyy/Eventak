@@ -33,6 +33,7 @@ class HomeScreen extends StatelessWidget {
                   height: 24,
                 ),
                 NewEventSection(),
+                
               ],
             ),
           ),

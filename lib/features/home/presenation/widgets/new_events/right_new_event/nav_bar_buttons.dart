@@ -18,13 +18,13 @@ class NavBarButtonsNewEvent extends StatelessWidget {
           width: 4,
         ),
         CustomNewEventButton(
-          icon: Icons.airplane_ticket_outlined,
+          icon: Icons.favorite_border_outlined,
         ),
         SizedBox(
           width: 4,
         ),
         CustomNewEventButton(
-          icon: Icons.airplane_ticket_outlined,
+          icon: Icons.ios_share_outlined,
         ),
         SizedBox(
           width: 4,
