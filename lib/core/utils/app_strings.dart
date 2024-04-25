@@ -51,7 +51,8 @@ abstract class AppStrings {
       resetPasswordSubTitle = 'resetPasswordSubTitle',
       dontCode = 'dontCode',
       //!home
-      language= 'language'
+      language= 'language',
+      newEvent= 'newEvent'
       
       
       

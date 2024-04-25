@@ -72,6 +72,15 @@ class AppStyles {
       fontWeight: FontWeight.w500,
     );
   }
+  static TextStyle styleMedium8(BuildContext context) {
+    return TextStyle(
+      color: AppColors.white,
+      fontSize: getResponsiveFontSize(context, fontSize: 8),
+      fontFamily: 'Metropolis',
+      fontWeight: FontWeight.w500,
+      height: 1.8
+    );
+  }
   static TextStyle styleMedium40(BuildContext context) {
     return TextStyle(
       color: AppColors.deepBlue,
@@ -110,6 +119,14 @@ class AppStyles {
   static TextStyle styleSemiBold12(BuildContext context) {
     return TextStyle(
       color: Colors.black.withOpacity(0.4399999976158142), //?
+      fontSize: getResponsiveFontSize(context, fontSize: 12),
+      fontFamily: 'Metropolis',
+      fontWeight: FontWeight.w600,
+    );
+  }
+  static TextStyle styleSemiBoldWhite12(BuildContext context) {
+    return TextStyle(
+      color: Colors.white, //?
       fontSize: getResponsiveFontSize(context, fontSize: 12),
       fontFamily: 'Metropolis',
       fontWeight: FontWeight.w600,
