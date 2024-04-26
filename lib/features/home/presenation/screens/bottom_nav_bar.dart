@@ -33,7 +33,7 @@ class BottomNavBar extends StatelessWidget {
       icon: const Icon(Icons.add_box_outlined, size: 24),
       title: ("Create"),
       onPressed: (p0) {
-        customNavigate(context, '/CreateEventScreen');
+        customNavigate(context, '/PageViewEvent');
       },
       activeColorPrimary: AppColors.colorCategoryName,
       inactiveColorPrimary: Colors.grey,

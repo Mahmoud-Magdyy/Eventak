@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 
 class CustomCreateEventAppBar extends StatelessWidget {
   const CustomCreateEventAppBar({
-    super.key,
+    super.key, this.nextOnPressed,
   });
-
+final Function()? nextOnPressed;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -23,9 +23,10 @@ class CustomCreateEventAppBar extends StatelessWidget {
           AppStrings.newEvent.tr(context),
           style: AppStyles.styleSemiBold16(context),
         ),
-        const CustomTextButton(
+         CustomTextButton(
+          onPressed:nextOnPressed ,
           text: AppStrings.next,
-          textColor: Color(0xFF1462D8),
+          textColor:const Color(0xFF1462D8),
         ),
       ],
     );

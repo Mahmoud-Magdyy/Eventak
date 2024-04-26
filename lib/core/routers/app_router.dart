@@ -7,7 +7,7 @@ import 'package:eventak/features/auth/presentation/screens/pass_reset_verficiton
 import 'package:eventak/features/auth/presentation/screens/register_screen.dart';
 import 'package:eventak/features/auth/presentation/screens/reset_password_screen.dart';
 import 'package:eventak/features/auth/presentation/screens/sign_in_screen.dart';
-import 'package:eventak/features/create_event/presentation/screens/create_event.dart';
+import 'package:eventak/features/create_event/presentation/screens/page_view_event.dart';
 import 'package:eventak/features/home/presenation/screens/bottom_nav_bar.dart';
 import 'package:eventak/features/home/presenation/screens/home_screen.dart';
 import 'package:eventak/features/on_borading/presentation/screens/on_boarding_view.dart';
@@ -47,9 +47,13 @@ final GoRouter router = GoRouter(routes: [
     path: "/BottomNavBar",
     builder: (context, state) => const BottomNavBar(),
   ),
+  // GoRoute(
+  //   path: "/CreateEventScreen",
+  //   builder: (context, state) => const CreateEventScreen(),
+  // ),
   GoRoute(
-    path: "/CreateEventScreen",
-    builder: (context, state) => const CreateEventScreen(),
+    path: "/PageViewEvent",
+    builder: (context, state) =>  PageViewEvent(),
   ),
   
   GoRoute(
