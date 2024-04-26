@@ -143,7 +143,7 @@ class AppStyles {
 
   static TextStyle styleSemiBold14(BuildContext context) {
     return TextStyle(
-      // color: Colors.black.withOpacity(0.4399999976158142), //?
+      color: const Color(0xFF1D3F68), //?
       fontSize: getResponsiveFontSize(context, fontSize: 14),
       fontFamily: 'Metropolis',
       fontWeight: FontWeight.w600,

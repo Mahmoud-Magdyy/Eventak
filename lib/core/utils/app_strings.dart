@@ -52,11 +52,19 @@ abstract class AppStrings {
       dontCode = 'dontCode',
       //!home
       language= 'language',
-      newEvent= 'newEvent'
-      
+      newEvents= 'newEvents',
+      //!create event
+      cancel= 'cancel',
+      newEvent='newEvent'
       
       
       
       
       ;
+      
+      
+      
+      
+      
+      
 }

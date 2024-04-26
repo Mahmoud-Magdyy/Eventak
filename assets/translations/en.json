@@ -48,7 +48,9 @@
     "trendingEvents":"Trending Events",
     "categories":"Categories",
     "language":"Language",
-    "newEvent":"New Events"
+    "newEvents":"New Events",
+    "cancel":"Cancel",
+    "newEvent":"New Event"
 
 
 

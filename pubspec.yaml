@@ -23,6 +23,7 @@ dependencies:
   font_awesome_flutter: ^10.7.0
   get_it: ^7.6.7
   go_router: ^13.2.0
+  image_picker: ^1.1.0
   intro_screen_onboarding_flutter: ^1.0.0
   persistent_bottom_nav_bar: ^5.0.2
   shared_preferences: ^2.2.2

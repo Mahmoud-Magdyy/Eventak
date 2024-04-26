@@ -6,7 +6,10 @@ class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
     super.key,
     this.alignment,
-    required this.text, this.textColor, this.fontSize, this.onPressed,
+    required this.text,
+    this.textColor,
+    this.fontSize,
+    this.onPressed,
   });
   final AlignmentGeometry? alignment;
   final String text;
@@ -21,8 +24,8 @@ class CustomTextButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text.tr(context),
-          style: AppStyles.styleSemiBold16(context).copyWith(color:textColor ,
-          fontSize:fontSize ),
+          style: AppStyles.styleSemiBold16(context)
+              .copyWith(color: textColor, fontSize: fontSize),
         ),
       ),
     );

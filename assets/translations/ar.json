@@ -47,6 +47,8 @@
     "trendingEvents": "الاحداث الشائعة",
     "categories": "التصنيفات",
     "language": "لغة",
-    "newEvent": "أحداث جديدة"
+    "newEvents": "أحداث جديدة",
+    "cancel": "الغاء",
+    "newEvent": "احداثي"
 
 }

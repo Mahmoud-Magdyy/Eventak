@@ -13,7 +13,7 @@ class NewEventSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          AppStrings.newEvent.tr(context),
+          AppStrings.newEvents.tr(context),
           style: AppStyles.styleBold16(context).copyWith(fontSize: 16),
         ),
         const SizedBox(
