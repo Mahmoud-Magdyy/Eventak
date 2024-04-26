@@ -2,6 +2,7 @@ import 'package:eventak/features/create_event/presentation/cubit/create_event_cu
 import 'package:eventak/features/create_event/presentation/cubit/create_event_state.dart';
 import 'package:eventak/features/create_event/presentation/widgets/basic_details.dart';
 import 'package:eventak/features/create_event/presentation/widgets/custom_app_bar.dart';
+import 'package:eventak/features/create_event/presentation/widgets/date_and_time.dart';
 import 'package:eventak/features/create_event/presentation/widgets/name_of_event.dart';
 import 'package:eventak/features/create_event/presentation/widgets/poster_of_event.dart';
 import 'package:flutter/material.dart';
@@ -26,22 +27,29 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
           return SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(16),
-              child: Column(
-                children: [
-                  const CustomCreateEventAppBar(),
-                  const SizedBox(
-                    height: 33,
-                  ),
-                  const BasicDetails(),
-                  const SizedBox(
-                    height: 32,
-                  ),
-                  PosterOfEvent(createCubit: createCubit),
-                  const SizedBox(
-                    height: 26,
-                  ),
-                  const NameOfEvent()
-                ],
+              child: Form(
+                key: createCubit.formKey,
+                child: Column(
+                  children: [
+                    const CustomCreateEventAppBar(),
+                    const SizedBox(
+                      height: 33,
+                    ),
+                    const BasicDetails(),
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    PosterOfEvent(createCubit: createCubit),
+                    const SizedBox(
+                      height: 26,
+                    ),
+                    const NameOfEvent(),
+                    const SizedBox(
+                      height: 26,
+                    ),
+                    DateAndTime(createCubit: createCubit)
+                  ],
+                ),
               ),
             ),
           );
@@ -50,3 +58,4 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
     );
   }
 }
+
