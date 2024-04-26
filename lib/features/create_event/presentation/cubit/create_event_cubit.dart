@@ -12,6 +12,7 @@ class CreateEventCubit extends Cubit<CreateEventState> {
     image = value;
     emit(ChangeImageState());
   }
+
   //!date
   DateTime currentDate = DateTime.now();
   DateTime selectedDate = DateTime.now();
@@ -32,12 +33,13 @@ class CreateEventCubit extends Cubit<CreateEventState> {
       emit(GetDateError());
     }
   }
+
   //!time
   String startTime = DateFormat('hh:mm a').format(DateTime.now());
 
   String endTime = DateFormat('hh:mm a')
       .format(DateTime.now().add(const Duration(minutes: 45)));
-   void getStartDate(context) async {
+  void getStartDate(context) async {
     emit(GetStartDateLoading());
     TimeOfDay? pickedStartTime = await showTimePicker(
       context: context,
@@ -70,4 +72,18 @@ class CreateEventCubit extends Cubit<CreateEventState> {
       emit(GetEndDateError());
     }
   }
+
+  //!category
+ late String dropDownValue;
+   List<DropdownMenuItem<dynamic>>? items = [
+    const DropdownMenuItem(
+      value: 'one',
+      child: Text('one'),
+    ),
+    const DropdownMenuItem(
+      value: 'two',
+      child: Text('two'),
+    ),
+  ];
+  
 }
