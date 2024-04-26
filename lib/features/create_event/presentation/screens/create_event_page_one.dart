@@ -1,11 +1,11 @@
 
 import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
-import 'package:eventak/features/create_event/presentation/widgets/basic_details.dart';
-import 'package:eventak/features/create_event/presentation/widgets/date_and_time.dart';
-import 'package:eventak/features/create_event/presentation/widgets/dropdown_category.dart';
-import 'package:eventak/features/create_event/presentation/widgets/name_of_event.dart';
-import 'package:eventak/features/create_event/presentation/widgets/poster_of_event.dart';
-import 'package:eventak/features/create_event/presentation/widgets/price_of_the_ticket.dart';
+import 'package:eventak/features/create_event/presentation/screens/page_one_widgets/basic_details.dart';
+import 'package:eventak/features/create_event/presentation/screens/page_one_widgets/date_and_time.dart';
+import 'package:eventak/features/create_event/presentation/screens/page_one_widgets/dropdown_category.dart';
+import 'package:eventak/features/create_event/presentation/screens/page_one_widgets/name_of_event.dart';
+import 'package:eventak/features/create_event/presentation/screens/page_one_widgets/poster_of_event.dart';
+import 'package:eventak/features/create_event/presentation/screens/page_one_widgets/price_of_the_ticket.dart';
 import 'package:flutter/material.dart';
 
 class CreateEventPageOne extends StatelessWidget {
@@ -22,7 +22,7 @@ class CreateEventPageOne extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(
-            height: 33,
+            height: 26,
           ),
           const BasicDetails(),
           const SizedBox(

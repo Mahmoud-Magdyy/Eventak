@@ -1,7 +1,7 @@
 import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/core/utils/app_styles.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
-import 'package:eventak/features/create_event/presentation/widgets/image_picker_dialog.dart';
+import 'package:eventak/features/create_event/presentation/screens/page_one_widgets/image_picker_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 

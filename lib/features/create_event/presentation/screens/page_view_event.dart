@@ -1,8 +1,10 @@
+import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_state.dart';
 import 'package:eventak/features/create_event/presentation/screens/create_event_page_one.dart';
-import 'package:eventak/features/create_event/presentation/widgets/custom_app_bar.dart';
+import 'package:eventak/features/create_event/presentation/screens/create_event_page_two.dart';
+import 'package:eventak/features/create_event/presentation/screens/page_one_widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,26 +22,42 @@ class PageViewEvent extends StatelessWidget {
             builder: (context, state) {
               final CreateEventCubit createCubit =
                   BlocProvider.of<CreateEventCubit>(context);
+              List<Widget> screens = [
+                CreateEventPageOne(
+                  createCubit: createCubit,
+                ),
+                const CreateEventPageTwo(),
+                const CreateEventPageTwo(),
+              ];
+
               return Form(
                 key: createCubit.formKey,
                 child: Column(
                   children: [
                     CustomCreateEventAppBar(
                       nextOnPressed: () {
-                        controller.jumpToPage(2);
+                        controller.nextPage(
+                            duration: const Duration(milliseconds: 500),
+                            curve: Curves.ease);
                       },
                     ),
                     Expanded(
-                      child: PageView(
-                        // physics: const NeverScrollableScrollPhysics(),
+                      child: PageView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: screens.length,
+                        itemBuilder: (context, index) {
+                          return screens[index];
+                        },
                         controller: controller,
-                        children: [
-                          CreateEventPageOne(createCubit: createCubit)
-                        ],
                       ),
                     ),
                     // const Expanded(child: SizedBox()),
-                    CustomElevetedButton(onPressed: () {}, text: 'Publish')
+                    CustomElevetedButton(
+                        background: screens.length != screens.length-1
+                            ? Colors.grey
+                            : AppColors.primaryColor,
+                        onPressed: () {},
+                        text: 'Publish')
                   ],
                 ),
               );
