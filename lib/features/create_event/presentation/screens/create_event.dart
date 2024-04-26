@@ -1,4 +1,3 @@
-import 'package:eventak/core/utils/app_styles.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_state.dart';
 import 'package:eventak/features/create_event/presentation/widgets/basic_details.dart';
@@ -54,19 +53,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                       const SizedBox(
                         height: 26,
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Category',
-                            style: AppStyles.styleSemiBold14(context),
-                          ),
-                          const SizedBox(
-                            height: 4,
-                          ),
-                          DropDownCategory(createCubit: createCubit)
-                        ],
-                      )
+                      CategoryDrowpDown(createCubit: createCubit)
                     ],
                   ),
                 ),
@@ -78,3 +65,4 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
     );
   }
 }
+
