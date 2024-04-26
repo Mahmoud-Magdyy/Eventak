@@ -33,7 +33,11 @@ class CategoryDrowpDown extends StatelessWidget {
             items: createCubit.items,
             onChanged: (value) {
               createCubit.dropDownValue = value;
-            })
+            }),
+            const SizedBox(height: 8,),
+            Text('Choose A Category From Our List Match With The Type Of Your Event.',style:  AppStyles.styleMedium10(context).copyWith(
+            color: const Color(0xFF8591A0),
+          ),)
       ],
     );
   }

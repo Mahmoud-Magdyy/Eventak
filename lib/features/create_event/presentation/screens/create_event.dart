@@ -6,6 +6,7 @@ import 'package:eventak/features/create_event/presentation/widgets/date_and_time
 import 'package:eventak/features/create_event/presentation/widgets/dropdown_category.dart';
 import 'package:eventak/features/create_event/presentation/widgets/name_of_event.dart';
 import 'package:eventak/features/create_event/presentation/widgets/poster_of_event.dart';
+import 'package:eventak/features/create_event/presentation/widgets/price_of_the_ticket.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,7 +28,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
               BlocProvider.of<CreateEventCubit>(context);
           return SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.only(left: 16,right: 16,top: 16),
               child: Form(
                 key: createCubit.formKey,
                 child: SingleChildScrollView(
@@ -53,7 +54,11 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                       const SizedBox(
                         height: 26,
                       ),
-                      CategoryDrowpDown(createCubit: createCubit)
+                      CategoryDrowpDown(createCubit: createCubit),
+                      const SizedBox(
+                        height: 26,
+                      ),
+                     const PriceOfTheTicket()
                     ],
                   ),
                 ),
