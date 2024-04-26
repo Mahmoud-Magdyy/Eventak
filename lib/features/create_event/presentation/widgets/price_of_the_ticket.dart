@@ -23,21 +23,18 @@ class PriceOfTheTicket extends StatelessWidget {
           children: [
             Expanded(
               child: Column(
-                  crossAxisAlignment:
-                      CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomTextFormField(
                         hint: '5',
-                        prefixIcon: const Icon(
-                            Icons.attach_money_outlined),
+                        prefixIcon: const Icon(Icons.attach_money_outlined),
                         controller: TextEditingController()),
-                        const SizedBox(height: 4,),
+                    const SizedBox(
+                      height: 4,
+                    ),
                     Text('Price In Advance',
-                        style: AppStyles.styleMedium10(
-                                context)
-                            .copyWith(
-                                color:
-                                    const Color(0xFF8591A0)))
+                        style: AppStyles.styleMedium10(context)
+                            .copyWith(color: const Color(0xFF8591A0)))
                   ]),
             ),
             const SizedBox(
@@ -45,25 +42,41 @@ class PriceOfTheTicket extends StatelessWidget {
             ),
             Expanded(
               child: Column(
-                  crossAxisAlignment:
-                      CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomTextFormField(
                         hint: '5',
-                        prefixIcon: const Icon(
-                            Icons.attach_money_outlined),
+                        prefixIcon: const Icon(Icons.attach_money_outlined),
                         controller: TextEditingController()),
-                        const SizedBox(height: 4,),
+                    const SizedBox(
+                      height: 4,
+                    ),
                     Text('Price In The Door',
-                        style: AppStyles.styleMedium10(
-                                context)
-                            .copyWith(
-                                color:
-                                    const Color(0xFF8591A0)))
+                        style: AppStyles.styleMedium10(context)
+                            .copyWith(color: const Color(0xFF8591A0))),
                   ]),
             ),
           ],
         ),
+        const SizedBox(
+          height: 4,
+        ),
+        SizedBox(
+          width: 150,
+          height: 50,
+          child: CustomTextFormField(
+              readOnly: true,
+              hint: 'Total Price:10',
+              controller: TextEditingController()),
+        ),
+        const SizedBox(
+          height: 4,
+        ),
+        Text(
+          'Total price The User Has To Pay For Attendig The Event.',
+          style: AppStyles.styleMedium10(context)
+              .copyWith(color: const Color(0xFF8591A0)),
+        )
       ],
     );
   }
