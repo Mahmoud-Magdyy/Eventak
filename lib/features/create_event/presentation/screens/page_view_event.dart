@@ -3,6 +3,7 @@ import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_state.dart';
 import 'package:eventak/features/create_event/presentation/screens/create_event_page_one.dart';
+import 'package:eventak/features/create_event/presentation/screens/create_event_page_three.dart';
 import 'package:eventak/features/create_event/presentation/screens/create_event_page_two.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_one_widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class PageViewEvent extends StatelessWidget {
                   createCubit: createCubit,
                 ),
                 const CreateEventPageTwo(),
-                const CreateEventPageTwo(),
+                const CreateEventPageThree(),
               ];
 
               return Form(
