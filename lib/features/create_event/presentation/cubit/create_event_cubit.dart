@@ -8,8 +8,13 @@ import 'create_event_state.dart';
 class CreateEventCubit extends Cubit<CreateEventState> {
   CreateEventCubit() : super(CreateEventInitial());
   XFile? image;
+  XFile? profileImage;
   void changeImage(value) {
     image = value;
+    emit(ChangeImageState());
+  }
+  void changeProfileImage(value) {
+    profileImage = value;
     emit(ChangeImageState());
   }
 

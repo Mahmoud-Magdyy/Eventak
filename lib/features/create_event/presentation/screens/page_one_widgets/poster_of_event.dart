@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:eventak/core/functions/commns.dart';
+import 'package:eventak/core/utils/app_images.dart';
 import 'package:eventak/core/utils/app_styles.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_one_widgets/image_picker_dialog.dart';
@@ -33,12 +36,14 @@ class PosterOfEvent extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 48),
               clipBehavior: Clip.antiAlias,
               decoration: ShapeDecoration(
-                // image: DecorationImage(
-                //     fit: BoxFit.fill,
-                //     image: FileImage(
-                //       File(createCubit.image!.path ),
-                //     )),
-                // image: DecorationImage(image: createCubit.image == null:AssetImage(Assets.imagesLogo):createCubit.image,fit: BoxFit.fill),
+                
+                image: DecorationImage(
+                        image: createCubit.image == null
+                            ? const AssetImage(Assets.imagesBackgroundContainer)
+                            : FileImage(File(createCubit.image!.path))
+                                as ImageProvider<Object>,
+                        fit: BoxFit.cover,
+                      ),
                 shape: RoundedRectangleBorder(
                   side: const BorderSide(width: 1, color: Color(0xFF0B2442)),
                   borderRadius: BorderRadius.circular(16),
