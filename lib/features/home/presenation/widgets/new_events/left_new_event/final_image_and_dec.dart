@@ -1,3 +1,4 @@
+import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/left_new_event/date_of_event_in_image.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/left_new_event/text_of_event.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/left_new_event/translate_icon_and_text.dart';
@@ -17,38 +18,41 @@ final String dateDay;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Stack(children: [
-          Image.asset(imageEvent),
-          Positioned(
-            top: 0,
-            left: 0,
-            child: DateOfNewEvent(
-              dayDate: dateDay,
-              monthDate: monthDay,
-            ),
-          ),
-          Positioned(
-              bottom: 0,
-              right: 0,
-              child: TranslateIconInNewEventImage(categoryIcon: categoryIcon,
-              nameOfCategoryEvent: nameOfCategoryEvent,))
-        ]),
-        Container(
-          decoration: const ShapeDecoration(
-            color: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(10),
-                bottomRight: Radius.circular(4),
+    return GestureDetector(
+      onTap: () => customNavigate(context, '/NewEeventDetails'),
+      child: Column(
+        children: [
+          Stack(children: [
+            Image.asset(imageEvent),
+            Positioned(
+              top: 0,
+              left: 0,
+              child: DateOfNewEvent(
+                dayDate: dateDay,
+                monthDate: monthDay,
               ),
             ),
-          ),
-          padding: const EdgeInsets.all(8),
-          child: TextOfEvent(textOfNewEvent: textOfNewEvent),
-        )
-      ],
+            Positioned(
+                bottom: 0,
+                right: 0,
+                child: TranslateIconInNewEventImage(categoryIcon: categoryIcon,
+                nameOfCategoryEvent: nameOfCategoryEvent,))
+          ]),
+          Container(
+            decoration: const ShapeDecoration(
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(4),
+                ),
+              ),
+            ),
+            padding: const EdgeInsets.all(8),
+            child: TextOfEvent(textOfNewEvent: textOfNewEvent),
+          )
+        ],
+      ),
     );
   }
 }
