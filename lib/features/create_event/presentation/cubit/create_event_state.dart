@@ -13,3 +13,4 @@ final class GetEndDateLoading extends CreateEventState {}
 final class GetEndDateSuccess extends CreateEventState {}
 final class GetEndDateError extends CreateEventState {}
 final class ChangeProfileImageState extends CreateEventState {}
+final class ChangeCheckBoxSuccess extends CreateEventState {}

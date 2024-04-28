@@ -8,3 +8,11 @@ Future<XFile?> pickImage(ImageSource source) async {
     return null;
   }
 }
+// Future<List<XFile?>> pickMultiImage(ImageSource source) async {
+//   List<XFile?> multiImage = await ImagePicker().pickMultiImage();
+//   if (multiImage!.isNotEmpty) {
+//     multiImage.addAll(value)
+//   } else {
+//     return null;
+//   }
+// }

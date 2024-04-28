@@ -9,7 +9,7 @@ import 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitial());
-  List<Widget> screens=[const HomeScreen(),const HomeScreen(), PageViewEvent(),const HomeScreen(),const HomeScreen()];
+  List<Widget> screens=[const HomeScreen(),const HomeScreen(),const PageViewEvent(),const HomeScreen(),const HomeScreen()];
   int currenIndex = 0;
   void changeIndex(index){
     currenIndex=index;

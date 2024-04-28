@@ -53,7 +53,7 @@ final GoRouter router = GoRouter(routes: [
   // ),
   GoRoute(
     path: "/PageViewEvent",
-    builder: (context, state) =>  PageViewEvent(),
+    builder: (context, state) =>const  PageViewEvent(),
   ),
   
   GoRoute(

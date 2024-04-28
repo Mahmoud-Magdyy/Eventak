@@ -10,8 +10,14 @@ import 'package:eventak/features/create_event/presentation/screens/page_one_widg
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class PageViewEvent extends StatelessWidget {
-  PageViewEvent({super.key});
+class PageViewEvent extends StatefulWidget {
+  const PageViewEvent({super.key});
+
+  @override
+  State<PageViewEvent> createState() => _PageViewEventState();
+}
+
+class _PageViewEventState extends State<PageViewEvent> {
   final PageController controller = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
@@ -29,7 +35,7 @@ class PageViewEvent extends StatelessWidget {
                   createCubit: createCubit,
                 ),
                 const CreateEventPageTwo(),
-                const CreateEventPageThree(),
+                 CreateEventPageThree(),
                 const CreateEventPageFour(),
               ];
 
@@ -49,6 +55,7 @@ class PageViewEvent extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         itemCount: screens.length,
                         itemBuilder: (context, index) {
+                          createCubit.page=index;
                           return screens[index];
                         },
                         controller: controller,
@@ -56,11 +63,11 @@ class PageViewEvent extends StatelessWidget {
                     ),
                     // const Expanded(child: SizedBox()),
                     CustomElevetedButton(
-                        background: screens.length != screens.length-1
+                        background: createCubit.checkBoxValue != true
                             ? Colors.grey
                             : AppColors.primaryColor,
                         onPressed: () {},
-                        text: 'Publish')
+                        text: 'Publish'),
                   ],
                 ),
               );

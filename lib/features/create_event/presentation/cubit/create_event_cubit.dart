@@ -9,6 +9,7 @@ class CreateEventCubit extends Cubit<CreateEventState> {
   CreateEventCubit() : super(CreateEventInitial());
   XFile? image;
   XFile? profileImage;
+  int page = 0;
   void changeImage(value) {
     image = value;
     emit(ChangeImageState());
@@ -90,5 +91,10 @@ class CreateEventCubit extends Cubit<CreateEventState> {
       child: Text('two'),
     ),
   ];
-  
+  //!check box
+  bool? checkBoxValue = false;
+  void onChangedCheckBoxValue(value){
+    checkBoxValue = value!;
+    emit(ChangeCheckBoxSuccess());
+  }
 }
