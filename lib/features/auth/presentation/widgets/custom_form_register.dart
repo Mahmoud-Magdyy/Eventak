@@ -23,6 +23,7 @@ class CustomFormRegister extends StatelessWidget {
               children: [
                 //!username
                 CustomTextFormField(
+                  maxLines: 1,
                   prefixIcon: const Icon(Icons.person_2_outlined),
                   hint: AppStrings.userName.tr(context),
                   controller: registerCubit.userNameController,
@@ -32,6 +33,7 @@ class CustomFormRegister extends StatelessWidget {
                 ),
                 //!email
                 CustomTextFormField(
+                  maxLines: 1,
                   prefixIcon: const Icon(Icons.email_outlined),
                   hint: AppStrings.email.tr(context),
                   controller: registerCubit.emailController,
@@ -41,6 +43,7 @@ class CustomFormRegister extends StatelessWidget {
                 ),
                 //!phone
                 CustomTextFormField(
+                  maxLines: 1,
                   prefixIcon: const Icon(Icons.local_phone_outlined),
                   hint: AppStrings.phone.tr(context),
                   controller: registerCubit.phoneController,
@@ -50,6 +53,7 @@ class CustomFormRegister extends StatelessWidget {
                 ),
                 //!password
                 CustomTextFormField(
+                  maxLines: 1,
                   prefixIcon: const Icon(Icons.lock_outline),
                   hint: AppStrings.password.tr(context),
                   controller: registerCubit.passwordController,
@@ -67,6 +71,7 @@ class CustomFormRegister extends StatelessWidget {
                 ),
                 //!confirm password
                 CustomTextFormField(
+                  maxLines: 1,
                   prefixIcon: const Icon(Icons.sync_lock_sharp),
                   hint: AppStrings.confirmPassword.tr(context),
                   controller: registerCubit.confirmPasswordController,
