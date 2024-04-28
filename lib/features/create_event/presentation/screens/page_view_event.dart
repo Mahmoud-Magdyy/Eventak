@@ -35,7 +35,7 @@ class _PageViewEventState extends State<PageViewEvent> {
                   createCubit: createCubit,
                 ),
                 const CreateEventPageTwo(),
-                 CreateEventPageThree(),
+                const CreateEventPageThree(),
                 const CreateEventPageFour(),
               ];
 
