@@ -3,8 +3,9 @@ import 'package:eventak/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItemDetails extends StatelessWidget {
-  const CategoryItemDetails({super.key});
-
+  const CategoryItemDetails({super.key, required this.icon, required this.nameOfIconCateogry});
+final IconData icon;
+final String nameOfIconCateogry;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,9 +18,9 @@ class CategoryItemDetails extends StatelessWidget {
       ),
       child:  Row(
         children: [
-          const Icon(Icons.category_outlined,color: AppColors.colorCategoryName,size: 16,),
+           Icon(icon,color: AppColors.colorCategoryName,size: 16,),
           const SizedBox(width: 6,),
-          Text('Conference',style: AppStyles.styleSemiBold10(context).copyWith(color: AppColors.colorCategoryName),),
+          Text(nameOfIconCateogry,style: AppStyles.styleSemiBold10(context).copyWith(color: AppColors.colorCategoryName),),
         ],
       ),
     );

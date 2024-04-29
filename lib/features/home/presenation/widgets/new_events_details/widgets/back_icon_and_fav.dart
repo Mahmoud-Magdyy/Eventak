@@ -23,6 +23,7 @@ class BackIconAndFav extends StatelessWidget {
           ),
           child: Center(
               child: GestureDetector(
+                onTap: () => Navigator.pop(context),
             child: const Icon(
               Icons.arrow_back_ios_new_outlined,
               size: 20,

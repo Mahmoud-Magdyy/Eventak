@@ -4,29 +4,31 @@ import 'package:flutter/material.dart';
 
 class LocationAndTimeAndDateNewEventDetails extends StatelessWidget {
   const LocationAndTimeAndDateNewEventDetails({
-    super.key,
+    super.key, required this.location, required this.dateMonth, required this.dateTime,
   });
-
+final String location; 
+final String dateMonth; 
+final String dateTime; 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return  Column(
       children: [
         CusotmListTileNewEventDetails(
           icon: Icons.location_on_outlined,
-          text: 'Grand Convention Center, Cityville',
+          text: location,
         ),
-        SizedBox(
+        const SizedBox(
       height: 16,
     ),
     CusotmListTileNewEventDetails(
       icon: Icons.calendar_month_outlined,
-      text: 'Saturday, May 18th, 2024',
-    ),SizedBox(
+      text: dateMonth,
+    ),const SizedBox(
       height: 16,
     ),
     CusotmListTileNewEventDetails(
       icon: Icons.access_time_outlined,
-      text: '9:00 AM - 5:00 PM',
+      text: dateTime,
     ),
       ],
     );

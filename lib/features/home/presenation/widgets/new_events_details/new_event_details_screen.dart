@@ -1,6 +1,7 @@
 import 'package:eventak/core/utils/app_styles.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_state.dart';
+import 'package:eventak/features/home/data/model/new_event_model.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/back_icon_and_fav.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/brought_to_you.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/catregory_item.dart';
@@ -11,8 +12,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NewEeventDetails extends StatelessWidget {
-  const NewEeventDetails({super.key});
-
+  const NewEeventDetails({super.key, required this.newEventModel});
+  final NewEventModel newEventModel;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,10 +23,12 @@ class NewEeventDetails extends StatelessWidget {
           return SafeArea(
             child: Column(
               children: [
-                const Stack(
+                Stack(
                   children: [
-                    ImageOfEventDetails(),
-                    Positioned(
+                    ImageOfEventDetails(
+                      image: newEventModel.imageEvent,
+                    ),
+                    const Positioned(
                       top: 30,
                       left: 25,
                       right: 25,
@@ -44,21 +47,29 @@ class NewEeventDetails extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Tech Summit 2024',
+                            newEventModel.nameOfEvent,
                             style: AppStyles.styleSemiBold24(context)
                                 .copyWith(color: Colors.black),
                           ),
-                          const CategoryItemDetails(),
+                          CategoryItemDetails(
+                            icon: newEventModel.categoryIcon,
+                            nameOfIconCateogry:
+                                newEventModel.nameOfCategoryEvent,
+                          ),
                         ],
                       ),
                       const SizedBox(
                         height: 16,
                       ),
-                      const LocationAndTimeAndDateNewEventDetails(),
+                      LocationAndTimeAndDateNewEventDetails(
+                        location: newEventModel.titleLocationOfEvent,
+                        dateMonth: newEventModel.titleDateOfTicket,
+                        dateTime: newEventModel.subTitleDateOfTicket,
+                      ),
                       const SizedBox(
                         height: 32,
                       ),
-                      const Description(),
+                      Description(description: newEventModel.textOfNewEvent),
                       const BroughtToYou()
                     ],
                   ),

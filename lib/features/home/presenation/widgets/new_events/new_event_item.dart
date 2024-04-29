@@ -1,6 +1,7 @@
 import 'package:eventak/features/home/data/model/new_event_model.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/left_new_event/final_image_and_dec.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/right_new_event/final_dec_of_new_event_right.dart';
+import 'package:eventak/features/home/presenation/widgets/new_events_details/new_event_details_screen.dart';
 import 'package:flutter/material.dart';
 
 class NewEeventItem extends StatelessWidget {
@@ -29,13 +30,22 @@ class NewEeventItem extends StatelessWidget {
         children: [
           Row(
             children: [
-              ImageAndDecOfNewEventLeft(
-                  dateDay: newEventModel.dateDay,
-                  monthDay: newEventModel.monthDay,
-                  categoryIcon: newEventModel.categoryIcon,
-                  imageEvent: newEventModel.imageEvent,
-                  textOfNewEvent: newEventModel.textOfNewEvent,
-                  nameOfCategoryEvent: newEventModel.nameOfCategoryEvent),
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => NewEeventDetails(
+                            newEventModel: newEventModel,
+                          )),
+                ),
+                child: ImageAndDecOfNewEventLeft(
+                    dateDay: newEventModel.dateDay,
+                    monthDay: newEventModel.monthDay,
+                    categoryIcon: newEventModel.categoryIcon,
+                    imageEvent: newEventModel.imageEvent,
+                    textOfNewEvent: newEventModel.textOfNewEvent,
+                    nameOfCategoryEvent: newEventModel.nameOfCategoryEvent),
+              ),
               const SizedBox(
                 width: 8,
               ),
