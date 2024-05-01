@@ -14,7 +14,19 @@ class CustomFormRegister extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterCubit, RegisterState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        
+        if (state is SignUpSuccess) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(const SnackBar(content: Text('Success')));
+              // customReplacementNavigate(context, '/BottomNavBar');
+
+        }
+        else if (state is SignUpError) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(const SnackBar(content: Text('Error')));
+        }
+      },
       builder: (context, state) {
         final registerCubit = BlocProvider.of<RegisterCubit>(context);
         return Form(
@@ -87,16 +99,21 @@ class CustomFormRegister extends StatelessWidget {
                 const SizedBox(
                   height: 32,
                 ),
-                CustomElevetedButton(
-                  onPressed: () {
-                    if (registerCubit.registerKey.currentState!.validate()) {
-                      //! ally haytnafz lw l values kolha da5lt sa7
-                      // registerCubit.login();
-                    }
-                  },
-                  text: AppStrings.signUp.tr(context),
-                  color: Colors.white,
-                ),
+                state is SignUpLoading
+                    ? const Center(child: CircularProgressIndicator(color: AppColors.primaryColor,))
+                    : CustomElevetedButton(
+                        onPressed: () {
+                          if (registerCubit.registerKey.currentState!
+                              .validate()) {
+                            //! ally haytnafz lw l values kolha da5lt sa7
+                            // registerCubit.login();
+                            registerCubit.signUp();
+
+                          }
+                        },
+                        text: AppStrings.signUp.tr(context),
+                        color: Colors.white,
+                      ),
               ],
             ));
       },

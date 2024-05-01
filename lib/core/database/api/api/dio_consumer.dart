@@ -127,15 +127,18 @@ class DioConsumer extends ApiConsumer {
           case 504: // Bad request
 
             throw BadResponseException(ErrorModel.fromJson(e.response!.data));
+          case 500: // Bad Ressponse
+
+            throw BadResponseException(ErrorModel.fromJson(e.response!.data));
         }
 
       case DioExceptionType.cancel:
         throw CancelException(
-            ErrorModel(errorMessage: e.toString(), status: 500));
+            ErrorModel(errorMessage: e.toString(), status: '500'));
 
       case DioExceptionType.unknown:
         throw UnknownException(
-            ErrorModel(errorMessage: e.toString(), status: 500));
+            ErrorModel(errorMessage: e.toString(), status: '500'));
       // throw ServerException('badResponse');
     }
   }

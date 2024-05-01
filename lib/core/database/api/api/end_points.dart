@@ -1,6 +1,7 @@
 class EndPoint {
-  static const String baseUrl = 'https://food-api-omega.vercel.app/api/v1/';
-  static const String chefSignIn = 'chef/signin';
+  static const String baseUrl = 'https://eventak.onrender.com/';
+  static const String userSignIn = 'auth/signin';
+  static const String userSignUp = 'auth/signup';
  
 
   // static String getChefDataEndPoints(id) {
@@ -20,6 +21,7 @@ class Apikeys {
   static const String confirmPassword = 'confirmPassword';
   static const String message = 'message';
   static const String token = 'token';
+  static const String userName = 'userName';
   
 
   

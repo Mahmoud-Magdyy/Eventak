@@ -1,3 +1,4 @@
+
 import 'package:eventak/core/database/api/api/end_points.dart';
 
 class LoginModel {
@@ -10,7 +11,7 @@ class LoginModel {
   });
   factory LoginModel.fromJson(Map<String, dynamic> jsonData) {
     return LoginModel(
-      message: jsonData[Apikeys.message],
+      message: jsonData['message'],
       token: jsonData[Apikeys.token],
     );
   }

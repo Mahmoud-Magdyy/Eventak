@@ -1,9 +1,11 @@
+import 'package:eventak/features/auth/data/models/register_model.dart';
+import 'package:eventak/features/auth/data/reposatiry/auth_repository.dart';
 import 'package:eventak/features/auth/presentation/auth_cubit/regsiter_cubit/register_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
-  RegisterCubit() : super(RegisterInitial());
+  RegisterCubit(this.authrepo) : super(RegisterInitial());
   GlobalKey<FormState> registerKey = GlobalKey<FormState>();
   TextEditingController userNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -30,5 +32,24 @@ class RegisterCubit extends Cubit<RegisterState> {
     // suffixIconConfirmPassword =
     //     isConfirmPasswordsShowing ? Icons.visibility : Icons.visibility_off;
     emit(ChangeConfirmPasswordSuffixIcon());
+  }
+
+  //! register method
+  final AuthRepository authrepo;
+
+  RegisterModel? registerModel;
+  // login method
+  void signUp() async {
+    emit(SignUpLoading());
+    final result = await authrepo.signUp(
+      confirmPassword:confirmPasswordController.text ,
+      userName:userNameController.text ,
+      email: emailController.text,
+      password: passwordController.text,
+    );
+    result.fold((l) => emit(SignUpError(l)), (r) async {
+      registerModel = r;
+      emit(SignUpSuccess());
+    });
   }
 }
