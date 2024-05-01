@@ -1,4 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:eventak/core/bloc/cubit/global_cubit.dart';
+import 'package:eventak/core/database/api/api/api_consumer.dart';
+import 'package:eventak/core/database/api/api/dio_consumer.dart';
 import 'package:eventak/core/database/cache/cache_helper.dart';
 import 'package:eventak/features/auth/presentation/auth_cubit/regsiter_cubit/register_cubit.dart';
 import 'package:eventak/features/auth/presentation/auth_cubit/reset_password_cubit/reset_password_cubit.dart';
@@ -18,4 +21,6 @@ Future<void> setupServiceLocator() async{
    sl.registerLazySingleton(() => CreateEventCubit());
    sl.registerLazySingleton(() => RegisterCubit());
    sl.registerLazySingleton(() => ResetPasswordCubit());
+   sl.registerLazySingleton<ApiConsumer>(() => DioConsumer(sl()));
+  sl.registerLazySingleton(() => Dio());
 }

@@ -16,7 +16,9 @@ class CustomHomeAppBar extends StatelessWidget {
         Row(
           children: [
             InkWell(
-              onTap: () {},
+              onTap: () {
+                
+              },
               borderRadius: BorderRadius.circular(16),
               child: const Icon(
                 Icons.search_outlined,
