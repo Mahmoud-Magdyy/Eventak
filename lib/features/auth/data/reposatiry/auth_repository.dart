@@ -4,6 +4,7 @@ import 'package:eventak/core/database/api/api/end_points.dart';
 import 'package:eventak/core/error/exception.dart';
 import 'package:eventak/features/auth/data/models/login_model.dart';
 import 'package:eventak/features/auth/data/models/register_model.dart';
+import 'package:eventak/features/auth/data/models/send_code_model.dart';
 
 import '../../../../core/services/service_locator.dart';
 
@@ -43,14 +44,14 @@ class AuthRepository {
   }
   //!Forget Password (send code to email method)
 
-Future<Either<String, RegisterModel>> sendCode({
+Future<Either<String, SendCodeModel>> sendCode({
     required String email,
   }) async {
     try {
-      final response = await sl<ApiConsumer>().patch(EndPoint.userSignUp, data: {
+      final response = await sl<ApiConsumer>().patch(EndPoint.userSendCode, data: {
         Apikeys.email: email,
       },);
-      return Right(RegisterModel.fromJson(response));
+      return Right(SendCodeModel.fromJson(response));
     } on ServerException catch (error) {
       return Left(error.errorModel.errorMessage);
     }
