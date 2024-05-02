@@ -5,7 +5,7 @@ import '../utils/app_colors.dart';
 
 class CustomElevetedButton extends StatelessWidget {
   const CustomElevetedButton({
-    super.key, this.height=48, this.width=double.infinity, required this.onPressed, this.background, required this.text, this.color, this.onFocusChange,
+    super.key, this.height=48, this.width=double.infinity, required this.onPressed, this.background, required this.text, this.color, 
   });
   final double? height;
   final double? width;
@@ -13,14 +13,13 @@ class CustomElevetedButton extends StatelessWidget {
   final Color? background;
   final String  text;
   final Color? color;
-  final Function(bool)? onFocusChange;
+  // final Function(bool)? onFocusChange;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: height!,
   width: width!,
       child: ElevatedButton(
-        onFocusChange: onFocusChange,
         onPressed: onPressed,
         style: Theme.of(context)
             .elevatedButtonTheme

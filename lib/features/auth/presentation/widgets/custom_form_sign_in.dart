@@ -11,30 +11,27 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomSignInForm extends StatelessWidget {
   const CustomSignInForm({super.key});
-
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignInCubit, SignInState>(
       listener: (context, state) {
         if (state is LoginSuccessState) {
           ScaffoldMessenger.of(context)
-              .showSnackBar(const SnackBar(content: Text('Success')));
+              .showSnackBar(SnackBar(content: Text(state.message)));
           customReplacementNavigate(context, '/BottomNavBar');
         } else if (state is LoginErrorState) {
           ScaffoldMessenger.of(context)
-              .showSnackBar(const SnackBar(content: Text('Error')));
+              .showSnackBar(SnackBar(content: Text(state.message)));
         }
       },
       builder: (context, state) {
-        final signInCubit = BlocProvider.of<SignInCubit>(context);
         return Form(
-            key: signInCubit.signInKey,
+            key: context.read<SignInCubit>().signInKey,
             child: Column(
               children: [
                 CustomTextFormField(
-                  maxLines: 1,
                   prefixIcon: const Icon(Icons.person_2_outlined),
-                  controller: signInCubit.emailController,
+                  controller: context.read<SignInCubit>().emailController,
                   hint: AppStrings.loginHint.tr(context),
                   validate: (data) {
                     if (data!.isEmpty || !data.contains('@gmail.com')) {
@@ -50,7 +47,7 @@ class CustomSignInForm extends StatelessWidget {
                   prefixIcon: const Icon(
                     Icons.lock_outline,
                   ),
-                  controller: signInCubit.passwordController,
+                  controller: context.read<SignInCubit>().passwordController,
                   hint: AppStrings.password.tr(context),
                   validate: (data) {
                     if (data!.length < 6 || data.isEmpty) {
@@ -61,7 +58,7 @@ class CustomSignInForm extends StatelessWidget {
                 ),
                 ForgetPasswordTextButton(
                   onPressed: () {
-                    customReplacementNavigate(context, '/ForgetPasswordScreen');
+                    customNavigate(context, '/ForgetPasswordScreen');
                   },
                 ),
                 const SizedBox(
@@ -71,10 +68,9 @@ class CustomSignInForm extends StatelessWidget {
                     ? const Center(child: CircularProgressIndicator())
                     : CustomElevetedButton(
                         onPressed: () {
-                          if (signInCubit.signInKey.currentState!.validate()) {
-                            signInCubit.login();
+                          if (context.read<SignInCubit>().signInKey.currentState!.validate()) {
+                            context.read<SignInCubit>().login();
                           }
-                          // context.read<SignInCubit>().login();
                         },
                         text: AppStrings.signIn.tr(context),
                       ),

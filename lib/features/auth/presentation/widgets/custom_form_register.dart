@@ -15,14 +15,12 @@ class CustomFormRegister extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
-        
         if (state is SignUpSuccess) {
           ScaffoldMessenger.of(context)
               .showSnackBar(const SnackBar(content: Text('Success')));
-              // customReplacementNavigate(context, '/BottomNavBar');
-
-        }
-        else if (state is SignUpError) {
+          // customReplacementNavigate(context, '/SignIn');
+          Navigator.pop(context);
+        } else if (state is SignUpError) {
           ScaffoldMessenger.of(context)
               .showSnackBar(const SnackBar(content: Text('Error')));
         }
@@ -35,37 +33,36 @@ class CustomFormRegister extends StatelessWidget {
               children: [
                 //!username
                 CustomTextFormField(
-                  maxLines: 1,
                   prefixIcon: const Icon(Icons.person_2_outlined),
                   hint: AppStrings.userName.tr(context),
                   controller: registerCubit.userNameController,
+                  validate: (data) {
+                    if (data!.length < 3 || data.isEmpty) {
+                      return 'Please enter valid username atleast 3 characters';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(
                   height: 16,
                 ),
                 //!email
                 CustomTextFormField(
-                  maxLines: 1,
                   prefixIcon: const Icon(Icons.email_outlined),
                   hint: AppStrings.email.tr(context),
                   controller: registerCubit.emailController,
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                //!phone
-                CustomTextFormField(
-                  maxLines: 1,
-                  prefixIcon: const Icon(Icons.local_phone_outlined),
-                  hint: AppStrings.phone.tr(context),
-                  controller: registerCubit.phoneController,
+                  validate: (data) {
+                    if (data!.isEmpty || !data.contains('@gmail.com')) {
+                      return AppStrings.pleaseEnterValidEmail.tr(context);
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(
                   height: 16,
                 ),
                 //!password
                 CustomTextFormField(
-                  maxLines: 1,
                   prefixIcon: const Icon(Icons.lock_outline),
                   hint: AppStrings.password.tr(context),
                   controller: registerCubit.passwordController,
@@ -77,13 +74,18 @@ class CustomFormRegister extends StatelessWidget {
                   suffixIconOnPressed: () {
                     registerCubit.changeLoginPasswordSuffixIcon();
                   },
+                  validate: (data) {
+                    if (data!.length < 6 || data.isEmpty) {
+                      return AppStrings.pleaseEnterValidPassword.tr(context);
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(
                   height: 16,
                 ),
                 //!confirm password
                 CustomTextFormField(
-                  maxLines: 1,
                   prefixIcon: const Icon(Icons.sync_lock_sharp),
                   hint: AppStrings.confirmPassword.tr(context),
                   controller: registerCubit.confirmPasswordController,
@@ -95,20 +97,26 @@ class CustomFormRegister extends StatelessWidget {
                   suffixIconOnPressed: () {
                     registerCubit.changeConfirmPasswordSuffixIcon();
                   },
+                  validate: (data) {
+                    if (data != registerCubit.passwordController.text) {
+                      return AppStrings.pleaseEnterValidPassword.tr(context);
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(
                   height: 32,
                 ),
                 state is SignUpLoading
-                    ? const Center(child: CircularProgressIndicator(color: AppColors.primaryColor,))
+                    ? const Center(
+                        child: CircularProgressIndicator(
+                        color: AppColors.primaryColor,
+                      ))
                     : CustomElevetedButton(
                         onPressed: () {
                           if (registerCubit.registerKey.currentState!
                               .validate()) {
-                            //! ally haytnafz lw l values kolha da5lt sa7
-                            // registerCubit.login();
                             registerCubit.signUp();
-
                           }
                         },
                         text: AppStrings.signUp.tr(context),

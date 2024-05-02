@@ -12,12 +12,15 @@ class SignInCubit extends Cubit<SignInState> {
   SignInCubit(this.authrepo) : super(SignInInitial());
   GlobalKey<FormState> signInKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
-  TextEditingController  passwordController =TextEditingController();
-final AuthRepository authrepo;
+  TextEditingController passwordController = TextEditingController();
+  final AuthRepository authrepo;
 
   LoginModel? loginModel;
   // login method
   void login() async {
+    if (state is! SignInInitial) {
+      return; // Do not proceed if the cubit is closed
+    }
     emit(LoginLoadingState());
     final result = await authrepo.login(
       email: emailController.text,
@@ -32,7 +35,9 @@ final AuthRepository authrepo;
         key: Apikeys.token,
         value: r.token,
       );
-      emit(LoginSuccessState());
+      emit(LoginSuccessState(r.message));
     });
   }
+
+  //!
 }

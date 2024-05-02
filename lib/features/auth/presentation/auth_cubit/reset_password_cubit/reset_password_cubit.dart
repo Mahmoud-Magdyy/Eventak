@@ -30,4 +30,9 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
     //     isConfirmPasswordsShowing ? Icons.visibility : Icons.visibility_off;
     emit(ChangeConfirmResetPasswordSuffixIcon());
   }
+  //!forgt password 
+    TextEditingController emailForgetPasswordController = TextEditingController();
+    
+
+
 }

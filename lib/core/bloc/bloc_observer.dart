@@ -8,7 +8,7 @@ class MyBlocObserver extends BlocObserver {
   void onCreate(BlocBase bloc) {
     super.onCreate(bloc);
     if (kDebugMode) {
-      print('onCreate -- ${bloc.runtimeType}');
+      debugPrint('onCreate -- ${bloc.runtimeType}');
     }
   }
 

@@ -14,9 +14,9 @@ class ForgetPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 26),
           child: SingleChildScrollView(
             child: Column(
@@ -27,7 +27,8 @@ class ForgetPasswordScreen extends StatelessWidget {
                 ),
                 CustomBackButton(
                   onPressed: () {
-                    customReplacementNavigate(context, '/SignIn');
+                    Navigator.pop(context);
+                    // customReplacementNavigate(context, '/SignIn');
                   },
                 ),
                 const SizedBox(

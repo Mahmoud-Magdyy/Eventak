@@ -2,6 +2,7 @@ class EndPoint {
   static const String baseUrl = 'https://eventak.onrender.com/';
   static const String userSignIn = 'auth/signin';
   static const String userSignUp = 'auth/signup';
+  static const String userSendCode = 'auth/forgetcode';
  
 
   // static String getChefDataEndPoints(id) {
