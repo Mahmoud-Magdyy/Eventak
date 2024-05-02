@@ -1,3 +1,5 @@
+import 'package:eventak/features/create_event/data/models/create_event_model.dart';
+import 'package:eventak/features/create_event/data/reposatiry/event_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -6,7 +8,7 @@ import 'package:intl/intl.dart';
 import 'create_event_state.dart';
 
 class CreateEventCubit extends Cubit<CreateEventState> {
-  CreateEventCubit() : super(CreateEventInitial());
+  CreateEventCubit(this.createEventRepo) : super(CreateEventInitial());
   XFile? image;
   XFile? profileImage;
   int page = 0;
@@ -14,6 +16,7 @@ class CreateEventCubit extends Cubit<CreateEventState> {
     image = value;
     emit(ChangeImageState());
   }
+
   void changeProfileImage(value) {
     profileImage = value;
     emit(ChangeImageState());
@@ -80,8 +83,8 @@ class CreateEventCubit extends Cubit<CreateEventState> {
   }
 
   //!category
- late String dropDownValue;
-   List<DropdownMenuItem<dynamic>>? items = [
+  late String dropDownValue;
+  List<DropdownMenuItem<dynamic>>? items = [
     const DropdownMenuItem(
       value: 'one',
       child: Text('one'),
@@ -93,8 +96,33 @@ class CreateEventCubit extends Cubit<CreateEventState> {
   ];
   //!check box
   bool? checkBoxValue = false;
-  void onChangedCheckBoxValue(value){
+  void onChangedCheckBoxValue(value) {
     checkBoxValue = value!;
     emit(ChangeCheckBoxSuccess());
   }
+
+  //! create event method
+  final CreateEventReposatiry createEventRepo;
+
+  CreateEventModel? createEventModel;
+  // register
+  // void createEvent() async {
+  //   emit(CretaeEventLoadingState());
+  //   final result = await createEventRepo.createEvent(
+  //     nameOfEvent: nameOfEvent,
+  //     description: description,
+  //     startTime: startTime,
+  //     endTime: endTime,
+  //     date: date,
+  //     category: category,
+  //     priceInAdvance: priceInAdvance,
+  //     priceAtTheDoor: priceAtTheDoor,
+  //     whatIsIncludedInPrice: whatIsIncludedInPrice,
+  //     orgShortDesc: orgShortDesc,
+  //   );
+  //   result.fold((l) => emit(CretaeEventErrorState(l)), (r) async {
+  //     createEventModel = r;
+  //     emit(CretaeEventSuccessgState());
+  //   });
+  // }
 }

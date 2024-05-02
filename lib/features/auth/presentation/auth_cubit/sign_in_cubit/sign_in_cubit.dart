@@ -18,9 +18,7 @@ class SignInCubit extends Cubit<SignInState> {
   LoginModel? loginModel;
   // login method
   void login() async {
-    if (state is! SignInInitial) {
-      return; // Do not proceed if the cubit is closed
-    }
+    
     emit(LoginLoadingState());
     final result = await authrepo.login(
       email: emailController.text,

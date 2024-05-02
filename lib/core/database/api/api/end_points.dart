@@ -4,6 +4,7 @@ class EndPoint {
   static const String userSignUp = 'auth/signup';
   static const String userSendCode = 'auth/forgetcode';
   static const String userResetPassword= 'auth/resetPassword';
+  static const String createEvent= 'event/createEvent';
  
 
   // static String getChefDataEndPoints(id) {
@@ -25,6 +26,18 @@ class Apikeys {
   static const String token = 'token';
   static const String userName = 'userName';
   static const String forgetCode = 'forgetCode';
+  //!create event
+  static const String nameOfEvent = 'nameOfEvent';
+  static const String description = 'description';
+  static const String startTime = 'startTime';
+  static const String endTime = 'endTime';
+  static const String date = 'date';
+  static const String category = 'category';
+  static const String priceInAdvance = 'priceInAdvance';
+  static const String priceAtTheDoor = 'priceAtTheDoor';
+  static const String whatIsIncludedInPrice = 'whatIsIncludedInPrice';
+  static const String orgShortDesc = 'orgShortDesc';
+  // static const String location = 'location';
   
 
   

@@ -14,3 +14,13 @@ final class GetEndDateSuccess extends CreateEventState {}
 final class GetEndDateError extends CreateEventState {}
 final class ChangeProfileImageState extends CreateEventState {}
 final class ChangeCheckBoxSuccess extends CreateEventState {}
+//!methods
+final class CretaeEventLoadingState extends CreateEventState {}
+final class CretaeEventErrorState extends CreateEventState {
+
+  final String message;
+
+  CretaeEventErrorState(this.message);
+}
+final class CretaeEventSuccessgState extends CreateEventState {}
+

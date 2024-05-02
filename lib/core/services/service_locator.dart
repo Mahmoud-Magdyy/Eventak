@@ -20,7 +20,7 @@ Future<void> setupServiceLocator() async{
    sl.registerLazySingleton(() => SignInCubit(sl()));
    sl.registerLazySingleton(() => HomeCubit());
    sl.registerLazySingleton(() => AuthRepository());
-   sl.registerLazySingleton(() => CreateEventCubit());
+   sl.registerLazySingleton(() => CreateEventCubit(sl()));
    sl.registerLazySingleton(() => RegisterCubit(sl()));
    sl.registerLazySingleton(() => ResetPasswordCubit(sl()));
    sl.registerLazySingleton<ApiConsumer>(() => DioConsumer(sl()));
