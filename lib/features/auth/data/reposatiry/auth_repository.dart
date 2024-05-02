@@ -3,6 +3,7 @@ import 'package:eventak/core/database/api/api/api_consumer.dart';
 import 'package:eventak/core/database/api/api/end_points.dart';
 import 'package:eventak/core/error/exception.dart';
 import 'package:eventak/features/auth/data/models/login_model.dart';
+import 'package:eventak/features/auth/data/models/pass_verefication_mode.dart';
 import 'package:eventak/features/auth/data/models/register_model.dart';
 import 'package:eventak/features/auth/data/models/send_code_model.dart';
 
@@ -52,6 +53,25 @@ Future<Either<String, SendCodeModel>> sendCode({
         Apikeys.email: email,
       },);
       return Right(SendCodeModel.fromJson(response));
+    } on ServerException catch (error) {
+      return Left(error.errorModel.errorMessage);
+    }
+  }
+  //!Reset Password verefy code
+  Future<Either<String, PassVerificationModel>> resetPasswordCode({
+    required String email,
+    required String forgetCode,
+    required String password,
+    required String confirmPassword,
+  }) async {
+    try {
+      final response = await sl<ApiConsumer>().patch(EndPoint.userResetPassword, data: {
+        Apikeys.email: email,
+        Apikeys.forgetCode: forgetCode,
+        Apikeys.password: password,
+        Apikeys.confirmPassword: confirmPassword,
+      },);
+      return Right(PassVerificationModel.fromJson(response));
     } on ServerException catch (error) {
       return Left(error.errorModel.errorMessage);
     }

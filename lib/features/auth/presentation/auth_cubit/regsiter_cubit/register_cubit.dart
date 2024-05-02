@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit(this.authrepo) : super(RegisterInitial());
   GlobalKey<FormState> registerKey = GlobalKey<FormState>();
+  
   TextEditingController userNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
@@ -38,7 +39,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   final AuthRepository authrepo;
 
   RegisterModel? registerModel;
-  // login method
+  // register
   void signUp() async {
     emit(SignUpLoading());
     final result = await authrepo.signUp(

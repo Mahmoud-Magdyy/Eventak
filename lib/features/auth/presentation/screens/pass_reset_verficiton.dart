@@ -62,7 +62,7 @@ class PassResetVerification extends StatelessWidget {
                 ),
                 CustomElevetedButton(
                   onPressed: () {
-                    customReplacementNavigate(context, '/ResetPasswordScreen');
+                    // customReplacementNavigate(context, '/4ResetPasswordScreen');
                   },
                   text: AppStrings.verify.tr(context),
                 ),

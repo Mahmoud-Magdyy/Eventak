@@ -15,3 +15,14 @@ final class SendCodeSuccessState extends ResetPasswordState {
 
   SendCodeSuccessState(this.message);
 }
+final class ResetPasswordCodeLoadingState extends ResetPasswordState {}
+final class ResetPasswordCodeErrorState extends ResetPasswordState {
+  final String message;
+
+  ResetPasswordCodeErrorState(this.message);
+}
+final class ResetPasswordCodeSuccessState extends ResetPasswordState {
+  final String message;
+
+  ResetPasswordCodeSuccessState(this.message);
+}

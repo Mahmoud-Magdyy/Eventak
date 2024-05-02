@@ -10,15 +10,19 @@ import 'package:eventak/features/auth/presentation/widgets/dont_have_and_registe
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
 
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: BlocConsumer<RegisterCubit, RegisterState>(
-        listener: (context, state) {
-        },
+        listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
             body: Padding(
@@ -34,6 +38,7 @@ class RegisterScreen extends StatelessWidget {
                       onPressed: () {
                         // customReplacementNavigate(context, '/SignIn');
                         Navigator.pop(context);
+                        // Navigator.of(context).pu(MaterialPageRoute(builder: (context) => const SignIn()));
                       },
                     ),
                     const SizedBox(

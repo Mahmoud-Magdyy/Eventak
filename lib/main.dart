@@ -16,10 +16,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setupServiceLocator();
   await sl<CacheHelper>().init();
-Bloc.observer = MyBlocObserver();
+  Bloc.observer = MyBlocObserver();
   runApp(
     DevicePreview(
-      enabled: false, 
+      enabled: false,
       builder: ((context) => MultiBlocProvider(
             providers: [
               BlocProvider(

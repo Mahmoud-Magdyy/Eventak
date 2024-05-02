@@ -3,6 +3,7 @@ class EndPoint {
   static const String userSignIn = 'auth/signin';
   static const String userSignUp = 'auth/signup';
   static const String userSendCode = 'auth/forgetcode';
+  static const String userResetPassword= 'auth/resetPassword';
  
 
   // static String getChefDataEndPoints(id) {
@@ -23,6 +24,7 @@ class Apikeys {
   static const String message = 'message';
   static const String token = 'token';
   static const String userName = 'userName';
+  static const String forgetCode = 'forgetCode';
   
 
   

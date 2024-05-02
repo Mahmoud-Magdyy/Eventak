@@ -66,7 +66,9 @@ class _PageViewEventState extends State<PageViewEvent> {
                         background: createCubit.checkBoxValue != true
                             ? Colors.grey
                             : AppColors.primaryColor,
-                        onPressed: () {},
+                        onPressed: () {
+                          
+                        },
                         text: 'Publish'),
                   ],
                 ),

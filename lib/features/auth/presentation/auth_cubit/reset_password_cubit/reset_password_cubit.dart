@@ -1,3 +1,4 @@
+import 'package:eventak/features/auth/data/models/pass_verefication_mode.dart';
 import 'package:eventak/features/auth/data/models/send_code_model.dart';
 import 'package:eventak/features/auth/data/reposatiry/auth_repository.dart';
 import 'package:eventak/features/auth/presentation/auth_cubit/reset_password_cubit/reset_password_state.dart';
@@ -5,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ResetPasswordCubit extends Cubit<ResetPasswordState> {
-  ResetPasswordCubit(this.authrepo) : super(ResetPasswordInitial());
+  ResetPasswordCubit(this.authrepo,) : super(ResetPasswordInitial());
   GlobalKey<FormState> resetPasswordKey = GlobalKey<FormState>();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
@@ -47,6 +48,27 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
     result.fold((l) => emit(SendCodeErrorState(l)), (r) async {
       sendCodeModel = r;
       emit(SendCodeSuccessState(r.message));
+    });
+  }
+
+  //! reset password verification (code)
+  TextEditingController emailForgetPasswordCodeController =
+      TextEditingController();
+  TextEditingController forgetConfiremPasswordCodeController =
+      TextEditingController();
+  TextEditingController forgetPasswordCodeController = TextEditingController();
+  PassVerificationModel? passVerificationModel;
+  void resetPasswrd(String forgetCode) async {
+    emit(ResetPasswordCodeLoadingState());
+    final result = await authrepo.resetPasswordCode(
+      email: emailForgetPasswordCodeController.text,
+      confirmPassword: forgetConfiremPasswordCodeController.text,
+      forgetCode: forgetCode,
+      password: forgetPasswordCodeController.text,
+    );
+    result.fold((l) => emit(ResetPasswordCodeErrorState(l)), (r) async {
+      passVerificationModel = r;
+      emit(ResetPasswordCodeSuccessState(r.message));
     });
   }
 }
