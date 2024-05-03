@@ -1,5 +1,6 @@
 import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
+import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/utils/app_strings.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/core/widgets/custom_text_field.dart';
@@ -18,7 +19,7 @@ class CustomSignInForm extends StatelessWidget {
         if (state is LoginSuccessState) {
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text(state.message)));
-          customReplacementNavigate(context, '/BottomNavBar');
+              navigateReplacment(context: context, route: Routes.bottomNavBar);
         } else if (state is LoginErrorState) {
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text(state.message)));
@@ -58,7 +59,7 @@ class CustomSignInForm extends StatelessWidget {
                 ),
                 ForgetPasswordTextButton(
                   onPressed: () {
-                    customNavigate(context, '/ForgetPasswordScreen');
+                    navigate(context: context, route: Routes.forgetPassword);
                   },
                 ),
                 const SizedBox(

@@ -1,5 +1,6 @@
 import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
+import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/utils/app_images.dart';
 import 'package:eventak/core/utils/app_strings.dart';
 import 'package:eventak/core/utils/app_styles.dart';
@@ -41,7 +42,8 @@ void delayedNavigate(context) {
   Future.delayed(
     const Duration(seconds: 2),
     () {
-      customReplacementNavigate(context, "/OnBoardingView");
+      navigateReplacment(context: context, route: Routes.onBoardingView);
+      // customReplacementNavigate(context, "/OnBoardingView");
     },
   );
 }

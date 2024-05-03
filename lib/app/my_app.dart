@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<GlobalCubit, GlobalState>(
       builder: (context, state) {
-        return MaterialApp.router(
+        return MaterialApp(
           builder: DevicePreview.appBuilder,
           localizationsDelegates: const [
             GlobalMaterialLocalizations.delegate,
@@ -29,7 +29,8 @@ class MyApp extends StatelessWidget {
             Locale('en', "US"),
           ],
           locale: Locale(BlocProvider.of<GlobalCubit>(context).langCode),
-          routerConfig: router,
+          initialRoute: Routes.initialRoute,
+          onGenerateRoute: AppRoutes.generateRoute,
           debugShowCheckedModeBanner: false,
           theme: getAppTheme(context),
         );

@@ -2,6 +2,7 @@ import 'package:eventak/core/bloc/cubit/global_cubit.dart';
 import 'package:eventak/core/bloc/cubit/global_state.dart';
 import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
+import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/utils/app_strings.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
@@ -61,7 +62,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                           children: [
                             CustomElevetedButton(
                               onPressed: () {
-                                customNavigate(context, '/RegisterScreen');
+                                navigate(context: context, route: Routes.registerScreen);
                               },
                               text: AppStrings.register.tr(context),
                               height: 50,
@@ -70,7 +71,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                             CustomElevetedButton(
                               background: Colors.white,
                               onPressed: () {
-                                customNavigate(context, '/SignIn');
+                                navigate(context: context, route: Routes.signIn);
+                                // customNavigate(context, '/SignIn');
                               },
                               text: AppStrings.signIn.tr(context),
                               color: AppColors.primaryColor,

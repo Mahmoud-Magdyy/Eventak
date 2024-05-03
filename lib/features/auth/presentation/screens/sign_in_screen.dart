@@ -1,5 +1,6 @@
 import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
+import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/utils/app_strings.dart';
 import 'package:eventak/core/utils/app_styles.dart';
 import 'package:eventak/core/widgets/custom_back_button.dart';
@@ -55,7 +56,8 @@ class _SignInState extends State<SignIn> {
                   dontHave: AppStrings.dontHaveAcc,
                   textButton: AppStrings.register,
                   onPressed: () {
-                    customNavigate(context, '/RegisterScreen');
+                    navigateReplacment(context: context, route: Routes.registerScreen);
+                    // customNavigate(context, '/RegisterScreen');
                   })
             ],
           ),

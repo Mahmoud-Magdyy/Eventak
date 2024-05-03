@@ -1,5 +1,6 @@
 import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
+import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/utils/app_images.dart';
 import 'package:eventak/core/utils/app_strings.dart';
@@ -28,7 +29,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 if (state is SendCodeSuccessState) {
                   ScaffoldMessenger.of(context)
                       .showSnackBar(SnackBar(content: Text(state.message)));
-                  customReplacementNavigate(context, "/PassResetVerification");
+                      navigateReplacment(context: context, route: Routes.passResetVerification);
                 } else if (state is SendCodeErrorState) {
                   ScaffoldMessenger.of(context)
                       .showSnackBar(SnackBar(content: Text(state.message)));

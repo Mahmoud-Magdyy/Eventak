@@ -1,5 +1,6 @@
 import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
+import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/utils/app_images.dart';
 import 'package:eventak/core/utils/app_strings.dart';
 import 'package:eventak/core/utils/app_styles.dart';
@@ -40,7 +41,7 @@ class OnBoardingAppBar extends StatelessWidget {
                 )
               : GestureDetector(
                   onTap: () {
-                    customReplacementNavigate(context, '/OnBoardingView');
+                    navigateReplacment(context: context, route: Routes.onBoardingView);
                   },
                   child: Text(
                     AppStrings.back.tr(context),
@@ -56,7 +57,7 @@ class OnBoardingAppBar extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              customReplacementNavigate(context, '/OnBoardingView');
+              navigateReplacment(context: context, route: Routes.onBoardingView);
             },
             child: Text(
               AppStrings.back.tr(context),

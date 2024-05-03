@@ -1,4 +1,6 @@
+import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
+import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/utils/app_strings.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
@@ -18,8 +20,10 @@ class CustomFormRegister extends StatelessWidget {
         if (state is SignUpSuccess) {
           ScaffoldMessenger.of(context)
               .showSnackBar(const SnackBar(content: Text('Success')));
+          navigateReplacment(context: context, route: Routes.signIn);
+          // Navigator.pop(context);
           // customReplacementNavigate(context, '/SignIn');
-          Navigator.pop(context);
+          // Navigator.pop(context);
         } else if (state is SignUpError) {
           ScaffoldMessenger.of(context)
               .showSnackBar(const SnackBar(content: Text('Error')));

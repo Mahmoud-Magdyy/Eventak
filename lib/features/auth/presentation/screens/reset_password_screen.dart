@@ -1,5 +1,6 @@
 import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
+import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/utils/app_images.dart';
 import 'package:eventak/core/utils/app_strings.dart';
 import 'package:eventak/core/utils/app_styles.dart';
@@ -27,8 +28,9 @@ class ResetPasswordScreen extends StatelessWidget {
                 ),
                 CustomBackButton(
                   onPressed: () {
-                    customReplacementNavigate(
-                        context, '/PassResetVerification');
+                    navigateReplacment(context: context, route: Routes.passResetVerification);
+                    // customReplacementNavigate(
+                    //     context, '/PassResetVerification');
                   },
                 ),
                 const SizedBox(

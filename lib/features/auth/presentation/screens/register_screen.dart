@@ -1,5 +1,6 @@
 import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
+import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/utils/app_strings.dart';
 import 'package:eventak/core/utils/app_styles.dart';
 import 'package:eventak/core/widgets/custom_back_button.dart';
@@ -19,6 +20,8 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   @override
+  
+
   Widget build(BuildContext context) {
     return SafeArea(
       child: BlocConsumer<RegisterCubit, RegisterState>(
@@ -36,9 +39,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     CustomBackButton(
                       onPressed: () {
-                        // customReplacementNavigate(context, '/SignIn');
-                        Navigator.pop(context);
-                        // Navigator.of(context).pu(MaterialPageRoute(builder: (context) => const SignIn()));
+                        navigateReplacment(context: context, route: Routes.signIn);
                       },
                     ),
                     const SizedBox(
@@ -65,8 +66,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       dontHave: AppStrings.alredyHaveAcc,
                       textButton: AppStrings.login,
                       onPressed: () {
-                        customNavigate(context, '/SignIn');
-                        // Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SignIn()));
+                        navigateReplacment(context: context, route: Routes.signIn);
                       },
                     )
                   ],

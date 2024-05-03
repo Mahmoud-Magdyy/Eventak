@@ -1,4 +1,5 @@
 import 'package:eventak/core/functions/navigate.dart';
+import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_state.dart';
@@ -33,7 +34,7 @@ class BottomNavBar extends StatelessWidget {
       icon: const Icon(Icons.add_box_outlined, size: 24),
       title: ("Create"),
       onPressed: (p0) {
-        customNavigate(context, '/PageViewEvent');
+        navigate(context: context, route: Routes.pageView);
       },
       activeColorPrimary: AppColors.colorCategoryName,
       inactiveColorPrimary: Colors.grey,
