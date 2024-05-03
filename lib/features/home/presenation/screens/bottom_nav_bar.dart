@@ -44,6 +44,7 @@ class BottomNavBar extends StatelessWidget {
       title: ("Settings"),
       activeColorPrimary: AppColors.colorCategoryName,
       inactiveColorPrimary: Colors.grey,
+      onPressed: (p0) => navigate(context: context, route: Routes.settingScreen),
     ),
     PersistentBottomNavBarItem(
       icon: const Icon(

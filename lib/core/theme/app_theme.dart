@@ -17,9 +17,10 @@ ThemeData getAppTheme(BuildContext context) {
       //   displayLarge: boldStyle(color: AppColors.white),
       //   displayMedium: regularStyle(),
       // ),
+      
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-            side: const BorderSide(width: 1, color: Color(0xFF376091)),
+            side: const BorderSide(width: 1, color: Colors.transparent),// color: Color(0xFF376091)
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),

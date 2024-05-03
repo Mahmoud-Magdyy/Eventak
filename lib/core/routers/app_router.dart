@@ -6,6 +6,8 @@ import 'package:eventak/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_view_event.dart';
 import 'package:eventak/features/home/presenation/screens/bottom_nav_bar.dart';
 import 'package:eventak/features/on_borading/presentation/screens/on_boarding_view.dart';
+import 'package:eventak/features/setting/presentation/screens/privcy_screen.dart';
+import 'package:eventak/features/setting/presentation/screens/setting_screen.dart';
 import 'package:eventak/features/splash/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -81,6 +83,8 @@ class Routes {
   static const String forgetPassword = '/forgetPassword';
   static const String bottomNavBar = '/bottomNavBar';
   static const String passResetVerification = '/passResetVerification';
+  static const String privacyAndSecurity = '/privacyAndSecurity';
+  static const String settingScreen = '/settingScreen';
 }
 
 class AppRoutes {
@@ -92,8 +96,12 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const OnBoardingView());
       case Routes.signIn:
         return MaterialPageRoute(builder: (_) => const SignIn());
+      case Routes.privacyAndSecurity:
+        return MaterialPageRoute(builder: (_) => const PrivacyAndSecurity());
       case Routes.pageView:
         return MaterialPageRoute(builder: (_) => const PageViewEvent());
+      case Routes.settingScreen:
+        return MaterialPageRoute(builder: (_) => const SettingScreen());
       case Routes.passResetVerification:
         return MaterialPageRoute(builder: (_) => const PassResetVerification());
       case Routes.bottomNavBar:
