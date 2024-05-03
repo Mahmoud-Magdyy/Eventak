@@ -36,7 +36,11 @@ class SettingScreen extends StatelessWidget {
               image: Assets.imagesShieldLocked,
               title: "Privacy & Security",
             ),
-            const CustomListTile(
+             CustomListTile(
+              onTap: () {
+                navigate(
+                    context: context, route: Routes.languageScreen);
+              },
               image: Assets.imagesLanguage,
               title: "Language",
             ),
