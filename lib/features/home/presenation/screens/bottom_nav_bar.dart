@@ -3,6 +3,8 @@ import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_state.dart';
+import 'package:eventak/features/setting/presentation/screens/language_screen.dart';
+import 'package:eventak/features/setting/presentation/screens/privcy_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
@@ -18,44 +20,54 @@ class BottomNavBar extends StatelessWidget {
           context,
           screens: BlocProvider.of<HomeCubit>(context).screens,
           items: [
-    PersistentBottomNavBarItem(
-      icon: const Icon(Icons.home_outlined, size: 24),
-      title: ("Home"),
-      activeColorPrimary: AppColors.colorCategoryName,
-      inactiveColorPrimary: Colors.grey,
-    ),
-    PersistentBottomNavBarItem(
-      icon: const Icon(Icons.event_note_outlined, size: 24),
-      title: ("My Events"),
-      activeColorPrimary: AppColors.colorCategoryName,
-      inactiveColorPrimary: Colors.grey,
-    ),
-    PersistentBottomNavBarItem(
-      icon: const Icon(Icons.add_box_outlined, size: 24),
-      title: ("Create"),
-      onPressed: (p0) {
-        navigate(context: context, route: Routes.pageView);
-      },
-      activeColorPrimary: AppColors.colorCategoryName,
-      inactiveColorPrimary: Colors.grey,
-    ),
-    PersistentBottomNavBarItem(
-      icon: const Icon(Icons.settings_outlined, size: 24),
-      title: ("Settings"),
-      activeColorPrimary: AppColors.colorCategoryName,
-      inactiveColorPrimary: Colors.grey,
-      onPressed: (p0) => navigate(context: context, route: Routes.settingScreen),
-    ),
-    PersistentBottomNavBarItem(
-      icon: const Icon(
-        Icons.account_circle_outlined,
-        size: 24,
-      ),
-      title: ("profile"),
-      activeColorPrimary: AppColors.colorCategoryName,
-      inactiveColorPrimary: Colors.grey,
-    ),
-  ],
+            PersistentBottomNavBarItem(
+              icon: const Icon(Icons.home_outlined, size: 24),
+              title: ("Home"),
+              activeColorPrimary: AppColors.colorCategoryName,
+              inactiveColorPrimary: Colors.grey,
+            ),
+            PersistentBottomNavBarItem(
+              icon: const Icon(Icons.event_note_outlined, size: 24),
+              title: ("My Events"),
+              activeColorPrimary: AppColors.colorCategoryName,
+              inactiveColorPrimary: Colors.grey,
+            ),
+            PersistentBottomNavBarItem(
+              icon: const Icon(Icons.add_box_outlined, size: 24),
+              title: ("Create"),
+              onPressed: (p0) {
+                navigate(context: context, route: Routes.pageView);
+              },
+              activeColorPrimary: AppColors.colorCategoryName,
+              inactiveColorPrimary: Colors.grey,
+            ),
+            PersistentBottomNavBarItem(
+              
+              routeAndNavigatorSettings: RouteAndNavigatorSettings(
+                // initialRoute: "/",
+                routes: {
+                  Routes.privacyAndSecurity: (final context) =>
+                      const PrivacyAndSecurity(),
+                  Routes.languageScreen: (final context) =>
+                      const LanguageScreen(),
+                },
+              ),
+              icon: const Icon(Icons.settings_outlined, size: 24),
+              title: ("Settings"),
+              activeColorPrimary: AppColors.colorCategoryName,
+              inactiveColorPrimary: Colors.grey,
+              // onPressed: (p0) => navigate(context: context, route: Routes.settingScreen),
+            ),
+            PersistentBottomNavBarItem(
+              icon: const Icon(
+                Icons.account_circle_outlined,
+                size: 24,
+              ),
+              title: ("profile"),
+              activeColorPrimary: AppColors.colorCategoryName,
+              inactiveColorPrimary: Colors.grey,
+            ),
+          ],
           confineInSafeArea: true,
           backgroundColor: Colors.white, // Default is Colors.white.
           handleAndroidBackButtonPress: true, // Default is true.

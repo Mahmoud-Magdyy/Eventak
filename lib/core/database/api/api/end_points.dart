@@ -3,13 +3,17 @@ class EndPoint {
   static const String userSignIn = 'auth/signin';
   static const String userSignUp = 'auth/signup';
   static const String userSendCode = 'auth/forgetcode';
-  static const String userResetPassword= 'auth/resetPassword';
+  static const String userResetPassword= 'auth/resetPassword/';
   static const String createEvent= 'event/createEvent';
+  static const String receviedCode= 'auth/compareCode/';
  
 
-  // static String getChefDataEndPoints(id) {
-  //   return '$chefGet$id';
-  // }
+  static String recevedCodeEndPoints(id) {
+    return '$receviedCode$id';
+  }
+  static String userResetPasswordEndPoints(id) {
+    return '$userResetPassword$id';
+  }
 
   
   // static String getAllChefMeals(id) {
@@ -26,6 +30,7 @@ class Apikeys {
   static const String token = 'token';
   static const String userName = 'userName';
   static const String forgetCode = 'forgetCode';
+  
   //!create event
   static const String nameOfEvent = 'nameOfEvent';
   static const String description = 'description';

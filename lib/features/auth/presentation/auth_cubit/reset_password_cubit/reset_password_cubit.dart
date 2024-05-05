@@ -1,4 +1,8 @@
+import 'package:eventak/core/database/api/api/end_points.dart';
+import 'package:eventak/core/database/cache/cache_helper.dart';
+import 'package:eventak/core/services/service_locator.dart';
 import 'package:eventak/features/auth/data/models/pass_verefication_mode.dart';
+import 'package:eventak/features/auth/data/models/receved_code.dart';
 import 'package:eventak/features/auth/data/models/send_code_model.dart';
 import 'package:eventak/features/auth/data/reposatiry/auth_repository.dart';
 import 'package:eventak/features/auth/presentation/auth_cubit/reset_password_cubit/reset_password_state.dart';
@@ -39,7 +43,6 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
   TextEditingController emailForgetPasswordController = TextEditingController();
 
   SendCodeModel? sendCodeModel;
-  // login method
   void sendCode() async {
     emit(SendCodeLoadingState());
     final result = await authrepo.sendCode(
@@ -47,24 +50,37 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
     );
     result.fold((l) => emit(SendCodeErrorState(l)), (r) async {
       sendCodeModel = r;
+      await sl<CacheHelper>()
+          .saveData(key: Apikeys.id, value: r.id.toString());
       emit(SendCodeSuccessState(r.message));
+      // print(sendCodeModel!.i d);
+    });
+  }
+  //!receved code
+  RecevedCodeModel ? recevedCodeModel;
+  // String finalOtp;
+  void receivedCode(String forgetCode) async {
+    emit(RecevedCodeLoadingState());
+    final result = await authrepo.recevedCode(
+      forgetCode: forgetCode,
+
+    );
+    result.fold((l) => emit(RecevedCodeErrorState(l)), (r) async {
+      recevedCodeModel = r;
+      emit(RecevedCodeSuccessState(r.message));
     });
   }
 
-  //! reset password verification (code)
-  TextEditingController emailForgetPasswordCodeController =
-      TextEditingController();
+  //! reset password 
   TextEditingController forgetConfiremPasswordCodeController =
       TextEditingController();
   TextEditingController forgetPasswordCodeController = TextEditingController();
   PassVerificationModel? passVerificationModel;
-  void resetPasswrd(String forgetCode) async {
+  void resetPasswrd() async {
     emit(ResetPasswordCodeLoadingState());
     final result = await authrepo.resetPasswordCode(
-      email: emailForgetPasswordCodeController.text,
       confirmPassword: forgetConfiremPasswordCodeController.text,
-      forgetCode: forgetCode,
-      password: forgetPasswordCodeController.text,
+      password: forgetPasswordCodeController.text, 
     );
     result.fold((l) => emit(ResetPasswordCodeErrorState(l)), (r) async {
       passVerificationModel = r;

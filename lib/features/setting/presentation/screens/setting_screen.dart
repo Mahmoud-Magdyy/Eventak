@@ -30,16 +30,14 @@ class SettingScreen extends StatelessWidget {
             ),
             CustomListTile(
               onTap: () {
-                navigate(
-                    context: context, route: Routes.privacyAndSecurity);
+                navigate(context: context, route: Routes.privacyAndSecurity);
               },
               image: Assets.imagesShieldLocked,
               title: "Privacy & Security",
             ),
-             CustomListTile(
+            CustomListTile(
               onTap: () {
-                navigate(
-                    context: context, route: Routes.languageScreen);
+                navigate(context: context, route: Routes.languageScreen);
               },
               image: Assets.imagesLanguage,
               title: "Language",

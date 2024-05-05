@@ -59,7 +59,7 @@ class CustomSignInForm extends StatelessWidget {
                 ),
                 ForgetPasswordTextButton(
                   onPressed: () {
-                    navigate(context: context, route: Routes.forgetPassword);
+                    navigateReplacment(context: context, route: Routes.forgetPassword);
                   },
                 ),
                 const SizedBox(

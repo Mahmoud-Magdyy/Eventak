@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
           locale: Locale(BlocProvider.of<GlobalCubit>(context).langCode),
           initialRoute: Routes.initialRoute,
           onGenerateRoute: AppRoutes.generateRoute,
+          // onUnknownRoute: AppRoutes.unknownRoute,
           debugShowCheckedModeBanner: false,
           theme: getAppTheme(context),
         );

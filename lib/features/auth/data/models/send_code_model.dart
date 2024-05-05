@@ -2,8 +2,10 @@
 class SendCodeModel {
   final String status;
   final String message;
+  final String id;
 
-  SendCodeModel({
+  SendCodeModel( {
+    required this.id,
     required this.status,
     required this.message,
   });
@@ -11,6 +13,7 @@ class SendCodeModel {
     return SendCodeModel(
       status: jsonData['status'],
       message: jsonData['message'],
+      id: jsonData['id'],
     );
   }
 }

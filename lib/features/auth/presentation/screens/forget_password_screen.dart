@@ -46,8 +46,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                       ),
                       CustomBackButton(
                         onPressed: () {
-                          Navigator.pop(context);
-                          // customReplacementNavigate(context, '/SignIn');
+                          navigateReplacment(context: context, route: Routes.signIn);
                         },
                       ),
                       const SizedBox(

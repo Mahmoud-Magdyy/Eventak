@@ -14,7 +14,7 @@ class OptionalDescriptionFormField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'OPTIONAL DESCRIPTION',
+          'What Is Included In Price',
           style: AppStyles.styleSemiBold14(context),
         ),
         const SizedBox(
@@ -29,7 +29,7 @@ class OptionalDescriptionFormField extends StatelessWidget {
           height: 8,
         ),
         Text(
-          'Include Any Optional Description Or Details (For Example: All Photos Belong To The Organizer).',
+          'Tell About All The Things That Are Included In The Ticket Price.',
           style: AppStyles.styleMedium10(context).copyWith(
             color: const Color(0xFF8591A0),
           ),

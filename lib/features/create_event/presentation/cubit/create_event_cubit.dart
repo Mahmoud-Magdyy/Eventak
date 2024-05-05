@@ -100,29 +100,31 @@ class CreateEventCubit extends Cubit<CreateEventState> {
     checkBoxValue = value!;
     emit(ChangeCheckBoxSuccess());
   }
+  //!variablues
+  TextEditingController nameOfEvent = TextEditingController();
 
   //! create event method
   final CreateEventReposatiry createEventRepo;
 
   CreateEventModel? createEventModel;
   // register
-  // void createEvent() async {
-  //   emit(CretaeEventLoadingState());
-  //   final result = await createEventRepo.createEvent(
-  //     nameOfEvent: nameOfEvent,
-  //     description: description,
-  //     startTime: startTime,
-  //     endTime: endTime,
-  //     date: date,
-  //     category: category,
-  //     priceInAdvance: priceInAdvance,
-  //     priceAtTheDoor: priceAtTheDoor,
-  //     whatIsIncludedInPrice: whatIsIncludedInPrice,
-  //     orgShortDesc: orgShortDesc,
-  //   );
-  //   result.fold((l) => emit(CretaeEventErrorState(l)), (r) async {
-  //     createEventModel = r;
-  //     emit(CretaeEventSuccessgState());
-  //   });
-  // }
+  void createEvent() async {
+    emit(CretaeEventLoadingState());
+    final result = await createEventRepo.createEvent(
+      nameOfEvent: nameOfEvent.text,
+      description: description,
+      startTime: startTime,
+      endTime: endTime,
+      date: date,
+      category: category,
+      priceInAdvance: priceInAdvance,
+      priceAtTheDoor: priceAtTheDoor,
+      whatIsIncludedInPrice: whatIsIncludedInPrice,
+      orgShortDesc: orgShortDesc,
+    );
+    result.fold((l) => emit(CretaeEventErrorState(l)), (r) async {
+      createEventModel = r;
+      emit(CretaeEventSuccessgState());
+    });
+  }
 }

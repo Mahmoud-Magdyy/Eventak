@@ -26,3 +26,14 @@ final class ResetPasswordCodeSuccessState extends ResetPasswordState {
 
   ResetPasswordCodeSuccessState(this.message);
 }
+final class RecevedCodeLoadingState extends ResetPasswordState {}
+final class RecevedCodeErrorState extends ResetPasswordState {
+  final String message;
+
+  RecevedCodeErrorState(this.message);
+}
+final class RecevedCodeSuccessState extends ResetPasswordState {
+  final String message;
+
+  RecevedCodeSuccessState(this.message);
+}
