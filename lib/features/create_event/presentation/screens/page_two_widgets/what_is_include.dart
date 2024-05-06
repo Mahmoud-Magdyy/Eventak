@@ -5,8 +5,8 @@ import 'package:eventak/features/create_event/presentation/cubit/create_event_st
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class NameOfLocation extends StatelessWidget {
-  const NameOfLocation({
+class WhatsIsIncludeFormField extends StatelessWidget {
+  const WhatsIsIncludeFormField({
     super.key,
   });
 
@@ -18,15 +18,25 @@ class NameOfLocation extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'NAME OF LOCATION',
+              'What Is Included In Price',
               style: AppStyles.styleSemiBold14(context),
             ),
             const SizedBox(
               height: 8,
             ),
             CustomTextFormField(
-              controller: context.read<CreateEventCubit>().nameOfLocationController,
-              hint: 'NAME OF LOCATION',
+              maxLines: 4,
+              hint: 'Start Typing...',
+              controller: context.read<CreateEventCubit>().whatIsIncludedInPriceController,
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            Text(
+              'Tell About All The Things That Are Included In The Ticket Price.',
+              style: AppStyles.styleMedium10(context).copyWith(
+                color: const Color(0xFF8591A0),
+              ),
             ),
           ],
         );

@@ -30,6 +30,9 @@ class Apikeys {
   static const String token = 'token';
   static const String userName = 'userName';
   static const String forgetCode = 'forgetCode';
+  static const String status = 'status';
+  static const String data = 'data';
+  static const String numberOfEvents = 'numberOfEvents';
   
   //!create event
   static const String nameOfEvent = 'nameOfEvent';
@@ -42,7 +45,10 @@ class Apikeys {
   static const String priceAtTheDoor = 'priceAtTheDoor';
   static const String whatIsIncludedInPrice = 'whatIsIncludedInPrice';
   static const String orgShortDesc = 'orgShortDesc';
-  // static const String location = 'location';
+  static const String location = 'location';
+  static const String nameOfLocation = 'nameOfLocation';
+  static const String street = 'street';
+  static const String district = 'district';
   
 
   

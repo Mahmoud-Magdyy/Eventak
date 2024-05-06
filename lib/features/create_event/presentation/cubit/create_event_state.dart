@@ -22,5 +22,9 @@ final class CretaeEventErrorState extends CreateEventState {
 
   CretaeEventErrorState(this.message);
 }
-final class CretaeEventSuccessgState extends CreateEventState {}
+final class CretaeEventSuccessState extends CreateEventState {
+  final String message;
+
+  CretaeEventSuccessState(this.message);
+}
 

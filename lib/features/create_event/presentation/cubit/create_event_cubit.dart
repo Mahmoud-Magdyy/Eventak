@@ -8,7 +8,7 @@ import 'package:intl/intl.dart';
 import 'create_event_state.dart';
 
 class CreateEventCubit extends Cubit<CreateEventState> {
-  CreateEventCubit(this.createEventRepo) : super(CreateEventInitial());
+  CreateEventCubit(this.createEventRepo, this.category) : super(CreateEventInitial());
   XFile? image;
   XFile? profileImage;
   int page = 0;
@@ -23,6 +23,7 @@ class CreateEventCubit extends Cubit<CreateEventState> {
   }
 
   //!date
+  TextEditingController dateController = TextEditingController();
   DateTime currentDate = DateTime.now();
   DateTime selectedDate = DateTime.now();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -35,7 +36,7 @@ class CreateEventCubit extends Cubit<CreateEventState> {
         lastDate: DateTime(2100));
 
     if (pickedDate != null) {
-      currentDate = pickedDate;
+      dateController.text = pickedDate.toString().split(" ")[0];
       emit(GetDateSuccess());
     } else {
       // print('pickedDate==null');
@@ -44,6 +45,8 @@ class CreateEventCubit extends Cubit<CreateEventState> {
   }
 
   //!time
+  TextEditingController statrTimeOfEventController = TextEditingController();
+  TextEditingController endTimeOfEventController = TextEditingController();
   String startTime = DateFormat('hh:mm a').format(DateTime.now());
 
   String endTime = DateFormat('hh:mm a')
@@ -56,7 +59,7 @@ class CreateEventCubit extends Cubit<CreateEventState> {
     );
 
     if (pickedStartTime != null) {
-      startTime = pickedStartTime.format(context);
+      statrTimeOfEventController.text = pickedStartTime.format(context).toString();
       // print(startTime);
       emit(GetStartDateSuccess());
     } else {
@@ -73,7 +76,7 @@ class CreateEventCubit extends Cubit<CreateEventState> {
     );
 
     if (pickedEndTime != null) {
-      endTime = pickedEndTime.format(context);
+      endTimeOfEventController.text = pickedEndTime.format(context).toString();
       // print(endTime);
       emit(GetEndDateSuccess());
     } else {
@@ -86,12 +89,12 @@ class CreateEventCubit extends Cubit<CreateEventState> {
   late String dropDownValue;
   List<DropdownMenuItem<dynamic>>? items = [
     const DropdownMenuItem(
-      value: 'one',
-      child: Text('one'),
+      value: 'Education',
+      child: Text('Education'),
     ),
     const DropdownMenuItem(
-      value: 'two',
-      child: Text('two'),
+      value: 'Music',
+      child: Text('Music'),
     ),
   ];
   //!check box
@@ -101,8 +104,18 @@ class CreateEventCubit extends Cubit<CreateEventState> {
     emit(ChangeCheckBoxSuccess());
   }
   //!variablues
-  TextEditingController nameOfEvent = TextEditingController();
-
+  TextEditingController nameOfEventController = TextEditingController();
+  TextEditingController dateOfEventController = TextEditingController();
+  TextEditingController descriptionOfEventController = TextEditingController();
+  TextEditingController priceInAdvanceOfEventController = TextEditingController();
+  TextEditingController priceAtTheDoorOfEventController = TextEditingController();
+  TextEditingController whatIsIncludedInPriceController = TextEditingController();
+  TextEditingController districtController = TextEditingController();
+  TextEditingController nameOfLocationController = TextEditingController();
+  TextEditingController orgShortDescController = TextEditingController();
+  TextEditingController streetController = TextEditingController();
+  late String category;
+  
   //! create event method
   final CreateEventReposatiry createEventRepo;
 
@@ -111,20 +124,24 @@ class CreateEventCubit extends Cubit<CreateEventState> {
   void createEvent() async {
     emit(CretaeEventLoadingState());
     final result = await createEventRepo.createEvent(
-      nameOfEvent: nameOfEvent.text,
-      description: description,
-      startTime: startTime,
-      endTime: endTime,
-      date: date,
+      district: districtController.text,
+      nameOfLocation:nameOfLocationController.text ,
+      orgShortDesc:orgShortDescController.text ,
+      street: streetController.text,
+      nameOfEvent: nameOfEventController.text,
+      description: descriptionOfEventController.text,
+      startTime: statrTimeOfEventController.text,
+      endTime: endTimeOfEventController.text,
+      date: dateController.text,
       category: category,
-      priceInAdvance: priceInAdvance,
-      priceAtTheDoor: priceAtTheDoor,
-      whatIsIncludedInPrice: whatIsIncludedInPrice,
-      orgShortDesc: orgShortDesc,
+      priceInAdvance: priceInAdvanceOfEventController.text,
+      priceAtTheDoor: priceAtTheDoorOfEventController.text,
+      whatIsIncludedInPrice: whatIsIncludedInPriceController.text,
+
     );
     result.fold((l) => emit(CretaeEventErrorState(l)), (r) async {
       createEventModel = r;
-      emit(CretaeEventSuccessgState());
+      emit(CretaeEventSuccessState(r.status));
     });
   }
 }

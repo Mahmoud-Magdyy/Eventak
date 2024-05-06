@@ -1,16 +1,16 @@
 
 class CreateEventModel {
   final String status;
-  final String message;
+  final Map<String,dynamic> data;
 
   CreateEventModel({
     required this.status,
-    required this.message,
+    required this.data,
   });
   factory CreateEventModel.fromJson(Map jsonData) {
     return CreateEventModel(
       status: jsonData['status'],
-      message: jsonData['message'],
+      data: jsonData['data'],
     );
   }
 }

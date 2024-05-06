@@ -25,7 +25,7 @@ class NameOfEvent extends StatelessWidget {
               height: 8,
             ), //Name Of Event
             CustomTextFormField(
-              controller: TextEditingController(),
+              controller: context.read<CreateEventCubit>().nameOfEventController,
               hint: 'E.G Miniproject',
             ),
             const SizedBox(

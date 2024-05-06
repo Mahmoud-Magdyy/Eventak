@@ -23,21 +23,27 @@ class CategoryDrowpDown extends StatelessWidget {
           height: 4,
         ),
         DropdownButtonFormField(
-            icon: const Icon(
-                Icons.keyboard_arrow_down_outlined),
+            icon: const Icon(Icons.keyboard_arrow_down_outlined),
             hint: Text(
               'Hobbies & Interests',
               style: AppStyles.styleMedium16(context)
                   .copyWith(color: const Color(0xff7091B9)),
             ),
             items: createCubit.items,
+            
             onChanged: (value) {
               createCubit.dropDownValue = value;
+              createCubit.category=value;
             }),
-            const SizedBox(height: 8,),
-            Text('Choose A Category From Our List Match With The Type Of Your Event.',style:  AppStyles.styleMedium10(context).copyWith(
+        const SizedBox(
+          height: 8,
+        ),
+        Text(
+          'Choose A Category From Our List Match With The Type Of Your Event.',
+          style: AppStyles.styleMedium10(context).copyWith(
             color: const Color(0xFF8591A0),
-          ),)
+          ),
+        )
       ],
     );
   }

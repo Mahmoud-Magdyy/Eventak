@@ -26,7 +26,17 @@ class _PageViewEventState extends State<PageViewEvent> {
         padding: const EdgeInsets.all(16),
         child: SafeArea(
           child: BlocConsumer<CreateEventCubit, CreateEventState>(
-            listener: (context, state) {},
+            listener: (context, state) {
+              if (state is CretaeEventSuccessState) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(const SnackBar(content: Text('Success')));
+          // navigateReplacment(context: context, route: Routes.signIn);
+          
+        } else if (state is CretaeEventErrorState) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(const SnackBar(content: Text('Error')));
+        }
+            },
             builder: (context, state) {
               final CreateEventCubit createCubit =
                   BlocProvider.of<CreateEventCubit>(context);
@@ -55,21 +65,26 @@ class _PageViewEventState extends State<PageViewEvent> {
                         physics: const NeverScrollableScrollPhysics(),
                         itemCount: screens.length,
                         itemBuilder: (context, index) {
-                          createCubit.page=index;
+                          createCubit.page = index;
                           return screens[index];
                         },
                         controller: controller,
                       ),
                     ),
                     // const Expanded(child: SizedBox()),
-                    CustomElevetedButton(
-                        background: createCubit.checkBoxValue != true
-                            ? Colors.grey
-                            : AppColors.primaryColor,
-                        onPressed: () {
-                          
-                        },
-                        text: 'Publish'),
+                    state is CretaeEventLoadingState
+                        ? const Center(
+                            child: CircularProgressIndicator(
+                            color: AppColors.primaryColor,
+                          ))
+                        : CustomElevetedButton(
+                            background: createCubit.checkBoxValue != true
+                                ? Colors.grey
+                                : AppColors.primaryColor,
+                            onPressed: () {
+                              createCubit.createEvent();
+                            },
+                            text: 'Publish'),
                   ],
                 ),
               );

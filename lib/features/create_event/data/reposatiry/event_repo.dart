@@ -16,11 +16,23 @@ class CreateEventReposatiry {
     required String priceInAdvance,
     required String priceAtTheDoor,
     required String whatIsIncludedInPrice,
+    required String nameOfLocation,
+    required String street,
+    required String district,
     required String orgShortDesc,
+
+
+    
   }) async {
     try {
-      final response = await sl<ApiConsumer>().post(EndPoint.createEvent, data: {
+      final response =
+          await sl<ApiConsumer>().post(EndPoint.createEvent, data: {
         Apikeys.nameOfEvent: nameOfEvent,
+        Apikeys.location: {
+          Apikeys.nameOfLocation: nameOfLocation,
+          Apikeys.street: street,
+          Apikeys.district: district
+        },
         Apikeys.description: description,
         Apikeys.startTime: startTime,
         Apikeys.endTime: endTime,
@@ -29,12 +41,7 @@ class CreateEventReposatiry {
         Apikeys.priceInAdvance: priceInAdvance,
         Apikeys.priceAtTheDoor: priceAtTheDoor,
         Apikeys.whatIsIncludedInPrice: whatIsIncludedInPrice,
-        Apikeys.orgShortDesc: orgShortDesc,
-        "location": {
-          "nameOfLocation": "egypt",
-          "street": "al andalus",
-          "district": "8"
-        },
+        Apikeys.orgShortDesc: orgShortDesc
       });
       return Right(CreateEventModel.fromJson(response));
     } on ServerException catch (error) {

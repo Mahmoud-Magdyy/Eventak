@@ -17,25 +17,27 @@ class CreateEventPageFour extends StatelessWidget {
       builder: (context, state) {
         final CreateEventCubit createCubit =
             BlocProvider.of<CreateEventCubit>(context);
-        return Column(
-          children: [
-            const SizedBox(
-              height: 24,
-            ),
-            const Organizer(),
-            const SizedBox(
-              height: 24,
-            ),
-            const ProfilePicture(),
-            const SizedBox(
-              height: 24,
-            ),
-            const ShortDescription(),
-            const SizedBox(
-              height: 16,
-            ),
-            CheckBox(createCubit: createCubit)
-          ],
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 24,
+              ),
+              const Organizer(),
+              const SizedBox(
+                height: 24,
+              ),
+              const ProfilePicture(),
+              const SizedBox(
+                height: 24,
+              ),
+              const ShortDescription(),
+              const SizedBox(
+                height: 16,
+              ),
+              CheckBox(createCubit: createCubit)
+            ],
+          ),
         );
       },
     );
