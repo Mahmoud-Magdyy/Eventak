@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 class CustomListTileTitmeOfEvent extends StatelessWidget {
   const CustomListTileTitmeOfEvent({
     super.key,
-    required this.textTitle,
-    this.textSubTitle,
+    required this.textTitle, required this.startTime, required this.endTime,
   });
   final String textTitle;
-  final String? textSubTitle;
+  final String startTime;
+  final String endTime;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -30,8 +30,15 @@ class CustomListTileTitmeOfEvent extends StatelessWidget {
           children: [
             Text(textTitle,
                 style: AppStyles.styleMedium8(context).copyWith(fontSize: 8)),
-            Text(textSubTitle ?? '',
-                style: AppStyles.styleMedium8(context).copyWith(fontSize: 8)),
+            Row(
+              children: [
+                Text(startTime ,
+                    style: AppStyles.styleMedium8(context).copyWith(fontSize: 8)),
+                     Text(' - ',style: AppStyles.styleMedium6(context),),
+                Text(endTime ,
+                    style: AppStyles.styleMedium8(context).copyWith(fontSize: 8)),
+              ],
+            ),
           ],
         )
       ],

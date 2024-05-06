@@ -6,6 +6,7 @@ class EndPoint {
   static const String userResetPassword= 'auth/resetPassword/';
   static const String createEvent= 'event/createEvent';
   static const String receviedCode= 'auth/compareCode/';
+  static const String getAllEvents= 'event/getAllEvents';
  
 
   static String recevedCodeEndPoints(id) {

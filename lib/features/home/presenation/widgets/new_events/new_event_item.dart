@@ -1,4 +1,5 @@
-import 'package:eventak/features/home/data/model/new_event_model.dart';
+import 'package:eventak/core/utils/app_images.dart';
+import 'package:eventak/features/home/data/model/all_event_model.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/left_new_event/final_image_and_dec.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/right_new_event/final_dec_of_new_event_right.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/new_event_details_screen.dart';
@@ -7,9 +8,11 @@ import 'package:flutter/material.dart';
 class NewEeventItem extends StatelessWidget {
   const NewEeventItem({
     super.key,
-    required this.newEventModel,
+    required this.allEventModel,
+    // required this.newEventModel,
   });
-  final NewEventModel newEventModel;
+  // final NewEventModel newEventModel;
+  final AllEventModel allEventModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,8 +20,11 @@ class NewEeventItem extends StatelessWidget {
       height: 262,
       padding: const EdgeInsets.all(8),
       decoration: ShapeDecoration(
-        image: DecorationImage(
-          image: AssetImage(newEventModel.imageEvent),
+        image: const DecorationImage(
+          image: AssetImage(
+            Assets.imagesBackgroundContainer,
+            // newEventModel.imageEvent
+          ),
           fit: BoxFit.fill,
           opacity: 0.10,
         ),
@@ -29,34 +35,36 @@ class NewEeventItem extends StatelessWidget {
       child: Stack(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               GestureDetector(
                 onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => NewEeventDetails(
-                            newEventModel: newEventModel,
+                      builder: (context) => const NewEeventDetails(
+                          // newEventModel: newEventModel,
                           )),
                 ),
                 child: ImageAndDecOfNewEventLeft(
-                    dateDay: newEventModel.dateDay,
-                    monthDay: newEventModel.monthDay,
-                    categoryIcon: newEventModel.categoryIcon,
-                    imageEvent: newEventModel.imageEvent,
-                    textOfNewEvent: newEventModel.textOfNewEvent,
-                    nameOfCategoryEvent: newEventModel.nameOfCategoryEvent),
+                    dateDay: allEventModel.date,
+                    monthDay: allEventModel.date,
+                    // categoryIcon: newEventModel.categoryIcon,
+                    // imageEvent: newEventModel.imageEvent,
+                    textOfNewEvent: allEventModel.description,
+                    nameOfCategoryEvent: allEventModel.category),
               ),
-              const SizedBox(
-                width: 8,
-              ),
+              // const SizedBox(
+              //   width: 8,
+              // ),
               DecOfNewEventRight(
-                nameOfEvent: newEventModel.nameOfEvent,
-                titleDateOfTicket: newEventModel.titleDateOfTicket,
-                subTitleDateOfTicket: newEventModel.subTitleDateOfTicket,
-                titleLocationOfEvent: newEventModel.titleLocationOfEvent,
-                subTitleLocationOfEvent: newEventModel.subTitleLocationOfEvent,
-                titlePriceOfEvent: newEventModel.titlePriceOfEvent,
-                subTitlePriceOfEvent: newEventModel.subTitlePriceOfEvent,
+                nameOfEvent: allEventModel.nameOfEvent,
+                titleDateOfTicket: allEventModel.date,
+                startTimeOfEvent: allEventModel.startTime,
+                endTimeOfEvent: allEventModel.endTime,
+                titleLocationOfEvent: allEventModel.location['street'],
+                subTitleLocationOfEvent: allEventModel.location['nameOfLocation'],
+                titlePriceOfEvent: allEventModel.priceInAdvance,
+                subTitlePriceOfEvent: allEventModel.priceAtTheDoor,
               )
             ],
           )

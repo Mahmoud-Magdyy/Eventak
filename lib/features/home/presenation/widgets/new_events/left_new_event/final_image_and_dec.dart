@@ -1,3 +1,4 @@
+import 'package:eventak/core/utils/app_images.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/left_new_event/date_of_event_in_image.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/left_new_event/text_of_event.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/left_new_event/translate_icon_and_text.dart';
@@ -8,15 +9,15 @@ class ImageAndDecOfNewEventLeft extends StatelessWidget {
     super.key,
     required this.dateDay,
     required this.monthDay,
-    required this.categoryIcon,
-    required this.imageEvent,
+    // required this.categoryIcon,
+    // required this.imageEvent,
     required this.textOfNewEvent,
     required this.nameOfCategoryEvent,
   });
   final String dateDay;
   final String monthDay;
-  final IconData categoryIcon;
-  final String imageEvent;
+  // final IconData categoryIcon;
+  // final String imageEvent;
   final String textOfNewEvent;
   final String nameOfCategoryEvent;
 
@@ -25,7 +26,16 @@ class ImageAndDecOfNewEventLeft extends StatelessWidget {
     return Column(
       children: [
         Stack(children: [
-          Image.asset(imageEvent),
+          SizedBox(
+            width: 176,
+            height: 158,
+            child: FittedBox(
+              child: Image.asset(
+                Assets.imagesOn1,
+                // imageEvent
+              ),
+            ),
+          ),
           Positioned(
             top: 0,
             left: 0,
@@ -38,7 +48,8 @@ class ImageAndDecOfNewEventLeft extends StatelessWidget {
               bottom: 0,
               right: 0,
               child: TranslateIconInNewEventImage(
-                categoryIcon: categoryIcon,
+                categoryIcon: Icons.track_changes,
+                //  categoryIcon,
                 nameOfCategoryEvent: nameOfCategoryEvent,
               ))
         ]),

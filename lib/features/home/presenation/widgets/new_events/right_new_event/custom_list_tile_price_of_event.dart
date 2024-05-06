@@ -6,10 +6,10 @@ class CustomListTilePriceOfEvent extends StatelessWidget {
   const CustomListTilePriceOfEvent({
     super.key,
     required this.textTitle,
-    this.textSubTitle,
+  required  this.textSubTitle,
   });
   final String textTitle;
-  final String? textSubTitle;
+  final String textSubTitle;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -28,9 +28,9 @@ class CustomListTilePriceOfEvent extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(textTitle,
+            Text('\$$textTitle In Advance',
                 style: AppStyles.styleMedium8(context).copyWith(fontSize: 8)),
-            Text(textSubTitle ?? '',
+            Text('\$$textSubTitle In Advance',
                 style: AppStyles.styleMedium8(context).copyWith(fontSize: 8)),
           ],
         )

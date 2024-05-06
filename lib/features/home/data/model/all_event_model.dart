@@ -12,9 +12,9 @@ class AllEventModel {
   final String priceAtTheDoor;
   final String whatIsIncludedInPrice;
   final String orgShortDesc;
-  final Map<String,dynamic> location;
+  final Map<String, dynamic> location;
 
-  AllEventModel( 
+  AllEventModel(
       {required this.id,
       required this.nameOfEvent,
       required this.location,
@@ -30,9 +30,11 @@ class AllEventModel {
 
   factory AllEventModel.fromJson(Map<String, dynamic> json) {
     return AllEventModel(
-      location:Map<String,dynamic>.from(json['location']) ,
+      location: Map<String, dynamic>.from(
+        json['location']
+        ),
       id: json['_id'],
-      nameOfEvent: json['_id'],
+      nameOfEvent: json['nameOfEvent'],
       description: json['description'],
       date: json['date'],
       startTime: json['startTime'],
@@ -42,6 +44,23 @@ class AllEventModel {
       priceAtTheDoor: json['priceAtTheDoor'],
       whatIsIncludedInPrice: json['whatIsIncludedInPrice'],
       orgShortDesc: json['orgShortDesc'],
+    );
+  }
+}
+
+class LocationModel {
+  final String nameOfLocation;
+  final String street;
+  final String district;
+  LocationModel(
+      {required this.nameOfLocation,
+      required this.street,
+      required this.district});
+  factory LocationModel.fromJson(Map<String, dynamic> json) {
+    return LocationModel(
+      nameOfLocation: json['nameOfLocation'],
+      street: json['street'],
+      district: json['district'],
     );
   }
 }

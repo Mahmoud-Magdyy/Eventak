@@ -26,7 +26,7 @@ void main() async {
                 create: (context) => sl<GlobalCubit>()..getCachedLang(),
               ),
               BlocProvider(
-                create: (context) => sl<HomeCubit>(),
+                create: (context) => sl<HomeCubit>()..getAllEvents(),
               ),
               BlocProvider(
                 create: (context) => sl<CreateEventCubit>(),

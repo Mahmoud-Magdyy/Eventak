@@ -23,12 +23,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   
 
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: BlocConsumer<RegisterCubit, RegisterState>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          return Scaffold(
-            body: Padding(
+    return BlocConsumer<RegisterCubit, RegisterState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        return Scaffold(
+          body: SafeArea(
+            child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 26),
               child: SingleChildScrollView(
                 child: Column(
@@ -73,9 +73,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

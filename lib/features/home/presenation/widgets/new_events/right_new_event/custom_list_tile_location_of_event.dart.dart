@@ -6,10 +6,10 @@ class CustomListTileLocationOfEvent extends StatelessWidget {
   const CustomListTileLocationOfEvent({
     super.key,
     required this.textTitle,
-    this.textSubTitle,
+    required this.textSubTitle,
   });
   final String textTitle;
-  final String? textSubTitle;
+  final String textSubTitle;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -29,8 +29,12 @@ class CustomListTileLocationOfEvent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(textTitle,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: AppStyles.styleMedium8(context).copyWith(fontSize: 8)),
-            Text(textSubTitle ?? '',
+            Text(textSubTitle,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
                 style: AppStyles.styleMedium8(context).copyWith(fontSize: 8)),
           ],
         )

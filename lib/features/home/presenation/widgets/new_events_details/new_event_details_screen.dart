@@ -9,7 +9,7 @@ import 'package:eventak/features/home/presenation/widgets/new_events_details/wid
 import 'package:flutter/material.dart';
 
 class NewEeventDetails extends StatelessWidget {
-  const NewEeventDetails({super.key, required this.newEventModel});
+  const NewEeventDetails({super.key, this.newEventModel});
   final NewEventModel? newEventModel;
   @override
   Widget build(BuildContext context) {

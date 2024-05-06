@@ -1,6 +1,7 @@
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class DateOfNewEvent extends StatelessWidget {
   const DateOfNewEvent({
@@ -24,9 +25,11 @@ class DateOfNewEvent extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            dayDate,
-            style: AppStyles.styleSemiBold10(context),
+          FittedBox(
+            child: Text(
+              dayDate,
+              style: AppStyles.styleSemiBold10(context),
+            ),
           ),
           Text(
             monthDate,
