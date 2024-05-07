@@ -5,6 +5,7 @@ import 'package:eventak/features/auth/presentation/screens/reset_password_screen
 import 'package:eventak/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_view_event.dart';
 import 'package:eventak/features/home/presenation/screens/bottom_nav_bar.dart';
+import 'package:eventak/features/home/presenation/widgets/search/presentation/screens/search.dart';
 import 'package:eventak/features/on_borading/presentation/screens/on_boarding_view.dart';
 import 'package:eventak/features/setting/presentation/screens/language_screen.dart';
 import 'package:eventak/features/setting/presentation/screens/privcy_screen.dart';
@@ -87,6 +88,7 @@ class Routes {
   static const String privacyAndSecurity = '/privacyAndSecurity';
   static const String settingScreen = '/settingScreen';
   static const String languageScreen= '/languageScreen';
+  static const String searchScreen= '/searchScreen';
 }
 
 class AppRoutes {
@@ -100,6 +102,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const SignIn());
       case Routes.languageScreen:
         return MaterialPageRoute(builder: (_) => const LanguageScreen());
+      case Routes.searchScreen:
+        return MaterialPageRoute(builder: (_) => const SearchScreen());
       case Routes.privacyAndSecurity:
         return MaterialPageRoute(builder: (_) => const PrivacyAndSecurity());
       case Routes.pageView:

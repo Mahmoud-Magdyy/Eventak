@@ -1,3 +1,5 @@
+import 'package:eventak/core/functions/navigate.dart';
+import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -17,7 +19,7 @@ class CustomHomeAppBar extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                
+                navigate(context: context, route: Routes.searchScreen);
               },
               borderRadius: BorderRadius.circular(16),
               child: const Icon(
