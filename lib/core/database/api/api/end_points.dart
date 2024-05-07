@@ -1,3 +1,4 @@
+
 class EndPoint {
   static const String baseUrl = 'https://eventak.onrender.com/';
   static const String userSignIn = 'auth/signin';
@@ -6,7 +7,7 @@ class EndPoint {
   static const String userResetPassword= 'auth/resetPassword/';
   static const String createEvent= 'event/createEvent';
   static const String receviedCode= 'auth/compareCode/';
-  static const String getAllEvents= 'event/getAllEvents';
+  static const String getAllEvents= 'event/getAllEvents?category=Music';
  
 
   static String recevedCodeEndPoints(id) {
@@ -14,6 +15,9 @@ class EndPoint {
   }
   static String userResetPasswordEndPoints(id) {
     return '$userResetPassword$id';
+  }
+  static String getAllEventsEndPoints(category) {
+    return '$getAllEvents${'?category=$category'}';
   }
 
   

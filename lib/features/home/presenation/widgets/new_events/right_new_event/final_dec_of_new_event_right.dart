@@ -34,7 +34,7 @@ class DecOfNewEventRight extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 195,
+      width: 180,
       height: 246,
       child: FittedBox(
         fit: BoxFit.scaleDown,

@@ -12,6 +12,8 @@ import 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this.getAllEventsRepo) : super(HomeInitial());
+String onTapCategoryName = '';
+bool isSelected = false;
   List<Widget> screens = [
     const HomeScreen(),
     const MyEvents(),
@@ -27,9 +29,9 @@ class HomeCubit extends Cubit<HomeState> {
   //! get all events
   List<AllEventModel> events = [];
   final GetAllEventsReposatiry getAllEventsRepo;
-  void getAllEvents() async {
+  void getAllEvents({String? categoryName}) async {
     emit(GetAllEventsLoadingState());
-    final result = await getAllEventsRepo.getAllEvents();
+    final result = await getAllEventsRepo.getAllEvents(categoryName: categoryName);
     result.fold((l) => emit(GetAllEventsErrorState(l)), (r) {
       events = r.data;
       emit(GetAllEventsSuccessState(message: r.status));

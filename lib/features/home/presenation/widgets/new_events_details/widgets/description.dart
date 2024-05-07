@@ -22,10 +22,15 @@ class Description extends StatelessWidget {
         ),
         SizedBox(
           height: 100,
-          child: Text(
-            description,
-            style: AppStyles.styleMedium14(context)
-                .copyWith(color: const Color(0xFF676765)),
+          child: FittedBox(
+            alignment: Alignment.topLeft,
+            fit: BoxFit.scaleDown,
+            child: Text(
+              overflow: TextOverflow.ellipsis,
+              description,
+              style: AppStyles.styleMedium14(context)
+                  .copyWith(color: const Color(0xFF676765)),
+            ),
           ),
         )
       ],

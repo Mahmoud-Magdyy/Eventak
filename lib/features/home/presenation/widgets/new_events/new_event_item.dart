@@ -41,8 +41,8 @@ class NewEeventItem extends StatelessWidget {
                 onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const NewEeventDetails(
-                          // newEventModel: newEventModel,
+                      builder: (context) =>  NewEeventDetails(
+                         allEventModel: allEventModel,
                           )),
                 ),
                 child: ImageAndDecOfNewEventLeft(
