@@ -12,12 +12,14 @@ class CategoryItem extends StatelessWidget {
 
   final CategoryItemModel categoryItemModel;
   final Function(String) onTap;
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return GestureDetector(
           onTap: () {
+            //passing name of category to listview
             onTap(categoryItemModel.nameCategory);
           },
           child: Container(
@@ -25,9 +27,7 @@ class CategoryItem extends StatelessWidget {
             height: 32,
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             decoration: ShapeDecoration(
-              color: context.read<HomeCubit>().isSelected
-                  ? AppColors.grey
-                  : AppColors.backgroundCategory,
+              color: AppColors.backgroundCategory,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(4)),
             ),

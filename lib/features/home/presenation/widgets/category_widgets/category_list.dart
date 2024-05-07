@@ -10,7 +10,9 @@ class CategoryItemListView extends StatelessWidget {
   static const items = [
     CategoryItemModel(nameCategory: 'Music', icon: Icons.music_note),
     CategoryItemModel(nameCategory: 'Education', icon: Icons.music_note),
+    CategoryItemModel(nameCategory: 'Sports', icon: Icons.sports_baseball),
   ];
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
@@ -25,7 +27,7 @@ class CategoryItemListView extends StatelessWidget {
                     child: CategoryItem(
                   categoryItemModel: items[index],
                   onTap: (categoryName) {
-                    // context.read<HomeCubit>().onTapCategoryName=categoryName;
+                    // if he click on the same category then it will be empty
                     if (context.read<HomeCubit>().onTapCategoryName ==
                         categoryName) {
                       context.read<HomeCubit>().onTapCategoryName = '';
@@ -33,6 +35,7 @@ class CategoryItemListView extends StatelessWidget {
                       context.read<HomeCubit>().onTapCategoryName =
                           categoryName;
                     }
+                    //passing name of category to get method to get all events or all events of name category
                     context.read<HomeCubit>().getAllEvents(
                         categoryName:
                             context.read<HomeCubit>().onTapCategoryName);
