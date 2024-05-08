@@ -16,29 +16,37 @@ class BottomNavBar extends StatelessWidget {
               .read<HomeCubit>()
               .screens[context.read<HomeCubit>().currenIndex],
           bottomNavigationBar: BottomNavigationBar(
-            elevation: 0,
+            iconSize: 24,
+            // elevation: 0,
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-               icon: Icon(Icons.home_outlined, size: 24),
+                icon: Icon(
+                  Icons.home_outlined,
+                ),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.event_note_outlined, size: 24),
+                icon: Icon(
+                  Icons.event_note_outlined,
+                ),
                 label: 'My Events',
               ),
               BottomNavigationBarItem(
-               icon: Icon(Icons.add_box_outlined, size: 24),
+                icon: Icon(
+                  Icons.add_box_outlined,
+                ),
                 label: 'Add',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.settings_outlined, size: 24),
+                icon: Icon(
+                  Icons.settings_outlined,
+                ),
                 label: 'Settings',
               ),
               BottomNavigationBarItem(
                 icon: Icon(
-                Icons.account_circle_outlined,
-                size: 24,
-              ),
+                  Icons.account_circle_outlined,
+                ),
                 label: 'Profile',
               ),
             ],
@@ -48,6 +56,7 @@ class BottomNavBar extends StatelessWidget {
             unselectedItemColor: Colors.grey,
             mouseCursor: MouseCursor.defer,
             type: BottomNavigationBarType.fixed,
+
             onTap: (value) {
               context.read<HomeCubit>().changeIndex(value);
             },
@@ -63,7 +72,7 @@ class BottomNavBar extends StatelessWidget {
         //   items: [
         //     PersistentBottomNavBarItem(
               
-        //       icon: const Icon(Icons.home_outlined, size: 24),
+        //       icon: const Icon(Icons.home_outlined, ),
         //       title: ("Home"),
         //       activeColorPrimary: AppColors.colorCategoryName,
         //       inactiveColorPrimary: Colors.grey,
@@ -85,13 +94,13 @@ class BottomNavBar extends StatelessWidget {
         //       ),
         //     ),
         //     PersistentBottomNavBarItem(
-        //       icon: const Icon(Icons.event_note_outlined, size: 24),
+        //       icon: const Icon(Icons.event_note_outlined, ),
         //       title: ("My Events"),
         //       activeColorPrimary: AppColors.colorCategoryName,
         //       inactiveColorPrimary: Colors.grey,
         //     ),
         //     PersistentBottomNavBarItem(
-        //       icon: const Icon(Icons.add_box_outlined, size: 24),
+        //       icon: const Icon(Icons.add_box_outlined, ),
         //       title: ("Create"),
         //       onPressed: (p0) {
         //         navigate(context: context, route: Routes.pageView);
@@ -110,7 +119,7 @@ class BottomNavBar extends StatelessWidget {
         //               const LanguageScreen(),
         //         },
         //       ),
-        //       icon: const Icon(Icons.settings_outlined, size: 24),
+        //       icon: const Icon(Icons.settings_outlined, ),
         //       title: ("Settings"),
         //       activeColorPrimary: AppColors.colorCategoryName,
         //       inactiveColorPrimary: Colors.grey,
@@ -119,7 +128,7 @@ class BottomNavBar extends StatelessWidget {
         //     PersistentBottomNavBarItem(
         //       icon: const Icon(
         //         Icons.account_circle_outlined,
-        //         size: 24,
+        //         ,
         //       ),
         //       title: ("profile"),
         //       activeColorPrimary: AppColors.colorCategoryName,
@@ -164,19 +173,19 @@ class BottomNavBar extends StatelessWidget {
 // List<PersistentBottomNavBarItem> _navBarsItems() {
 //   return [
 //     PersistentBottomNavBarItem(
-//       icon: const Icon(Icons.home_outlined, size: 24),
+//       icon: const Icon(Icons.home_outlined, ),
 //       title: ("Home"),
 //       activeColorPrimary: AppColors.colorCategoryName,
 //       inactiveColorPrimary: Colors.grey,
 //     ),
 //     PersistentBottomNavBarItem(
-//       icon: const Icon(Icons.event_note_outlined, size: 24),
+//       icon: const Icon(Icons.event_note_outlined, ),
 //       title: ("My Events"),
 //       activeColorPrimary: AppColors.colorCategoryName,
 //       inactiveColorPrimary: Colors.grey,
 //     ),
 //     PersistentBottomNavBarItem(
-//       icon: const Icon(Icons.add_box_outlined, size: 24),
+//       icon: const Icon(Icons.add_box_outlined, ),
 //       title: ("Create"),
 //       onPressed: (p0) {
         
@@ -185,7 +194,7 @@ class BottomNavBar extends StatelessWidget {
 //       inactiveColorPrimary: Colors.grey,
 //     ),
 //     PersistentBottomNavBarItem(
-//       icon: const Icon(Icons.settings_outlined, size: 24),
+//       icon: const Icon(Icons.settings_outlined, ),
 //       title: ("Settings"),
 //       activeColorPrimary: AppColors.colorCategoryName,
 //       inactiveColorPrimary: Colors.grey,
@@ -193,7 +202,7 @@ class BottomNavBar extends StatelessWidget {
 //     PersistentBottomNavBarItem(
 //       icon: const Icon(
 //         Icons.account_circle_outlined,
-//         size: 24,
+//         ,
 //       ),
 //       title: ("profile"),
 //       activeColorPrimary: AppColors.colorCategoryName,
