@@ -18,43 +18,43 @@ class HomeScreen extends StatelessWidget {
       body: BlocConsumer<HomeCubit, HomeState>(
         listener: (context, state) {},
         builder: (context, state) {
-          return const SafeArea(
+          return  SafeArea(
             child: Padding(
-              padding: EdgeInsets.only(left: 8.0, top: 0, right: 8.0),
+              padding: const EdgeInsets.only(left: 8.0, top: 0, right: 8.0),
               child: CustomScrollView(
                 // crossAxisAlignment: CrossAxisAlignment.start,
                 slivers: [
-                  SliverToBoxAdapter(
+                  const SliverToBoxAdapter(
                     child: SizedBox(
                       height: 16,
                     ),
                   ),
-                  SliverToBoxAdapter(child: CustomHomeAppBar()),
-                  SliverToBoxAdapter(
+                  const SliverToBoxAdapter(child: CustomHomeAppBar()),
+                  const SliverToBoxAdapter(
                     child: SizedBox(
                       height: 24,
                     ),
                   ),
-                  SliverToBoxAdapter(child: TrendingEevent()),
-                  SliverToBoxAdapter(
+                  const SliverToBoxAdapter(child: TrendingEevent()),
+                  const SliverToBoxAdapter(
                     child: SizedBox(
                       height: 24,
                     ),
                   ),
-                  SliverToBoxAdapter(child: CategorySection()),
-                  SliverToBoxAdapter(
+                  const SliverToBoxAdapter(child: CategorySection()),
+                  const SliverToBoxAdapter(
                     child: SizedBox(
                       height: 24,
                     ),
                   ),
-                  SliverToBoxAdapter(child: NewEventSection()),
-                  // state is GetAllEventsLoadingState
-                  //     ? const SliverToBoxAdapter(
-                  //         child: Center(
-                  //         child: CircularProgressIndicator(),
-                  //       ))
-                  //     : 
-                      SliverToBoxAdapter(child: NewEventListView())
+                  const SliverToBoxAdapter(child: NewEventSection()),
+                  state is GetAllEventsLoadingState
+                      ? const SliverToBoxAdapter(
+                          child: Center(
+                          child: CircularProgressIndicator(),
+                        ))
+                      : 
+                      const SliverToBoxAdapter(child: NewEventListView())
                 ],
               ),
             ),
