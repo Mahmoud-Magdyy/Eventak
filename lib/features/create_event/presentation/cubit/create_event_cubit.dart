@@ -21,6 +21,7 @@ class CreateEventCubit extends Cubit<CreateEventState> {
     profileImage = value;
     emit(ChangeImageState());
   }
+  
 
   //!date
   TextEditingController dateController = TextEditingController();
@@ -115,6 +116,7 @@ class CreateEventCubit extends Cubit<CreateEventState> {
   TextEditingController orgShortDescController = TextEditingController();
   TextEditingController streetController = TextEditingController();
   late String category;
+  late String finalPrice=priceInAdvanceOfEventController.text+priceAtTheDoorOfEventController.text;
   
   //! create event method
   final CreateEventReposatiry createEventRepo;
@@ -124,6 +126,7 @@ class CreateEventCubit extends Cubit<CreateEventState> {
   void createEvent() async {
     emit(CretaeEventLoadingState());
     final result = await createEventRepo.createEvent(
+      posterPicture: image!,
       district: districtController.text,
       nameOfLocation:nameOfLocationController.text ,
       orgShortDesc:orgShortDescController.text ,

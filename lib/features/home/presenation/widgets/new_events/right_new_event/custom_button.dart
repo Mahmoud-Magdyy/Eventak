@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 
 class CustomNewEventButton extends StatelessWidget {
   const CustomNewEventButton({
-    super.key, required this.icon, this.onTap,
+    super.key, required this.icon, this.onTap,  this.isSelectedFavoriteIcon,
   });
 final IconData icon;
 final Function()? onTap;
+final bool? isSelectedFavoriteIcon;
   @override
   Widget build(BuildContext context) {
     return Container(

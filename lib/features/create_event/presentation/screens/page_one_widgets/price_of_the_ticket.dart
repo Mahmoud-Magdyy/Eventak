@@ -67,11 +67,11 @@ class PriceOfTheTicket extends StatelessWidget {
               height: 4,
             ),
             SizedBox(
-              width: 150,
+              width: 170,
               height: 50,
               child: CustomTextFormField(
                   readOnly: true,
-                  hint: 'Total Price:10',
+                  hint: 'Total Price:${context.read<CreateEventCubit>().finalPrice}',
                   controller: TextEditingController()),
             ),
             const SizedBox(

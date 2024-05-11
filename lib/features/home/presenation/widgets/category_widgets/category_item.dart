@@ -12,7 +12,6 @@ class CategoryItem extends StatelessWidget {
 
   final CategoryItemModel categoryItemModel;
   final Function(String) onTap;
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(

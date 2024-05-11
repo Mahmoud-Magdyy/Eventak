@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:image_picker/image_picker.dart';
 
 Future<XFile?> pickImage(ImageSource source) async {
@@ -7,6 +8,10 @@ Future<XFile?> pickImage(ImageSource source) async {
   } else {
     return null;
   }
+}
+Future uploadImageToAPI(XFile image) async {
+  return MultipartFile.fromFile(image.path,
+      filename: image.path.split('/').last);
 }
 // Future<List<XFile?>> pickMultiImage(ImageSource source) async {
 //   List<XFile?> multiImage = await ImagePicker().pickMultiImage();

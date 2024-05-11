@@ -2,8 +2,10 @@ import 'package:dartz/dartz.dart';
 import 'package:eventak/core/database/api/api/api_consumer.dart';
 import 'package:eventak/core/database/api/api/end_points.dart';
 import 'package:eventak/core/error/exception.dart';
+import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/core/services/service_locator.dart';
 import 'package:eventak/features/create_event/data/models/create_event_model.dart';
+import 'package:image_picker/image_picker.dart';
 
 class CreateEventReposatiry {
   Future<Either<String, CreateEventModel>> createEvent({
@@ -20,14 +22,19 @@ class CreateEventReposatiry {
     required String street,
     required String district,
     required String orgShortDesc,
+    required XFile posterPicture,
 
 
     
   }) async {
     try {
       final response =
-          await sl<ApiConsumer>().post(EndPoint.createEvent, data: {
+          await sl<ApiConsumer>().post(EndPoint.createEvent,
+          isFormData: true
+           ,data: {
+            
         Apikeys.nameOfEvent: nameOfEvent,
+        Apikeys.posterPicture:await uploadImageToAPI(posterPicture) ,
         Apikeys.location: {
           Apikeys.nameOfLocation: nameOfLocation,
           Apikeys.street: street,

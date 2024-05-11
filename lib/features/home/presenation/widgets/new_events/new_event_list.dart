@@ -6,10 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
 
-class NewEventListView extends StatelessWidget {
+class NewEventListView extends StatefulWidget {
   const NewEventListView({
     super.key,
   });
+
+  @override
+  State<NewEventListView> createState() => _NewEventListViewState();
+}
+
+class _NewEventListViewState extends State<NewEventListView> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeCubit, HomeState>(
@@ -29,8 +35,28 @@ class NewEventListView extends StatelessWidget {
                               baseColor: Colors.grey[500]!,
                               highlightColor: Colors.grey[600]!,
                               child: const ContainerShammer(),
-                              )
+                            )
                           : NewEeventItem(
+                              onTapFavourit: () {
+                                setState(() {
+                                  context
+                                          .read<HomeCubit>()
+                                          .events[index]
+                                          .isSelectedFavoriteIcon =
+                                      !context
+                                          .read<HomeCubit>()
+                                          .events[index]
+                                          .isSelectedFavoriteIcon;
+                                  print(context
+                                          .read<HomeCubit>()
+                                          .events[index]
+                                          .id);
+                                });
+                                
+                                // context
+                                //     .read<HomeCubit>()
+                                //     .changeFavoriteIcon(index);
+                              },
                               allEventModel:
                                   context.read<HomeCubit>().events[index],
                             );

@@ -7,10 +7,8 @@ class DateOfNewEvent extends StatelessWidget {
   const DateOfNewEvent({
     super.key,
     required this.dayDate,
-    required this.monthDate,
   });
   final String dayDate;
-  final String monthDate;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,14 +24,14 @@ class DateOfNewEvent extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FittedBox(
-            child: Text(
-              dayDate,
-              style: AppStyles.styleSemiBold10(context),
+            child: SizedBox(
+              width: 19,
+              child: Text(
+                textAlign: TextAlign.center,
+                dayDate,
+                style: AppStyles.styleSemiBold10(context),
+              ),
             ),
-          ),
-          Text(
-            monthDate,
-            style: AppStyles.styleSemiBold10(context),
           ),
         ],
       ),

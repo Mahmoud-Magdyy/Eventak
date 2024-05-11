@@ -8,11 +8,11 @@ import 'package:flutter/material.dart';
 class NewEeventItem extends StatelessWidget {
   const NewEeventItem({
     super.key,
-    required this.allEventModel,
-    // required this.newEventModel,
+    required this.allEventModel, this.onTapFavourit,
   });
-  // final NewEventModel newEventModel;
   final AllEventModel allEventModel;
+  final Function()? onTapFavourit;
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,33 +38,37 @@ class NewEeventItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               GestureDetector(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>  NewEeventDetails(
-                         allEventModel: allEventModel,
-                          )),
-                ),
+                onTap: () => print(allEventModel.posterPicture['secure_url']),
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //       builder: (context) => NewEeventDetails(
+                //             allEventModel: allEventModel,
+                //           )),
+                // ),
                 child: ImageAndDecOfNewEventLeft(
-                    dateDay: allEventModel.date,
-                    monthDay: allEventModel.date,
-                    // categoryIcon: newEventModel.categoryIcon,
+                    
+                    urlImage: allEventModel.posterPicture['secure_url'],
+                    dateDay: allEventModel.publishAt,
                     // imageEvent: newEventModel.imageEvent,
                     textOfNewEvent: allEventModel.description,
                     nameOfCategoryEvent: allEventModel.category),
               ),
-              // const SizedBox(
-              //   width: 8,
-              // ),
+              
               DecOfNewEventRight(
+                allEventModel: allEventModel,
                 nameOfEvent: allEventModel.nameOfEvent,
                 titleDateOfTicket: allEventModel.date,
                 startTimeOfEvent: allEventModel.startTime,
                 endTimeOfEvent: allEventModel.endTime,
                 titleLocationOfEvent: allEventModel.location['street'],
-                subTitleLocationOfEvent: allEventModel.location['nameOfLocation'],
+                subTitleLocationOfEvent:
+                allEventModel.location['nameOfLocation'],
                 titlePriceOfEvent: allEventModel.priceInAdvance,
                 subTitlePriceOfEvent: allEventModel.priceAtTheDoor,
+                
+                onTapFavourit: onTapFavourit,
+                // isSelected: isSelectedFavoriteIcon,
               )
             ],
           )

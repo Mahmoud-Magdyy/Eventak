@@ -54,6 +54,7 @@ class Apikeys {
   static const String nameOfLocation = 'nameOfLocation';
   static const String street = 'street';
   static const String district = 'district';
+  static const String posterPicture = 'posterPicture';
   
 
   

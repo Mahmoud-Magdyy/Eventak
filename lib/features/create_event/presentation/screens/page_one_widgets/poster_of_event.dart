@@ -39,7 +39,7 @@ class PosterOfEvent extends StatelessWidget {
                 
                 image: DecorationImage(
                         image: createCubit.image == null
-                            ? const AssetImage(Assets.imagesBackgroundContainer)
+                            ? const AssetImage(Assets.imagesCircleAvatarImage)
                             : FileImage(File(createCubit.image!.path))
                                 as ImageProvider<Object>,
                         fit: BoxFit.cover,

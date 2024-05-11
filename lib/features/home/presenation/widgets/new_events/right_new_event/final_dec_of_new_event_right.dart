@@ -3,6 +3,7 @@ import 'package:eventak/core/bloc/cubit/global_state.dart';
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/utils/app_images.dart';
 import 'package:eventak/core/utils/app_styles.dart';
+import 'package:eventak/features/home/data/model/all_event_model.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/right_new_event/custom_list_tile_location_of_event.dart.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/right_new_event/custom_list_tile_price_of_event.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/right_new_event/custom_list_tile_time_of_event.dart';
@@ -22,15 +23,19 @@ class DecOfNewEventRight extends StatelessWidget {
     required this.subTitleLocationOfEvent,
     required this.titlePriceOfEvent,
     required this.subTitlePriceOfEvent,
+    this.onTapFavourit, required this.allEventModel,
   });
   final String nameOfEvent;
   final String titleDateOfTicket;
+  final Function()? onTapFavourit;
   final String titleLocationOfEvent;
   final String subTitleLocationOfEvent;
   final String titlePriceOfEvent;
   final String subTitlePriceOfEvent;
   final String startTimeOfEvent;
   final String endTimeOfEvent;
+  final AllEventModel allEventModel;
+  // final bool isSelectedFavoriteIcon = false;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -105,7 +110,10 @@ class DecOfNewEventRight extends StatelessWidget {
                           const SizedBox(
                             height: 26,
                           ),
-                          const NavBarButtonsNewEvent()
+                          NavBarButtonsNewEvent(
+                            allEventModel: allEventModel,
+                            onTapFavourit: onTapFavourit,
+                          )
                         ],
                       ),
                     )

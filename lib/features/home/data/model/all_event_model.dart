@@ -12,13 +12,19 @@ class AllEventModel {
   final String priceAtTheDoor;
   final String whatIsIncludedInPrice;
   final String orgShortDesc;
+  final String publishAt;
   final Map<String, dynamic> location;
-
+  final Map<String, dynamic> posterPicture;
+  bool isSelectedFavoriteIcon;
   AllEventModel(
-      {required this.id,
+      {
+      required this.id,
+      required this.isSelectedFavoriteIcon,
       required this.nameOfEvent,
+      required this.posterPicture,
       required this.location,
       required this.description,
+      required this.publishAt,
       required this.date,
       required this.startTime,
       required this.endTime,
@@ -30,8 +36,13 @@ class AllEventModel {
 
   factory AllEventModel.fromJson(Map<String, dynamic> json) {
     return AllEventModel(
+      isSelectedFavoriteIcon:false,
+      publishAt: json['publishAt'],
       location: Map<String, dynamic>.from(
         json['location']
+        ),
+      posterPicture: Map<String, dynamic>.from(
+        json['posterPicture']
         ),
       id: json['_id'],
       nameOfEvent: json['nameOfEvent'],
@@ -44,23 +55,6 @@ class AllEventModel {
       priceAtTheDoor: json['priceAtTheDoor'],
       whatIsIncludedInPrice: json['whatIsIncludedInPrice'],
       orgShortDesc: json['orgShortDesc'],
-    );
-  }
-}
-
-class LocationModel {
-  final String nameOfLocation;
-  final String street;
-  final String district;
-  LocationModel(
-      {required this.nameOfLocation,
-      required this.street,
-      required this.district});
-  factory LocationModel.fromJson(Map<String, dynamic> json) {
-    return LocationModel(
-      nameOfLocation: json['nameOfLocation'],
-      street: json['street'],
-      district: json['district'],
     );
   }
 }

@@ -11,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  HomeCubit(this.getAllEventsRepo) : super(HomeInitial());
+  HomeCubit(this.getAllEventsRepo,) : super(HomeInitial());
 String onTapCategoryName = '';
 bool isSelected = false;
   List<Widget> screens = [
@@ -36,5 +36,18 @@ bool isSelected = false;
       events = r.data;
       emit(GetAllEventsSuccessState(message: r.status));
     });
+  
   }
+
+ 
+ //!
+  // late List<AllEventModel>allEventModel;
+  // int selectedIndex = -1;
+  // void changeFavoriteIcon(int index) {
+  //   selectedIndex = index;
+  //   allEventModel[index].isSelectedFavoriteIcon = !allEventModel[index].isSelectedFavoriteIcon;
+  //   // isSelectedFavoriteIcon= !isSelectedFavoriteIcon;
+  //   emit(ChangeFavoriteIcon());
+  //   print(index);
+  // }
 }
