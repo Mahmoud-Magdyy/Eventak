@@ -65,10 +65,7 @@ class _NewEventListViewState extends State<NewEventListView> {
                                           .events[index]
                                           .id);
                                 }
-                                //                           await sl<CacheHelper>().saveData(
-                                //   key: context.read<HomeCubit>().events[index].id,
-                                //   value: context.read<HomeCubit>().events[index].isSelectedFavoriteIcon,
-                                // );
+                                
                               },
                               allEventModel:
                                   context.read<HomeCubit>().events[index],

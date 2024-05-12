@@ -1,4 +1,3 @@
-import 'package:eventak/core/utils/app_images.dart';
 import 'package:eventak/features/home/data/model/all_event_model.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/left_new_event/final_image_and_dec.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/right_new_event/final_dec_of_new_event_right.dart';
@@ -21,11 +20,9 @@ class NewEeventItem extends StatelessWidget {
       height: 262,
       padding: const EdgeInsets.all(8),
       decoration: ShapeDecoration(
-        image: const DecorationImage(
-          image: AssetImage(
-            Assets.imagesBackgroundContainer,
-            // newEventModel.imageEvent
-          ),
+        image:  DecorationImage(
+          image: NetworkImage(allEventModel.posterPicture['secure_url']),
+
           fit: BoxFit.fill,
           opacity: 0.10,
         ),

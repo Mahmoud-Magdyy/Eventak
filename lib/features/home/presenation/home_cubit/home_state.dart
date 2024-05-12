@@ -37,3 +37,14 @@ final class RemoveFromFavouritSuccessState extends HomeState {
 
   RemoveFromFavouritSuccessState(this.message);
 }
+final class GetTrendingEventsLoadingState extends HomeState {}
+final class GetTrendingEventsErrorState extends HomeState {
+  final String message;
+
+  GetTrendingEventsErrorState(this.message);
+}
+final class GetTrendingEventsSuccessState extends HomeState {
+  final String message;
+
+  GetTrendingEventsSuccessState({required this.message});
+}

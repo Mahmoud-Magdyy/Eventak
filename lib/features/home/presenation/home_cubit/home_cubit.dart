@@ -1,7 +1,9 @@
 import 'package:eventak/features/create_event/presentation/screens/page_view_event.dart';
 import 'package:eventak/features/home/data/model/all_event_model.dart';
+import 'package:eventak/features/home/data/model/trend_event_model.dart';
 import 'package:eventak/features/home/data/reposatiory/add_to_favourit_repo.dart';
 import 'package:eventak/features/home/data/reposatiory/get_all_events_repo.dart';
+import 'package:eventak/features/home/data/reposatiory/get_trending_events.dart';
 import 'package:eventak/features/home/presenation/screens/home_screen.dart';
 import 'package:eventak/features/my_events/presentation/screens/my_events.dart';
 import 'package:eventak/features/profile/presentation/screens/profile_screen.dart';
@@ -12,7 +14,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  HomeCubit(this.getAllEventsRepo, this.addToFavouritRepo,) : super(HomeInitial());
+  HomeCubit(this.getAllEventsRepo, this.addToFavouritRepo, this.getTrendigEventsRepo,) : super(HomeInitial());
 String onTapCategoryName = '';
 bool isSelected = false;
   List<Widget> screens = [
@@ -39,6 +41,19 @@ bool isSelected = false;
     });
   
   }
+  //! get trending events
+  List<TrendingEeventModel> trendingEvents = [];
+  final GetTrendigEventsReposatiry getTrendigEventsRepo;
+  void getTrendigEvents() async {
+    emit(GetTrendingEventsLoadingState());
+    final result = await getTrendigEventsRepo.getTrendigEvents();
+    result.fold((l) => emit(GetTrendingEventsErrorState(l)), (r) {
+      trendingEvents = r.data;
+      emit(GetTrendingEventsSuccessState(message: r.status));
+    });
+  
+  }
+
  //! add to favourit method
   final AddToFavouritReposatiry addToFavouritRepo ;
   void addToFavourit(String id)async{

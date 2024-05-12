@@ -35,7 +35,12 @@ class HomeScreen extends StatelessWidget {
                       height: 24,
                     ),
                   ),
-                  const SliverToBoxAdapter(child: TrendingEevent()),
+                  state is GetTrendingEventsLoadingState
+                      ? const SliverToBoxAdapter(
+                          child: Center(
+                          child: CircularProgressIndicator(),
+                        ))
+                      :const SliverToBoxAdapter(child: TrendingEevent()),
                   const SliverToBoxAdapter(
                     child: SizedBox(
                       height: 24,

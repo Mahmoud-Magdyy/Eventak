@@ -10,6 +10,7 @@ class EndPoint {
   static const String getAllEvents= 'event/getAllEvents?category=Music';
   static const String addToFavourite= 'event/favouriteEvent/';
   static const String removeFromFavourite= 'event/deleteFavourite/';
+  static const String getTrendigEvents= 'event/trendingEvents';
  
 
   static String recevedCodeEndPoints(id) {

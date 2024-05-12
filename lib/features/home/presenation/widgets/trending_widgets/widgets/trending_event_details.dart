@@ -1,5 +1,5 @@
 import 'package:eventak/core/utils/app_styles.dart';
-import 'package:eventak/features/home/data/model/all_event_model.dart';
+import 'package:eventak/features/home/data/model/trend_event_model.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/back_icon_and_fav.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/brought_to_you.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/catregory_item.dart';
@@ -10,12 +10,12 @@ import 'package:eventak/features/home/presenation/widgets/new_events_details/wid
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class NewEeventDetails extends StatelessWidget {
-  NewEeventDetails({super.key, this.allEventModel});
-  AllEventModel? allEventModel;
+class TrendingEeventDetails extends StatelessWidget {
+  TrendingEeventDetails({super.key, this.trendingEeventModel});
+  TrendingEeventModel? trendingEeventModel;
   @override
   Widget build(BuildContext context) {
-    if (allEventModel == null) {
+    if (trendingEeventModel == null) {
       return const Center(
         child: CircularProgressIndicator(),
       );
@@ -28,8 +28,8 @@ class NewEeventDetails extends StatelessWidget {
                Stack(
                 children: [
                   ImageOfEventDetails(
-                    image: allEventModel!.posterPicture['secure_url'],
-                    // image: allEventModel!.imageEvent,
+                    image: trendingEeventModel!.posterPicture['secure_url'],
+                    // image: trendingEeventModel!.imageEvent,
                   ),
                   const Positioned(
                     top: 30,
@@ -55,7 +55,7 @@ class NewEeventDetails extends StatelessWidget {
                           child: FittedBox(
                             child: Text(
                               maxLines: 2,
-                              allEventModel!.nameOfEvent,
+                              trendingEeventModel!.nameOfEvent,
                               style: AppStyles.styleSemiBold24(context)
                                   .copyWith(color: Colors.black),
                             ),
@@ -63,7 +63,7 @@ class NewEeventDetails extends StatelessWidget {
                         ),
                         CategoryItemDetails(
                           icon: Icons.track_changes,
-                          nameOfIconCateogry: allEventModel!.category,
+                          nameOfIconCateogry: trendingEeventModel!.category,
                         ),
                       ],
                     ),
@@ -71,23 +71,23 @@ class NewEeventDetails extends StatelessWidget {
                       height: 16,
                     ),
                     LocationAndTimeAndDateNewEventDetails(
-                      location: allEventModel!.location['street'] +
+                      location: trendingEeventModel!.location['street'] +
                           ', ' +
-                          allEventModel!.location['nameOfLocation'],
-                      dateMonth: allEventModel!.date,
+                          trendingEeventModel!.location['nameOfLocation'],
+                      dateMonth: trendingEeventModel!.date,
                       dateTime:
-                          '${allEventModel!.startTime} - ${allEventModel!.endTime}',
+                          '${trendingEeventModel!.startTime} - ${trendingEeventModel!.endTime}',
                     ),
                     const SizedBox(
                       height: 32,
                     ),
-                    Description(description: allEventModel!.description),
+                    Description(description: trendingEeventModel!.description),
                     const BroughtToYou(),
                     const SizedBox(
                       height: 24,
                     ),
                     IncludeThePrice(
-                      includeInPrice: allEventModel!.whatIsIncludedInPrice,
+                      includeInPrice: trendingEeventModel!.whatIsIncludedInPrice,
                     ),
                     const Divider()
                   ],

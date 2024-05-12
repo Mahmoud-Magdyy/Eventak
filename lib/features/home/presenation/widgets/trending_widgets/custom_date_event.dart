@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 
 class CustomDateEvent extends StatelessWidget {
   const CustomDateEvent({
-    super.key, required this.day, required this.month, 
+    super.key, required this.day,
   });
 final String day;
-final String month;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,14 +21,10 @@ final String month;
               style: const TextStyle(height: 1),
               children: [
                 TextSpan(
-                  text: '$day\n',
+                  text: day,
                   style:
                       AppStyles.styleSemiBold6(context).copyWith(fontSize: 8),
                 ),
-                TextSpan(
-                    text: month,
-                    style: AppStyles.styleSemiBold8(context)
-                        .copyWith(fontSize: 6)),
               ],
             ),
             textAlign: TextAlign.center,

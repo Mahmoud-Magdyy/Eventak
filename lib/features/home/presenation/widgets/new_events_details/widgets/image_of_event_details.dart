@@ -11,7 +11,7 @@ final String image;
       height: 280,
       width: double.infinity,
       child:
-          Image.asset(image, fit: BoxFit.fill),
+          Image.network(image, fit: BoxFit.cover),
     );
   }
 }
