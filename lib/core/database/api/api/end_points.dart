@@ -8,10 +8,18 @@ class EndPoint {
   static const String createEvent= 'event/createEvent';
   static const String receviedCode= 'auth/compareCode/';
   static const String getAllEvents= 'event/getAllEvents?category=Music';
+  static const String addToFavourite= 'event/favouriteEvent/';
+  static const String removeFromFavourite= 'event/deleteFavourite/';
  
 
   static String recevedCodeEndPoints(id) {
     return '$receviedCode$id';
+  }
+  static String removeFromFavouriteEndPoints(id) {
+    return '$removeFromFavourite$id';
+  }
+  static String addToFavouriteEndPoints(id) {
+    return '$addToFavourite$id';
   }
   static String userResetPasswordEndPoints(id) {
     return '$userResetPassword$id';

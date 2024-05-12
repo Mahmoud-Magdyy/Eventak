@@ -1,5 +1,6 @@
 import 'package:eventak/features/create_event/presentation/screens/page_view_event.dart';
 import 'package:eventak/features/home/data/model/all_event_model.dart';
+import 'package:eventak/features/home/data/reposatiory/add_to_favourit_repo.dart';
 import 'package:eventak/features/home/data/reposatiory/get_all_events_repo.dart';
 import 'package:eventak/features/home/presenation/screens/home_screen.dart';
 import 'package:eventak/features/my_events/presentation/screens/my_events.dart';
@@ -11,7 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  HomeCubit(this.getAllEventsRepo,) : super(HomeInitial());
+  HomeCubit(this.getAllEventsRepo, this.addToFavouritRepo,) : super(HomeInitial());
 String onTapCategoryName = '';
 bool isSelected = false;
   List<Widget> screens = [
@@ -38,16 +39,22 @@ bool isSelected = false;
     });
   
   }
-
- 
- //!
-  // late List<AllEventModel>allEventModel;
-  // int selectedIndex = -1;
-  // void changeFavoriteIcon(int index) {
-  //   selectedIndex = index;
-  //   allEventModel[index].isSelectedFavoriteIcon = !allEventModel[index].isSelectedFavoriteIcon;
-  //   // isSelectedFavoriteIcon= !isSelectedFavoriteIcon;
-  //   emit(ChangeFavoriteIcon());
-  //   print(index);
-  // }
+ //! add to favourit method
+  final AddToFavouritReposatiry addToFavouritRepo ;
+  void addToFavourit(String id)async{
+    emit(AddToFavouritLoadingState());
+    final response = await  addToFavouritRepo.addToFavourit(id);
+    response.fold((l) => emit(AddToFavouritErrorState(l)), (r) {
+      emit(AddToFavouritSuccessState(r.message));
+    });
+  }
+//! remove from favourit method
+void removeFromFavourit(String id)async{
+    emit(RemoveFromFavouritLoadingState());
+    final response = await  addToFavouritRepo.removeFromFavourit(id);
+    response.fold((l) => emit(RemoveFromFavouritErrorState(l)), (r) {
+      emit(RemoveFromFavouritSuccessState(r.message));
+    });
+  }
+  
 }

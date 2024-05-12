@@ -37,7 +37,7 @@ class _NewEventListViewState extends State<NewEventListView> {
                               child: const ContainerShammer(),
                             )
                           : NewEeventItem(
-                              onTapFavourit: () {
+                              onTapFavourit: () async {
                                 setState(() {
                                   context
                                           .read<HomeCubit>()
@@ -47,15 +47,28 @@ class _NewEventListViewState extends State<NewEventListView> {
                                           .read<HomeCubit>()
                                           .events[index]
                                           .isSelectedFavoriteIcon;
-                                  print(context
+                                });
+                                if (context
+                                        .read<HomeCubit>()
+                                        .events[index]
+                                        .isSelectedFavoriteIcon ==
+                                    true) {
+                                  context.read<HomeCubit>().removeFromFavourit(
+                                      context
                                           .read<HomeCubit>()
                                           .events[index]
                                           .id);
-                                });
-                                
-                                // context
-                                //     .read<HomeCubit>()
-                                //     .changeFavoriteIcon(index);
+                                } else {
+                                  context.read<HomeCubit>().addToFavourit(
+                                      context
+                                          .read<HomeCubit>()
+                                          .events[index]
+                                          .id);
+                                }
+                                //                           await sl<CacheHelper>().saveData(
+                                //   key: context.read<HomeCubit>().events[index].id,
+                                //   value: context.read<HomeCubit>().events[index].isSelectedFavoriteIcon,
+                                // );
                               },
                               allEventModel:
                                   context.read<HomeCubit>().events[index],

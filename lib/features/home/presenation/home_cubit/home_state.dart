@@ -15,3 +15,25 @@ final class GetAllEventsSuccessState extends HomeState {
 
   GetAllEventsSuccessState({required this.message});
 }
+final class AddToFavouritLoadingState extends HomeState {}
+final class AddToFavouritErrorState extends HomeState {
+  final String message;
+
+  AddToFavouritErrorState(this.message);
+}
+final class AddToFavouritSuccessState extends HomeState {
+  final String message;
+
+  AddToFavouritSuccessState(this.message);
+}
+final class RemoveFromFavouritLoadingState extends HomeState {}
+final class RemoveFromFavouritErrorState extends HomeState {
+  final String message;
+
+  RemoveFromFavouritErrorState(this.message);
+}
+final class RemoveFromFavouritSuccessState extends HomeState {
+  final String message;
+
+  RemoveFromFavouritSuccessState(this.message);
+}

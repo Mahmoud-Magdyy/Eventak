@@ -8,11 +8,12 @@ import 'package:flutter/material.dart';
 class NewEeventItem extends StatelessWidget {
   const NewEeventItem({
     super.key,
-    required this.allEventModel, this.onTapFavourit,
+    required this.allEventModel,
+    this.onTapFavourit,
   });
   final AllEventModel allEventModel;
   final Function()? onTapFavourit;
-  
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,23 +39,20 @@ class NewEeventItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               GestureDetector(
-                onTap: () => print(allEventModel.posterPicture['secure_url']),
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //       builder: (context) => NewEeventDetails(
-                //             allEventModel: allEventModel,
-                //           )),
-                // ),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => NewEeventDetails(
+                            allEventModel: allEventModel,
+                          )),
+                ),
                 child: ImageAndDecOfNewEventLeft(
-                    
                     urlImage: allEventModel.posterPicture['secure_url'],
                     dateDay: allEventModel.publishAt,
                     // imageEvent: newEventModel.imageEvent,
                     textOfNewEvent: allEventModel.description,
                     nameOfCategoryEvent: allEventModel.category),
               ),
-              
               DecOfNewEventRight(
                 allEventModel: allEventModel,
                 nameOfEvent: allEventModel.nameOfEvent,
@@ -63,10 +61,10 @@ class NewEeventItem extends StatelessWidget {
                 endTimeOfEvent: allEventModel.endTime,
                 titleLocationOfEvent: allEventModel.location['street'],
                 subTitleLocationOfEvent:
-                allEventModel.location['nameOfLocation'],
+                    allEventModel.location['nameOfLocation'],
                 titlePriceOfEvent: allEventModel.priceInAdvance,
                 subTitlePriceOfEvent: allEventModel.priceAtTheDoor,
-                
+
                 onTapFavourit: onTapFavourit,
                 // isSelected: isSelectedFavoriteIcon,
               )

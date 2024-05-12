@@ -36,7 +36,7 @@ class AllEventModel {
 
   factory AllEventModel.fromJson(Map<String, dynamic> json) {
     return AllEventModel(
-      isSelectedFavoriteIcon:false,
+      isSelectedFavoriteIcon: false,
       publishAt: json['publishAt'],
       location: Map<String, dynamic>.from(
         json['location']
