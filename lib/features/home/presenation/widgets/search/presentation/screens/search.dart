@@ -69,6 +69,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         itemCount: filteredEvents.length,
                         itemBuilder: ((context, index) {
                           return ItemListSearch(
+                            
                             key: ValueKey(filteredEvents[index].nameOfEvent),
                             filteredEvents: filteredEvents,
                             subtitle:

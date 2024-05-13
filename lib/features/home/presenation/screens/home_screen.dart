@@ -22,6 +22,7 @@ class HomeScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 8.0, top: 0, right: 8.0),
               child: CustomScrollView(
+                // physics: const BouncingScrollPhysics(),
                 // crossAxisAlignment: CrossAxisAlignment.start,
                 slivers: [
                   const SliverToBoxAdapter(

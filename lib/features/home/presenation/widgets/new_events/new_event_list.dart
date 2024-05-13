@@ -25,53 +25,52 @@ class _NewEventListViewState extends State<NewEventListView> {
             ? const Center(
                 child: Text('No Events'),
               )
-            : SizedBox(
-                height: 400,
-                child: ListView.builder(
-                    itemCount: context.read<HomeCubit>().events.length,
-                    itemBuilder: (context, index) {
-                      return state is GetAllEventsLoadingState
-                          ? Shimmer.fromColors(
-                              baseColor: Colors.grey[500]!,
-                              highlightColor: Colors.grey[600]!,
-                              child: const ContainerShammer(),
-                            )
-                          : NewEeventItem(
-                              onTapFavourit: () async {
-                                setState(() {
+            : ListView.builder(
+              shrinkWrap: true,
+              physics:const NeverScrollableScrollPhysics(),
+                itemCount: context.read<HomeCubit>().events.length,
+                itemBuilder: (context, index) {
+                  return state is GetAllEventsLoadingState
+                      ? Shimmer.fromColors(
+                          baseColor: Colors.grey[500]!,
+                          highlightColor: Colors.grey[600]!,
+                          child: const ContainerShammer(),
+                        )
+                      : NewEeventItem(
+                          onTapFavourit: () async {
+                            setState(() {
+                              context
+                                      .read<HomeCubit>()
+                                      .events[index]
+                                      .isSelectedFavoriteIcon =
+                                  !context
+                                      .read<HomeCubit>()
+                                      .events[index]
+                                      .isSelectedFavoriteIcon;
+                            });
+                            if (context
+                                    .read<HomeCubit>()
+                                    .events[index]
+                                    .isSelectedFavoriteIcon ==
+                                true) {
+                              context.read<HomeCubit>().removeFromFavourit(
                                   context
-                                          .read<HomeCubit>()
-                                          .events[index]
-                                          .isSelectedFavoriteIcon =
-                                      !context
-                                          .read<HomeCubit>()
-                                          .events[index]
-                                          .isSelectedFavoriteIcon;
-                                });
-                                if (context
-                                        .read<HomeCubit>()
-                                        .events[index]
-                                        .isSelectedFavoriteIcon ==
-                                    true) {
-                                  context.read<HomeCubit>().removeFromFavourit(
-                                      context
-                                          .read<HomeCubit>()
-                                          .events[index]
-                                          .id);
-                                } else {
-                                  context.read<HomeCubit>().addToFavourit(
-                                      context
-                                          .read<HomeCubit>()
-                                          .events[index]
-                                          .id);
-                                }
-                                
-                              },
-                              allEventModel:
-                                  context.read<HomeCubit>().events[index],
-                            );
-                    }),
-              );
+                                      .read<HomeCubit>()
+                                      .events[index]
+                                      .id);
+                            } else {
+                              context.read<HomeCubit>().addToFavourit(
+                                  context
+                                      .read<HomeCubit>()
+                                      .events[index]
+                                      .id);
+                            }
+                            
+                          },
+                          allEventModel:
+                              context.read<HomeCubit>().events[index],
+                        );
+                });
       },
     );
   }
