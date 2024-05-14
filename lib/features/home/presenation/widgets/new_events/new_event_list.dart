@@ -38,21 +38,21 @@ class _NewEventListViewState extends State<NewEventListView> {
                         )
                       : NewEeventItem(
                           onTapFavourit: () async {
-                            setState(() {
-                              context
-                                      .read<HomeCubit>()
-                                      .events[index]
-                                      .isSelectedFavoriteIcon =
-                                  !context
-                                      .read<HomeCubit>()
-                                      .events[index]
-                                      .isSelectedFavoriteIcon;
+                            // setState(() {
+                            //   context
+                            //           .read<HomeCubit>()
+                            //           .events[index]
+                            //           .isFavourite =
+                            //       !context
+                            //           .read<HomeCubit>()
+                            //           .events[index]
+                            //           .isFavourite;
                              
-                            });
+                            // });
                             if (context
                                     .read<HomeCubit>()
                                     .events[index]
-                                    .isSelectedFavoriteIcon ==
+                                    .isFavourite ==
                                 true) {
                               context.read<HomeCubit>().removeFromFavourit(
                                   context

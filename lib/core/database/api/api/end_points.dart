@@ -68,6 +68,7 @@ class Apikeys {
   static const String photosOfPlace = 'photosOfPlace';
   static const String firstName = 'firstName';
   static const String lastName = 'lastName';
+  static const String profilePic = 'profilePic';
   
 
   

@@ -53,7 +53,8 @@ bool isSelected = false;
     });
   
   }
-
+  // final AllEventModel allEventModel;
+  // late bool isFavourite =allEventModel.isFavourite;
  //! add to favourit method
   final AddToFavouritReposatiry addToFavouritRepo ;
   void addToFavourit(String id)async{

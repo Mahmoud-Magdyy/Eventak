@@ -1,6 +1,9 @@
+import 'package:eventak/core/database/api/api/end_points.dart';
+import 'package:eventak/core/database/cache/cache_helper.dart';
 import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
 import 'package:eventak/core/routers/app_router.dart';
+import 'package:eventak/core/services/service_locator.dart';
 import 'package:eventak/core/utils/app_images.dart';
 import 'package:eventak/core/utils/app_strings.dart';
 import 'package:eventak/core/utils/app_styles.dart';
@@ -40,19 +43,13 @@ class _SplashScreenState extends State<SplashScreen> {
 
 void delayedNavigate(context) {
   Future.delayed(const Duration(seconds: 3)).then((value) async {
-      //  await sl<CacheHelper>().getData(
-      //           key: Apikeys.token,
-      //         ) ==
-      //         null
-      //     ? 
-          navigate(context: context, route: Routes.signIn);
-          // : navigate(context: context, route: Routes.bottomNavBar);
+       await sl<CacheHelper>().getData(
+                key: Apikeys.token,
+              ) ==
+              null
+          ? 
+          navigate(context: context, route: Routes.signIn)
+          : navigate(context: context, route: Routes.bottomNavBar);
     });
-  // Future.delayed(
-  //   const Duration(seconds: 2),
-  //   () {
-  //     navigateReplacment(context: context, route: Routes.onBoardingView);
-  //     // customReplacementNavigate(context, "/OnBoardingView");
-  //   },
-  // );
+  
 }

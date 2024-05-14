@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/utils/app_images.dart';
-import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
+import 'package:eventak/features/auth/presentation/auth_cubit/regsiter_cubit/register_cubit.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_one_widgets/image_picker_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -11,10 +11,10 @@ import 'package:image_picker/image_picker.dart';
 class CustomImage extends StatelessWidget {
   const CustomImage({
     super.key,
-    required this.eventCubit,
+    required this.registerCubit,
   });
 
-  final CreateEventCubit eventCubit;
+  final RegisterCubit registerCubit;
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +25,11 @@ class CustomImage extends StatelessWidget {
         height: 96,
         decoration: ShapeDecoration(
           image: DecorationImage(
-            image: eventCubit.profileImage == null
+            image: registerCubit.profileImage == null
                 ? const AssetImage(
                     Assets.imagesBluePersonal)
                 : FileImage(
-                        File(eventCubit.profileImage!.path))
+                        File(registerCubit.profileImage!.path))
                     as ImageProvider<Object>,
             fit: BoxFit.cover,
           ),
@@ -48,14 +48,14 @@ class CustomImage extends StatelessWidget {
                     cameraOnTap: () {
                       Navigator.pop(context);
                       pickImage(ImageSource.camera).then(
-                          (value) => eventCubit
-                              .changeProfileImage(value));
+                          (value) => registerCubit
+                              .changeRegisterProfileImage(value));
                     },
                     galleryOnTap: () {
                       Navigator.pop(context);
                       pickImage(ImageSource.gallery).then(
-                          (value) => eventCubit
-                              .changeProfileImage(value));
+                          (value) => registerCubit
+                              .changeRegisterProfileImage(value));
                     },
                   );
                 });

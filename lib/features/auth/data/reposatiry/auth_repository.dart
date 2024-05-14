@@ -3,11 +3,13 @@ import 'package:eventak/core/database/api/api/api_consumer.dart';
 import 'package:eventak/core/database/api/api/end_points.dart';
 import 'package:eventak/core/database/cache/cache_helper.dart';
 import 'package:eventak/core/error/exception.dart';
+import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/features/auth/data/models/login_model.dart';
 import 'package:eventak/features/auth/data/models/pass_verefication_mode.dart';
 import 'package:eventak/features/auth/data/models/receved_code.dart';
 import 'package:eventak/features/auth/data/models/register_model.dart';
 import 'package:eventak/features/auth/data/models/send_code_model.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../../core/services/service_locator.dart';
 
@@ -34,6 +36,7 @@ class AuthRepository {
     required String lastName,
     required String password,
     required String confirmPassword,
+    required XFile profilePic,
   }) async {
     try {
       final response = await sl<ApiConsumer>().post(
@@ -44,7 +47,9 @@ class AuthRepository {
           Apikeys.confirmPassword: confirmPassword,
           Apikeys.firstName: firstName,
           Apikeys.lastName: lastName,
+          Apikeys.profilePic:await uploadImageToAPI(profilePic) ,
         },
+        isFormData: true
       );
       return Right(RegisterModel.fromJson(response));
     } on ServerException catch (error) {

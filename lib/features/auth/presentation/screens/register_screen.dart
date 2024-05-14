@@ -9,8 +9,6 @@ import 'package:eventak/features/auth/presentation/auth_cubit/regsiter_cubit/reg
 import 'package:eventak/features/auth/presentation/widgets/custom_form_register.dart';
 import 'package:eventak/features/auth/presentation/widgets/custom_register_image.dart';
 import 'package:eventak/features/auth/presentation/widgets/dont_have_and_register.dart';
-import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
-import 'package:eventak/features/create_event/presentation/cubit/create_event_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,6 +20,7 @@ class RegisterScreen extends StatelessWidget {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {},
       builder: (context, state) {
+        final registerCubit = BlocProvider.of<RegisterCubit>(context);
         return Scaffold(
           body: SafeArea(
             child: Padding(
@@ -55,14 +54,7 @@ class RegisterScreen extends StatelessWidget {
                     const SizedBox(
                       height: 32,
                     ),
-                    BlocConsumer<CreateEventCubit, CreateEventState>(
-                      listener: (context, state) {},
-                      builder: (context, state) {
-                        final eventCubit =
-                            BlocProvider.of<CreateEventCubit>(context);
-                        return Center(child: CustomImage(eventCubit: eventCubit));
-                      },
-                    ),
+                    Center(child: CustomImage(registerCubit: registerCubit)),
                     const SizedBox(
                       height: 32,
                     ),

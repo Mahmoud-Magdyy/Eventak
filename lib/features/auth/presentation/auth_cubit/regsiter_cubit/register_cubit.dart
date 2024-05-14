@@ -3,6 +3,7 @@ import 'package:eventak/features/auth/data/reposatiry/auth_repository.dart';
 import 'package:eventak/features/auth/presentation/auth_cubit/regsiter_cubit/register_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit(this.authrepo) : super(RegisterInitial());
@@ -35,7 +36,12 @@ class RegisterCubit extends Cubit<RegisterState> {
     //     isConfirmPasswordsShowing ? Icons.visibility : Icons.visibility_off;
     emit(ChangeConfirmPasswordSuffixIcon());
   }
-
+//! register photo 
+  XFile? profileImage;
+  void changeRegisterProfileImage(value) {
+    profileImage = value;
+    emit(ChangeProfileRegisterImageState());
+  }
   //! register method
   final AuthRepository authrepo;
 
@@ -49,10 +55,13 @@ class RegisterCubit extends Cubit<RegisterState> {
       password: passwordController.text,
       firstName: firstNameController.text,
       lastName: lastNameController.text,
+      profilePic: profileImage!,
+
     );
     result.fold((l) => emit(SignUpError(l)), (r) async {
       registerModel = r;
       emit(SignUpSuccess());
     });
   }
+  
 }

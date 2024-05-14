@@ -22,7 +22,7 @@ Future<void> setupServiceLocator() async{
    sl.registerLazySingleton(() => CacheHelper());
    sl.registerLazySingleton(() => GlobalCubit());
    sl.registerLazySingleton(() => SignInCubit(sl()));
-   sl.registerLazySingleton(() => HomeCubit(sl(),sl(),sl()));
+   sl.registerLazySingleton(() => HomeCubit(sl(),sl(),sl(),));
    sl.registerLazySingleton(() => GetAllEventsReposatiry());
    sl.registerLazySingleton(() => GetTrendigEventsReposatiry());
    sl.registerLazySingleton(() => AddToFavouritReposatiry());

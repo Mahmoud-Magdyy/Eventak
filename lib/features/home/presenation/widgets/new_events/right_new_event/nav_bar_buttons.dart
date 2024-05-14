@@ -30,7 +30,8 @@ class NavBarButtonsNewEvent extends StatelessWidget {
               onTap: onTapFavourit,
               icon:
                   //  context.read<HomeCubit>().isSelectedFavoriteIcon
-                  allEventModel.isSelectedFavoriteIcon
+                  allEventModel.
+                   isFavourite
                       ? Icons.favorite
                       : Icons.favorite_border_outlined,
             ),
