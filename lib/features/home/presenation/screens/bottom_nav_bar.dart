@@ -1,4 +1,5 @@
 import 'package:eventak/core/utils/app_colors.dart';
+import 'package:eventak/features/create_event/presentation/screens/page_view_event.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_state.dart';
 import 'package:flutter/material.dart';
@@ -58,7 +59,15 @@ class BottomNavBar extends StatelessWidget {
             type: BottomNavigationBarType.fixed,
 
             onTap: (value) {
-              context.read<HomeCubit>().changeIndex(value);
+              if (value == 2) {
+                // If "Add" is selected
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>const PageViewEvent()), // Navigate to your AddScreen
+                );
+              } else {
+                context.read<HomeCubit>().changeIndex(value);
+              }
             },
           ),
         );

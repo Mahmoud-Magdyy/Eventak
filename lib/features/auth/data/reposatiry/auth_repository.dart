@@ -30,7 +30,8 @@ class AuthRepository {
 //!sign up
   Future<Either<String, RegisterModel>> signUp({
     required String email,
-    required String userName,
+    required String firstName,
+    required String lastName,
     required String password,
     required String confirmPassword,
   }) async {
@@ -41,7 +42,8 @@ class AuthRepository {
           Apikeys.email: email,
           Apikeys.password: password,
           Apikeys.confirmPassword: confirmPassword,
-          Apikeys.userName: userName,
+          Apikeys.firstName: firstName,
+          Apikeys.lastName: lastName,
         },
       );
       return Right(RegisterModel.fromJson(response));

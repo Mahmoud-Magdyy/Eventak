@@ -15,12 +15,12 @@ class CustomTrendingEventItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => TrendingEeventDetails(
-                            trendingEeventModel: trendingEeventModel,
-                          )),
-                ),
+        context,
+        MaterialPageRoute(
+            builder: (context) => TrendingEeventDetails(
+                  trendingEeventModel: trendingEeventModel,
+                )),
+      ),
       child: Container(
         margin: const EdgeInsets.only(right: 8),
         width: 160,
@@ -28,8 +28,11 @@ class CustomTrendingEventItem extends StatelessWidget {
         clipBehavior: Clip.antiAlias,
         decoration: ShapeDecoration(
           image: DecorationImage(
-            image: Image.network(trendingEeventModel.posterPicture['secure_url'])
-                .image,
+            image: Image.network(
+              trendingEeventModel.posterPicture['secure_url'],
+              errorBuilder: (context, error, stackTrace) =>
+                  const Text('No Image Yet'),
+            ).image,
             fit: BoxFit.cover,
           ),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),

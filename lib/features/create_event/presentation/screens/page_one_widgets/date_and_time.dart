@@ -84,7 +84,7 @@ class DateAndTime extends StatelessWidget {
               suffixIconOnPressed: () async {
                 createCubit.getDate(context);
               },
-              controller: context.read<CreateEventCubit>().dateController,
+              controller:  context.read<CreateEventCubit>().dateController,
               hint: DateFormat.MMMMEEEEd().format(createCubit.currentDate),
             ),
             const SizedBox(

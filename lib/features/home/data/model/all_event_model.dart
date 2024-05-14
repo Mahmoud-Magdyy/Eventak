@@ -13,11 +13,13 @@ class AllEventModel {
   final String whatIsIncludedInPrice;
   final String orgShortDesc;
   final String publishAt;
+  String message;
   final Map<String, dynamic> location;
   final Map<String, dynamic> posterPicture;
   bool isSelectedFavoriteIcon;
-  AllEventModel(
+  AllEventModel( 
       {
+      required this.message,
       required this.id,
       required this.isSelectedFavoriteIcon,
       required this.nameOfEvent,
@@ -36,6 +38,7 @@ class AllEventModel {
 
   factory AllEventModel.fromJson(Map<String, dynamic> json) {
     return AllEventModel(
+      message: json['message'],
       isSelectedFavoriteIcon: false,
       publishAt: json['publishAt'],
       location: Map<String, dynamic>.from(

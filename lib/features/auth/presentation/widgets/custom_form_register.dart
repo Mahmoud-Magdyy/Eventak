@@ -21,9 +21,6 @@ class CustomFormRegister extends StatelessWidget {
           ScaffoldMessenger.of(context)
               .showSnackBar(const SnackBar(content: Text('Success')));
           navigateReplacment(context: context, route: Routes.signIn);
-          // Navigator.pop(context);
-          // customReplacementNavigate(context, '/SignIn');
-          // Navigator.pop(context);
         } else if (state is SignUpError) {
           ScaffoldMessenger.of(context)
               .showSnackBar(const SnackBar(content: Text('Error')));
@@ -35,17 +32,28 @@ class CustomFormRegister extends StatelessWidget {
             key: registerCubit.registerKey,
             child: Column(
               children: [
-                //!username
-                CustomTextFormField(
-                  prefixIcon: const Icon(Icons.person_2_outlined),
-                  hint: AppStrings.userName.tr(context),
-                  controller: registerCubit.userNameController,
-                  validate: (data) {
-                    if (data!.length < 3 || data.isEmpty) {
-                      return 'Please enter valid username atleast 3 characters';
-                    }
-                    return null;
-                  },
+                //!first name and last name
+                Row(
+                  children: [
+                    Expanded(
+                      child: CustomTextFormField(
+                          hint: 'First Name',
+                          prefixIcon: const Icon(Icons.person_pin_outlined),
+                          controller: context
+                              .read<RegisterCubit>()
+                              .firstNameController),
+                    ),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Expanded(
+                      child: CustomTextFormField(
+                        prefixIcon: const Icon(Icons.person_pin_outlined),
+                          hint: 'Last Name',
+                          controller:
+                              context.read<RegisterCubit>().lastNameController),
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 16,

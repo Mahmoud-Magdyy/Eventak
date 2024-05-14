@@ -89,7 +89,7 @@ class NewEeventDetails extends StatelessWidget {
                     IncludeThePrice(
                       includeInPrice: allEventModel!.whatIsIncludedInPrice,
                     ),
-                    const Divider()
+                    const Divider(),
                   ],
                 ),
               )

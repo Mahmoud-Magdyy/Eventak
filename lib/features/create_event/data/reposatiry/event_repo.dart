@@ -23,18 +23,12 @@ class CreateEventReposatiry {
     required String district,
     required String orgShortDesc,
     required XFile posterPicture,
-
-
-    
   }) async {
     try {
-      final response =
-          await sl<ApiConsumer>().post(EndPoint.createEvent,
-          isFormData: true
-           ,data: {
-            
+      final response = await sl<ApiConsumer>()
+          .post(EndPoint.createEvent, isFormData: true, data: {
         Apikeys.nameOfEvent: nameOfEvent,
-        Apikeys.posterPicture:await uploadImageToAPI(posterPicture) ,
+        Apikeys.posterPicture: await uploadImageToAPI(posterPicture),
         Apikeys.location: {
           Apikeys.nameOfLocation: nameOfLocation,
           Apikeys.street: street,
@@ -49,6 +43,20 @@ class CreateEventReposatiry {
         Apikeys.priceAtTheDoor: priceAtTheDoor,
         Apikeys.whatIsIncludedInPrice: whatIsIncludedInPrice,
         Apikeys.orgShortDesc: orgShortDesc
+      });
+      return Right(CreateEventModel.fromJson(response));
+    } on ServerException catch (error) {
+      return Left(error.errorModel.errorMessage);
+    }
+  }
+
+  Future<Either<String, CreateEventModel>> sendPhotosOfEvent({
+    required List<XFile> photosOfPlace,
+  }) async {
+    try {
+      final response = await sl<ApiConsumer>()
+          .post(EndPoint.sendPhotosOfEvent, isFormData: true, data: {
+        Apikeys.photosOfPlace: await uploadImagesToAPI(photosOfPlace),
       });
       return Right(CreateEventModel.fromJson(response));
     } on ServerException catch (error) {

@@ -8,7 +8,8 @@ class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit(this.authrepo) : super(RegisterInitial());
   GlobalKey<FormState> registerKey = GlobalKey<FormState>();
   
-  TextEditingController userNameController = TextEditingController();
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -44,9 +45,10 @@ class RegisterCubit extends Cubit<RegisterState> {
     emit(SignUpLoading());
     final result = await authrepo.signUp(
       confirmPassword:confirmPasswordController.text ,
-      userName:userNameController.text ,
       email: emailController.text,
       password: passwordController.text,
+      firstName: firstNameController.text,
+      lastName: lastNameController.text,
     );
     result.fold((l) => emit(SignUpError(l)), (r) async {
       registerModel = r;

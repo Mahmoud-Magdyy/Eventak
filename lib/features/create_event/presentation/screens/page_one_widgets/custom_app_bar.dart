@@ -6,17 +6,21 @@ import 'package:flutter/material.dart';
 
 class CustomCreateEventAppBar extends StatelessWidget {
   const CustomCreateEventAppBar({
-    super.key, this.nextOnPressed,
+    super.key, this.nextOnPressed, this.backOnPressed,  this.text,
   });
 final Function()? nextOnPressed;
+final Function()? backOnPressed;
+final String? text;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const CustomTextButton(
-          text: AppStrings.cancel,
-          textColor: Color(0xFFFF0E00),
+         CustomTextButton(
+
+          onPressed: backOnPressed,
+          text: text??AppStrings.back,
+          textColor: const Color(0xFFFF0E00),
         ),
         // TextButton(onPressed: (){}, child: const Text('Cancel')),
         Text(

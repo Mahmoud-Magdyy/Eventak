@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:eventak/features/create_event/data/models/create_event_model.dart';
 import 'package:eventak/features/create_event/data/reposatiry/event_repo.dart';
 import 'package:flutter/material.dart';
@@ -119,7 +120,7 @@ class CreateEventCubit extends Cubit<CreateEventState> {
   late String finalPrice=priceInAdvanceOfEventController.text+priceAtTheDoorOfEventController.text;
   
   //! create event method
-  final CreateEventReposatiry createEventRepo;
+  CreateEventReposatiry createEventRepo;
 
   CreateEventModel? createEventModel;
   // register
@@ -141,6 +142,17 @@ class CreateEventCubit extends Cubit<CreateEventState> {
       priceAtTheDoor: priceAtTheDoorOfEventController.text,
       whatIsIncludedInPrice: whatIsIncludedInPriceController.text,
 
+    );
+    result.fold((l) => emit(CretaeEventErrorState(l)), (r) async {
+      createEventModel = r;
+      emit(CretaeEventSuccessState(r.status));
+    });
+  }
+  late List<MultipartFile> multipartFiles;
+  void sendPgosOfEvent(List<XFile> photosOfPlace) async {
+    emit(CretaeEventLoadingState());
+    final result = await createEventRepo.sendPhotosOfEvent(
+      photosOfPlace:photosOfPlace ,
     );
     result.fold((l) => emit(CretaeEventErrorState(l)), (r) async {
       createEventModel = r;

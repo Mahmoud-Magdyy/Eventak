@@ -61,6 +61,15 @@ class _PageViewEventState extends State<PageViewEvent> {
                     child: Column(
                       children: [
                         CustomCreateEventAppBar(
+                          backOnPressed: () {
+                            controller.page == 0
+                                ? navigateReplacment(
+                                    context: context,
+                                    route: Routes.bottomNavBar)
+                                : controller.previousPage(
+                                    duration: const Duration(milliseconds: 500),
+                                    curve: Curves.ease);
+                          },
                           nextOnPressed: () {
                             controller.nextPage(
                                 duration: const Duration(milliseconds: 500),
@@ -90,6 +99,7 @@ class _PageViewEventState extends State<PageViewEvent> {
                                     : AppColors.primaryColor,
                                 onPressed: () {
                                   createCubit.createEvent();
+                                  // createCubit.sendPgosOfEvent(context.read<CreateEventCubit>().multipartFiles);
                                 },
                                 text: 'Publish'),
                       ],

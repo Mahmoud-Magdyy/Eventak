@@ -7,21 +7,17 @@ import 'package:eventak/core/widgets/custom_back_button.dart';
 import 'package:eventak/features/auth/presentation/auth_cubit/regsiter_cubit/register_cubit.dart';
 import 'package:eventak/features/auth/presentation/auth_cubit/regsiter_cubit/register_state.dart';
 import 'package:eventak/features/auth/presentation/widgets/custom_form_register.dart';
+import 'package:eventak/features/auth/presentation/widgets/custom_register_image.dart';
 import 'package:eventak/features/auth/presentation/widgets/dont_have_and_register.dart';
+import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
+import 'package:eventak/features/create_event/presentation/cubit/create_event_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RegisterScreen extends StatefulWidget {
+class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
-}
-
-class _RegisterScreenState extends State<RegisterScreen> {
-  @override
-  
-
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {},
@@ -39,7 +35,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     CustomBackButton(
                       onPressed: () {
-                        navigateReplacment(context: context, route: Routes.signIn);
+                        navigateReplacment(
+                            context: context, route: Routes.signIn);
                       },
                     ),
                     const SizedBox(
@@ -50,13 +47,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       style:
                           AppStyles.styleBold36(context).copyWith(fontSize: 28),
                     ),
-                    const SizedBox(
-                      height: 24,
-                    ),
                     Text(
                       AppStrings.registerSubTitle.tr(context),
                       style: AppStyles.styleMedium24(context)
                           .copyWith(fontSize: 24),
+                    ),
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    BlocConsumer<CreateEventCubit, CreateEventState>(
+                      listener: (context, state) {},
+                      builder: (context, state) {
+                        final eventCubit =
+                            BlocProvider.of<CreateEventCubit>(context);
+                        return Center(child: CustomImage(eventCubit: eventCubit));
+                      },
                     ),
                     const SizedBox(
                       height: 32,
@@ -66,7 +71,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       dontHave: AppStrings.alredyHaveAcc,
                       textButton: AppStrings.login,
                       onPressed: () {
-                        navigateReplacment(context: context, route: Routes.signIn);
+                        navigateReplacment(
+                            context: context, route: Routes.signIn);
                       },
                     )
                   ],

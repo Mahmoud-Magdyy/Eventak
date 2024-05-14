@@ -5,11 +5,33 @@ import 'package:eventak/features/create_event/presentation/cubit/create_event_st
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class PriceOfTheTicket extends StatelessWidget {
+class PriceOfTheTicket extends StatefulWidget {
   const PriceOfTheTicket({
     super.key,
   });
 
+  @override
+  State<PriceOfTheTicket> createState() => _PriceOfTheTicketState();
+}
+
+class _PriceOfTheTicketState extends State<PriceOfTheTicket> {
+  int totalPrice = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    // Calculate total price initially
+    calculateTotalPrice();
+  }
+
+  void calculateTotalPrice() {
+    final createEventCubit = context.read<CreateEventCubit>();
+    final priceInAdvance = int.tryParse(createEventCubit.priceInAdvanceOfEventController.text) ?? 0;
+    final priceAtTheDoor = int.tryParse(createEventCubit.priceAtTheDoorOfEventController.text) ?? 0;
+    setState(() {
+      totalPrice = priceInAdvance + priceAtTheDoor;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CreateEventCubit, CreateEventState>(
@@ -33,7 +55,9 @@ class PriceOfTheTicket extends StatelessWidget {
                         CustomTextFormField(
                             hint: '5',
                             prefixIcon: const Icon(Icons.attach_money_outlined),
-                            controller: context.read<CreateEventCubit>().priceInAdvanceOfEventController),
+                            controller: context.read<CreateEventCubit>().priceInAdvanceOfEventController,
+                            onChanged: (_) => calculateTotalPrice()
+                            ),
                         const SizedBox(
                           height: 4,
                         ),
@@ -52,7 +76,9 @@ class PriceOfTheTicket extends StatelessWidget {
                         CustomTextFormField(
                             hint: '5',
                             prefixIcon: const Icon(Icons.attach_money_outlined),
-                            controller: context.read<CreateEventCubit>().priceAtTheDoorOfEventController),
+                            controller: context.read<CreateEventCubit>().priceAtTheDoorOfEventController,
+                            onChanged: (_) => calculateTotalPrice()
+                            ),
                         const SizedBox(
                           height: 4,
                         ),
@@ -70,8 +96,10 @@ class PriceOfTheTicket extends StatelessWidget {
               width: 170,
               height: 50,
               child: CustomTextFormField(
+                
                   readOnly: true,
-                  hint: 'Total Price:${context.read<CreateEventCubit>().finalPrice}',
+                  
+                  hint:'Total Price:$totalPrice',
                   controller: TextEditingController()),
             ),
             const SizedBox(

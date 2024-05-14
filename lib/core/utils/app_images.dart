@@ -13,6 +13,10 @@ class Assets {
   /// assets/images/backgroundContainer.png
   static const String imagesBackgroundContainer = "assets/images/backgroundContainer.png";
 
+  /// Assets for imagesBluePersonal
+  /// assets/images/blue_personal.png
+  static const String imagesBluePersonal = "assets/images/blue_personal.png";
+
   /// Assets for imagesChangePassword
   /// assets/images/change_password.svg
   static const String imagesChangePassword = "assets/images/change_password.svg";

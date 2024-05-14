@@ -11,6 +11,7 @@ class EndPoint {
   static const String addToFavourite= 'event/favouriteEvent/';
   static const String removeFromFavourite= 'event/deleteFavourite/';
   static const String getTrendigEvents= 'event/trendingEvents';
+  static const String sendPhotosOfEvent= 'event/photosOfPlace/';
  
 
   static String recevedCodeEndPoints(id) {
@@ -64,6 +65,9 @@ class Apikeys {
   static const String street = 'street';
   static const String district = 'district';
   static const String posterPicture = 'posterPicture';
+  static const String photosOfPlace = 'photosOfPlace';
+  static const String firstName = 'firstName';
+  static const String lastName = 'lastName';
   
 
   

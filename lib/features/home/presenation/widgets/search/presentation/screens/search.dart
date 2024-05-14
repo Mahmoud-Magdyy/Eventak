@@ -69,7 +69,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         itemCount: filteredEvents.length,
                         itemBuilder: ((context, index) {
                           return ItemListSearch(
-                            
+                            allEventModel: context.read<HomeCubit>().events[index],
                             key: ValueKey(filteredEvents[index].nameOfEvent),
                             filteredEvents: filteredEvents,
                             subtitle:

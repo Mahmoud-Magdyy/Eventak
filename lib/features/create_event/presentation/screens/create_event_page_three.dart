@@ -1,10 +1,13 @@
 import 'dart:io';
 
+import 'package:eventak/core/functions/commns.dart';
+import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_three_widgets/district.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_three_widgets/location.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_three_widgets/name_of_location.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_three_widgets/street.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
 class CreateEventPageThree extends StatefulWidget {
@@ -22,6 +25,8 @@ class _CreateEventPageThreeState extends State<CreateEventPageThree> {
   void selectedImage() async {
     final List<XFile> selectedImages = await imagePicker.pickMultiImage();
     if (selectedImages.isNotEmpty) {
+      // ignore: use_build_context_synchronously
+      context.read<CreateEventCubit>().multipartFiles = await uploadImagesToAPI(selectedImages);
       imageFileList.addAll(selectedImages);
     }
     setState(() {});

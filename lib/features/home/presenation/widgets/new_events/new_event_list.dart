@@ -47,6 +47,7 @@ class _NewEventListViewState extends State<NewEventListView> {
                                       .read<HomeCubit>()
                                       .events[index]
                                       .isSelectedFavoriteIcon;
+                             
                             });
                             if (context
                                     .read<HomeCubit>()
