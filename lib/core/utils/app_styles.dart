@@ -193,6 +193,14 @@ class AppStyles {
       fontWeight: FontWeight.w700,
     );
   }
+  static TextStyle styleBold20(BuildContext context) {
+    return TextStyle(
+      color: Colors.black, 
+      fontSize: getResponsiveFontSize(context, fontSize: 20),
+      fontFamily: 'Metropolis',
+      fontWeight: FontWeight.w700,
+    );
+  }
   static TextStyle styleRegular16(BuildContext context) {
     return TextStyle(
       color: Colors.black, 

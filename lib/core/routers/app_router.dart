@@ -7,6 +7,7 @@ import 'package:eventak/features/create_event/presentation/screens/page_view_eve
 import 'package:eventak/features/home/presenation/screens/bottom_nav_bar.dart';
 import 'package:eventak/features/home/presenation/widgets/search/presentation/screens/search.dart';
 import 'package:eventak/features/on_borading/presentation/screens/on_boarding_view.dart';
+import 'package:eventak/features/profile/presentation/screens/edit_profile_screen.dart';
 import 'package:eventak/features/setting/presentation/screens/language_screen.dart';
 import 'package:eventak/features/setting/presentation/screens/privcy_screen.dart';
 import 'package:eventak/features/setting/presentation/screens/setting_screen.dart';
@@ -89,6 +90,7 @@ class Routes {
   static const String settingScreen = '/settingScreen';
   static const String languageScreen= '/languageScreen';
   static const String searchScreen= '/searchScreen';
+  static const String editProfileScreen='/editProfileScreen';
 }
 
 class AppRoutes {
@@ -98,6 +100,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case Routes.onBoardingView:
         return MaterialPageRoute(builder: (_) => const OnBoardingView());
+      case Routes.editProfileScreen:
+        return MaterialPageRoute(builder: (_) => const EditProfileScreen());
       case Routes.signIn:
         return MaterialPageRoute(builder: (_) => const SignIn());
       case Routes.languageScreen:

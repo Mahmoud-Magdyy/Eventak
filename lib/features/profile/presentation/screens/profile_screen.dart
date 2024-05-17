@@ -1,6 +1,10 @@
 import 'dart:io';
 
+import 'package:eventak/core/functions/navigate.dart';
+import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/utils/app_images.dart';
+import 'package:eventak/core/utils/app_styles.dart';
+import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_state.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +25,7 @@ class ProfileScreen extends StatelessWidget {
                 const SizedBox(
                   height: 21,
                 ),
-                const Text('Profile'),
+                 Text('Profile',style: AppStyles.styleBold18(context),),
                 const SizedBox(
                   height: 60,
                 ),
@@ -49,37 +53,67 @@ class ProfileScreen extends StatelessWidget {
                 const SizedBox(
                   height: 16,
                 ),
-                const Text('Mahmoud Magdy'),
+                 Text(
+                  'Mahmoud Magdy',
+                  style: AppStyles.styleSemiBold18(context).copyWith(color: Colors.black),
+                ),
                 const SizedBox(
                   height: 24,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       children: [
-                        Text('03'),
-                        SizedBox(
+                        Row(
+                          children: [
+                            Image.asset(Assets.imagesCreated),
+                            const SizedBox(
+                              width: 4,
+                            ),
+                             Text(
+                              '03',
+                              style: AppStyles.styleBold20(context)
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
                           height: 8,
                         ),
-                        Text('Events Create'),
-                        VerticalDivider(
-                          color: Colors.black,
-                          thickness: 2,
-                        )
+                        Text('Events Create',
+                            style: AppStyles.styleMedium16(context)
+                                .copyWith(color: Colors.black)),
+                        
                       ],
                     ),
                     Column(
                       children: [
-                        Text('03'),
-                        SizedBox(
+                        Row(
+                          children: [
+                            Image.asset(Assets.imagesCreated),
+                            const SizedBox(
+                              width: 4,
+                            ),
+                             Text(
+                              '03',
+                              style: AppStyles.styleBold20(context)
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
                           height: 8,
                         ),
-                        Text('Events Create'),
+                        Text('Events Attend',
+                            style: AppStyles.styleMedium16(context)
+                                .copyWith(color: Colors.black)),
                       ],
                     ),
                   ],
-                )
+                ),
+                const SizedBox(height: 40,),
+                CustomElevetedButton(onPressed: (){
+                  navigateReplacment(context: context, route: Routes.editProfileScreen);
+                }, text: 'Edit Profile',),
               ],
             ),
           ),

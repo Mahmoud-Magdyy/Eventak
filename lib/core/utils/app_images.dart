@@ -25,6 +25,10 @@ class Assets {
   /// assets/images/circle_avatar_image.png
   static const String imagesCircleAvatarImage = "assets/images/circle_avatar_image.png";
 
+  /// Assets for imagesCreated
+  /// assets/images/created.png
+  static const String imagesCreated = "assets/images/created.png";
+
   /// Assets for imagesEmail
   /// assets/images/email.svg
   static const String imagesEmail = "assets/images/email.svg";
