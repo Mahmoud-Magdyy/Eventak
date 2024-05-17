@@ -32,14 +32,6 @@ class CustomHomeAppBar extends StatelessWidget {
             InkWell(
               onTap: () {},
               borderRadius: BorderRadius.circular(16),
-              child: const Icon(Icons.notifications_none_outlined),
-            ),
-            const SizedBox(
-              width: 8,
-            ),
-            InkWell(
-              onTap: () {},
-              borderRadius: BorderRadius.circular(16),
               child: const Icon(Icons.qr_code),
             ),
             const SizedBox(

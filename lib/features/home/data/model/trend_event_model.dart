@@ -13,6 +13,7 @@ class TrendingEeventModel {
   final String whatIsIncludedInPrice;
   final String orgShortDesc;
   final String publishAt;
+  final String broughtToYouBy;
   final Map<String, dynamic> location;
   final Map<String, dynamic> posterPicture;
   TrendingEeventModel(
@@ -20,6 +21,7 @@ class TrendingEeventModel {
       required this.id,
       required this.nameOfEvent,
       required this.posterPicture,
+      required this.broughtToYouBy,
       required this.location,
       required this.description,
       required this.publishAt,
@@ -34,6 +36,7 @@ class TrendingEeventModel {
 
   factory TrendingEeventModel.fromJson(Map<String, dynamic> json) {
     return TrendingEeventModel(
+      broughtToYouBy: json['broughtToYouBy'],
       publishAt: json['publishAt'],
       location: Map<String, dynamic>.from(
         json['location']

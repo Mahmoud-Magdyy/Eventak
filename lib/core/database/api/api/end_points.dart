@@ -1,6 +1,6 @@
 
 class EndPoint {
-  static const String baseUrl = 'https://eventak.onrender.com/';
+  static const String baseUrl = 'https://eventak-1.onrender.com/';
   static const String userSignIn = 'auth/signin';
   static const String userSignUp = 'auth/signup';
   static const String userSendCode = 'auth/forgetcode';
@@ -38,6 +38,7 @@ class EndPoint {
 
 class Apikeys {
   static const String email = 'email';
+  static const String craetorPic = 'craetorPic';
   static const String id = 'id';
   static const String password = 'password';
   static const String confirmPassword = 'confirmPassword';

@@ -1,6 +1,8 @@
 import 'package:eventak/core/utils/app_styles.dart';
 import 'package:eventak/core/widgets/custom_nav_bar_details_screen.dart';
 import 'package:eventak/features/home/data/model/trend_event_model.dart';
+import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
+import 'package:eventak/features/home/presenation/home_cubit/home_state.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/back_icon_and_fav.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/brought_to_you.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/catregory_item.dart';
@@ -9,6 +11,7 @@ import 'package:eventak/features/home/presenation/widgets/new_events_details/wid
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/include_in_the_price.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/location_and_time.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
 class TrendingEeventDetails extends StatelessWidget {
@@ -92,7 +95,13 @@ class TrendingEeventDetails extends StatelessWidget {
                               const SizedBox(
                             height: 24,
                           ),
-                          const BroughtToYou(),
+                           BlocBuilder<HomeCubit, HomeState>(
+                             builder: (context, state) {
+                               return BroughtToYou(name:trendingEeventModel!.broughtToYouBy,
+                                                      url:context.read<HomeCubit>().profile['secure_url'] ,
+                                                      );
+                             },
+                           ),
                           const SizedBox(
                             height: 16,
                           ),
@@ -109,7 +118,7 @@ class TrendingEeventDetails extends StatelessWidget {
               ),
             ]),
           ),
-       const   CustomNavBarDetailsScreen(),
+          const CustomNavBarDetailsScreen(),
         ]),
       ));
     }

@@ -18,6 +18,7 @@ class NewEeventItem extends StatelessWidget {
     return Container(
       width: 395,
       height: 262,
+      margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.all(8),
       decoration: ShapeDecoration(
         image:  DecorationImage(

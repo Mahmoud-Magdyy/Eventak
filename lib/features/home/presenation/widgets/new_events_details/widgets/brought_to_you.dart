@@ -7,9 +7,10 @@ import 'package:flutter_svg/svg.dart';
 
 class BroughtToYou extends StatelessWidget {
   const BroughtToYou({
-    super.key,
+    super.key, required this.name, required this.url,
   });
-
+final String name;
+final String url;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,13 +22,12 @@ class BroughtToYou extends StatelessWidget {
             Container(
               width: 32,
               height: 32,
-              decoration: const ShapeDecoration(
-                // image: DecorationImage(
-                //   image: NetworkImage(
-                //       "https://via.placeholder.com/32x32"),
-                //   fit: BoxFit.fill,
-                // ),
-                shape: OvalBorder(),
+              decoration:  ShapeDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(url),
+                  fit: BoxFit.fill,
+                ),
+                shape:const OvalBorder(),
                 color: AppColors.lightBlue,
               ),
             ),
@@ -35,7 +35,7 @@ class BroughtToYou extends StatelessWidget {
               width: 8,
             ),
             Text(
-              'CityTech Events',
+              name,
               style: AppStyles.styleSemiBold14(context)
                   .copyWith(color: Colors.black),
             ),

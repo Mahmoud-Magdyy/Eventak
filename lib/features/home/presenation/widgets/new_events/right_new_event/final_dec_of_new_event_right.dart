@@ -47,14 +47,14 @@ class DecOfNewEventRight extends StatelessWidget {
           width: 176,
           height: 246,
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-          decoration: const ShapeDecoration(
-            color: AppColors.colorCategoryName,
-            image: DecorationImage(
-              image: AssetImage(Assets.imagesBackgroundContainer),
-              opacity: 0.10,
-              fit: BoxFit.cover,
-            ),
-            shape: RoundedRectangleBorder(
+          decoration:  ShapeDecoration(
+            color: AppColors.colorCategoryName.withOpacity(1.0),
+            // image: DecorationImage(
+            //   image: AssetImage(Assets.imagesBackgroundContainer),
+            //   opacity: 0.10,
+            //   fit: BoxFit.cover,
+            // ),
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(4),
                 topRight: Radius.circular(10),
