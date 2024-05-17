@@ -12,7 +12,8 @@ final String locationOfEvent;
     return SizedBox(
       width: 103,
       height: 20,
-      child: Stack(children: [
+      child: Stack(
+        children: [
         Positioned(
           left: 0,
           bottom: 10,

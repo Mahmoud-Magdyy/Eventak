@@ -38,17 +38,17 @@ class _NewEventListViewState extends State<NewEventListView> {
                         )
                       : NewEeventItem(
                           onTapFavourit: () async {
-                            // setState(() {
-                            //   context
-                            //           .read<HomeCubit>()
-                            //           .events[index]
-                            //           .isFavourite =
-                            //       !context
-                            //           .read<HomeCubit>()
-                            //           .events[index]
-                            //           .isFavourite;
+                            setState(() {
+                              context
+                                      .read<HomeCubit>()
+                                      .events[index]
+                                      .isFavourite =
+                                  !context
+                                      .read<HomeCubit>()
+                                      .events[index]
+                                      .isFavourite;
                              
-                            // });
+                            });
                             if (context
                                     .read<HomeCubit>()
                                     .events[index]

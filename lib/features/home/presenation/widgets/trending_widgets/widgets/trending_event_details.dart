@@ -1,4 +1,5 @@
 import 'package:eventak/core/utils/app_styles.dart';
+import 'package:eventak/core/widgets/custom_nav_bar_details_screen.dart';
 import 'package:eventak/features/home/data/model/trend_event_model.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/back_icon_and_fav.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/brought_to_you.dart';
@@ -22,80 +23,94 @@ class TrendingEeventDetails extends StatelessWidget {
     } else {
       return Scaffold(
           body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-               Stack(
-                children: [
-                  ImageOfEventDetails(
-                    image: trendingEeventModel!.posterPicture['secure_url'],
-                    // image: trendingEeventModel!.imageEvent,
-                  ),
-                  const Positioned(
-                    top: 30,
-                    left: 25,
-                    right: 25,
-                    child: BackIconAndFav(),
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16),
+        child: Column(children: [
+          Expanded(
+            child: PageView(children: [
+              SingleChildScrollView(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Stack(
                       children: [
-                        SizedBox(
-                          width: 220,
-                          child: FittedBox(
-                            child: Text(
-                              maxLines: 2,
-                              trendingEeventModel!.nameOfEvent,
-                              style: AppStyles.styleSemiBold24(context)
-                                  .copyWith(color: Colors.black),
-                            ),
-                          ),
+                        ImageOfEventDetails(
+                          image:
+                              trendingEeventModel!.posterPicture['secure_url'],
+                          // image: trendingEeventModel!.imageEvent,
                         ),
-                        CategoryItemDetails(
-                          icon: Icons.track_changes,
-                          nameOfIconCateogry: trendingEeventModel!.category,
-                        ),
+                        const Positioned(
+                          top: 30,
+                          left: 25,
+                          right: 25,
+                          child: BackIconAndFav(),
+                        )
                       ],
                     ),
                     const SizedBox(
-                      height: 16,
+                      height: 8,
                     ),
-                    LocationAndTimeAndDateNewEventDetails(
-                      location: trendingEeventModel!.location['street'] +
-                          ', ' +
-                          trendingEeventModel!.location['nameOfLocation'],
-                      dateMonth: trendingEeventModel!.date,
-                      dateTime:
-                          '${trendingEeventModel!.startTime} - ${trendingEeventModel!.endTime}',
-                    ),
-                    const SizedBox(
-                      height: 32,
-                    ),
-                    Description(description: trendingEeventModel!.description),
-                    const BroughtToYou(),
-                    const SizedBox(
-                      height: 24,
-                    ),
-                    IncludeThePrice(
-                      includeInPrice: trendingEeventModel!.whatIsIncludedInPrice,
-                    ),
-                    const Divider()
+                    Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                                width: 220,
+                                child: FittedBox(
+                                  child: Text(
+                                    maxLines: 2,
+                                    trendingEeventModel!.nameOfEvent,
+                                    style: AppStyles.styleSemiBold24(context)
+                                        .copyWith(color: Colors.black),
+                                  ),
+                                ),
+                              ),
+                              CategoryItemDetails(
+                                icon: Icons.track_changes,
+                                nameOfIconCateogry:
+                                    trendingEeventModel!.category,
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          LocationAndTimeAndDateNewEventDetails(
+                            location: trendingEeventModel!.location['street'] +
+                                ', ' +
+                                trendingEeventModel!.location['nameOfLocation'],
+                            dateMonth: trendingEeventModel!.date,
+                            dateTime:
+                                '${trendingEeventModel!.startTime} - ${trendingEeventModel!.endTime}',
+                          ),
+                          const SizedBox(
+                            height: 32,
+                          ),
+                          Description(
+                              description: trendingEeventModel!.description),
+                              const SizedBox(
+                            height: 24,
+                          ),
+                          const BroughtToYou(),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          IncludeThePrice(
+                            includeInPrice:
+                                trendingEeventModel!.whatIsIncludedInPrice,
+                          ),
+                          // const Divider()
+                        ],
+                      ),
+                    )
                   ],
                 ),
-              )
-            ],
+              ),
+            ]),
           ),
-        ),
+       const   CustomNavBarDetailsScreen(),
+        ]),
       ));
     }
   }

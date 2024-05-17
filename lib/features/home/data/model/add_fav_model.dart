@@ -1,11 +1,11 @@
 class AddFavModel {
-  final String message;
+  final bool message;
 
   AddFavModel({
     required this.message,
   });
   factory AddFavModel.fromJson(Map jsonData) {
     return AddFavModel(
-      message: jsonData['message'],
+      message: jsonData['isFavourite'],
     );
   }}

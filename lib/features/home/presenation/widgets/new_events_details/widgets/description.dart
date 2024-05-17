@@ -21,16 +21,13 @@ class Description extends StatelessWidget {
           height: 8,
         ),
         SizedBox(
-          height: 100,
-          child: FittedBox(
-            alignment: Alignment.topLeft,
-            fit: BoxFit.scaleDown,
-            child: Text(
-              overflow: TextOverflow.ellipsis,
-              description,
-              style: AppStyles.styleMedium14(context)
-                  .copyWith(color: const Color(0xFF676765)),
-            ),
+          // width: 361,
+          child: Text(
+            // overflow: TextOverflow.ellipsis,
+            // maxLines: 10,
+            description,
+            style: AppStyles.styleMedium14(context)
+                .copyWith(color: const Color(0xFF676765)),
           ),
         )
       ],

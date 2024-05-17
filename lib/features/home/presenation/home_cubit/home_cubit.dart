@@ -61,7 +61,7 @@ bool isSelected = false;
     emit(AddToFavouritLoadingState());
     final response = await  addToFavouritRepo.addToFavourit(id);
     response.fold((l) => emit(AddToFavouritErrorState(l)), (r) {
-      emit(AddToFavouritSuccessState(r.message));
+      emit(AddToFavouritSuccessState(r.message.toString()));
     });
   }
 //! remove from favourit method
@@ -69,7 +69,7 @@ void removeFromFavourit(String id)async{
     emit(RemoveFromFavouritLoadingState());
     final response = await  addToFavouritRepo.removeFromFavourit(id);
     response.fold((l) => emit(RemoveFromFavouritErrorState(l)), (r) {
-      emit(RemoveFromFavouritSuccessState(r.message));
+      emit(RemoveFromFavouritSuccessState(r.message.toString()));
     });
   }
   
