@@ -187,7 +187,7 @@ class AppStyles {
 
   static TextStyle styleBold16(BuildContext context) {
     return TextStyle(
-      // color: Colors.black, //?
+      color: Colors.black, 
       fontSize: getResponsiveFontSize(context, fontSize: 16),
       fontFamily: 'Metropolis',
       fontWeight: FontWeight.w700,

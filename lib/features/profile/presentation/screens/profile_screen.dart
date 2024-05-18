@@ -112,7 +112,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 40,),
                 CustomElevetedButton(onPressed: (){
-                  navigateReplacment(context: context, route: Routes.editProfileScreen);
+                  navigate(context: context, route: Routes.editProfileScreen);
                 }, text: 'Edit Profile',),
               ],
             ),
