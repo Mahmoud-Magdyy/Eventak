@@ -31,14 +31,12 @@ bool isSelected = false;
   }
   //! get all events
   List<AllEventModel> events = [];
-  late Map<String,dynamic> profile;
   final GetAllEventsReposatiry getAllEventsRepo;
   void getAllEvents({String? categoryName}) async {
     emit(GetAllEventsLoadingState());
     final result = await getAllEventsRepo.getAllEvents(categoryName: categoryName);
     result.fold((l) => emit(GetAllEventsErrorState(l)), (r) {
       events = r.data;
-      profile=r.craetorPic;
       emit(GetAllEventsSuccessState(message: r.status));
     });
   

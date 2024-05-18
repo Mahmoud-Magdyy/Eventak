@@ -16,10 +16,12 @@ class TrendingEeventModel {
   final String broughtToYouBy;
   final Map<String, dynamic> location;
   final Map<String, dynamic> posterPicture;
+  final Map<String, dynamic> creatorPicture;
   TrendingEeventModel(
       {
       required this.id,
       required this.nameOfEvent,
+      required this.creatorPicture,
       required this.posterPicture,
       required this.broughtToYouBy,
       required this.location,
@@ -43,6 +45,9 @@ class TrendingEeventModel {
         ),
       posterPicture: Map<String, dynamic>.from(
         json['posterPicture']
+        ),
+      creatorPicture: Map<String, dynamic>.from(
+        json['creatorPicture']
         ),
       id: json['_id'],
       nameOfEvent: json['nameOfEvent'],

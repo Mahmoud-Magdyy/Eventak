@@ -98,7 +98,7 @@ class TrendingEeventDetails extends StatelessWidget {
                            BlocBuilder<HomeCubit, HomeState>(
                              builder: (context, state) {
                                return BroughtToYou(name:trendingEeventModel!.broughtToYouBy,
-                                                      url:context.read<HomeCubit>().profile['secure_url'] ,
+                                                      url:trendingEeventModel!.creatorPicture['secure_url'] ,
                                                       );
                              },
                            ),

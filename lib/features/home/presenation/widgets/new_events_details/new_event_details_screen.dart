@@ -96,9 +96,8 @@ class NewEeventDetails extends StatelessWidget {
                             builder: (context, state) {
                               return BroughtToYou(
                                 name: allEventModel!.broughtToYouBy,
-                                url: context
-                                    .read<HomeCubit>()
-                                    .profile['secure_url'],
+                                url: allEventModel!
+                                    .creatorPicture['secure_url'],
                               );
                             },
                           ),

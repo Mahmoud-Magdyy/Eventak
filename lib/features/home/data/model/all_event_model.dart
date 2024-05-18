@@ -16,12 +16,14 @@ class AllEventModel {
   final String publishAt;
   final Map<String, dynamic> location;
   final Map<String, dynamic> posterPicture;
+  final Map<String, dynamic> creatorPicture;
    bool isFavourite;
    bool isCreator;
   AllEventModel( 
       {
       required this.id,
       required this.isFavourite,
+      required this.creatorPicture,
       required this.isCreator,
       required this.nameOfEvent,
       required this.broughtToYouBy,
@@ -40,12 +42,16 @@ class AllEventModel {
 
   factory AllEventModel.fromJson(Map<String, dynamic> json) {
     return AllEventModel(
+      
       broughtToYouBy: json['broughtToYouBy'],
       isCreator: json['isCreator'],
       isFavourite: json['IsFavourite'],
       publishAt: json['publishAt'],
       location: Map<String, dynamic>.from(
         json['location']
+        ),
+      creatorPicture: Map<String, dynamic>.from(
+        json['creatorPicture']
         ),
       posterPicture: Map<String, dynamic>.from(
         json['posterPicture']
@@ -67,12 +73,10 @@ class AllEventModel {
 
 class GetAllEvents {
   final String status;
-  final Map<String,dynamic> craetorPic;
   final int numberOfEvents;
   final List<AllEventModel> data;
   factory GetAllEvents.fromJson(Map<String, dynamic> jsonData) {
     return GetAllEvents(
-        craetorPic: jsonData[Apikeys.craetorPic],
         status: jsonData[Apikeys.status],
         numberOfEvents: jsonData[Apikeys.numberOfEvents],
         data: jsonData[Apikeys.data]
@@ -80,5 +84,5 @@ class GetAllEvents {
             .toList());
   }
   GetAllEvents( 
-      {required this.status,required this.craetorPic, required this.numberOfEvents, required this.data});
+      {required this.status, required this.numberOfEvents, required this.data});
 }
