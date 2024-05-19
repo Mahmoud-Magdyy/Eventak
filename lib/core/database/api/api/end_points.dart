@@ -15,6 +15,7 @@ class EndPoint {
   static const String getMyCreatedEvents= 'event/getAllCreated';
   static const String deleteEvent= 'event/deleteEvent/';
   static const String getProfile= 'auth/getUserData';
+  static const String logOut= 'auth/signOut';
  
 
   static String recevedCodeEndPoints(id) {

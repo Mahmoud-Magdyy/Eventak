@@ -11,6 +11,7 @@ import 'package:eventak/features/create_event/presentation/cubit/create_event_cu
 import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
 import 'package:eventak/features/my_events/presentation/cubit/my_created_events_cubit.dart';
 import 'package:eventak/features/profile/presentation/cubit/profile_cubit.dart';
+import 'package:eventak/features/setting/presentation/cubit/setting_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,6 +33,9 @@ void main() async {
               ),
               BlocProvider(
                 create: (context) => sl<CreateEventCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => sl<SettingCubit>(),
               ),
               BlocProvider(
                 create: (context) => sl<MyCreatedEventsCubit>()..getMyCreatedEvents(),
