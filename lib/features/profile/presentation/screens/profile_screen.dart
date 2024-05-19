@@ -1,123 +1,122 @@
-import 'dart:io';
 
 import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/utils/app_images.dart';
 import 'package:eventak/core/utils/app_styles.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
-import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
-import 'package:eventak/features/create_event/presentation/cubit/create_event_state.dart';
+import 'package:eventak/features/profile/presentation/cubit/profile_cubit.dart';
+import 'package:eventak/features/profile/presentation/cubit/profile_state.dart';
+import 'package:eventak/features/profile/presentation/widgets/profile_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
-
+  const ProfileScreen({super.key,});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 48),
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 21,
-                ),
-                 Text('Profile',style: AppStyles.styleBold18(context),),
-                const SizedBox(
-                  height: 60,
-                ),
-                BlocConsumer<CreateEventCubit, CreateEventState>(
-                  listener: (context, state) {},
-                  builder: (context, state) {
-                    final eventCubit =
-                        BlocProvider.of<CreateEventCubit>(context);
-                    return Container(
-                      width: 96,
-                      height: 96,
-                      decoration: ShapeDecoration(
-                        image: DecorationImage(
-                          image: eventCubit.profileImage == null
-                              ? const AssetImage(Assets.imagesCircleAvatarImage)
-                              : FileImage(File(eventCubit.profileImage!.path))
-                                  as ImageProvider<Object>,
-                          fit: BoxFit.cover,
-                        ),
-                        shape: const OvalBorder(),
-                      ),
-                    );
-                  },
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                 Text(
-                  'Mahmoud Magdy',
-                  style: AppStyles.styleSemiBold18(context).copyWith(color: Colors.black),
-                ),
-                const SizedBox(
-                  height: 24,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: BlocConsumer<ProfileCubit, ProfileState>(
+        listener: (context, state) {
+          if (state is GetProfilesLoadingState) {
+            const Center(child: CircularProgressIndicator());
+          }
+        },
+        builder: (context, state) {
+          return 
+          state is GetProfilesLoadingState
+                ? const Center(child: CircularProgressIndicator())
+                :
+          SafeArea(
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 48),
+                child: Column(
                   children: [
-                    Column(
+                    const SizedBox(
+                      height: 21,
+                    ),
+                    Text(
+                      'Profile',
+                      style: AppStyles.styleBold18(context),
+                    ),
+                    const SizedBox(
+                      height: 60,
+                    ),
+                    ProfileImage(
+                      image:context.read<ProfileCubit>().profileModel!.profilePic['secure_url'],
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Text(
+                      context.read<ProfileCubit>().profileModel!.firstName+context.read<ProfileCubit>().profileModel!.lastName,
+                      style: AppStyles.styleSemiBold18(context)
+                          .copyWith(color: Colors.black),
+                    ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
+                        Column(
                           children: [
-                            Image.asset(Assets.imagesCreated),
+                            Row(
+                              children: [
+                                Image.asset(Assets.imagesCreated),
+                                const SizedBox(
+                                  width: 4,
+                                ),
+                                Text(context.read<ProfileCubit>().profileModel!.createdEvent.toString(),
+                                    style: AppStyles.styleBold20(context)),
+                              ],
+                            ),
                             const SizedBox(
-                              width: 4,
+                              height: 8,
                             ),
-                             Text(
-                              '03',
-                              style: AppStyles.styleBold20(context)
-                            ),
+                            Text('Events Create',
+                                style: AppStyles.styleMedium16(context)
+                                    .copyWith(color: Colors.black)),
                           ],
                         ),
-                        const SizedBox(
-                          height: 8,
+                        Column(
+                          children: [
+                            Row(
+                              children: [
+                                Image.asset(Assets.imagesCreated),
+                                const SizedBox(
+                                  width: 4,
+                                ),
+                                Text('03',
+                                    style: AppStyles.styleBold20(context)),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            Text('Events Attend',
+                                style: AppStyles.styleMedium16(context)
+                                    .copyWith(color: Colors.black)),
+                          ],
                         ),
-                        Text('Events Create',
-                            style: AppStyles.styleMedium16(context)
-                                .copyWith(color: Colors.black)),
-                        
                       ],
                     ),
-                    Column(
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset(Assets.imagesCreated),
-                            const SizedBox(
-                              width: 4,
-                            ),
-                             Text(
-                              '03',
-                              style: AppStyles.styleBold20(context)
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Text('Events Attend',
-                            style: AppStyles.styleMedium16(context)
-                                .copyWith(color: Colors.black)),
-                      ],
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    CustomElevetedButton(
+                      onPressed: () {
+                        navigate(
+                            context: context, route: Routes.editProfileScreen);
+                      },
+                      text: 'Edit Profile',
                     ),
                   ],
                 ),
-                const SizedBox(height: 40,),
-                CustomElevetedButton(onPressed: (){
-                  navigate(context: context, route: Routes.editProfileScreen);
-                }, text: 'Edit Profile',),
-              ],
+              ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }

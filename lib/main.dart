@@ -10,6 +10,7 @@ import 'package:eventak/features/auth/presentation/auth_cubit/sign_in_cubit/sign
 import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
 import 'package:eventak/features/my_events/presentation/cubit/my_created_events_cubit.dart';
+import 'package:eventak/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,6 +41,9 @@ void main() async {
               ),
               BlocProvider(
                 create: (context) => sl<RegisterCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => sl<ProfileCubit>()..getProfile(),
               ),
               BlocProvider(
                 create: (context) => sl<ResetPasswordCubit>(),

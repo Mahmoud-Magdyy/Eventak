@@ -14,6 +14,7 @@ class EndPoint {
   static const String sendPhotosOfEvent= 'event/photosOfPlace/';
   static const String getMyCreatedEvents= 'event/getAllCreated';
   static const String deleteEvent= 'event/deleteEvent/';
+  static const String getProfile= 'auth/getUserData';
  
 
   static String recevedCodeEndPoints(id) {
