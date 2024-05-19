@@ -13,3 +13,14 @@ final class GetMyCreatedEventsErrorState extends MyCreatedEventsState {
 
   GetMyCreatedEventsErrorState({required this.message});
 }
+final class DeleteEventLoadingState extends MyCreatedEventsState {}
+final class DeleteEventSuccessState extends MyCreatedEventsState {
+  final String message;
+
+  DeleteEventSuccessState({required this.message});
+}
+final class DeleteEventErrorState extends MyCreatedEventsState {
+  final String message;
+
+  DeleteEventErrorState({required this.message});
+}

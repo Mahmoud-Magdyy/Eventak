@@ -13,10 +13,14 @@ class EndPoint {
   static const String getTrendigEvents= 'event/trendingEvents';
   static const String sendPhotosOfEvent= 'event/photosOfPlace/';
   static const String getMyCreatedEvents= 'event/getAllCreated';
+  static const String deleteEvent= 'event/deleteEvent/';
  
 
   static String recevedCodeEndPoints(id) {
     return '$receviedCode$id';
+  }
+  static String deleteEventEndPoints(id) {
+    return '$deleteEvent$id';
   }
   static String removeFromFavouriteEndPoints(id) {
     return '$removeFromFavourite$id';

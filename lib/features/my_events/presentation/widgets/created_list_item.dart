@@ -38,6 +38,9 @@ class _CreatedItemListViewState extends State<CreatedItemListView> {
                           child: const ContainerShammer(),
                         )
                       : CustomMyCreatedEventItemList(
+                        deleteOnPressed: () {
+                          // context.read<MyCreatedEventsCubit>().deleteEvent(id)
+                        },
                           myCreatedEventModel:
                               context.read<MyCreatedEventsCubit>().myCreatedEventList[index],
                               

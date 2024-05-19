@@ -18,5 +18,14 @@ class MyCreatedEventsCubit extends Cubit<MyCreatedEventsState> {
     });
   
   }
+  //! delete event
+
+  void deleteEvent(String id)async{
+    emit(DeleteEventLoadingState());
+    final response = await  getMyCreatedEventsRepo.deleteEvent(id);
+    response.fold((l) => emit(DeleteEventErrorState(message:l)), (r) {
+      emit(DeleteEventSuccessState(message:r.status.toString()));
+    });
+  }
 
 }
