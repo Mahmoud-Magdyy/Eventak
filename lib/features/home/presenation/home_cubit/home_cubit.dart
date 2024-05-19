@@ -72,5 +72,7 @@ void removeFromFavourit(String id)async{
       emit(RemoveFromFavouritSuccessState(r.message.toString()));
     });
   }
+
+  void getAllCreatedEvents() {}
   
 }

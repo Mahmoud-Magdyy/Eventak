@@ -1,9 +1,7 @@
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/utils/app_styles.dart';
-import 'package:eventak/core/widgets/custom_button.dart';
-import 'package:eventak/features/my_events/presentation/widgets/custom_image.dart';
+import 'package:eventak/features/my_events/presentation/widgets/created_list_item.dart';
 import 'package:eventak/features/my_events/presentation/widgets/custom_tab_bar_button.dart';
-import 'package:eventak/features/my_events/presentation/widgets/title_and_sub_title.dart';
 import 'package:flutter/material.dart';
 
 class MyEvents extends StatelessWidget {
@@ -45,51 +43,22 @@ class MyEvents extends StatelessWidget {
                         text: 'Created',
                       ),
                       CustomTabBarButton(
-                        text: 'Discard',
+                        text: 'Requested',
                       ),
                     ],
                   ),
                 ),
-                Expanded(
+                const Expanded(
                     child: TabBarView(children: [
-                  const Text('created'),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(8.0),
+                    child: CreatedItemListView()
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
                     child: Column(
                       children: [
-                        Container(
-                          padding: const EdgeInsets.all(8),
-                          // width: 329,
-                          // height: 160,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: ShapeDecoration(
-                            color: Colors.grey.shade200,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                          ),
-                          child: Column(
-                            children: [
-                            const  Row(
-                                children: [
-                                  CustomImageOfEvent(),
-                                   SizedBox(
-                                    width: 16,
-                                  ),
-                                   TitleAndSubTitleOfEvent()
-                                ],
-                              ),
-                              const SizedBox(height: 16,),
-                              Row(
-                                children: [
-                                  Expanded(child: CustomElevetedButton(onPressed: (){}, text: 'Delete'),),
-                                  const SizedBox(width: 16,),
-                                  Expanded(child: CustomElevetedButton(onPressed: (){}, text: 'Edit'),),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
+                        // CustomMyCreatedEventItemList(),
                       ],
                     ),
                   ),

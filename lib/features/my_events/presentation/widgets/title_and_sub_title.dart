@@ -4,18 +4,24 @@ import 'package:flutter/material.dart';
 
 class TitleAndSubTitleOfEvent extends StatelessWidget {
   const TitleAndSubTitleOfEvent({
-    super.key,
+    super.key, required this.nameOfEvent, required this.location,
   });
-
+final String nameOfEvent;
+final String location;
   @override
   Widget build(BuildContext context) {
     return Column(
      crossAxisAlignment: CrossAxisAlignment.start,
      mainAxisAlignment: MainAxisAlignment.start,
      children: [
-       Text(
-         'Harmony Fest 2024',
-         style: AppStyles.styleBold16(context)
+       SizedBox(
+        width: 209,
+         child: Text(
+           nameOfEvent,
+           maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+           style: AppStyles.styleBold16(context)
+         ),
        ),
        const SizedBox(
          height: 24,
@@ -26,7 +32,7 @@ class TitleAndSubTitleOfEvent extends StatelessWidget {
            const SizedBox(width: 6,),
            SizedBox(
              child: Text(
-               'Riverside Park Amphitheater',
+               location,overflow: TextOverflow.ellipsis,
                style: AppStyles.styleMedium12(context)
              ),
            ),
