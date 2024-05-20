@@ -19,7 +19,7 @@ class TrendingEevent extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
-        const TrendingEeventListView(),
+        const TrendingEventListView(),
       ],
     );
   }
