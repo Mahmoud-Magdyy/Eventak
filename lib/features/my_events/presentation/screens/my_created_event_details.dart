@@ -1,6 +1,4 @@
 import 'package:eventak/core/utils/app_styles.dart';
-import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
-import 'package:eventak/features/home/presenation/home_cubit/home_state.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/back_icon_and_fav.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/brought_to_you.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/catregory_item.dart';
@@ -11,7 +9,6 @@ import 'package:eventak/features/home/presenation/widgets/new_events_details/wid
 import 'package:eventak/features/my_events/data/models/my_event_model.dart';
 import 'package:eventak/features/my_events/presentation/widgets/edit_event_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
 class MyCreatedEeventDetails extends StatelessWidget {
@@ -97,14 +94,10 @@ class MyCreatedEeventDetails extends StatelessWidget {
                           const SizedBox(
                             height: 24,
                           ),
-                          BlocBuilder<HomeCubit, HomeState>(
-                            builder: (context, state) {
-                              return BroughtToYou(
-                                name: myCreatedEventModel!.broughtToYouBy,
-                                url: myCreatedEventModel!
-                                    .creatorPicture['secure_url'],
-                              );
-                            },
+                          BroughtToYou(
+                            name: myCreatedEventModel!.broughtToYouBy,
+                            url: myCreatedEventModel!
+                                .creatorPicture['secure_url'],
                           ),
                           const SizedBox(
                             height: 16,

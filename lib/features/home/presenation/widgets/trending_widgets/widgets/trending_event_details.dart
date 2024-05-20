@@ -1,5 +1,4 @@
 import 'package:eventak/core/utils/app_styles.dart';
-import 'package:eventak/core/widgets/custom_nav_bar_details_screen.dart';
 import 'package:eventak/features/home/data/model/trend_event_model.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_state.dart';
@@ -118,7 +117,7 @@ class TrendingEeventDetails extends StatelessWidget {
               ),
             ]),
           ),
-          const CustomNavBarDetailsScreen(),
+          // const CustomNavBarDetailsScreen(),
         ]),
       ));
     }

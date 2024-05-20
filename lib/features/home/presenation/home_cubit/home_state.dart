@@ -48,3 +48,14 @@ final class GetTrendingEventsSuccessState extends HomeState {
 
   GetTrendingEventsSuccessState({required this.message});
 }
+final class AddRegisterLoadingState extends HomeState {}
+final class AddRegisterErrorState extends HomeState {
+  final String message;
+
+  AddRegisterErrorState(this.message);
+}
+final class AddRegisterSuccessState extends HomeState {
+  final String message;
+
+  AddRegisterSuccessState({required this.message});
+}

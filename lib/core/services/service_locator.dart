@@ -9,6 +9,7 @@ import 'package:eventak/features/auth/presentation/auth_cubit/reset_password_cub
 import 'package:eventak/features/auth/presentation/auth_cubit/sign_in_cubit/sign_in_cubit.dart';
 import 'package:eventak/features/create_event/data/reposatiry/event_repo.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
+import 'package:eventak/features/home/data/reposatiory/add_register_repo.dart';
 import 'package:eventak/features/home/data/reposatiory/add_to_favourit_repo.dart';
 import 'package:eventak/features/home/data/reposatiory/get_all_events_repo.dart';
 import 'package:eventak/features/home/data/reposatiory/get_trending_events.dart';
@@ -28,8 +29,9 @@ Future<void> setupServiceLocator() async{
    sl.registerLazySingleton(() => CacheHelper());
    sl.registerLazySingleton(() => GlobalCubit());
    sl.registerLazySingleton(() => SignInCubit(sl()));
-   sl.registerLazySingleton(() => HomeCubit(sl(),sl(),sl(),));
+   sl.registerLazySingleton(() => HomeCubit(sl(),sl(),sl(),sl()));
    sl.registerLazySingleton(() => GetAllEventsReposatiry());
+   sl.registerLazySingleton(() => AddRegisterReposatiry());
    sl.registerLazySingleton(() => GetTrendigEventsReposatiry());
    sl.registerLazySingleton(() => AddToFavouritReposatiry());
    sl.registerLazySingleton(() => AuthRepository());

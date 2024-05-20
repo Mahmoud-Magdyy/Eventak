@@ -19,6 +19,7 @@ class NewEeventDetails extends StatelessWidget {
   AllEventModel? allEventModel;
   @override
   Widget build(BuildContext context) {
+    // bool isPending = false;
     if (allEventModel == null) {
       return const Center(
         child: CircularProgressIndicator(),
@@ -26,101 +27,123 @@ class NewEeventDetails extends StatelessWidget {
     } else {
       return Scaffold(
           body: SafeArea(
-        child: Column(children: [
-          Expanded(
-            child: PageView(children: [
-              SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Stack(
+        child: BlocConsumer<HomeCubit, HomeState>(
+          listener: (context, state) {
+            if (state is AddRegisterSuccessState) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(state.message),
+                ),
+              );
+            }
+          },
+          builder: (context, state) {
+            return Column(children: [
+              Expanded(
+                child: PageView(children: [
+                  SingleChildScrollView(
+                    child: Column(
                       children: [
-                        ImageOfEventDetails(
-                          image: allEventModel!.posterPicture['secure_url'],
-                          // image: allEventModel!.imageEvent,
+                        Stack(
+                          children: [
+                            ImageOfEventDetails(
+                              image: allEventModel!.posterPicture['secure_url'],
+                              // image: allEventModel!.imageEvent,
+                            ),
+                            const Positioned(
+                              top: 30,
+                              left: 25,
+                              right: 25,
+                              child: BackIconAndFav(),
+                            )
+                          ],
                         ),
-                        const Positioned(
-                          top: 30,
-                          left: 25,
-                          right: 25,
-                          child: BackIconAndFav(),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  SizedBox(
+                                    width: 220,
+                                    child: FittedBox(
+                                      child: Text(
+                                        maxLines: 2,
+                                        allEventModel!.nameOfEvent,
+                                        style:
+                                            AppStyles.styleSemiBold24(context)
+                                                .copyWith(color: Colors.black),
+                                      ),
+                                    ),
+                                  ),
+                                  CategoryItemDetails(
+                                    icon: Icons.track_changes,
+                                    nameOfIconCateogry: allEventModel!.category,
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 16,
+                              ),
+                              LocationAndTimeAndDateNewEventDetails(
+                                location: allEventModel!.location['street'] +
+                                    ', ' +
+                                    allEventModel!.location['nameOfLocation'],
+                                dateMonth: allEventModel!.date,
+                                dateTime:
+                                    '${allEventModel!.startTime} - ${allEventModel!.endTime}',
+                              ),
+                              const SizedBox(
+                                height: 32,
+                              ),
+                              Description(
+                                  description: allEventModel!.description),
+                              const SizedBox(
+                                height: 24,
+                              ),
+                              BlocBuilder<HomeCubit, HomeState>(
+                                builder: (context, state) {
+                                  return BroughtToYou(
+                                    name: allEventModel!.broughtToYouBy,
+                                    url: allEventModel!
+                                        .creatorPicture['secure_url'],
+                                  );
+                                },
+                              ),
+                              const SizedBox(
+                                height: 16,
+                              ),
+                              IncludeThePrice(
+                                includeInPrice:
+                                    allEventModel!.whatIsIncludedInPrice,
+                              ),
+                              // const Divider()
+                            ],
+                          ),
                         )
                       ],
                     ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SizedBox(
-                                width: 220,
-                                child: FittedBox(
-                                  child: Text(
-                                    maxLines: 2,
-                                    allEventModel!.nameOfEvent,
-                                    style: AppStyles.styleSemiBold24(context)
-                                        .copyWith(color: Colors.black),
-                                  ),
-                                ),
-                              ),
-                              CategoryItemDetails(
-                                icon: Icons.track_changes,
-                                nameOfIconCateogry: allEventModel!.category,
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          LocationAndTimeAndDateNewEventDetails(
-                            location: allEventModel!.location['street'] +
-                                ', ' +
-                                allEventModel!.location['nameOfLocation'],
-                            dateMonth: allEventModel!.date,
-                            dateTime:
-                                '${allEventModel!.startTime} - ${allEventModel!.endTime}',
-                          ),
-                          const SizedBox(
-                            height: 32,
-                          ),
-                          Description(description: allEventModel!.description),
-                          const SizedBox(
-                            height: 24,
-                          ),
-                          BlocBuilder<HomeCubit, HomeState>(
-                            builder: (context, state) {
-                              return BroughtToYou(
-                                name: allEventModel!.broughtToYouBy,
-                                url: allEventModel!
-                                    .creatorPicture['secure_url'],
-                              );
-                            },
-                          ),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          IncludeThePrice(
-                            includeInPrice:
-                                allEventModel!.whatIsIncludedInPrice,
-                          ),
-                          // const Divider()
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                  ),
+                ]),
               ),
-            ]),
-          ),
-          allEventModel!.isCreator
-              ? const SizedBox()
-              : const CustomNavBarDetailsScreen(),
-        ]),
+              allEventModel!.isCreator
+                  ? const SizedBox()
+                  : CustomNavBarDetailsScreen(
+                      onPressed: () {
+                        context
+                            .read<HomeCubit>()
+                            .addRegister(allEventModel!.nameOfEvent);
+                      },
+                    ),
+            ]);
+          },
+        ),
       ));
     }
   }

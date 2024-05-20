@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 
 class CustomNavBarDetailsScreen extends StatelessWidget {
   const CustomNavBarDetailsScreen({
-    super.key,
+    super.key, required this.onPressed,
   });
-
+final Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -73,7 +73,7 @@ class CustomNavBarDetailsScreen extends StatelessWidget {
             child: CustomElevetedButton(
               text: 'Register',
               background: const Color(0xFF1561F3),
-              onPressed: () {},
+              onPressed: onPressed,
             ),
           ),
         ],

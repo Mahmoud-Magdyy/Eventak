@@ -1,4 +1,5 @@
 
+
 class EndPoint {
   static const String baseUrl = 'https://eventak-1.onrender.com/';
   static const String userSignIn = 'auth/signin';
@@ -16,10 +17,14 @@ class EndPoint {
   static const String deleteEvent= 'event/deleteEvents/';
   static const String getProfile= 'auth/getUserData';
   static const String logOut= 'auth/signOut';
+  static const String addRegister= 'event/register/';
  
 
   static String recevedCodeEndPoints(id) {
     return '$receviedCode$id';
+  }
+  static String addRegisterEndPoints(nameOfEvent) {
+    return '$addRegister$nameOfEvent';
   }
   static String deleteEventEndPoints(id) {
     return '$deleteEvent$id';
