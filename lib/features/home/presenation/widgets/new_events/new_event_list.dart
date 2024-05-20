@@ -1,3 +1,4 @@
+import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/core/widgets/shimmer_container.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_state.dart';
@@ -19,15 +20,23 @@ class _NewEventListViewState extends State<NewEventListView> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeCubit, HomeState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is AddToFavouritSuccessState) {
+          showTwist(state: ToastStates.success, messege: 'Added To Favourite');
+        }
+        if (state is RemoveFromFavouritSuccessState) {
+          showTwist(
+              state: ToastStates.success, messege: 'Removed From Favourite');
+        }
+      },
       builder: (context, state) {
         return context.read<HomeCubit>().events.isEmpty
             ? const Center(
                 child: Text('No Events'),
               )
             : ListView.builder(
-              shrinkWrap: true,
-              physics:const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: context.read<HomeCubit>().events.length,
                 itemBuilder: (context, index) {
                   return state is GetAllEventsLoadingState
@@ -47,7 +56,6 @@ class _NewEventListViewState extends State<NewEventListView> {
                                       .read<HomeCubit>()
                                       .events[index]
                                       .isFavourite;
-                             
                             });
                             if (context
                                     .read<HomeCubit>()
@@ -55,18 +63,11 @@ class _NewEventListViewState extends State<NewEventListView> {
                                     .isFavourite ==
                                 true) {
                               context.read<HomeCubit>().removeFromFavourit(
-                                  context
-                                      .read<HomeCubit>()
-                                      .events[index]
-                                      .id);
+                                  context.read<HomeCubit>().events[index].id);
                             } else {
                               context.read<HomeCubit>().addToFavourit(
-                                  context
-                                      .read<HomeCubit>()
-                                      .events[index]
-                                      .id);
+                                  context.read<HomeCubit>().events[index].id);
                             }
-                            
                           },
                           allEventModel:
                               context.read<HomeCubit>().events[index],

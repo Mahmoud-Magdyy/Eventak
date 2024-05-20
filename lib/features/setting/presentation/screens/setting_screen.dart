@@ -1,3 +1,4 @@
+import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/utils/app_images.dart';
@@ -23,7 +24,9 @@ class _SettingScreenState extends State<SettingScreen> {
     return BlocConsumer<SettingCubit, SettingState>(
       listener: (context, state) {
         if (state is LogOutSuccessState) {
-          
+          showTwist(
+                          state: ToastStates.success,
+                          messege: state.message);
           // print("token isss: ${sl<CacheHelper>().getData(key:'token')}");
           context.read<HomeCubit>().currenIndex=0;
           // print( context.read<HomeCubit>().currenIndex);

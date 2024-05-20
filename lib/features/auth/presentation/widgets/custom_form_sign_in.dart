@@ -1,3 +1,4 @@
+import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
 import 'package:eventak/core/routers/app_router.dart';
@@ -24,8 +25,11 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
     return BlocConsumer<SignInCubit, SignInState>(
       listener: (context, state) {
         if (state is LoginSuccessState) {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text(state.message)));
+          showTwist(
+                          state: ToastStates.success,
+                          messege: 'Login Successfuly');
+          // ScaffoldMessenger.of(context)
+          //     .showSnackBar(SnackBar(content: Text(state.message)));
           navigateReplacment(context: context, route: Routes.bottomNavBar);
           // print("token isss: ${sl<CacheHelper>().getData(key: 'token')}");
         } else if (state is LoginErrorState) {

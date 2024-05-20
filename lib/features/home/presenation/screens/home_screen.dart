@@ -6,7 +6,6 @@ import 'package:eventak/features/home/presenation/widgets/new_events/new_event_s
 import 'package:eventak/features/home/presenation/widgets/trending_widgets/trending_event_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shimmer/shimmer.dart';
 
 import '../home_cubit/home_state.dart';
 
@@ -43,12 +42,6 @@ class HomeScreen extends StatelessWidget {
                   //         child: CircularProgressIndicator(),
                   //       ))
                   //     :
-                  // state is GetTrendingEventsLoadingState? SliverToBoxAdapter(
-                  //   child: Shimmer.fromColors(
-                  //             baseColor: Colors.grey[500]!,
-                  //             highlightColor: Colors.grey[600]!,
-                  //             child: const CircleAvatar(radius: 50)),
-                  // ):
                       const SliverToBoxAdapter(child:  TrendingEevent()),
                   const SliverToBoxAdapter(
                     child: SizedBox(
