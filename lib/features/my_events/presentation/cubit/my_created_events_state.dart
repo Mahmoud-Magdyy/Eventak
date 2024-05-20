@@ -14,6 +14,7 @@ final class GetMyCreatedEventsErrorState extends MyCreatedEventsState {
   GetMyCreatedEventsErrorState({required this.message});
 }
 final class DeleteEventLoadingState extends MyCreatedEventsState {}
+
 final class DeleteEventSuccessState extends MyCreatedEventsState {
   final String message;
 
@@ -23,4 +24,17 @@ final class DeleteEventErrorState extends MyCreatedEventsState {
   final String message;
 
   DeleteEventErrorState({required this.message});
+}
+final class ChangeFaceIdPhoto extends MyCreatedEventsState {}
+final class ModelAiLoadingState extends MyCreatedEventsState {}
+
+final class ModelAiSuccessState extends MyCreatedEventsState {
+  final String message;
+
+  ModelAiSuccessState( this.message);
+}
+final class ModelAiErrorState extends MyCreatedEventsState {
+  final String message;
+
+  ModelAiErrorState( this.message);
 }

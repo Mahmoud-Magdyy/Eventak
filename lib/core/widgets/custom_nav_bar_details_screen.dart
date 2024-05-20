@@ -1,13 +1,13 @@
-
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class CustomNavBarDetailsScreen extends StatelessWidget {
   const CustomNavBarDetailsScreen({
-    super.key, required this.onPressed,
+    super.key,
+    required this.onPressed,
   });
-final Function() onPressed;
+  final Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,8 +21,7 @@ final Function() onPressed;
       ),
       clipBehavior: Clip.antiAlias,
       decoration: const ShapeDecoration(
-        shape: RoundedRectangleBorder(
-            side: BorderSide(color: AppColors.grey)),
+        shape: RoundedRectangleBorder(side: BorderSide(color: AppColors.grey)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,13 +68,14 @@ final Function() onPressed;
               ],
             ),
           ),
-          Expanded(
-            child: CustomElevetedButton(
-              text: 'Register',
-              background: const Color(0xFF1561F3),
-              onPressed: onPressed,
-            ),
-          ),
+         Expanded(
+                child: CustomElevetedButton(
+                  text: 'Register',
+                  background:const Color(0xFF1561F3),
+                  onPressed: onPressed,
+                ),
+              )
+            
         ],
       ),
     );

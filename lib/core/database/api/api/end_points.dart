@@ -18,6 +18,7 @@ class EndPoint {
   static const String getProfile= 'auth/getUserData';
   static const String logOut= 'auth/signOut';
   static const String addRegister= 'event/register/';
+  static const String model= 'event/model';
  
 
   static String recevedCodeEndPoints(id) {

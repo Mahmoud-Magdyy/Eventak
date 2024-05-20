@@ -81,6 +81,7 @@ void removeFromFavourit(String id)async{
     emit(AddRegisterLoadingState());
     final response = await  addRegisterReposatiry.addRegister(nameOfEvent);
     response.fold((l) => emit(AddRegisterErrorState(l)), (r) {
+      // addRegisterModel = r.data;
       emit(AddRegisterSuccessState(message: r.message.toString()));
     });
   }

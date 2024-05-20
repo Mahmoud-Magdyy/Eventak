@@ -14,6 +14,7 @@ import 'package:eventak/features/home/data/reposatiory/add_to_favourit_repo.dart
 import 'package:eventak/features/home/data/reposatiory/get_all_events_repo.dart';
 import 'package:eventak/features/home/data/reposatiory/get_trending_events.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
+import 'package:eventak/features/my_events/data/reposatiory/model_repo.dart';
 import 'package:eventak/features/my_events/data/reposatiory/my_events_repo.dart';
 import 'package:eventak/features/my_events/presentation/cubit/my_created_events_cubit.dart';
 import 'package:eventak/features/profile/data/reposatoriy/profile_repo.dart';
@@ -40,7 +41,8 @@ Future<void> setupServiceLocator() async{
    sl.registerLazySingleton(() => ProfileCubit(sl()));
    sl.registerLazySingleton(() => ProfileReposatiry());
    sl.registerLazySingleton(() => CreateEventReposatiry());
-   sl.registerLazySingleton(() => MyCreatedEventsCubit(sl()));
+   sl.registerLazySingleton(() => ModelUserReposatiry());
+   sl.registerLazySingleton(() => MyCreatedEventsCubit(sl(),sl()));
    sl.registerLazySingleton(() => GetMyCreatedEventsReposatiry());
    sl.registerLazySingleton(() => CreateEventCubit(sl(),''));
    sl.registerLazySingleton(() => RegisterCubit(sl()));

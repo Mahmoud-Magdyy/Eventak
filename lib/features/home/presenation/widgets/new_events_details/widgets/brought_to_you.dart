@@ -7,10 +7,11 @@ import 'package:flutter_svg/svg.dart';
 
 class BroughtToYou extends StatelessWidget {
   const BroughtToYou({
-    super.key, required this.name, required this.url,
+    super.key, required this.name, required this.url, this.onTap,
   });
 final String name;
 final String url;
+final Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -40,7 +41,9 @@ final String url;
                   .copyWith(color: Colors.black),
             ),
             const Spacer(),
-            SvgPicture.asset(Assets.imagesFaceId)
+            GestureDetector(
+              onTap: onTap,
+              child: SvgPicture.asset(Assets.imagesFaceId))
           ],
         )
       ],
