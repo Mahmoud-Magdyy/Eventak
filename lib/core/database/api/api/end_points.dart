@@ -13,7 +13,7 @@ class EndPoint {
   static const String getTrendigEvents= 'event/trendingEvents';
   static const String sendPhotosOfEvent= 'event/photosOfPlace/';
   static const String getMyCreatedEvents= 'event/getAllCreated';
-  static const String deleteEvent= 'event/deleteEvent/';
+  static const String deleteEvent= 'event/deleteEvents/';
   static const String getProfile= 'auth/getUserData';
   static const String logOut= 'auth/signOut';
  

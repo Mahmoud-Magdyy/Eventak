@@ -36,6 +36,10 @@ class SignInCubit extends Cubit<SignInState> {
       emit(LoginSuccessState(r.message));
     });
   }
+  void clearControllers() {
+    emailController.clear();
+    passwordController.clear();
+  }
 
   //!
 }

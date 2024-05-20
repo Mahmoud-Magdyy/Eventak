@@ -10,8 +10,14 @@ import 'package:eventak/features/auth/presentation/widgets/forget_password_text_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CustomSignInForm extends StatelessWidget {
+class CustomSignInForm extends StatefulWidget {
   const CustomSignInForm({super.key});
+
+  @override
+  State<CustomSignInForm> createState() => _CustomSignInFormState();
+}
+
+class _CustomSignInFormState extends State<CustomSignInForm> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignInCubit, SignInState>(
@@ -19,7 +25,8 @@ class CustomSignInForm extends StatelessWidget {
         if (state is LoginSuccessState) {
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text(state.message)));
-              navigateReplacment(context: context, route: Routes.bottomNavBar);
+          navigateReplacment(context: context, route: Routes.bottomNavBar);
+          // print("token isss: ${sl<CacheHelper>().getData(key: 'token')}");
         } else if (state is LoginErrorState) {
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text(state.message)));
@@ -48,18 +55,21 @@ class CustomSignInForm extends StatelessWidget {
                   prefixIcon: const Icon(
                     Icons.lock_outline,
                   ),
-                  controller: context.read<SignInCubit>().passwordController,
+                  controller:
+                      context.read<SignInCubit>().passwordController,
                   hint: AppStrings.password.tr(context),
                   validate: (data) {
                     if (data!.length < 6 || data.isEmpty) {
-                      return AppStrings.pleaseEnterValidPassword.tr(context);
+                      return AppStrings.pleaseEnterValidPassword
+                          .tr(context);
                     }
                     return null;
                   },
                 ),
                 ForgetPasswordTextButton(
                   onPressed: () {
-                    navigateReplacment(context: context, route: Routes.forgetPassword);
+                    navigateReplacment(
+                        context: context, route: Routes.forgetPassword);
                   },
                 ),
                 const SizedBox(
@@ -69,8 +79,14 @@ class CustomSignInForm extends StatelessWidget {
                     ? const Center(child: CircularProgressIndicator())
                     : CustomElevetedButton(
                         onPressed: () {
-                          if (context.read<SignInCubit>().signInKey.currentState!.validate()) {
-                            context.read<SignInCubit>().login();
+                          if (context
+                              .read<SignInCubit>()
+                              .signInKey
+                              .currentState!
+                              .validate()) {
+                            setState(() {
+                              context.read<SignInCubit>().login();
+                            });
                           }
                         },
                         text: AppStrings.signIn.tr(context),

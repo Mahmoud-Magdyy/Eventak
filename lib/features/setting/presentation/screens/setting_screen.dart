@@ -3,21 +3,34 @@ import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/utils/app_images.dart';
 import 'package:eventak/core/utils/app_styles.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
+import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
 import 'package:eventak/features/setting/presentation/cubit/setting_cubit.dart';
 import 'package:eventak/features/setting/presentation/cubit/setting_state.dart';
 import 'package:eventak/features/setting/presentation/widgets/custom_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SettingScreen extends StatelessWidget {
+class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
 
+  @override
+  State<SettingScreen> createState() => _SettingScreenState();
+}
+
+class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SettingCubit, SettingState>(
       listener: (context, state) {
         if (state is LogOutSuccessState) {
+          
+          // print("token isss: ${sl<CacheHelper>().getData(key:'token')}");
+          context.read<HomeCubit>().currenIndex=0;
+          // print( context.read<HomeCubit>().currenIndex);
+          // context.read<HomeCubit>().close();
+          // print( context.read<HomeCubit>().currenIndex);
           navigateReplacment(context: context, route: Routes.signIn);
+    
         }
       },
       builder: (context, state) {
@@ -32,7 +45,8 @@ class SettingScreen extends StatelessWidget {
             centerTitle: true,
           ),
           body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
             child: Column(
               children: [
                 const CustomListTile(
@@ -49,7 +63,8 @@ class SettingScreen extends StatelessWidget {
                 ),
                 CustomListTile(
                   onTap: () {
-                    navigate(context: context, route: Routes.languageScreen);
+                    navigate(
+                        context: context, route: Routes.languageScreen);
                   },
                   image: Assets.imagesLanguage,
                   title: "Language",
@@ -68,8 +83,9 @@ class SettingScreen extends StatelessWidget {
                 const Spacer(),
                 CustomElevetedButton(
                   onPressed: () {
+                    
                     context.read<SettingCubit>().logout();
-                  
+                    
                   },
                   text: 'Log Out',
                   background: Colors.white,
