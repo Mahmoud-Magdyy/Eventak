@@ -36,6 +36,9 @@ class MyCreatedEeventDetails extends StatelessWidget {
               ScaffoldMessenger.of(context)
                   .showSnackBar(SnackBar(content: Text(state.message)));
             }
+            if (state is ModelAiLoadingState) {
+              
+            }
             if (state is ModelAiErrorState) {
               ScaffoldMessenger.of(context)
                   .showSnackBar(SnackBar(content: Text(state.message)));
@@ -118,6 +121,7 @@ class MyCreatedEeventDetails extends StatelessWidget {
                               const SizedBox(
                                 height: 24,
                               ),
+
                               BroughtToYou(
                                 onTap: () {
                                   showDialog(
@@ -137,7 +141,7 @@ class MyCreatedEeventDetails extends StatelessWidget {
                                             context
                                                 .read<MyCreatedEventsCubit>()
                                                 .model();
-                                            Navigator.pop(context);
+                                            // Navigator.pop(context);
                                           },
                                         );
                                       });

@@ -42,12 +42,19 @@ class RegisterCubit extends Cubit<RegisterState> {
     profileImage = value;
     emit(ChangeProfileRegisterImageState());
   }
+  bool isProfileImageSelected() {
+    return profileImage != null;
+  }
   //! register method
   final AuthRepository authrepo;
 
   RegisterModel? registerModel;
   // register
   void signUp() async {
+    if (!isProfileImageSelected()) {
+      emit(SignUpError('Please select a profile image'));
+      return;
+    }
     emit(SignUpLoading());
     final result = await authrepo.signUp(
       confirmPassword:confirmPasswordController.text ,

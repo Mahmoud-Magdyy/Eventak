@@ -1,6 +1,7 @@
 import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
 import 'package:eventak/core/routers/app_router.dart';
+import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/utils/app_strings.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/core/widgets/custom_text_field.dart';
@@ -51,17 +52,22 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
                 const SizedBox(
                   height: 24,
                 ),
+                //!password
                 CustomTextFormField(
-                  prefixIcon: const Icon(
-                    Icons.lock_outline,
-                  ),
-                  controller:
-                      context.read<SignInCubit>().passwordController,
+                  prefixIcon: const Icon(Icons.lock_outline),
                   hint: AppStrings.password.tr(context),
+                  controller: context.read<SignInCubit>().passwordController,
+                  passwordIsVisable: context.read<SignInCubit>().isLoginPasswordsShowing,
+                  icon: context.read<SignInCubit>().suffixIcon,
+                  suffixIconColor: context.read<SignInCubit>().isLoginPasswordsShowing
+                      ? AppColors.lightBlue
+                      : AppColors.deepBlue,
+                  suffixIconOnPressed: () {
+                    context.read<SignInCubit>().changeLoginPasswordSuffixIcon();
+                  },
                   validate: (data) {
                     if (data!.length < 6 || data.isEmpty) {
-                      return AppStrings.pleaseEnterValidPassword
-                          .tr(context);
+                      return AppStrings.pleaseEnterValidPassword.tr(context);
                     }
                     return null;
                   },

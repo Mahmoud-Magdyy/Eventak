@@ -40,6 +40,15 @@ class SignInCubit extends Cubit<SignInState> {
     emailController.clear();
     passwordController.clear();
   }
+bool isLoginPasswordsShowing = true;
+  IconData suffixIcon = Icons.remove_red_eye_outlined;
+  void changeLoginPasswordSuffixIcon() {
+    isLoginPasswordsShowing = !isLoginPasswordsShowing;
 
+    // suffixIcon = isLoginPasswordsShowing
+    //     ? Icons.remove_red_eye_outlined
+    //     : Icons.visibility_off;
+    emit(ChangeLoginPasswordSuffixIcon());
+  }
   //!
 }

@@ -41,7 +41,12 @@ class CustomFormRegister extends StatelessWidget {
                           prefixIcon: const Icon(Icons.person_pin_outlined),
                           controller: context
                               .read<RegisterCubit>()
-                              .firstNameController),
+                              .firstNameController,validate: (data) {
+                    if (data!.isEmpty) {
+                      return 'Please Enter First Name';
+                    }
+                    return null;
+                  },),
                     ),
                     const SizedBox(
                       width: 8,
@@ -51,7 +56,14 @@ class CustomFormRegister extends StatelessWidget {
                         prefixIcon: const Icon(Icons.person_pin_outlined),
                           hint: 'Last Name',
                           controller:
-                              context.read<RegisterCubit>().lastNameController),
+                              context.read<RegisterCubit>().lastNameController,
+                              validate: (data) {
+                    if (data!.isEmpty) {
+                      return 'Please Enter Last Name';
+                    }
+                    return null;
+                  },
+                              ),
                     ),
                   ],
                 ),
@@ -126,9 +138,14 @@ class CustomFormRegister extends StatelessWidget {
                       ))
                     : CustomElevetedButton(
                         onPressed: () {
-                          if (registerCubit.registerKey.currentState!
-                              .validate()) {
-                            registerCubit.signUp();
+                          if (registerCubit.registerKey.currentState!.validate()) {
+                            if (registerCubit.isProfileImageSelected()) {
+                              registerCubit.signUp();
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(content: Text('Please select a profile image')),
+                              );
+                            }
                           }
                         },
                         text: AppStrings.signUp.tr(context),
