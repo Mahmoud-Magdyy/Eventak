@@ -2,6 +2,7 @@ import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/features/my_events/data/models/my_event_model.dart';
 import 'package:eventak/features/my_events/presentation/cubit/my_created_events_cubit.dart';
 import 'package:eventak/features/my_events/presentation/cubit/my_created_events_state.dart';
+import 'package:eventak/features/my_events/presentation/screens/my_created_event_details.dart';
 import 'package:eventak/features/my_events/presentation/widgets/custom_image.dart';
 import 'package:eventak/features/my_events/presentation/widgets/title_and_sub_title.dart';
 import 'package:flutter/material.dart';
@@ -57,15 +58,23 @@ class CustomMyCreatedEventItemList extends StatelessWidget {
                     child:
                         CustomElevetedButton(onPressed: () {
                           context.read<MyCreatedEventsCubit>().deleteEvent(myCreatedEventModel.id);
-                        }, text: 'Delete'),
+                        }, text: 'Cancel Event',background: Colors.transparent,),
                   ),
                   const SizedBox(
                     width: 16,
                   ),
                   Expanded(
                     child: CustomElevetedButton(
-                      onPressed: () {},
-                      text: 'Edit',
+                      onPressed: () {
+                         Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MyCreatedEeventDetails(
+                            myCreatedEventModel: myCreatedEventModel,
+                          )),
+                         );
+                      },
+                      text: 'View Details',
                     ),
                   ),
                 ],

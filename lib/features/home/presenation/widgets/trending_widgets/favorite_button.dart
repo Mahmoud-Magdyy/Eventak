@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 
 class CustomFavoriteButtom extends StatelessWidget {
   const CustomFavoriteButtom({
-    super.key, this.onTap, this.heightContainer, this.widthContainer, this.sizeIcon, this.radius,
+    super.key, this.onTap, this.heightContainer, this.widthContainer, this.sizeIcon, this.radius, this.widget,
   });
 final Function()? onTap;
 final double? heightContainer;
 final double? widthContainer;
 final double? sizeIcon;
 final double? radius;
+final Widget? widget;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +23,7 @@ final double? radius;
       child: 
       GestureDetector(
         onTap: onTap,
-        child:  Icon(
+        child:widget??  Icon(
               Icons.favorite_border_outlined,
               size:sizeIcon?? 10,
               color: Colors.orange,

@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class BackIconAndFav extends StatelessWidget {
   const BackIconAndFav({
-    super.key,
+    super.key, this.widget,
   });
-
+final Widget? widget;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -30,7 +30,7 @@ class BackIconAndFav extends StatelessWidget {
             ),
           )),
         ),
-        const CustomFavoriteButtom(heightContainer: 32,widthContainer: 32,sizeIcon: 22,radius: 16,)
+   widget?? const CustomFavoriteButtom(heightContainer: 32,widthContainer: 32,sizeIcon: 22,radius: 16,)
       ],
     );
   }
