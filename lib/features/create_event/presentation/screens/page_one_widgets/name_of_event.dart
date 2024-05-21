@@ -27,6 +27,12 @@ class NameOfEvent extends StatelessWidget {
             CustomTextFormField(
               controller: context.read<CreateEventCubit>().nameOfEventController,
               hint: 'E.G Miniproject',
+              validate: (data) {
+                    if (data!.length < 15 || data.isEmpty) {
+                      return 'Please Enter At least 15 Charactar';
+                    }
+                    return null;
+                  },
             ),
             const SizedBox(
               height: 4,

@@ -41,7 +41,7 @@ class _PageViewEventState extends State<PageViewEvent> {
                     BlocProvider.of<HomeCubit>(context).getAllEvents();
                   } else if (state is CretaeEventErrorState) {
                     ScaffoldMessenger.of(context)
-                        .showSnackBar(const SnackBar(content: Text('Error')));
+                        .showSnackBar(const SnackBar(content: Text('Error'),));
                   }
                 },
                 builder: (context, state) {
@@ -71,9 +71,24 @@ class _PageViewEventState extends State<PageViewEvent> {
                                     curve: Curves.ease);
                           },
                           nextOnPressed: () {
-                            controller.nextPage(
-                                duration: const Duration(milliseconds: 500),
-                                curve: Curves.ease);
+                            if (context.read<CreateEventCubit>()
+                                .formKey
+                                .currentState!
+                                .validate()) {
+                              if (context
+                                  .read<CreateEventCubit>()
+                                  .isPosterImageSelected()) {
+                                controller.nextPage(
+                                    duration: const Duration(milliseconds: 500),
+                                    curve: Curves.ease);
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content:
+                                          Text('Please select a poster image')),
+                                );
+                              }
+                            }
                           },
                         ),
                         Expanded(
@@ -93,15 +108,19 @@ class _PageViewEventState extends State<PageViewEvent> {
                                 child: CircularProgressIndicator(
                                 color: AppColors.primaryColor,
                               ))
-                            : CustomElevetedButton(
-                                background: createCubit.checkBoxValue != true
-                                    ? Colors.grey
-                                    : AppColors.primaryColor,
-                                onPressed: () {
-                                  createCubit.createEvent();
-                                  // createCubit.sendPgosOfEvent(context.read<CreateEventCubit>().multipartFiles);
-                                },
-                                text: 'Publish'),
+                            : createCubit.checkBoxValue != true
+                                ? CustomElevetedButton(
+                                    onPressed: () {},
+                                    text: 'Publish',
+                                    background: Colors.grey,
+                                  )
+                                : CustomElevetedButton(
+                                    background: AppColors.primaryColor,
+                                    onPressed: () {
+                                      createCubit.createEvent();
+                                      // createCubit.sendPgosOfEvent(context.read<CreateEventCubit>().multipartFiles);
+                                    },
+                                    text: 'Publish'),
                       ],
                     ),
                   );

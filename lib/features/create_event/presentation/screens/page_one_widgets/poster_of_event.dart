@@ -36,10 +36,9 @@ class PosterOfEvent extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 48),
               clipBehavior: Clip.antiAlias,
               decoration: ShapeDecoration(
-                
                 image: DecorationImage(
                         image: createCubit.image == null
-                            ? const AssetImage(Assets.imagesCircleAvatarImage)
+                            ? const AssetImage(Assets.imagesWhite)
                             : FileImage(File(createCubit.image!.path))
                                 as ImageProvider<Object>,
                         fit: BoxFit.cover,

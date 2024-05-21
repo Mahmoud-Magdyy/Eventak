@@ -28,6 +28,12 @@ class WhatsIsIncludeFormField extends StatelessWidget {
               maxLines: 4,
               hint: 'Start Typing...',
               controller: context.read<CreateEventCubit>().whatIsIncludedInPriceController,
+              validate: (data) {
+                    if (data!.isEmpty) {
+                      return 'Please Enter What Is Included In Price';
+                    }
+                    return null;
+                  },
             ),
             const SizedBox(
               height: 8,

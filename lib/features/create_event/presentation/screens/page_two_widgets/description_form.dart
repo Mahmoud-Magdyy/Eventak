@@ -28,6 +28,12 @@ class DescriptionFormField extends StatelessWidget {
               maxLines: 4,
               hint: 'Start Typing...',
               controller: context.read<CreateEventCubit>().descriptionOfEventController,
+              validate: (data) {
+                    if (data!.length < 40 || data.isEmpty) {
+                      return 'Please Enter At least 40 Charactar';
+                    }
+                    return null;
+                  },
             ),
             const SizedBox(
               height: 8,

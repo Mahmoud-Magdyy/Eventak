@@ -27,6 +27,12 @@ class NameOfLocation extends StatelessWidget {
             CustomTextFormField(
               controller: context.read<CreateEventCubit>().nameOfLocationController,
               hint: 'NAME OF LOCATION',
+              validate: (data) {
+                    if (data!.isEmpty) {
+                      return 'Please Enter Name Of Loaction';
+                    }
+                    return null;
+                  },
             ),
           ],
         );

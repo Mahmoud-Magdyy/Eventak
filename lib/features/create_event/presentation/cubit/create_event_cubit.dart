@@ -38,7 +38,7 @@ class CreateEventCubit extends Cubit<CreateEventState> {
         lastDate: DateTime(2100));
 
     if (pickedDate != null) {
-      dateController.text = pickedDate.toString().split(" ")[0];
+      dateController.text = DateFormat('EEEE, MMMM d').format(pickedDate);
       emit(GetDateSuccess());
     } else {
       // print('pickedDate==null');
@@ -118,7 +118,9 @@ class CreateEventCubit extends Cubit<CreateEventState> {
   TextEditingController streetController = TextEditingController();
   late String category;
   late String finalPrice=priceInAdvanceOfEventController.text+priceAtTheDoorOfEventController.text;
-  
+  bool isPosterImageSelected() {
+    return image != null;
+  }
   //! create event method
   CreateEventReposatiry createEventRepo;
 

@@ -136,5 +136,9 @@ class Assets {
   /// Assets for imagesVerification
   /// assets/images/verification.svg
   static const String imagesVerification = "assets/images/verification.svg";
+
+  /// Assets for imagesWhite
+  /// assets/images/white.jpg
+  static const String imagesWhite = "assets/images/white.jpg";
 }
 

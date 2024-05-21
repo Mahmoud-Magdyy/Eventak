@@ -27,6 +27,12 @@ class District extends StatelessWidget {
             CustomTextFormField(
               controller: context.read<CreateEventCubit>().districtController,
               hint: 'Place',
+              validate: (data) {
+                    if (data!.isEmpty) {
+                      return 'Please Enter District';
+                    }
+                    return null;
+                  },
             ),
             const SizedBox(
               height: 8,

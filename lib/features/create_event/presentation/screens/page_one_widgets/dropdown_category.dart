@@ -23,6 +23,8 @@ class CategoryDrowpDown extends StatelessWidget {
           height: 4,
         ),
         DropdownButtonFormField(
+            style: AppStyles.styleMedium16(context)
+                .copyWith(color: const Color(0xff7091B9)),
             icon: const Icon(Icons.keyboard_arrow_down_outlined),
             hint: Text(
               'Hobbies & Interests',
@@ -30,10 +32,15 @@ class CategoryDrowpDown extends StatelessWidget {
                   .copyWith(color: const Color(0xff7091B9)),
             ),
             items: createCubit.items,
-            
+            validator: (data) {
+              if (data == null) {
+                return 'Please Enter Category ';
+              }
+              return null;
+            },
             onChanged: (value) {
               createCubit.dropDownValue = value;
-              createCubit.category=value;
+              createCubit.category = value;
             }),
         const SizedBox(
           height: 8,

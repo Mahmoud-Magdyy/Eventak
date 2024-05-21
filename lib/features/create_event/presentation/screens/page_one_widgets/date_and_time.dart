@@ -37,8 +37,13 @@ class DateAndTime extends StatelessWidget {
                       suffixIconOnPressed: () {
                         createCubit.getStartDate(context);
                       },
-                      controller: context.read<CreateEventCubit>().statrTimeOfEventController
-                      
+                      controller: context.read<CreateEventCubit>().statrTimeOfEventController,
+                      validate: (data) {
+                    if (data!.isEmpty) {
+                      return 'Please Enter Start Time';
+                    }
+                    return null;
+                  },
                       ),
                 ),
                 const SizedBox(
@@ -70,7 +75,12 @@ class DateAndTime extends StatelessWidget {
                       suffixIconOnPressed: () {
                         createCubit.getEndDate(context);
                       },
-                      controller: context.read<CreateEventCubit>().endTimeOfEventController),
+                      controller: context.read<CreateEventCubit>().endTimeOfEventController,validate: (data) {
+                    if (data!.isEmpty) {
+                      return 'Please Enter End Time';
+                    }
+                    return null;
+                  },),
                 ),
               ],
             ),
@@ -79,13 +89,18 @@ class DateAndTime extends StatelessWidget {
             ),
             CustomTextFormField(
               readOnly: true,
-              
               icon: Icons.calendar_today_outlined,
               suffixIconOnPressed: () async {
                 createCubit.getDate(context);
               },
               controller:  context.read<CreateEventCubit>().dateController,
               hint: DateFormat.MMMMEEEEd().format(createCubit.currentDate),
+              validate: (data) {
+                    if (data!.isEmpty) {
+                      return 'Please Enter Date';
+                    }
+                    return null;
+                  },
             ),
             const SizedBox(
               height: 8,

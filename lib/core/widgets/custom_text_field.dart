@@ -17,7 +17,7 @@ class CustomTextFormField extends StatelessWidget {
     this.onChanged,
     this.onFieldSubmitted,
     this.suffixIconColor,
-    this.readOnly = false, this.maxLines,
+    this.readOnly = false, this.maxLines, this.style,
   });
   final TextEditingController controller;
   final String? hint;
@@ -32,9 +32,11 @@ class CustomTextFormField extends StatelessWidget {
   final Color? suffixIconColor;
   final bool readOnly;
   final int? maxLines;
+  final TextStyle? style;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: style,
       maxLines:maxLines ?? 1,
       readOnly: readOnly,
       onChanged: onChanged,

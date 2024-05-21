@@ -27,6 +27,12 @@ class Street extends StatelessWidget {
             CustomTextFormField(
               controller: context.read<CreateEventCubit>().streetController,
               hint: 'Street Address',
+              validate: (data) {
+                    if (data!.isEmpty) {
+                      return 'Please Enter Street';
+                    }
+                    return null;
+                  },
             ),
           ],
         );
