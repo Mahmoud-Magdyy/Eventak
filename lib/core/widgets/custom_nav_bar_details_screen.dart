@@ -1,6 +1,9 @@
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
+import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
+import 'package:eventak/features/home/presenation/home_cubit/home_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomNavBarDetailsScreen extends StatelessWidget {
   const CustomNavBarDetailsScreen({
@@ -68,14 +71,19 @@ class CustomNavBarDetailsScreen extends StatelessWidget {
               ],
             ),
           ),
-         Expanded(
-                child: CustomElevetedButton(
-                  text: 'Register',
-                  background:const Color(0xFF1561F3),
-                  onPressed: onPressed,
-                ),
-              )
-            
+          BlocBuilder<HomeCubit, HomeState>(
+            builder: (context, state) {
+              return state is AddRegisterLoadingState
+                    ? const CircularProgressIndicator()
+                    : Expanded(
+                child:  CustomElevetedButton(
+                        text: 'Register',
+                        background: const Color(0xFF1561F3),
+                        onPressed: onPressed,
+                      ),
+              );
+            },
+          )
         ],
       ),
     );

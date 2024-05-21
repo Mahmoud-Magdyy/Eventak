@@ -35,6 +35,7 @@ class NewEeventDetails extends StatelessWidget {
                   content: Text(state.message),
                 ),
               );
+              
             }
           },
           builder: (context, state) {
@@ -139,6 +140,7 @@ class NewEeventDetails extends StatelessWidget {
                         context
                             .read<HomeCubit>()
                             .addRegister(allEventModel!.nameOfEvent);
+                            
                       },
                     ),
             ]);

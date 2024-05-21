@@ -1,3 +1,4 @@
+import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/features/my_events/data/models/my_event_model.dart';
 import 'package:eventak/features/my_events/presentation/cubit/my_created_events_cubit.dart';
@@ -20,6 +21,10 @@ class CustomMyCreatedEventItemList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<MyCreatedEventsCubit, MyCreatedEventsState>(
       listener: (context, state) {
+        if (state is DeleteEventSuccessState) {
+          showTwist(
+              state: ToastStates.success, messege: 'Deleted Event Successfuly');
+        }
       },
       builder: (context, state) {
         return Container(
@@ -55,10 +60,16 @@ class CustomMyCreatedEventItemList extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child:
-                        CustomElevetedButton(onPressed: () {
-                          context.read<MyCreatedEventsCubit>().deleteEvent(myCreatedEventModel.id);
-                        }, text: 'Cancel Event',background: Colors.transparent,),
+                    child: CustomElevetedButton(
+                      onPressed: () {
+                        context
+                            .read<MyCreatedEventsCubit>()
+                            .deleteEvent(myCreatedEventModel.id);
+                        
+                      },
+                      text: 'Delete Event',
+                      background: Colors.transparent,
+                    ),
                   ),
                   const SizedBox(
                     width: 16,
@@ -66,13 +77,13 @@ class CustomMyCreatedEventItemList extends StatelessWidget {
                   Expanded(
                     child: CustomElevetedButton(
                       onPressed: () {
-                         Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => MyCreatedEeventDetails(
-                            myCreatedEventModel: myCreatedEventModel,
-                          )),
-                         );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MyCreatedEeventDetails(
+                                    myCreatedEventModel: myCreatedEventModel,
+                                  )),
+                        );
                       },
                       text: 'View Details',
                     ),

@@ -27,6 +27,7 @@ class MyCreatedEventsCubit extends Cubit<MyCreatedEventsState> {
     emit(DeleteEventLoadingState());
     final response = await getMyCreatedEventsRepo.deleteEvent(id);
     response.fold((l) => emit(DeleteEventErrorState(message: l)), (r) {
+       myCreatedEventList.removeWhere((event) => event.id == id);
       emit(DeleteEventSuccessState(message: r.status.toString()));
     });
   }

@@ -10,7 +10,7 @@ class AddRegisterReposatiry {
     try {
       final response =
           await sl<ApiConsumer>().post(EndPoint.addRegisterEndPoints(nameofEvent));
-      return Right(GetRegisterData.fromJson(response['data']));
+      return Right(GetRegisterData.fromJson(response));
     } on ServerException catch (error) {
       return Left(error.errorModel.errorMessage);
     }
