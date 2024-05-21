@@ -43,7 +43,6 @@ class _RequestedItemListViewState extends State<RequestedItemListView> {
                         )
                       : CustomRequestedEventItemList(
                       
-                        
                           myRequestedEventModel:
                               context.read<MyCreatedEventsCubit>().requestedMyEventList[index],
                               

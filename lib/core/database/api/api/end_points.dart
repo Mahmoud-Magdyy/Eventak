@@ -20,6 +20,7 @@ class EndPoint {
   static const String addRegister= 'event/register/';
   static const String model= 'event/model';
   static const String getRegisterEvents= 'register/getRegEvents';
+  static const String getUsers= 'register/getRequestes/';
  
 
   static String recevedCodeEndPoints(id) {
@@ -27,6 +28,9 @@ class EndPoint {
   }
   static String addRegisterEndPoints(nameOfEvent) {
     return '$addRegister$nameOfEvent';
+  }
+  static String getUsersEndPoints(nameOfEvent) {
+    return '$getUsers$nameOfEvent';
   }
   static String deleteEventEndPoints(id) {
     return '$deleteEvent$id';

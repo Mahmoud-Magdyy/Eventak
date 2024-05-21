@@ -1,4 +1,5 @@
 import 'package:eventak/features/my_events/data/models/ai_model.dart';
+import 'package:eventak/features/my_events/data/models/get_users_model.dart';
 import 'package:eventak/features/my_events/data/models/my_event_model.dart';
 import 'package:eventak/features/my_events/data/models/requested_model.dart';
 import 'package:eventak/features/my_events/data/reposatiory/model_repo.dart';
@@ -64,5 +65,16 @@ class MyCreatedEventsCubit extends Cubit<MyCreatedEventsState> {
       emit(GetRequestedMyEventsSuccessState());
     });
   }
-
+//!
+//! get Users 
+  List<UserModel> usersEventList = [];
+  UserModel? userModel;
+  void getUsers(String nameofEvent) async {
+    emit(GetUsersLoadingState());
+    final result = await getMyCreatedEventsRepo.getUsers(nameofEvent);
+    result.fold((l) => emit(GetUsersErrorState(message: l)), (r) {
+      usersEventList = r.data;
+      emit(GetUsersSuccessState());
+    });
+  }
 }

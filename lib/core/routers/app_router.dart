@@ -6,6 +6,7 @@ import 'package:eventak/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_view_event.dart';
 import 'package:eventak/features/home/presenation/screens/bottom_nav_bar.dart';
 import 'package:eventak/features/home/presenation/widgets/search/presentation/screens/search.dart';
+import 'package:eventak/features/my_events/presentation/widgets/request_screen.dart';
 import 'package:eventak/features/on_borading/presentation/screens/on_boarding_view.dart';
 import 'package:eventak/features/profile/presentation/screens/edit_profile_screen.dart';
 import 'package:eventak/features/setting/presentation/screens/language_screen.dart';
@@ -13,67 +14,6 @@ import 'package:eventak/features/setting/presentation/screens/privcy_screen.dart
 import 'package:eventak/features/setting/presentation/screens/setting_screen.dart';
 import 'package:eventak/features/splash/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
-
-// final GoRouter router = GoRouter(routes: [
-//   GoRoute(
-//     path: "/",
-//     builder: (context, state) => const SplashScreen(),
-//   ),
-//   GoRoute(
-//     path: "/OnBoardingView",
-//     builder: (context, state) => const OnBoardingView(),
-//   ),
-//   GoRoute(
-//     path: "/HomeScreen",
-//     builder: (context, state) => const HomeScreen(),
-//   ),
-//   GoRoute(
-//     path: "/ForgetPasswordScreen",
-//     builder: (context, state) => const ForgetPasswordScreen(),
-//   ),
-//   GoRoute(
-//     path: "/ResetPasswordScreen",
-//     builder: (context, state) => BlocProvider(
-//       create: (context) => sl<ResetPasswordCubit>(),
-//       child: const ResetPasswordScreen(),
-//     ),
-//   ),
-//   GoRoute(
-//     path: "/PassResetVerification",
-//     builder: (context, state) => const PassResetVerification(),
-//   ),
-//   GoRoute(
-//     path: "/BottomNavBar",
-//     builder: (context, state) => const BottomNavBar(),
-//   ),
-//   // GoRoute(
-//   //   path: "/CreateEventScreen",
-//   //   builder: (context, state) => const CreateEventScreen(),
-//   // ),
-//   GoRoute(
-//     path: "/PageViewEvent",
-//     builder: (context, state) =>const  PageViewEvent(),
-//   ),
-//   // GoRoute(
-//   //   path: "/NewEeventDetails",
-//   //   builder: (context, state) =>const  NewEeventDetails(),
-//   // ),
-
-//   GoRoute(
-//     path: "/RegisterScreen",
-//     builder: (context, state) => BlocProvider(
-//       create: (context) => sl<RegisterCubit>(),
-//       child: const RegisterScreen(),
-//     ),
-//   ),
-//   GoRoute(
-//     path: "/SignIn",
-//     builder: (context, state) => BlocProvider(
-//       create: (context) => sl<SignInCubit>(),
-//       child: const SignIn(),
-//     ),
-//   ),
-// ]);
 //!new
 class Routes {
   static const String initialRoute = '/';
@@ -91,6 +31,7 @@ class Routes {
   static const String languageScreen= '/languageScreen';
   static const String searchScreen= '/searchScreen';
   static const String editProfileScreen='/editProfileScreen';
+  static const String requestsScreen='/requestsScreen';
 }
 
 class AppRoutes {
@@ -102,6 +43,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const OnBoardingView());
       case Routes.editProfileScreen:
         return MaterialPageRoute(builder: (_) => const EditProfileScreen());
+      case Routes.requestsScreen:
+        return MaterialPageRoute(builder: (_) => const RequestsScreen());
       case Routes.signIn:
         return MaterialPageRoute(builder: (_) => const SignIn());
       case Routes.languageScreen:

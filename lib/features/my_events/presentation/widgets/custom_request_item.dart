@@ -1,3 +1,5 @@
+import 'package:eventak/core/functions/navigate.dart';
+import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/features/my_events/data/models/requested_model.dart';
 import 'package:eventak/features/my_events/presentation/cubit/my_created_events_cubit.dart';
@@ -16,9 +18,8 @@ class CustomRequestedEventItemList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<MyCreatedEventsCubit, MyCreatedEventsState>(
       listener: (context, state) {
-        // if (state is DeleteEventSuccessState) {
-        //   showTwist(
-        //       state: ToastStates.success, messege: 'Deleted Event Successfuly');
+        // if (state is GetUsersSuccessState) {
+        //  navigate(context: context, route: Routes.requestsScreen);
         // }
       },
       builder: (context, state) {
@@ -40,7 +41,7 @@ class CustomRequestedEventItemList extends StatelessWidget {
                   CustomImageOfEvent(
                     image: myRequestedEventModel.posterPicture['secure_url'],
                   ),
-                  SizedBox(
+               const   SizedBox(
                     width: 16,
                   ),
                   TitleAndSubTitleOfEvent(
@@ -54,7 +55,11 @@ class CustomRequestedEventItemList extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              CustomElevetedButton(background: Colors.transparent,onPressed: (){}, text: 'View Requests')
+              CustomElevetedButton(background: Colors.transparent,onPressed: (){
+                context.read<MyCreatedEventsCubit>().getUsers(myRequestedEventModel.nameOfEvent);
+                navigate(context: context, route: Routes.requestsScreen);
+                
+              }, text: 'View Requests')
             ],
           ),
         );

@@ -4,6 +4,7 @@ import 'package:eventak/core/database/api/api/end_points.dart';
 import 'package:eventak/core/error/exception.dart';
 import 'package:eventak/core/services/service_locator.dart';
 import 'package:eventak/features/my_events/data/models/delete_model.dart';
+import 'package:eventak/features/my_events/data/models/get_users_model.dart';
 import 'package:eventak/features/my_events/data/models/my_event_model.dart';
 import 'package:eventak/features/my_events/data/models/requested_model.dart';
 
@@ -30,6 +31,16 @@ Future<Either<String, GetRequestedInMyEventss>> getRequestedMyEvents() async {
     try {
       final response = await sl<ApiConsumer>().get(EndPoint.getRegisterEvents);
       return Right(GetRequestedInMyEventss.fromJson(response));
+    } on ServerException catch (error) {
+      return Left(error.errorModel.errorMessage);
+    }
+  }
+  //!get users 
+  Future<Either<String,GetUsersResponse >> getUsers(String nameofEvent) async {
+    try {
+      final response =
+          await sl<ApiConsumer>().get(EndPoint.getUsersEndPoints(nameofEvent));
+      return Right(GetUsersResponse.fromJson(response));
     } on ServerException catch (error) {
       return Left(error.errorModel.errorMessage);
     }
