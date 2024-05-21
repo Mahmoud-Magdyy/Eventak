@@ -38,7 +38,7 @@ void main() async {
                 create: (context) => sl<SettingCubit>(),
               ),
               BlocProvider(
-                create: (context) => sl<MyCreatedEventsCubit>()..getMyCreatedEvents(),
+                create: (context) => sl<MyCreatedEventsCubit>()..getMyCreatedEvents()..getRequestedMyEvents(),
               ),
               BlocProvider(
                 create: (context) => sl<SignInCubit>(),

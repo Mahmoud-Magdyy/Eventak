@@ -5,6 +5,7 @@ import 'package:eventak/core/error/exception.dart';
 import 'package:eventak/core/services/service_locator.dart';
 import 'package:eventak/features/my_events/data/models/delete_model.dart';
 import 'package:eventak/features/my_events/data/models/my_event_model.dart';
+import 'package:eventak/features/my_events/data/models/requested_model.dart';
 
 class GetMyCreatedEventsReposatiry {
   Future<Either<String, GetMyCreatedEvents>> getMyEvents() async {
@@ -25,5 +26,12 @@ class GetMyCreatedEventsReposatiry {
       return Left(error.errorModel.errorMessage);
     }
   }
-
+Future<Either<String, GetRequestedInMyEventss>> getRequestedMyEvents() async {
+    try {
+      final response = await sl<ApiConsumer>().get(EndPoint.getRegisterEvents);
+      return Right(GetRequestedInMyEventss.fromJson(response));
+    } on ServerException catch (error) {
+      return Left(error.errorModel.errorMessage);
+    }
+  }
 }

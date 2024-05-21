@@ -1,5 +1,6 @@
 import 'package:eventak/features/my_events/data/models/ai_model.dart';
 import 'package:eventak/features/my_events/data/models/my_event_model.dart';
+import 'package:eventak/features/my_events/data/models/requested_model.dart';
 import 'package:eventak/features/my_events/data/reposatiory/model_repo.dart';
 import 'package:eventak/features/my_events/data/reposatiory/my_events_repo.dart';
 import 'package:eventak/features/my_events/presentation/cubit/my_created_events_state.dart';
@@ -52,4 +53,16 @@ class MyCreatedEventsCubit extends Cubit<MyCreatedEventsState> {
       emit(ModelAiSuccessState(r.message));
     });
   }
+//! get Requested My events
+  List<RequestedInMyEventsModel> requestedMyEventList = [];
+  // RequestedInMyEventsModel? requestedInMyEventsModel;
+  void getRequestedMyEvents() async {
+    emit(GetRequestedMyEventsLoadingState());
+    final result = await getMyCreatedEventsRepo.getRequestedMyEvents();
+    result.fold((l) => emit(GetRequestedMyEventsErrorState(message: l)), (r) {
+      requestedMyEventList = r.events;
+      emit(GetRequestedMyEventsSuccessState());
+    });
+  }
+
 }

@@ -38,3 +38,13 @@ final class ModelAiErrorState extends MyCreatedEventsState {
 
   ModelAiErrorState( this.message);
 }
+
+final class GetRequestedMyEventsLoadingState extends MyCreatedEventsState {}
+final class GetRequestedMyEventsSuccessState extends MyCreatedEventsState {
+ 
+}
+final class GetRequestedMyEventsErrorState extends MyCreatedEventsState {
+  final String message;
+
+  GetRequestedMyEventsErrorState({required this.message});
+}

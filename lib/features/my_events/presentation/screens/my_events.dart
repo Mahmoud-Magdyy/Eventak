@@ -2,6 +2,7 @@ import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/utils/app_styles.dart';
 import 'package:eventak/features/my_events/presentation/widgets/created_list_item.dart';
 import 'package:eventak/features/my_events/presentation/widgets/custom_tab_bar_button.dart';
+import 'package:eventak/features/my_events/presentation/widgets/requested_list_item.dart';
 import 'package:flutter/material.dart';
 
 class MyEvents extends StatelessWidget {
@@ -58,7 +59,7 @@ class MyEvents extends StatelessWidget {
                     padding: EdgeInsets.all(8.0),
                     child: Column(
                       children: [
-                        // CustomMyCreatedEventItemList(),
+                       RequestedItemListView()
                       ],
                     ),
                   ),
