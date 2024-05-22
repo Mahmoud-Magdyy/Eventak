@@ -67,3 +67,13 @@ final class AcceptRequestErrorState extends MyCreatedEventsState {
 
   AcceptRequestErrorState({required this.message});
 }
+final class DeclineRequestLoadingState extends MyCreatedEventsState {}
+final class DeclineRequestSuccessState extends MyCreatedEventsState {
+ 
+}
+final class DeclineRequestErrorState extends MyCreatedEventsState {
+  final String message;
+
+  DeclineRequestErrorState({required this.message});
+}
+

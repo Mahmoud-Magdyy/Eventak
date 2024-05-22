@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:eventak/core/utils/app_images.dart';
 import 'package:eventak/core/utils/app_styles.dart';
-import 'package:eventak/features/my_events/presentation/cubit/my_created_events_cubit.dart';
-import 'package:eventak/features/my_events/presentation/cubit/my_created_events_state.dart';
+import 'package:eventak/features/my_events/presentation/cubits/my_created_events_cubit.dart';
+import 'package:eventak/features/my_events/presentation/cubits/my_created_events_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

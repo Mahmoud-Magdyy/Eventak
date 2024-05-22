@@ -13,6 +13,7 @@ class MyEvents extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+          leading: Container(),
           title: Text(
             'My Events',
             style: AppStyles.styleBold16(context).copyWith(fontSize: 18),

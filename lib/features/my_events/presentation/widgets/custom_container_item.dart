@@ -1,8 +1,8 @@
 import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/features/my_events/data/models/my_event_model.dart';
-import 'package:eventak/features/my_events/presentation/cubit/my_created_events_cubit.dart';
-import 'package:eventak/features/my_events/presentation/cubit/my_created_events_state.dart';
+import 'package:eventak/features/my_events/presentation/cubits/my_created_events_cubit.dart';
+import 'package:eventak/features/my_events/presentation/cubits/my_created_events_state.dart';
 import 'package:eventak/features/my_events/presentation/screens/my_created_event_details.dart';
 import 'package:eventak/features/my_events/presentation/widgets/custom_image.dart';
 import 'package:eventak/features/my_events/presentation/widgets/title_and_sub_title.dart';

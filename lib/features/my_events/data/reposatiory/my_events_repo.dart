@@ -4,6 +4,7 @@ import 'package:eventak/core/database/api/api/end_points.dart';
 import 'package:eventak/core/error/exception.dart';
 import 'package:eventak/core/services/service_locator.dart';
 import 'package:eventak/features/my_events/data/models/aprove_model.dart';
+import 'package:eventak/features/my_events/data/models/decline_model.dart';
 import 'package:eventak/features/my_events/data/models/delete_model.dart';
 import 'package:eventak/features/my_events/data/models/get_users_model.dart';
 import 'package:eventak/features/my_events/data/models/my_event_model.dart';
@@ -49,11 +50,21 @@ Future<Either<String, GetRequestedInMyEventss>> getRequestedMyEvents() async {
     }
   }
   //! accept request
-  Future<Either<String, AproveModel>> acceptRequest(String email) async {
+  Future<Either<String, AproveModel>> acceptRequest(String email,String nameOfEvent) async {
     try {
       final response =
-          await sl<ApiConsumer>().delete(EndPoint.acceptRequestEndPoints(email,));
+          await sl<ApiConsumer>().delete(EndPoint.acceptRequestEndPoints(email,nameOfEvent));
       return Right(AproveModel.fromJson(response));
+    } on ServerException catch (error) {
+      return Left(error.errorModel.errorMessage);
+    }
+}
+  //! decline request
+  Future<Either<String, DeclineModel>> declineRequest(String email,String nameOfEvent) async {
+    try {
+      final response =
+          await sl<ApiConsumer>().delete(EndPoint.declineRequestEndPoints(email,nameOfEvent));
+      return Right(DeclineModel.fromJson(response));
     } on ServerException catch (error) {
       return Left(error.errorModel.errorMessage);
     }

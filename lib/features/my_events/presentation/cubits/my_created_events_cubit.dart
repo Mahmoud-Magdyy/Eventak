@@ -4,7 +4,7 @@ import 'package:eventak/features/my_events/data/models/my_event_model.dart';
 import 'package:eventak/features/my_events/data/models/requested_model.dart';
 import 'package:eventak/features/my_events/data/reposatiory/model_repo.dart';
 import 'package:eventak/features/my_events/data/reposatiory/my_events_repo.dart';
-import 'package:eventak/features/my_events/presentation/cubit/my_created_events_state.dart';
+import 'package:eventak/features/my_events/presentation/cubits/my_created_events_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -29,7 +29,7 @@ class MyCreatedEventsCubit extends Cubit<MyCreatedEventsState> {
     emit(DeleteEventLoadingState());
     final response = await getMyCreatedEventsRepo.deleteEvent(id);
     response.fold((l) => emit(DeleteEventErrorState(message: l)), (r) {
-       myCreatedEventList.removeWhere((event) => event.id == id);
+      myCreatedEventList.removeWhere((event) => event.id == id);
       emit(DeleteEventSuccessState(message: r.status.toString()));
     });
   }
@@ -54,6 +54,7 @@ class MyCreatedEventsCubit extends Cubit<MyCreatedEventsState> {
       emit(ModelAiSuccessState(r.message));
     });
   }
+
 //! get Requested My events
   List<RequestedInMyEventsModel> requestedMyEventList = [];
   RequestedInMyEventsModel? requestedInMyEventsModel;
@@ -65,8 +66,9 @@ class MyCreatedEventsCubit extends Cubit<MyCreatedEventsState> {
       emit(GetRequestedMyEventsSuccessState());
     });
   }
+
 //!
-//! get Users 
+//! get Users
   List<UserModel> usersEventList = [];
   UserModel? userModel;
   void getUsers(String nameofEvent) async {
@@ -77,13 +79,25 @@ class MyCreatedEventsCubit extends Cubit<MyCreatedEventsState> {
       emit(GetUsersSuccessState());
     });
   }
+
   //! accept request
-  void acceptRequest(String email) async {
+  void acceptRequest(String email, String nameOfEvent) async {
     emit(AcceptRequestLoadingState());
-    final result = await getMyCreatedEventsRepo.acceptRequest(email);
+    final result =
+        await getMyCreatedEventsRepo.acceptRequest(email, nameOfEvent);
     result.fold((l) => emit(AcceptRequestErrorState(message: l)), (r) {
       getMyCreatedEvents();
       emit(AcceptRequestSuccessState());
+    });
+  }
+  // //! decline request
+  void declineRequest(String email, String nameOfEvent) async {
+    emit(DeclineRequestLoadingState());
+    final result =
+        await getMyCreatedEventsRepo.declineRequest(email, nameOfEvent);
+    result.fold((l) => emit(DeclineRequestErrorState(message: l)), (r) {
+      getMyCreatedEvents();
+      emit(DeclineRequestSuccessState());
     });
   }
 }

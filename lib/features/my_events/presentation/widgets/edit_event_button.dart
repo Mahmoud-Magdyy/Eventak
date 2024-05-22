@@ -1,3 +1,5 @@
+import 'package:eventak/core/functions/navigate.dart';
+import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +11,9 @@ class CustomEditEventButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        navigate(context: context, route: Routes.editEventScreen);
+      },
       child: Container(
         // width: 80,
         // height: 28,

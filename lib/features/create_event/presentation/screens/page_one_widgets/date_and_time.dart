@@ -37,7 +37,8 @@ class DateAndTime extends StatelessWidget {
                       suffixIconOnPressed: () {
                         createCubit.getStartDate(context);
                       },
-                      controller: context.read<CreateEventCubit>().statrTimeOfEventController,
+                      controller: 
+                      context.read<CreateEventCubit>().statrTimeOfEventController,
                       validate: (data) {
                     if (data!.isEmpty) {
                       return 'Please Enter Start Time';

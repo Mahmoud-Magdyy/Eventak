@@ -32,6 +32,7 @@ class Routes {
   static const String searchScreen= '/searchScreen';
   static const String editProfileScreen='/editProfileScreen';
   static const String requestsScreen='/requestsScreen';
+  static const String editEventScreen='/editEventScreen';
 }
 
 class AppRoutes {
@@ -43,6 +44,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const OnBoardingView());
       case Routes.editProfileScreen:
         return MaterialPageRoute(builder: (_) => const EditProfileScreen());
+      // case Routes.editEventScreen:
+      //   return MaterialPageRoute(builder: (_) => const EditEventScreen());
       case Routes.requestsScreen:
         return MaterialPageRoute(builder: (_) => const RequestsScreen());
       case Routes.signIn:

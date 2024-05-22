@@ -2,8 +2,8 @@ import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/features/my_events/data/models/requested_model.dart';
-import 'package:eventak/features/my_events/presentation/cubit/my_created_events_cubit.dart';
-import 'package:eventak/features/my_events/presentation/cubit/my_created_events_state.dart';
+import 'package:eventak/features/my_events/presentation/cubits/my_created_events_cubit.dart';
+import 'package:eventak/features/my_events/presentation/cubits/my_created_events_state.dart';
 import 'package:eventak/features/my_events/presentation/widgets/custom_image.dart';
 import 'package:eventak/features/my_events/presentation/widgets/title_and_sub_title.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +57,6 @@ class CustomRequestedEventItemList extends StatelessWidget {
               ),
               CustomElevetedButton(background: Colors.transparent,onPressed: (){
                 context.read<MyCreatedEventsCubit>().getUsers(myRequestedEventModel.nameOfEvent);
-                print('nameeeee ${myRequestedEventModel.nameOfEvent}');
                 navigate(context: context, route: Routes.requestsScreen);
                 
               }, text: 'View Requests')

@@ -9,13 +9,13 @@ import 'package:eventak/features/home/presenation/widgets/new_events_details/wid
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/include_in_the_price.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/location_and_time.dart';
 import 'package:eventak/features/my_events/data/models/my_event_model.dart';
-import 'package:eventak/features/my_events/presentation/cubit/my_created_events_cubit.dart';
+import 'package:eventak/features/my_events/presentation/cubits/my_created_events_cubit.dart';
 import 'package:eventak/features/my_events/presentation/widgets/edit_event_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../cubit/my_created_events_state.dart';
+import '../cubits/my_created_events_state.dart';
 
 // ignore: must_be_immutable
 class MyCreatedEeventDetails extends StatelessWidget {

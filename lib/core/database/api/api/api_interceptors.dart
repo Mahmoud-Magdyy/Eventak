@@ -6,7 +6,7 @@ import 'package:eventak/core/database/cache/cache_helper.dart';
 import 'package:eventak/core/services/service_locator.dart';
 import 'package:eventak/features/my_events/data/models/get_users_model.dart';
 import 'package:eventak/features/my_events/data/models/requested_model.dart';
-import 'package:eventak/features/my_events/presentation/cubit/my_created_events_cubit.dart';
+import 'package:eventak/features/my_events/presentation/cubits/my_created_events_cubit.dart';
 
 
 class ApiInterceptors extends Interceptor {

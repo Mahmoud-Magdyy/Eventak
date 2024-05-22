@@ -1,7 +1,7 @@
 import 'package:eventak/core/widgets/shimmer_container.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
-import 'package:eventak/features/my_events/presentation/cubit/my_created_events_cubit.dart';
-import 'package:eventak/features/my_events/presentation/cubit/my_created_events_state.dart';
+import 'package:eventak/features/my_events/presentation/cubits/my_created_events_cubit.dart';
+import 'package:eventak/features/my_events/presentation/cubits/my_created_events_state.dart';
 import 'package:eventak/features/my_events/presentation/widgets/custom_container_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

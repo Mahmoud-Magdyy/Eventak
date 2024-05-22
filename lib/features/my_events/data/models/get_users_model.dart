@@ -7,11 +7,13 @@ class UserModel {
   final bool isConfirmed;
   final String createdAt;
   final String updatedAt;
+  final String nameOfEvent;
   final dynamic createdEvent;
   final Map<String, dynamic> profilePic;
 
   UserModel({
     required this.id,
+    required this.nameOfEvent,
     required this.firstName,
     required this.lastName,
     required this.email,
@@ -26,6 +28,7 @@ class UserModel {
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       id: json['_id'],
+      nameOfEvent: json['nameOfEvent'],
       firstName: json['firstName'],
       lastName: json['lastName'],
       email: json['email'],

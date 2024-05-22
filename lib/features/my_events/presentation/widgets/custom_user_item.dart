@@ -4,13 +4,13 @@
   import 'package:eventak/features/home/data/model/add_register_model.dart';
   import 'package:eventak/features/my_events/data/models/get_users_model.dart';
 import 'package:eventak/features/my_events/data/models/requested_model.dart';
-  import 'package:eventak/features/my_events/presentation/cubit/my_created_events_cubit.dart';
+  import 'package:eventak/features/my_events/presentation/cubits/my_created_events_cubit.dart';
   import 'package:flutter/material.dart';
   import 'package:flutter_bloc/flutter_bloc.dart';
 
   class CustomRequestItem extends StatelessWidget {
     const CustomRequestItem({
-      super.key, required this.userModel, this.addRegisterModel, this.myRequestedEventModel,
+      super.key, required this.userModel, this.addRegisterModel,this.myRequestedEventModel,
     });
   final UserModel userModel;
   final RequestedInMyEventsModel? myRequestedEventModel;
@@ -54,7 +54,7 @@ import 'package:eventak/features/my_events/data/models/requested_model.dart';
                 Expanded(
                     child: CustomElevetedButton(
                   onPressed: () {
-
+context.read<MyCreatedEventsCubit>().declineRequest(userModel.email,userModel.nameOfEvent);
                   },
                   text: 'Decline',
                   background: Colors.transparent,
@@ -67,9 +67,9 @@ import 'package:eventak/features/my_events/data/models/requested_model.dart';
                         onPressed: 
                         () {
                           // context.read<MyCreatedEventsCubit>().acceptRequest(userModel.);
-                          context.read<MyCreatedEventsCubit>().acceptRequest(userModel.email,);
+                          context.read<MyCreatedEventsCubit>().acceptRequest(userModel.email,userModel.nameOfEvent);
                           // print('this id::: ${userModel.email}');
-                          print('namge of ::: ${context.read<MyCreatedEventsCubit>().requestedInMyEventsModel!.nameOfEvent }');
+                          // print('namge of ::: ${context.read<MyCreatedEventsCubit>().requestedInMyEventsModel!.nameOfEvent }');
                         },
                         text: 'Approve',
                         background: Colors.green)),
