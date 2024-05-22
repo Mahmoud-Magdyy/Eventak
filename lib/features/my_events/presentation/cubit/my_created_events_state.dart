@@ -58,3 +58,12 @@ final class GetUsersErrorState extends MyCreatedEventsState {
 
   GetUsersErrorState({required this.message});
 }
+final class AcceptRequestLoadingState extends MyCreatedEventsState {}
+final class AcceptRequestSuccessState extends MyCreatedEventsState {
+ 
+}
+final class AcceptRequestErrorState extends MyCreatedEventsState {
+  final String message;
+
+  AcceptRequestErrorState({required this.message});
+}

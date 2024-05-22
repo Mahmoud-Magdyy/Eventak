@@ -3,7 +3,7 @@ class ProfileModel {
   final String id;
   final String firstName;
   final String lastName;
-  final int createdEvent;
+  final dynamic createdEvent;
   final Map<String, dynamic> profilePic;
 
   ProfileModel( 

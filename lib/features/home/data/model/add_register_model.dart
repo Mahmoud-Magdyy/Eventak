@@ -110,7 +110,7 @@ class User {
 }
 
 class AddRegisterModel {
-  final String id;
+  final String idEvent;
   final String nameOfEvent;
   final String createrEmail;
   final int v;
@@ -120,7 +120,7 @@ class AddRegisterModel {
     required this.v,
     required this.nameOfEvent,
     required this.createrEmail,
-    required this.id,
+    required this.idEvent,
     required this.user,
   });
 
@@ -129,7 +129,7 @@ class AddRegisterModel {
       v: json['__v'],
       createrEmail: json['createrEmail'],
       nameOfEvent: json['nameOfEvent'],
-      id: json['_id'],
+      idEvent: json['_id'],
       user: User.fromJson(json['user']),
     );
   }

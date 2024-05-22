@@ -56,7 +56,7 @@ class MyCreatedEventsCubit extends Cubit<MyCreatedEventsState> {
   }
 //! get Requested My events
   List<RequestedInMyEventsModel> requestedMyEventList = [];
-  // RequestedInMyEventsModel? requestedInMyEventsModel;
+  RequestedInMyEventsModel? requestedInMyEventsModel;
   void getRequestedMyEvents() async {
     emit(GetRequestedMyEventsLoadingState());
     final result = await getMyCreatedEventsRepo.getRequestedMyEvents();
@@ -75,6 +75,15 @@ class MyCreatedEventsCubit extends Cubit<MyCreatedEventsState> {
     result.fold((l) => emit(GetUsersErrorState(message: l)), (r) {
       usersEventList = r.data;
       emit(GetUsersSuccessState());
+    });
+  }
+  //! accept request
+  void acceptRequest(String email) async {
+    emit(AcceptRequestLoadingState());
+    final result = await getMyCreatedEventsRepo.acceptRequest(email);
+    result.fold((l) => emit(AcceptRequestErrorState(message: l)), (r) {
+      getMyCreatedEvents();
+      emit(AcceptRequestSuccessState());
     });
   }
 }

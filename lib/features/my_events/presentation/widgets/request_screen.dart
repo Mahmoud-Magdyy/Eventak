@@ -35,6 +35,7 @@ class RequestsScreen extends StatelessWidget {
                 itemCount: context.read<MyCreatedEventsCubit>().usersEventList.length,
                 itemBuilder: (context, index) {
                   return  CustomRequestItem(
+                   
                           userModel:
                               context.read<MyCreatedEventsCubit>().usersEventList[index],
                               

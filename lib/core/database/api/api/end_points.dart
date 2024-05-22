@@ -21,10 +21,14 @@ class EndPoint {
   static const String model= 'event/model';
   static const String getRegisterEvents= 'register/getRegEvents';
   static const String getUsers= 'register/getRequestes/';
+  static const String acceptRequest= 'register/acceptApproval/';
  
 
   static String recevedCodeEndPoints(id) {
     return '$receviedCode$id';
+  }
+  static String acceptRequestEndPoints(id) {
+    return '$acceptRequest$id';
   }
   static String addRegisterEndPoints(nameOfEvent) {
     return '$addRegister$nameOfEvent';

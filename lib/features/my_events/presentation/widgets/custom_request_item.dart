@@ -57,6 +57,7 @@ class CustomRequestedEventItemList extends StatelessWidget {
               ),
               CustomElevetedButton(background: Colors.transparent,onPressed: (){
                 context.read<MyCreatedEventsCubit>().getUsers(myRequestedEventModel.nameOfEvent);
+                print('nameeeee ${myRequestedEventModel.nameOfEvent}');
                 navigate(context: context, route: Routes.requestsScreen);
                 
               }, text: 'View Requests')
