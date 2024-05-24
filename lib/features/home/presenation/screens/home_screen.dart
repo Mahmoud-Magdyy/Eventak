@@ -10,7 +10,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../home_cubit/home_state.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({
+    Key? key,
+  }) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -18,51 +21,49 @@ class HomeScreen extends StatelessWidget {
       body: BlocConsumer<HomeCubit, HomeState>(
         listener: (context, state) {},
         builder: (context, state) {
-          return  SafeArea(
+          return SafeArea(
             child: Padding(
               padding: const EdgeInsets.only(left: 8.0, top: 0, right: 8.0),
-              child: CustomScrollView(
-                // physics: const BouncingScrollPhysics(),
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                slivers: [
-                  const SliverToBoxAdapter(
-                    child: SizedBox(
-                      height: 16,
+              child: RefreshIndicator(
+                onRefresh: () async {
+                  // Here you can call the method to refresh your data
+                  context.read<HomeCubit>().getAllEvents();
+                },
+                child: CustomScrollView(
+                  slivers: [
+                    const SliverToBoxAdapter(
+                      child: SizedBox(
+                        height: 16,
+                      ),
                     ),
-                  ),
-                  const SliverToBoxAdapter(child: CustomHomeAppBar()),
-                  const SliverToBoxAdapter(
-                    child: SizedBox(
-                      height: 24,
+                    const SliverToBoxAdapter(child: CustomHomeAppBar()),
+                    const SliverToBoxAdapter(
+                      child: SizedBox(
+                        height: 24,
+                      ),
                     ),
-                  ),
-                  // state is GetTrendingEventsLoadingState
-                  //     ? const SliverToBoxAdapter(
-                  //         child: Center(
-                  //         child: CircularProgressIndicator(),
-                  //       ))
-                  //     :
-                      const SliverToBoxAdapter(child:  TrendingEevent()),
-                  const SliverToBoxAdapter(
-                    child: SizedBox(
-                      height: 24,
+                    const SliverToBoxAdapter(child: TrendingEevent()),
+                    const SliverToBoxAdapter(
+                      child: SizedBox(
+                        height: 24,
+                      ),
                     ),
-                  ),
-                  const SliverToBoxAdapter(child: CategorySection()),
-                  const SliverToBoxAdapter(
-                    child: SizedBox(
-                      height: 24,
+                    const SliverToBoxAdapter(child: CategorySection()),
+                    const SliverToBoxAdapter(
+                      child: SizedBox(
+                        height: 24,
+                      ),
                     ),
-                  ),
-                  const SliverToBoxAdapter(child: NewEventSection()),
-                  state is GetAllEventsLoadingState
-                      ? const SliverToBoxAdapter(
-                          child: Center(
-                          child: CircularProgressIndicator(),
-                        ))
-                      : 
-                      const SliverToBoxAdapter(child: NewEventListView())
-                ],
+                    const SliverToBoxAdapter(child: NewEventSection()),
+                    state is GetAllEventsLoadingState
+                        ? const SliverToBoxAdapter(
+                            child: Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                          )
+                        : const SliverToBoxAdapter(child: NewEventListView()),
+                  ],
+                ),
               ),
             ),
           );

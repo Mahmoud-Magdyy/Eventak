@@ -111,6 +111,18 @@ class ProfileScreen extends StatelessWidget {
                       },
                       text: 'Edit Profile',
                     ),
+                    const SizedBox(height: 8,),
+                    CustomElevetedButton(
+                      background: Colors.red,
+                      onPressed: () {
+                        context
+                            .read<ProfileCubit>()
+                            .getMyFavouriteEvents();
+                        navigate(
+                            context: context, route: Routes.favoritesScreen);
+                      },
+                      text: 'Favorites',
+                    ),
                   ],
                 ),
               ),
