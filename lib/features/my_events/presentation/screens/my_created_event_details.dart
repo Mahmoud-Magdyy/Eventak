@@ -58,12 +58,12 @@ class MyCreatedEeventDetails extends StatelessWidget {
                                   .posterPicture['secure_url'],
                               // image: myCreatedEventModel!.imageEvent,
                             ),
-                            const Positioned(
+                             Positioned(
                               top: 30,
                               left: 25,
                               right: 25,
                               child: BackIconAndFav(
-                                widget: CustomEditEventButton(),
+                                widget: CustomEditEventButton(myCreatedEventModel: myCreatedEventModel!,),
                               ),
                             )
                           ],

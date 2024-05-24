@@ -6,6 +6,7 @@ import 'package:eventak/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_view_event.dart';
 import 'package:eventak/features/home/presenation/screens/bottom_nav_bar.dart';
 import 'package:eventak/features/home/presenation/widgets/search/presentation/screens/search.dart';
+import 'package:eventak/features/my_events/data/models/my_event_model.dart';
 import 'package:eventak/features/my_events/presentation/widgets/edit_event_screen.dart';
 import 'package:eventak/features/my_events/presentation/widgets/request_screen.dart';
 import 'package:eventak/features/on_borading/presentation/screens/on_boarding_view.dart';
@@ -51,7 +52,7 @@ class AppRoutes {
       case Routes.favoritesScreen:
         return MaterialPageRoute(builder: (_) => const FavoritesScreen());
       case Routes.editEventScreen:
-        return MaterialPageRoute(builder: (_) =>  const EditEventScreen( ));
+        return MaterialPageRoute(builder: (_) =>   EditEventScreen( myCreatedEventModel: routeSettings.arguments as MyCreatedEventModel,));
       case Routes.requestsScreen:
         return MaterialPageRoute(builder: (_) => const RequestsScreen());
       case Routes.signIn:

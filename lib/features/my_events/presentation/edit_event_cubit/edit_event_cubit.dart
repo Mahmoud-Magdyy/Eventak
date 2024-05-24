@@ -1,4 +1,9 @@
-import 'package:eventak/features/create_event/data/models/create_event_model.dart';
+
+import 'package:eventak/core/database/api/api/end_points.dart';
+import 'package:eventak/core/functions/commns.dart';
+import 'package:eventak/features/my_events/data/models/edit_model.dart';
+import 'package:eventak/features/my_events/data/models/my_event_model.dart';
+import 'package:eventak/features/my_events/data/reposatiory/edit_event_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -7,9 +12,9 @@ import 'package:intl/intl.dart';
 import 'edit_event_state.dart';
 
 class EditEventCubit extends Cubit<EditEventState> {
-  EditEventCubit() : super(EditEventInitial());
+  EditEventCubit(this.editEventRepo) : super(EditEventInitial());
 
-  XFile? editPosterImage;
+    XFile? editPosterImage;
   XFile? editProfileImage;
   int page = 0;
 
@@ -27,7 +32,7 @@ class EditEventCubit extends Cubit<EditEventState> {
   TextEditingController editDateController = TextEditingController();
   DateTime currentDate = DateTime.now();
   DateTime selectedDate = DateTime.now();
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> editFormKey = GlobalKey<FormState>();
 
   void getDate(context) async {
     emit(GetEditDateLoading());
@@ -35,7 +40,7 @@ class EditEventCubit extends Cubit<EditEventState> {
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(1900),
-      lastDate: DateTime(2100)
+      lastDate: DateTime(2100),
     );
 
     if (pickedDate != null) {
@@ -121,42 +126,78 @@ class EditEventCubit extends Cubit<EditEventState> {
   }
 
   //! edit event method
-  CreateEventModel? createEventModel;
+  EditEventModel? editEventModel;
+  final EditEventRepo editEventRepo;
+  MyCreatedEventModel? myCreatedEventModel;
 
-  // void editEvent() async {
-  //   emit(EditEventLoadingState());
-  //   final result = await eventRepo.editEvent(
-  //     eventId: eventId,
-  //     posterPicture: editPosterImage,
-  //     district: editDistrictController.text,
-  //     nameOfLocation: editLocationController.text,
-  //     orgShortDesc: editOrgShortDescController.text,
-  //     street: editStreetController.text,
-  //     nameOfEvent: editNameOfEventController.text,
-  //     description: editDescriptionOfEventController.text,
-  //     startTime: editStartTimeController.text,
-  //     endTime: editEndTimeController.text,
-  //     date: editDateController.text,
-  //     category: category,
-  //     priceInAdvance: editPriceInAdvanceController.text,
-  //     priceAtTheDoor: editPriceAtTheDoorController.text,
-  //     whatIsIncludedInPrice: editIncludedInPriceController.text,
-  //   );
-  //   result.fold((l) => emit(EditEventErrorState(l)), (r) async {
-  //     createEventModel = r;
-  //     emit(EditEventSuccessState(r.status));
-  //   });
-  // }
+  void initializeEventData(MyCreatedEventModel eventModel) {
+    editNameOfEventController.text = eventModel.nameOfEvent;
+    editDateController.text = eventModel.date;
+    editDescriptionOfEventController.text = eventModel.description;
+    editPriceInAdvanceController.text = eventModel.priceInAdvance;
+    editPriceAtTheDoorController.text = eventModel.priceAtTheDoor;
+    editIncludedInPriceController.text = eventModel.whatIsIncludedInPrice;
+    editDistrictController.text = eventModel.location[Apikeys.district];
+    editLocationController.text = eventModel.location[Apikeys.nameOfLocation];
+    editOrgShortDescController.text = eventModel.orgShortDesc;
+    editStreetController.text = eventModel.location[Apikeys.street];
+    editStartTimeController.text = eventModel.startTime;
+    editEndTimeController.text = eventModel.endTime;
+    category = eventModel.category;
+    editPosterImage = eventModel.posterPicture[0];
+    emit(EditEventDataInitialized());
+  }
 
-  // late List<MultipartFile> multipartFiles;
-  // void sendEditPhotosOfEvent(List<XFile> photosOfPlace) async {
-  //   emit(EditEventLoadingState());
-  //   final result = await eventRepo.sendEditPhotosOfEvent(
-  //     photosOfPlace: photosOfPlace,
-  //   );
-  //   result.fold((l) => emit(EditEventErrorState(l)), (r) async {
-  //     createEventModel = r;
-  //     emit(EditEventSuccessState(r.status));
-  //   });
-  // }
+  void editEvent(String id) async {
+    emit(EditEventLoadingState());
+
+    final data = <String, dynamic>{};
+
+    if (editNameOfEventController.text.isNotEmpty) {
+      data[Apikeys.nameOfEvent] = editNameOfEventController.text;
+    }
+    if (editPosterImage != null) {
+      data[Apikeys.posterPicture] = await uploadImageToAPI(editPosterImage!);
+    }
+    if (editLocationController.text.isNotEmpty) {
+      data[Apikeys.nameOfLocation] = editLocationController.text;
+      data[Apikeys.street] = editStreetController.text;
+      data[Apikeys.district] = editDistrictController.text;
+    }
+    if (editDescriptionOfEventController.text.isNotEmpty) {
+      data[Apikeys.description] = editDescriptionOfEventController.text;
+    }
+    if (editStartTimeController.text.isNotEmpty) {
+      data[Apikeys.startTime] = editStartTimeController.text;
+    }
+    if (editEndTimeController.text.isNotEmpty) {
+      data[Apikeys.endTime] = editEndTimeController.text;
+    }
+    if (editDateController.text.isNotEmpty) {
+      data[Apikeys.date] = editDateController.text;
+    }
+    if (category.isNotEmpty) {
+      data[Apikeys.category] = category;
+    }
+    if (editPriceInAdvanceController.text.isNotEmpty) {
+      data[Apikeys.priceInAdvance] = editPriceInAdvanceController.text;
+    }
+    if (editPriceAtTheDoorController.text.isNotEmpty) {
+      data[Apikeys.priceAtTheDoor] = editPriceAtTheDoorController.text;
+    }
+    if (editIncludedInPriceController.text.isNotEmpty) {
+      data[Apikeys.whatIsIncludedInPrice] = editIncludedInPriceController.text;
+    }
+    if (editOrgShortDescController.text.isNotEmpty) {
+      data[Apikeys.orgShortDesc] = editOrgShortDescController.text;
+    }
+
+    final result = await editEventRepo.editEvent(id: id, data: data);
+
+    result.fold((l) => emit(EditEventErrorState(l)), (r) async {
+      editEventModel = r;
+      emit(EditEventSuccessState(r.status));
+    });
+  }
+
 }

@@ -1,18 +1,24 @@
-import 'package:eventak/core/functions/navigate.dart';
-import 'package:eventak/core/routers/app_router.dart';
+
 import 'package:eventak/core/utils/app_styles.dart';
+import 'package:eventak/features/my_events/data/models/my_event_model.dart';
+import 'package:eventak/features/my_events/presentation/widgets/edit_event_screen.dart';
 import 'package:flutter/material.dart';
 
 class CustomEditEventButton extends StatelessWidget {
   const CustomEditEventButton({
-    super.key,
+    super.key,required this.myCreatedEventModel,
   });
-
+final MyCreatedEventModel myCreatedEventModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        navigate(context: context, route: Routes.editEventScreen);
+        Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) => EditEventScreen(myCreatedEventModel: myCreatedEventModel),
+  ),
+);
       },
       child: Container(
         // width: 80,

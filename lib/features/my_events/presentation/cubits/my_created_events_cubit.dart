@@ -15,11 +15,13 @@ class MyCreatedEventsCubit extends Cubit<MyCreatedEventsState> {
   //! get My Created events
   List<MyCreatedEventModel> myCreatedEventList = [];
   final GetMyCreatedEventsReposatiry getMyCreatedEventsRepo;
+  MyCreatedEventModel? myCreatedEventModel;
   void getMyCreatedEvents() async {
     emit(GetMyCreatedEventsLoadingState());
     final result = await getMyCreatedEventsRepo.getMyEvents();
     result.fold((l) => emit(GetMyCreatedEventsErrorState(message: l)), (r) {
       myCreatedEventList = r.data;
+      // myCreatedEventModel=r.data[0];
       emit(GetMyCreatedEventsSuccessState(message: r.status));
     });
   }

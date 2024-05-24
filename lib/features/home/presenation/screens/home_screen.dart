@@ -28,6 +28,7 @@ class HomeScreen extends StatelessWidget {
                 onRefresh: () async {
                   // Here you can call the method to refresh your data
                   context.read<HomeCubit>().getAllEvents();
+                  context.read<HomeCubit>().getTrendigEvents();
                 },
                 child: CustomScrollView(
                   slivers: [

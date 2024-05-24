@@ -22,9 +22,13 @@ class EndPoint {
   static const String getUsers = 'register/getRequestes/';
   static const String acceptRequest = 'register/acceptApproval/';
   static const String declineRequest = 'register/rejectApproval/';
+  static const String editEvent = 'event/updateEvent/';
 
   static String recevedCodeEndPoints(id) {
     return '$receviedCode$id';
+  }
+  static String editEventEndPoints(id) {
+    return '$editEvent$id';
   }
 
   static String acceptRequestEndPoints(id, nameOfEvent) {
