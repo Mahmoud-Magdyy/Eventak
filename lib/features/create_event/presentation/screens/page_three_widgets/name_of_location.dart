@@ -7,9 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NameOfLocation extends StatelessWidget {
   const NameOfLocation({
-    super.key,
+    super.key, required this.nameOfLocationController,
   });
-
+final TextEditingController nameOfLocationController;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CreateEventCubit, CreateEventState>(
@@ -25,7 +25,7 @@ class NameOfLocation extends StatelessWidget {
               height: 8,
             ),
             CustomTextFormField(
-              controller: context.read<CreateEventCubit>().nameOfLocationController,
+              controller:nameOfLocationController ,
               hint: 'NAME OF LOCATION',
               validate: (data) {
                     if (data!.isEmpty) {

@@ -7,9 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WhatsIsIncludeFormField extends StatelessWidget {
   const WhatsIsIncludeFormField({
-    super.key,
+    super.key, required this.whatIsIncludedInPriceController,
   });
-
+final TextEditingController whatIsIncludedInPriceController;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CreateEventCubit, CreateEventState>(
@@ -27,7 +27,7 @@ class WhatsIsIncludeFormField extends StatelessWidget {
             CustomTextFormField(
               maxLines: 4,
               hint: 'Start Typing...',
-              controller: context.read<CreateEventCubit>().whatIsIncludedInPriceController,
+              controller:whatIsIncludedInPriceController ,
               validate: (data) {
                     if (data!.isEmpty) {
                       return 'Please Enter What Is Included In Price';

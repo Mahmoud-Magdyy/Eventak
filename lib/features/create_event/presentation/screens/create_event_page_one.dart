@@ -32,7 +32,7 @@ class CreateEventPageOne extends StatelessWidget {
           const SizedBox(
             height: 26,
           ),
-          const NameOfEvent(),
+           NameOfEvent(nameController: createCubit.nameOfEventController,),
           const SizedBox(
             height: 26,
           ),
@@ -40,7 +40,12 @@ class CreateEventPageOne extends StatelessWidget {
           const SizedBox(
             height: 26,
           ),
-          CategoryDrowpDown(createCubit: createCubit),
+          CategoryDrowpDown(
+            items: createCubit.items,
+            onChanged: (value){
+              createCubit.dropDownValue = value;
+              createCubit.category = value;
+          },),
           const SizedBox(
             height: 26,
           ),

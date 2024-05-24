@@ -1,15 +1,15 @@
 import 'package:eventak/core/utils/app_styles.dart';
-import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
 import 'package:flutter/material.dart';
 
 class CategoryDrowpDown extends StatelessWidget {
   const CategoryDrowpDown({
     super.key,
-    required this.createCubit,
+    required this.onChanged,  this.items,
   });
 
-  final CreateEventCubit createCubit;
-
+  // final CreateEventCubit createCubit;
+final Function(dynamic) onChanged;
+final List<DropdownMenuItem<dynamic>>? items;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -31,17 +31,19 @@ class CategoryDrowpDown extends StatelessWidget {
               style: AppStyles.styleMedium16(context)
                   .copyWith(color: const Color(0xff7091B9)),
             ),
-            items: createCubit.items,
+            items: items,
             validator: (data) {
               if (data == null) {
                 return 'Please Enter Category ';
               }
               return null;
             },
-            onChanged: (value) {
-              createCubit.dropDownValue = value;
-              createCubit.category = value;
-            }),
+            onChanged: onChanged,
+            // (value) {
+            //   createCubit.dropDownValue = value;
+            //   createCubit.category = value;
+            // }
+            ),
         const SizedBox(
           height: 8,
         ),

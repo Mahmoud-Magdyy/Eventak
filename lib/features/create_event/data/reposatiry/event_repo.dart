@@ -63,4 +63,6 @@ class CreateEventReposatiry {
       return Left(error.errorModel.errorMessage);
     }
   }
+  //! edit event 
+  
 }

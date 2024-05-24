@@ -7,9 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NameOfEvent extends StatelessWidget {
   const NameOfEvent({
-    super.key,
+    super.key, required this.nameController,
   });
-
+final TextEditingController nameController;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CreateEventCubit, CreateEventState>(
@@ -25,7 +25,7 @@ class NameOfEvent extends StatelessWidget {
               height: 8,
             ), //Name Of Event
             CustomTextFormField(
-              controller: context.read<CreateEventCubit>().nameOfEventController,
+              controller: nameController,
               hint: 'E.G Miniproject',
               validate: (data) {
                     if (data!.length < 15 || data.isEmpty) {

@@ -7,9 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DescriptionFormField extends StatelessWidget {
   const DescriptionFormField({
-    super.key,
+    super.key, required this.descriptionController,
   });
-
+final TextEditingController descriptionController;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CreateEventCubit, CreateEventState>(
@@ -27,7 +27,7 @@ class DescriptionFormField extends StatelessWidget {
             CustomTextFormField(
               maxLines: 4,
               hint: 'Start Typing...',
-              controller: context.read<CreateEventCubit>().descriptionOfEventController,
+              controller:descriptionController ,
               validate: (data) {
                     if (data!.length < 40 || data.isEmpty) {
                       return 'Please Enter At least 40 Charactar';
