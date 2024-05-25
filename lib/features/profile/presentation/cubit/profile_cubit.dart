@@ -1,3 +1,4 @@
+import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/features/profile/data/models/edit_profile_model.dart';
 import 'package:eventak/features/profile/data/models/favourite_model.dart';
 import 'package:eventak/features/profile/data/models/get_profile_model.dart';
@@ -64,7 +65,7 @@ class ProfileCubit extends Cubit<ProfileState> {
 
     final data = <String, dynamic>{};
     if (profileImage != null) {
-      // data['profileImage'] = await uploadImageToAPI(profileImage!);
+      data['profilePic'] = await uploadImageToAPI(profileImage!);
     }
     if (editFristNameController.text.isNotEmpty) {
       data['firstName'] = editFristNameController.text;
