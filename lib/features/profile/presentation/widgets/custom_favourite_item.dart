@@ -1,17 +1,17 @@
-import 'package:eventak/core/functions/navigate.dart';
-import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/features/my_events/presentation/cubits/my_created_events_cubit.dart';
 import 'package:eventak/features/my_events/presentation/cubits/my_created_events_state.dart';
 import 'package:eventak/features/my_events/presentation/widgets/custom_image.dart';
 import 'package:eventak/features/my_events/presentation/widgets/title_and_sub_title.dart';
 import 'package:eventak/features/profile/data/models/favourite_model.dart';
+import 'package:eventak/features/profile/presentation/widgets/favourites_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomFavouriteItem extends StatelessWidget {
   const CustomFavouriteItem({
-    super.key, required this.myFavouriteModel,
+    super.key,
+    required this.myFavouriteModel,
   });
   final FavouriteModel myFavouriteModel;
   @override
@@ -37,30 +37,37 @@ class CustomFavouriteItem extends StatelessWidget {
           ),
           child: Column(
             children: [
-               Row(
+              Row(
                 children: [
                   CustomImageOfEvent(
                     image: myFavouriteModel.posterPicture['secure_url'],
                   ),
-               const   SizedBox(
+                  const SizedBox(
                     width: 16,
                   ),
                   TitleAndSubTitleOfEvent(
-                    nameOfEvent: 
-                    myFavouriteModel.nameOfEvent,
-                    location:
-                     myFavouriteModel.location['street'],
+                    nameOfEvent: myFavouriteModel.nameOfEvent,
+                    location: myFavouriteModel.location['street'],
                   )
                 ],
               ),
               const SizedBox(
                 height: 16,
               ),
-              CustomElevetedButton(background: Colors.transparent,onPressed: (){
-                context.read<MyCreatedEventsCubit>().getUsers(myFavouriteModel.nameOfEvent);
-                navigate(context: context, route: Routes.requestsScreen);
-                
-              }, text: 'Show Event',)
+              CustomElevetedButton(
+                background: Colors.white,
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => FavouritesEeventDetails(
+                            favouriteModel: myFavouriteModel,
+                                
+                              )));
+                },
+                text: 'Show Event',
+                color: Colors.black,
+              )
             ],
           ),
         );

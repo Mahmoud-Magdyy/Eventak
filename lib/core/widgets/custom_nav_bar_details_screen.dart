@@ -76,10 +76,12 @@ class CustomNavBarDetailsScreen extends StatelessWidget {
               return state is AddRegisterLoadingState
                     ? const CircularProgressIndicator()
                     : Expanded(
-                child:  CustomElevetedButton(
-                        text: 'Register',
-                        background: const Color(0xFF1561F3),
-                        onPressed: onPressed,
+                child: CustomElevetedButton(
+                        text: state is AddRegisterSuccessState ? 'Pending' : 'Register',
+                        background: state is AddRegisterSuccessState
+                            ? Colors.orange
+                            : const Color(0xFF1561F3),
+                        onPressed:state is  AddRegisterSuccessState ? (){} : onPressed,
                       ),
               );
             },

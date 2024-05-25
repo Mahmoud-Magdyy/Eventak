@@ -72,16 +72,18 @@ void removeFromFavourit(String id)async{
       emit(RemoveFromFavouritSuccessState(r.message.toString()));
     });
   }
-
+// Flag to track registration state
+  bool isRegistered = false;
   //! add register
   final AddRegisterReposatiry addRegisterReposatiry;
-  // List<AddRegisterModel> registerModel = [];
+  List<AddRegisterModel> registerModel = [];
   AddRegisterModel? addRegisterModel;
   void addRegister(String nameOfEvent)async{
     emit(AddRegisterLoadingState());
     final response = await  addRegisterReposatiry.addRegister(nameOfEvent);
     response.fold((l) => emit(AddRegisterErrorState(l)), (r) {
       addRegisterModel = r.data;
+      isRegistered = true;
       emit(AddRegisterSuccessState(message: r.message.toString()));
     });
   }

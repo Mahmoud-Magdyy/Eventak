@@ -28,11 +28,13 @@ class ProfileCubit extends Cubit<ProfileState> {
 
   //! get My Favourite events
   List<FavouriteModel> myFavouriteEventList = [];
+  FavouriteModel? favouriteModel;
   final GetMyFavouritesEventsReposatiry getMyFavouriteEventsRepo;
   void getMyFavouriteEvents() async {
     emit(GetMyFavouriteEventsLoadingState());
     final result = await getMyFavouriteEventsRepo.getMyFavouriteEvents();
     result.fold((l) => emit(GetMyFavouriteEventsErrorState(message: l)), (r) {
+      // favouriteModel = r.data;
       myFavouriteEventList = r.data;
       emit(GetMyFavouriteEventsSuccessState());
     });
