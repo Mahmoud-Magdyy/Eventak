@@ -21,7 +21,7 @@ class NavBarButtonsNewEvent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const CustomNewEventButton(
-              icon: Icons.airplane_ticket_outlined,
+              icon: Icons.confirmation_num_outlined,
             ),
             const SizedBox(
               width: 4,

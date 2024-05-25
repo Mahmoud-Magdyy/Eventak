@@ -30,22 +30,19 @@ class _NewEventListViewState extends State<NewEventListView> {
         }
       },
       builder: (context, state) {
-        return context.read<HomeCubit>().events.isEmpty
-            ? const Center(
-                child: Text('No Events'),
-              )
-            : ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: context.read<HomeCubit>().events.length,
-                itemBuilder: (context, index) {
-                  return state is GetAllEventsLoadingState
+        return state is GetAllEventsLoadingState
                       ? Shimmer.fromColors(
                           baseColor: Colors.grey[500]!,
                           highlightColor: Colors.grey[600]!,
                           child: const ContainerShammer(),
                         )
-                      : NewEeventItem(
+            
+            : ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: context.read<HomeCubit>().events.length,
+                itemBuilder: (context, index) {
+                  return  NewEeventItem(
                           onTapFavourit: () async {
                             setState(() {
                               context

@@ -15,7 +15,7 @@ final String location;
      mainAxisAlignment: MainAxisAlignment.start,
      children: [
        SizedBox(
-        width: 209,
+        // width: 209,
          child: Text(
            nameOfEvent,
            maxLines: 1,

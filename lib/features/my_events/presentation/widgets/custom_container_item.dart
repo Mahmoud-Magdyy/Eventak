@@ -33,7 +33,7 @@ class CustomMyCreatedEventItemList extends StatelessWidget {
           margin: const EdgeInsets.all(8),
           clipBehavior: Clip.antiAlias,
           decoration: ShapeDecoration(
-            color: Colors.grey.shade200,
+            color: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),

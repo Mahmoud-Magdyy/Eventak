@@ -1,6 +1,6 @@
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/utils/app_styles.dart';
-import 'package:eventak/core/widgets/custom_button.dart';
+import 'package:eventak/core/widgets/custom_liner_button.dart';
 import 'package:eventak/core/widgets/custom_text_field.dart';
 import 'package:eventak/features/profile/data/models/get_profile_model.dart';
 import 'package:eventak/features/profile/presentation/cubit/profile_cubit.dart';
@@ -49,22 +49,29 @@ class EditProfileScreen extends StatelessWidget {
                   ),
                   CustomTextFormField(
                       hint: 'First Name',
-                      prefixIcon: const Icon(Icons.person_pin_outlined),
+                      prefixIcon: const Icon(Icons.person_2_outlined),
                       controller: cubit.editFristNameController),
                   const SizedBox(
                     height: 16,
                   ),
                   CustomTextFormField(
                       hint: 'Last Name',
-                      prefixIcon: const Icon(Icons.person_pin_outlined),
+                      prefixIcon: const Icon(Icons.person_2_outlined),
                       controller: cubit.editLastNameController),
                   // const Spacer(),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.3,
                   ),
                   state is EditProfileLoadingState
-                      ? const CircularProgressIndicator(color: AppColors.primaryColor,)
-                      : CustomElevetedButton(
+                      ? const CircularProgressIndicator(
+                          color: AppColors.primaryColor,
+                        )
+                      : CustomLinerButton(
+                          gradient: const LinearGradient(
+                            begin:Alignment(-1, 0.03),
+                            end:Alignment(1.00, -0.03),
+                            colors: [Color(0xFF1C5CA8), Color(0xFF2E88F2)],
+                          ),
                           onPressed: () {
                             cubit.editProfile();
                           },

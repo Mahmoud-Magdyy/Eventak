@@ -17,7 +17,7 @@ final String text;
       decoration: ShapeDecoration(
         // color: Colors.transparent,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(16),
           side: const BorderSide(
             color: AppColors.grey,
             strokeAlign: 1,

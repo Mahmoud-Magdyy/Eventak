@@ -21,7 +21,7 @@ class MyEvents extends StatelessWidget {
       },
       builder: (context, state) {
         return Scaffold(
-            backgroundColor: Colors.white,
+           backgroundColor: const Color(0xfff4f4f4),
             appBar: AppBar(
               leading: Container(),
               title: Text(
@@ -47,11 +47,12 @@ class MyEvents extends StatelessWidget {
                         dividerHeight: 0,
                         indicatorColor: Colors.transparent,
                         indicator: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(16),
                           color: AppColors.primaryColor,
                         ),
                         tabs: const [
                           CustomTabBarButton(
+
                             text: 'Created',
                           ),
                           CustomTabBarButton(
