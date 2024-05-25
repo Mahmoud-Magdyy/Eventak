@@ -17,9 +17,6 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       body: BlocConsumer<ProfileCubit, ProfileState>(
         listener: (context, state) {
-          if (state is GetProfilesLoadingState) {
-            const Center(child: CircularProgressIndicator());
-          }
         },
         builder: (context, state) {
           return 

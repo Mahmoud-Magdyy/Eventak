@@ -19,3 +19,16 @@ final class GetMyFavouriteEventsErrorState extends ProfileState {
 
   GetMyFavouriteEventsErrorState({required this.message});
 }
+final class ChangeProfileImageState extends ProfileState {}
+final class EditProfileDataInitialized extends ProfileState {}
+final class EditProfileLoadingState extends ProfileState {}
+final class EditProfileErrorState extends ProfileState {
+  final String message;
+
+  EditProfileErrorState(this.message);
+}
+final class EditProfileSuccessState extends ProfileState {
+  final String message;
+
+  EditProfileSuccessState(this.message);
+}
