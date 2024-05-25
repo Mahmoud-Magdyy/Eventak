@@ -57,6 +57,7 @@ import 'package:eventak/features/my_events/data/models/requested_model.dart';
 context.read<MyCreatedEventsCubit>().declineRequest(userModel.email,userModel.nameOfEvent);
                   },
                   text: 'Decline',
+                  borderColor: Colors.grey,
                   color: Colors.black,
                   background: Colors.white,
                 )),

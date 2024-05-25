@@ -21,9 +21,7 @@ class _RequestedItemListViewState extends State<RequestedItemListView> {
   Widget build(BuildContext context) {
     return BlocConsumer<MyCreatedEventsCubit,MyCreatedEventsState>(
       listener: (context, state) {
-        // if (state is DeleteEventSuccessState) {
-        //   setState(() {}); 
-        // }
+        
       },
       builder: (context, state) {
         return context.read<HomeCubit>().events.isEmpty

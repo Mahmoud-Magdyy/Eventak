@@ -1,3 +1,4 @@
+import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
 import 'package:eventak/features/my_events/presentation/cubits/my_created_events_cubit.dart';
@@ -22,7 +23,15 @@ class _CreatedItemListViewState extends State<CreatedItemListView> {
     return BlocConsumer<MyCreatedEventsCubit, MyCreatedEventsState>(
       listener: (context, state) {
         if (state is DeleteEventSuccessState) {
-          setState(() {});
+          showTwist(
+              state: ToastStates.success, messege: state.message);
+          setState(() {
+            
+          });
+        }
+          if (state is DeleteEventErrorState) {
+          showTwist(
+              state: ToastStates.error, messege: 'Failed to Delete Event');
         }
       },
       builder: (context, state) {

@@ -25,7 +25,7 @@ class ProfileImage extends StatelessWidget {
       placeholder: (context, url) => Shimmer.fromColors(
           baseColor: Colors.grey[500]!,
           highlightColor: Colors.grey[600]!,
-          child: const CircleAvatar(radius: 50)),
+          child: const CircleAvatar(radius: 65)),
     );
     
   }

@@ -55,7 +55,7 @@ class CustomRequestedEventItemList extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              CustomElevetedButton(background: Colors.white,onPressed: (){
+              CustomElevetedButton(background: Colors.white,borderColor: Colors.grey,onPressed: (){
                 context.read<MyCreatedEventsCubit>().getUsers(myRequestedEventModel.nameOfEvent);
                 navigate(context: context, route: Routes.requestsScreen);
                 

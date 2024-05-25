@@ -1,4 +1,3 @@
-import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/core/widgets/custom_liner_button.dart';
 import 'package:eventak/features/my_events/data/models/my_event_model.dart';
@@ -20,10 +19,10 @@ class CustomMyCreatedEventItemList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<MyCreatedEventsCubit, MyCreatedEventsState>(
       listener: (context, state) {
-        if (state is DeleteEventSuccessState) {
-          showTwist(
-              state: ToastStates.success, messege: 'Deleted Event Successfuly');
-        }
+        // if (state is DeleteEventSuccessState) {
+        //   showTwist(
+        //       state: ToastStates.success, messege: 'Deleted Event Successfuly');
+        // }
       },
       builder: (context, state) {
         return Container(
@@ -67,7 +66,7 @@ class CustomMyCreatedEventItemList extends StatelessWidget {
                             .deleteEvent(myCreatedEventModel.id);
                       },
                       text: 'Delete Event',
-                      
+                      borderColor: Colors.grey,
                       color: Colors.black87,
                       background: Colors.transparent,
                     ),

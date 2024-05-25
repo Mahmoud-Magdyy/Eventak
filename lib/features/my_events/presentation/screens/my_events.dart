@@ -1,3 +1,4 @@
+import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/utils/app_styles.dart';
 import 'package:eventak/features/my_events/presentation/cubits/my_created_events_cubit.dart';
@@ -15,68 +16,84 @@ class MyEvents extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<MyCreatedEventsCubit, MyCreatedEventsState>(
       listener: (context, state) {
-        if(state is DeleteEventLoadingState){
-          const CircularProgressIndicator(backgroundColor: Colors.transparent,);
+        if (state is DeleteEventSuccessState) {
+          showTwist(state: ToastStates.success, messege: state.message);
+        }
+        if (state is DeleteEventErrorState) {
+          showTwist(state: ToastStates.error, messege: 'Failed to Delete Event');
         }
       },
       builder: (context, state) {
         return Scaffold(
-           backgroundColor: const Color(0xfff4f4f4),
-            appBar: AppBar(
-              leading: Container(),
-              title: Text(
-                'My Events',
-                style: AppStyles.styleBold16(context).copyWith(fontSize: 18),
-              ),
-              centerTitle: true,
+          backgroundColor: const Color(0xfff4f4f4),
+          appBar: AppBar(
+            leading: Container(),
+            title: Text(
+              'My Events',
+              style: AppStyles.styleBold16(context).copyWith(fontSize: 18),
             ),
-            body: DefaultTabController(
-              length: 2,
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  children: [
-                    Container(
-                      height: 55,
-                      decoration: ShapeDecoration(
+            centerTitle: true,
+          ),
+          body: Stack(
+            children: [
+              DefaultTabController(
+                length: 2,
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 55,
+                        decoration: ShapeDecoration(
                           shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      )),
-                      child: TabBar(
-                        labelColor: Colors.white,
-                        dividerHeight: 0,
-                        indicatorColor: Colors.transparent,
-                        indicator: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          color: AppColors.primaryColor,
+                            borderRadius: BorderRadius.circular(30),
+                          ),
                         ),
-                        tabs: const [
-                          CustomTabBarButton(
-
-                            text: 'Created',
+                        child: TabBar(
+                          labelColor: Colors.white,
+                          dividerHeight: 0,
+                          indicatorColor: Colors.transparent,
+                          indicator: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            color: AppColors.primaryColor,
                           ),
-                          CustomTabBarButton(
-                            text: 'Requested',
-                          ),
-                        ],
-                      ),
-                    ),
-                     const Expanded(
-                        child: TabBarView(children: [
-                      Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: CreatedItemListView()),
-                      Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [RequestedItemListView()],
+                          tabs: const [
+                            CustomTabBarButton(text: 'Created'),
+                            CustomTabBarButton(text: 'Requested'),
+                          ],
                         ),
                       ),
-                    ]))
-                  ],
+                      const Expanded(
+                        child: TabBarView(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: CreatedItemListView(),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                children: [RequestedItemListView()],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ));
+              if (state is DeleteEventLoadingState)
+                Scaffold(
+                  backgroundColor: Colors.grey.withOpacity(0.2),
+                  body: const Center(
+                    child: CircularProgressIndicator(color: AppColors.primaryColor,),
+                  ),
+                ),
+                
+            ],
+          ),
+        );
       },
     );
   }
