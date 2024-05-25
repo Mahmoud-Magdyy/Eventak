@@ -1,16 +1,19 @@
 class EditEventModel {
   final String status;
-  final EventData data;
+  final String message;
+  final Event data;
 
   EditEventModel({
     required this.status,
+    required this.message,
     required this.data,
   });
 
   factory EditEventModel.fromJson(Map<String, dynamic> jsonData) {
     return EditEventModel(
       status: jsonData['status'],
-      data: EventData.fromJson(jsonData['data']),
+      message: jsonData['message'],
+      data: Event.fromJson(jsonData['data']),
     );
   }
 }
@@ -30,7 +33,7 @@ class EventData {
 class Event {
   final Location location;
   final Picture posterPicture;
-  final Picture creatorPicture;
+  final Map<String,dynamic> creatorPicture;
   final String id;
   final String nameOfEvent;
   final String description;
@@ -80,7 +83,7 @@ class Event {
     return Event(
       location: Location.fromJson(json['location']),
       posterPicture: Picture.fromJson(json['posterPicture']),
-      creatorPicture: Picture.fromJson(json['creatorPicture']),
+      creatorPicture: Map<String, dynamic>.from(json['creatorPicture']),
       id: json['_id'],
       nameOfEvent: json['nameOfEvent'],
       description: json['description'],

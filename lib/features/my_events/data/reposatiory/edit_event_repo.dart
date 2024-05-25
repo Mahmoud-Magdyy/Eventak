@@ -14,7 +14,7 @@ class EditEventRepo {
       final response = await sl<ApiConsumer>().patch(
         EndPoint.editEventEndPoints(id),
         data: data,
-        // isFormData: true
+        isFormData: true
       );
       return Right(EditEventModel.fromJson(response));
     } on ServerException catch (error) {

@@ -52,10 +52,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
             child: Column(
               children: [
-                const CustomListTile(
-                  image: Assets.imagesNotificationsActive,
-                  title: "Notifications & Sounds",
-                ),
+                
                 CustomListTile(
                   onTap: () {
                     navigate(

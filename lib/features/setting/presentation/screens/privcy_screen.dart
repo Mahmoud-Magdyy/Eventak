@@ -24,16 +24,6 @@ class PrivacyAndSecurity extends StatelessWidget {
           children: [
             CustomListTile(
               onTap: () {},
-              image: Assets.imagesFaceRecognitionActive,
-              title: "Face Recognition",
-            ),
-            CustomListTile(
-              onTap: () {},
-              image: Assets.imagesOrangeKey,
-              title: "Two-Step Verification",
-            ),
-            CustomListTile(
-              onTap: () {},
               image: Assets.imagesEmail,
               title: "Change Email",
             ),
