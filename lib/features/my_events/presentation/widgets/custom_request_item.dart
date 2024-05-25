@@ -55,11 +55,11 @@ class CustomRequestedEventItemList extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              CustomElevetedButton(background: Colors.transparent,onPressed: (){
+              CustomElevetedButton(background: Colors.white,onPressed: (){
                 context.read<MyCreatedEventsCubit>().getUsers(myRequestedEventModel.nameOfEvent);
                 navigate(context: context, route: Routes.requestsScreen);
                 
-              }, text: 'View Requests')
+              }, text: 'View Requests',color: Colors.black,)
             ],
           ),
         );

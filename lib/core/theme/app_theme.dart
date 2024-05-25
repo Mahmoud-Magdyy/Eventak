@@ -19,12 +19,14 @@ ThemeData getAppTheme(BuildContext context) {
       // ),
       
       elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
+        style: ElevatedButton.styleFrom(shadowColor: Colors.transparent,
             side: const BorderSide(width: 1, color: Colors.transparent),// color: Color(0xFF376091)
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
-            backgroundColor: AppColors.primaryColor),
+            backgroundColor: AppColors.primaryColor
+            ),
+            
       ),
       //text field
       inputDecorationTheme: InputDecorationTheme(

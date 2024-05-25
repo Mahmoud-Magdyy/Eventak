@@ -24,9 +24,11 @@ class CustomElevetedButton extends StatelessWidget {
         style: Theme.of(context)
             .elevatedButtonTheme
             .style!
+            
             .copyWith(
                 backgroundColor:
                      MaterialStatePropertyAll(
+                      
                        background??AppColors.primaryColor)),
         child:  Text(text,style: AppStyles.styleSemiBold18(context).copyWith(color: color),),
       ),

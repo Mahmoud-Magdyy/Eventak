@@ -24,7 +24,7 @@ import 'package:eventak/features/my_events/data/models/requested_model.dart';
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         clipBehavior: Clip.antiAlias,
         decoration: ShapeDecoration(
-          color: Colors.grey,
+          color: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -57,7 +57,8 @@ import 'package:eventak/features/my_events/data/models/requested_model.dart';
 context.read<MyCreatedEventsCubit>().declineRequest(userModel.email,userModel.nameOfEvent);
                   },
                   text: 'Decline',
-                  background: Colors.transparent,
+                  color: Colors.black,
+                  background: Colors.white,
                 )),
                 const SizedBox(
                   width: 8,

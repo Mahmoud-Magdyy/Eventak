@@ -1,5 +1,6 @@
 import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
+import 'package:eventak/core/widgets/custom_liner_button.dart';
 import 'package:eventak/features/my_events/data/models/my_event_model.dart';
 import 'package:eventak/features/my_events/presentation/cubits/my_created_events_cubit.dart';
 import 'package:eventak/features/my_events/presentation/cubits/my_created_events_state.dart';
@@ -25,8 +26,7 @@ class CustomMyCreatedEventItemList extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        
-        return  Container(
+        return Container(
           padding: const EdgeInsets.all(8),
           // width: 329,
           // height: 160,
@@ -65,9 +65,10 @@ class CustomMyCreatedEventItemList extends StatelessWidget {
                         context
                             .read<MyCreatedEventsCubit>()
                             .deleteEvent(myCreatedEventModel.id);
-                        
                       },
                       text: 'Delete Event',
+                      
+                      color: Colors.black87,
                       background: Colors.transparent,
                     ),
                   ),
@@ -75,7 +76,12 @@ class CustomMyCreatedEventItemList extends StatelessWidget {
                     width: 16,
                   ),
                   Expanded(
-                    child: CustomElevetedButton(
+                    child: CustomLinerButton(
+                      gradient: const LinearGradient(
+                        begin:Alignment(-1, 0.07) ,
+                        end: Alignment(1.00, -0.07),
+                        colors: [Color(0xFF1C5CA8), Color(0xFF59A5FF)],
+                      ),
                       onPressed: () {
                         Navigator.push(
                           context,
