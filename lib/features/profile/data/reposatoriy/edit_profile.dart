@@ -13,7 +13,7 @@ class EditProfileRepo {
       final response = await sl<ApiConsumer>().patch(
         EndPoint.editProfile,
         data: data,
-        // isFormData: true
+        isFormData: true
       );
       return Right(EditProfileModel.fromJson(response));
     } on ServerException catch (error) {

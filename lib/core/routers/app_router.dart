@@ -7,7 +7,7 @@ import 'package:eventak/features/create_event/presentation/screens/page_view_eve
 import 'package:eventak/features/home/presenation/screens/bottom_nav_bar.dart';
 import 'package:eventak/features/home/presenation/widgets/search/presentation/screens/search.dart';
 import 'package:eventak/features/my_events/data/models/my_event_model.dart';
-import 'package:eventak/features/my_events/presentation/widgets/edit_event_screen.dart';
+import 'package:eventak/features/my_events/presentation/screens/edit_event_screen.dart';
 import 'package:eventak/features/my_events/presentation/widgets/request_screen.dart';
 import 'package:eventak/features/on_borading/presentation/screens/on_boarding_view.dart';
 import 'package:eventak/features/profile/presentation/screens/edit_profile_screen.dart';

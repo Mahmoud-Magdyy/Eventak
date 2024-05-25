@@ -1,7 +1,7 @@
 
 import 'package:eventak/core/utils/app_styles.dart';
 import 'package:eventak/features/my_events/data/models/my_event_model.dart';
-import 'package:eventak/features/my_events/presentation/widgets/edit_event_screen.dart';
+import 'package:eventak/features/my_events/presentation/screens/edit_event_screen.dart';
 import 'package:flutter/material.dart';
 
 class CustomEditEventButton extends StatelessWidget {

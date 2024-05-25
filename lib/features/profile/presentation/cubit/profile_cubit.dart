@@ -63,7 +63,9 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(EditProfileLoadingState());
 
     final data = <String, dynamic>{};
-
+    if (profileImage != null) {
+      // data['profileImage'] = await uploadImageToAPI(profileImage!);
+    }
     if (editFristNameController.text.isNotEmpty) {
       data['firstName'] = editFristNameController.text;
     }

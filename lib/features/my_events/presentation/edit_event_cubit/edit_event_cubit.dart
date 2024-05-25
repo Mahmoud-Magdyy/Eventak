@@ -160,11 +160,15 @@ class EditEventCubit extends Cubit<EditEventState> {
     if (editPosterImage != null) {
       data[Apikeys.posterPicture] = await uploadImageToAPI(editPosterImage!);
     }
-    if (editLocationController.text.isNotEmpty) {
-      data[Apikeys.location[0]] = editLocationController.text;
-      data[Apikeys.street] = editStreetController.text;
-      data[Apikeys.district] = editDistrictController.text;
-    }
+    if (editLocationController.text.isNotEmpty || 
+      editStreetController.text.isNotEmpty || 
+      editDistrictController.text.isNotEmpty) {
+    data[Apikeys.location] = {
+      'nameOfLocation': editLocationController.text,
+      'street': editStreetController.text,
+      'district': editDistrictController.text,
+    };
+  }
     if (editDescriptionOfEventController.text.isNotEmpty) {
       data[Apikeys.description] = editDescriptionOfEventController.text;
     }
