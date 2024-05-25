@@ -24,9 +24,6 @@ class _FavouriteListState extends State<FavouriteList> {
         // if(state is GetMyFavouriteEventsLoadingState){
         //   const CircularProgressIndicator();
         // }
-        // if (state is DeleteEventSuccessState) {
-        //   setState(() {});
-        // }
       },
       builder: (context, state) {
         return context.read<HomeCubit>().events.isEmpty

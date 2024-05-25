@@ -1,4 +1,5 @@
 
+
 import 'package:eventak/core/database/api/api/end_points.dart';
 import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/features/my_events/data/models/edit_model.dart';
@@ -160,7 +161,7 @@ class EditEventCubit extends Cubit<EditEventState> {
       data[Apikeys.posterPicture] = await uploadImageToAPI(editPosterImage!);
     }
     if (editLocationController.text.isNotEmpty) {
-      data[Apikeys.nameOfLocation] = editLocationController.text;
+      data[Apikeys.location[0]] = editLocationController.text;
       data[Apikeys.street] = editStreetController.text;
       data[Apikeys.district] = editDistrictController.text;
     }

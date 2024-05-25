@@ -4,6 +4,7 @@ import 'package:eventak/features/home/presenation/widgets/custom_app_bar.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/new_event_list.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/new_event_section.dart';
 import 'package:eventak/features/home/presenation/widgets/trending_widgets/trending_event_section.dart';
+import 'package:eventak/features/my_events/presentation/cubits/my_created_events_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,6 +30,10 @@ class HomeScreen extends StatelessWidget {
                   // Here you can call the method to refresh your data
                   context.read<HomeCubit>().getAllEvents();
                   context.read<HomeCubit>().getTrendigEvents();
+                  context.read<MyCreatedEventsCubit>().getMyCreatedEvents();
+                  context.read<MyCreatedEventsCubit>().getRequestedMyEvents();
+
+                  
                 },
                 child: CustomScrollView(
                   slivers: [

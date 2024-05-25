@@ -1,4 +1,6 @@
 import 'package:eventak/core/functions/commns.dart';
+import 'package:eventak/core/functions/navigate.dart';
+import 'package:eventak/core/routers/app_router.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_one_widgets/dropdown_category.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_one_widgets/name_of_event.dart';
@@ -10,7 +12,6 @@ import 'package:eventak/features/create_event/presentation/screens/page_two_widg
 import 'package:eventak/features/create_event/presentation/screens/page_two_widgets/what_is_include.dart';
 import 'package:eventak/features/my_events/data/models/my_event_model.dart';
 import 'package:eventak/features/my_events/presentation/cubits/my_created_events_cubit.dart';
-import 'package:eventak/features/my_events/presentation/cubits/my_created_events_state.dart';
 import 'package:eventak/features/my_events/presentation/edit_event_cubit/edit_event_cubit.dart';
 import 'package:eventak/features/my_events/presentation/edit_event_cubit/edit_event_state.dart';
 import 'package:eventak/features/my_events/presentation/widgets/edit_poster_event.dart';
@@ -45,6 +46,10 @@ class EditEventScreen extends StatelessWidget {
               showTwist(
                           state: ToastStates.success,
                           messege: state.message);
+
+                          BlocProvider.of<MyCreatedEventsCubit>(context).getMyCreatedEvents();
+                          // context.read<MyCreatedEventsCubit>().getRequestedMyEvents;
+              navigateReplacment(context: context, route: Routes.bottomNavBar);
             }
           },
           builder: (context, state) {
@@ -138,16 +143,12 @@ class EditEventScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    BlocBuilder<MyCreatedEventsCubit, MyCreatedEventsState>(
-                      builder: (context, state) {
-                        return CustomElevetedButton(
+                state is EditEventLoadingState? const CircularProgressIndicator():    CustomElevetedButton(
                             onPressed: () {
                               editCubit.editEvent(myCreatedEventModel.id);
-                              print('idddd= ${myCreatedEventModel.id}');
                             },
-                            text: 'Save');
-                      },
-                    )
+                            text: 'Save')
+                      
                   ],
                 ),
               ),

@@ -13,10 +13,8 @@ class CustomMyCreatedEventItemList extends StatelessWidget {
   const CustomMyCreatedEventItemList({
     super.key,
     required this.myCreatedEventModel,
-    required this.deleteOnPressed,
   });
   final MyCreatedEventModel myCreatedEventModel;
-  final Function() deleteOnPressed;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<MyCreatedEventsCubit, MyCreatedEventsState>(
@@ -27,10 +25,12 @@ class CustomMyCreatedEventItemList extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        return Container(
+        
+        return  Container(
           padding: const EdgeInsets.all(8),
           // width: 329,
           // height: 160,
+          margin: const EdgeInsets.all(8),
           clipBehavior: Clip.antiAlias,
           decoration: ShapeDecoration(
             color: Colors.grey.shade200,
