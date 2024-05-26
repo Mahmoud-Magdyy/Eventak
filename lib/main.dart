@@ -23,7 +23,7 @@ void main() async {
   Bloc.observer = MyBlocObserver();
   runApp(
     DevicePreview(
-      enabled: false,
+      enabled: true,
       builder: ((context) => MultiBlocProvider(
             providers: [
               BlocProvider(

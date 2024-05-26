@@ -20,49 +20,60 @@ class ImageAndDecOfNewEventLeft extends StatelessWidget {
   final String urlImage;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Stack(children: [
-          SizedBox(
-            width: 176,
-            height: 158,
-            child: Image.network(
-              fit: BoxFit.cover,
-              urlImage,
-              errorBuilder: (context, error, stackTrace) =>
-                  const Text('No Image Yet'),
-            ),
+    return SizedBox(
+       width: 180,
+      height: 246,
+      child: FittedBox(
+        fit: BoxFit.scaleDown,
+        child: SizedBox(
+          width: 176,
+              height: 246,
+          child: Column(
+            children: [
+              Stack(children: [
+                SizedBox(
+                  width: 176,
+                  height: 158,
+                  child: Image.network(
+                    fit: BoxFit.cover,
+                    urlImage,
+                    errorBuilder: (context, error, stackTrace) =>
+                        const Text('No Image Yet'),
+                  ),
+                ),
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  child: DateOfNewEvent(
+                    dayDate: dateDay,
+                  ),
+                ),
+                Positioned(
+                    bottom: 0,
+                    right: 0,
+                    child: TranslateIconInNewEventImage(
+                      categoryIcon: Icons.track_changes,
+                      //  categoryIcon,
+                      nameOfCategoryEvent: nameOfCategoryEvent,
+                    ))
+              ]),
+              Container(
+                decoration: const ShapeDecoration(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(4),
+                    ),
+                  ),
+                ),
+                padding: const EdgeInsets.all(8),
+                child: TextOfEvent(textOfNewEvent: textOfNewEvent),
+              )
+            ],
           ),
-          Positioned(
-            top: 0,
-            left: 0,
-            child: DateOfNewEvent(
-              dayDate: dateDay,
-            ),
-          ),
-          Positioned(
-              bottom: 0,
-              right: 0,
-              child: TranslateIconInNewEventImage(
-                categoryIcon: Icons.track_changes,
-                //  categoryIcon,
-                nameOfCategoryEvent: nameOfCategoryEvent,
-              ))
-        ]),
-        Container(
-          decoration: const ShapeDecoration(
-            color: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(10),
-                bottomRight: Radius.circular(4),
-              ),
-            ),
-          ),
-          padding: const EdgeInsets.all(8),
-          child: TextOfEvent(textOfNewEvent: textOfNewEvent),
-        )
-      ],
+        ),
+      ),
     );
   }
 }
