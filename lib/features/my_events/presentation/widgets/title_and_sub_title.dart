@@ -16,7 +16,7 @@ class TitleAndSubTitleOfEvent extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         SizedBox(
-          width: MediaQuery.of(context).size.width * 0.5,
+          width: MediaQuery.of(context).size.width * 0.4,
           child: Text(nameOfEvent,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
@@ -35,7 +35,7 @@ class TitleAndSubTitleOfEvent extends StatelessWidget {
               width: 6,
             ),
             SizedBox(
-              // width: 200,
+              width: MediaQuery.of(context).size.width * 0.4,
               child: Text(location,
                   overflow: TextOverflow.ellipsis,
                   style: AppStyles.styleMedium12(context)),

@@ -66,8 +66,10 @@ class CustomMyCreatedEventItemList extends StatelessWidget {
                             .deleteEvent(myCreatedEventModel.id);
                       },
                       text: 'Delete Event',
+                      
                       borderColor: Colors.grey,
-                      color: Colors.black87,
+                      color: Colors.black,
+                      
                       background: Colors.transparent,
                     ),
                   ),

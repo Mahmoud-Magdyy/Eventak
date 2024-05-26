@@ -13,7 +13,7 @@ final String text;
       width: 169,
       height: 55,
       padding: const EdgeInsets.symmetric(
-          horizontal: 50, vertical: 18),
+          horizontal: 46, vertical: 18),
       decoration: ShapeDecoration(
         // color: Colors.transparent,
         shape: RoundedRectangleBorder(
@@ -24,7 +24,9 @@ final String text;
           ),
         ),
       ),
-      child:  Center(child: Text(text)),
+      child:  Center(child: FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Text(text))),
     );
   }
 }

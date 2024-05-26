@@ -39,7 +39,7 @@ class MyEvents extends StatelessWidget {
               DefaultTabController(
                 length: 2,
                 child: Padding(
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.only(top:16, left: 16, right: 16),
                   child: Column(
                     children: [
                       Container(
@@ -58,7 +58,7 @@ class MyEvents extends StatelessWidget {
                             color: AppColors.primaryColor,
                           ),
                           tabs: const [
-                            CustomTabBarButton(text: 'Created'),
+                            CustomTabBarButton(text: 'Created',),
                             CustomTabBarButton(text: 'Requested'),
                           ],
                         ),
