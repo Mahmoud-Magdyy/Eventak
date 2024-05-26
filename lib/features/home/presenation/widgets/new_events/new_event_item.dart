@@ -2,9 +2,7 @@ import 'package:eventak/features/home/data/model/all_event_model.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/left_new_event/final_image_and_dec.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events/right_new_event/final_dec_of_new_event_right.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/new_event_details_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class NewEeventItem extends StatelessWidget {
   const NewEeventItem({

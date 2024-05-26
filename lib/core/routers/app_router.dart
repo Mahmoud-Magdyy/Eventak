@@ -12,6 +12,8 @@ import 'package:eventak/features/my_events/presentation/widgets/request_screen.d
 import 'package:eventak/features/on_borading/presentation/screens/on_boarding_view.dart';
 import 'package:eventak/features/profile/presentation/screens/edit_profile_screen.dart';
 import 'package:eventak/features/profile/presentation/screens/favourite_screen.dart';
+import 'package:eventak/features/setting/presentation/screens/faq_screen.dart';
+import 'package:eventak/features/setting/presentation/screens/features_screen.dart';
 import 'package:eventak/features/setting/presentation/screens/language_screen.dart';
 import 'package:eventak/features/setting/presentation/screens/privcy_screen.dart';
 import 'package:eventak/features/setting/presentation/screens/setting_screen.dart';
@@ -37,6 +39,8 @@ class Routes {
   static const String requestsScreen='/requestsScreen';
   static const String editEventScreen='/editEventScreen';
   static const String favoritesScreen='/favoritesScreen';
+  static const String faqScreen='/faqScreen';
+  static const String featuresScreen='/featuresScreen';
 }
 
 class AppRoutes {
@@ -47,6 +51,10 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case Routes.onBoardingView:
         return MaterialPageRoute(builder: (_) => const OnBoardingView());
+      case Routes.faqScreen:
+        return MaterialPageRoute(builder: (_) => const FaqScreen());
+      case Routes.featuresScreen:
+        return MaterialPageRoute(builder: (_) => const FeaturesScreen());
       case Routes.editProfileScreen:
         return MaterialPageRoute(builder: (_) => const EditProfileScreen());
       case Routes.favoritesScreen:

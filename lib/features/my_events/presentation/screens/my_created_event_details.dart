@@ -1,4 +1,5 @@
 import 'package:eventak/core/functions/commns.dart';
+import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/utils/app_styles.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_one_widgets/image_picker_dialog.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/back_icon_and_fav.dart';
@@ -29,147 +30,130 @@ class MyCreatedEeventDetails extends StatelessWidget {
       );
     } else {
       return Scaffold(
-          body: SafeArea(
-        child: BlocConsumer<MyCreatedEventsCubit, MyCreatedEventsState>(
-          listener: (context, state) {
-            if (state is ModelAiSuccessState) {
-              ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text(state.message)));
-            }
-            if (state is ModelAiLoadingState) {
-              
-            }
-            if (state is ModelAiErrorState) {
-              ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text(state.message)));
-            }
-          },
-          builder: (context, state) {
-            return Column(children: [
-              Expanded(
-                child: PageView(children: [
-                  SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Stack(
+        body: SafeArea(
+          child: BlocConsumer<MyCreatedEventsCubit, MyCreatedEventsState>(
+            listener: (context, state) {
+              if (state is ModelAiSuccessState) {
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text(state.message)));
+              }
+              if (state is ModelAiErrorState) {
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text(state.message)));
+              }
+            },
+            builder: (context, state) {
+              return Stack(
+                children: [
+                  Column(
+                    children: [
+                      Expanded(
+                        child: PageView(
                           children: [
-                            ImageOfEventDetails(
-                              image: myCreatedEventModel!
-                                  .posterPicture['secure_url'],
-                              // image: myCreatedEventModel!.imageEvent,
-                            ),
-                             Positioned(
-                              top: 30,
-                              left: 25,
-                              right: 25,
-                              child: BackIconAndFav(
-                                widget: CustomEditEventButton(myCreatedEventModel: myCreatedEventModel!,),
-                              ),
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(16),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                            SingleChildScrollView(
+                              child: Column(
                                 children: [
-                                  SizedBox(
-                                    width: 220,
-                                    child: FittedBox(
-                                      child: Text(
-                                        maxLines: 2,
-                                        myCreatedEventModel!.nameOfEvent,
-                                        style:
-                                            AppStyles.styleSemiBold24(context)
-                                                .copyWith(color: Colors.black),
+                                  Stack(
+                                    children: [
+                                      ImageOfEventDetails(
+                                        image: myCreatedEventModel!.posterPicture['secure_url'],
                                       ),
-                                    ),
+                                      Positioned(
+                                        top: 30,
+                                        left: 25,
+                                        right: 25,
+                                        child: BackIconAndFav(
+                                          widget: CustomEditEventButton(
+                                            myCreatedEventModel: myCreatedEventModel!,
+                                          ),
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                  CategoryItemDetails(
-                                    icon: Icons.track_changes,
-                                    nameOfIconCateogry:
-                                        myCreatedEventModel!.category,
+                                  const SizedBox(height: 8),
+                                  Padding(
+                                    padding: const EdgeInsets.all(16),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            SizedBox(
+                                              width: 220,
+                                              child: FittedBox(
+                                                child: Text(
+                                                  myCreatedEventModel!.nameOfEvent,
+                                                  maxLines: 2,
+                                                  style: AppStyles.styleSemiBold24(context).copyWith(color: Colors.black),
+                                                ),
+                                              ),
+                                            ),
+                                            CategoryItemDetails(
+                                              icon: Icons.track_changes,
+                                              nameOfIconCateogry: myCreatedEventModel!.category,
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(height: 16),
+                                        LocationAndTimeAndDateNewEventDetails(
+                                          location: '${myCreatedEventModel!.location['street']}, ${myCreatedEventModel!.location['nameOfLocation']}',
+                                          dateMonth: myCreatedEventModel!.date,
+                                          dateTime: '${myCreatedEventModel!.startTime} - ${myCreatedEventModel!.endTime}',
+                                        ),
+                                        const SizedBox(height: 32),
+                                        Description(description: myCreatedEventModel!.description),
+                                        const SizedBox(height: 24),
+                                        BroughtToYou(
+                                          onTap: () {
+                                            showDialog(
+                                              context: context,
+                                              builder: (context) {
+                                                return ImagePackerDialog(
+                                                  widget: true,
+                                                  cameraOnTap: () {
+                                                    pickImage(ImageSource.camera).then(
+                                                      (value) => context.read<MyCreatedEventsCubit>().changeFaceIdPhoto(value),
+                                                    );
+                                                  },
+                                                  send: 'Send',
+                                                  galleryOnTap: () {
+                                                    Navigator.pop(context);
+                                                    context.read<MyCreatedEventsCubit>().model();
+                                                  },
+                                                );
+                                              },
+                                            );
+                                          },
+                                          name: myCreatedEventModel!.broughtToYouBy,
+                                          url: myCreatedEventModel!.creatorPicture['secure_url'],
+                                        ),
+                                        const SizedBox(height: 16),
+                                        IncludeThePrice(includeInPrice: myCreatedEventModel!.whatIsIncludedInPrice),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
-                              const SizedBox(
-                                height: 16,
-                              ),
-                              LocationAndTimeAndDateNewEventDetails(
-                                location:
-                                    myCreatedEventModel!.location['street'] +
-                                        ', ' +
-                                        myCreatedEventModel!
-                                            .location['nameOfLocation'],
-                                dateMonth: myCreatedEventModel!.date,
-                                dateTime:
-                                    '${myCreatedEventModel!.startTime} - ${myCreatedEventModel!.endTime}',
-                              ),
-                              const SizedBox(
-                                height: 32,
-                              ),
-                              Description(
-                                  description:
-                                      myCreatedEventModel!.description),
-                              const SizedBox(
-                                height: 24,
-                              ),
-
-                              BroughtToYou(
-                                onTap: () {
-                                  showDialog(
-                                      context: context,
-                                      builder: (context) {
-                                        return ImagePackerDialog(
-                                          widget: true,
-                                          cameraOnTap: () {
-                                            pickImage(ImageSource.camera).then(
-                                                (value) => context
-                                                    .read<
-                                                        MyCreatedEventsCubit>()
-                                                    .changeFaceIdPhoto(value));
-                                          },
-                                          send: 'Send',
-                                          galleryOnTap: () {
-                                            context
-                                                .read<MyCreatedEventsCubit>()
-                                                .model();
-                                            // Navigator.pop(context);
-                                          },
-                                        );
-                                      });
-                                },
-                                name: myCreatedEventModel!.broughtToYouBy,
-                                url: myCreatedEventModel!
-                                    .creatorPicture['secure_url'],
-                              ),
-                              const SizedBox(
-                                height: 16,
-                              ),
-                              IncludeThePrice(
-                                includeInPrice:
-                                    myCreatedEventModel!.whatIsIncludedInPrice,
-                              ),
-                              // const Divider()
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                ]),
-              ),
-            ]);
-          },
+                  if (state is ModelAiLoadingState)
+                    Scaffold(
+                      backgroundColor: Colors.grey.withOpacity(0.5),
+                      body: const Center(
+                        child: CircularProgressIndicator(color: AppColors.primaryColor,),
+                      ),
+                    ),
+                ],
+              );
+            },
+          ),
         ),
-      ));
+      );
     }
   }
 }

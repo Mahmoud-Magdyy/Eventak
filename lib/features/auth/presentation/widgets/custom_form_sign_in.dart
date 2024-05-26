@@ -66,7 +66,8 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
                   suffixIconColor: context.read<SignInCubit>().isLoginPasswordsShowing
                       ? AppColors.lightBlue
                       : AppColors.deepBlue,
-                  suffixIconOnPressed: () {
+                  suffixIconOnPressed: ()async {
+                    
                     context.read<SignInCubit>().changeLoginPasswordSuffixIcon();
                   },
                   validate: (data) {

@@ -72,13 +72,21 @@ class _SettingScreenState extends State<SettingScreen> {
                 const SizedBox(
                   height: 24,
                 ),
-                const CustomListTile(
+                 CustomListTile(
                   image: Assets.imagesHelp,
                   title: "Eventak FAQ",
+                  onTap: () {
+                    navigate(
+                        context: context, route: Routes.faqScreen);
+                  },
                 ),
-                const CustomListTile(
+                 CustomListTile(
                   image: Assets.imagesLightbulb,
                   title: "Eventak Features",
+                  onTap: () {
+                    navigate(
+                        context: context, route: Routes.featuresScreen);
+                  },
                 ),
                 const Spacer(),
                 CustomElevetedButton(
