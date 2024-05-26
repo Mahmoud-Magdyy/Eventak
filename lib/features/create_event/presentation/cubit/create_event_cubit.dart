@@ -98,6 +98,30 @@ class CreateEventCubit extends Cubit<CreateEventState> {
       value: 'Music',
       child: Text('Music'),
     ),
+    const DropdownMenuItem(
+      value: 'Sports',
+      child: Text('Sports'),
+    ),
+    const DropdownMenuItem(
+      value: 'Gaming',
+      child: Text('Gaming'),
+    ),
+    const DropdownMenuItem(
+      value: 'Technology',
+      child: Text('Technology'),
+    ),
+    const DropdownMenuItem(
+      value: 'Fashion',
+      child: Text('Fashion'),
+    ),
+    const DropdownMenuItem(
+      value: 'Charity',
+      child: Text('Charity'),
+    ),
+    const DropdownMenuItem(
+      value: 'Food & Drink',
+      child: Text('Food & Drink'),
+    ),
   ];
   //!check box
   bool? checkBoxValue = false;

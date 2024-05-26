@@ -1,4 +1,5 @@
 import 'package:eventak/core/utils/app_colors.dart';
+import 'package:eventak/core/utils/app_images.dart';
 import 'package:eventak/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -32,11 +33,12 @@ class FaceRecognition extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Icon(
-                Icons.face,
-                size: 70,
-              ),
-              const Text('Secure Your Event'),
+              Image.asset(Assets.imagesFaceIdddd),
+                SizedBox(
+                width: 145,
+                child: Text(
+                  textAlign:TextAlign.center ,
+                  'Secure Your Event With Our Exclusive AI Technology',style: AppStyles.styleMedium14(context).copyWith(color: Colors.grey),)),
               Switch(
                   activeColor: AppColors.lightBlue,
                   value: true,

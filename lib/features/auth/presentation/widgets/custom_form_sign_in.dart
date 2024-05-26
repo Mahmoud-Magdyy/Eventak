@@ -87,7 +87,7 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
                   height: 100,
                 ),
                 state is LoginLoadingState
-                    ? const Center(child: CircularProgressIndicator())
+                    ? const Center(child: CircularProgressIndicator(color: AppColors.primaryColor,))
                     : CustomElevetedButton(
                         onPressed: () {
                           if (context

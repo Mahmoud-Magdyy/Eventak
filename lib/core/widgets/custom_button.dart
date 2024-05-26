@@ -29,7 +29,11 @@ class CustomElevetedButton extends StatelessWidget {
             .style!
             
             .copyWith(
-              side:  MaterialStatePropertyAll(BorderSide(color:borderColor??Colors.transparent)),
+              side:  MaterialStatePropertyAll(
+                
+                BorderSide(
+                  
+                  color:borderColor??Colors.transparent)),
                 backgroundColor:
                      MaterialStatePropertyAll(
                       

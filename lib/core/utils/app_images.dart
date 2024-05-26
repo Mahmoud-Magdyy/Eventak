@@ -5,6 +5,10 @@ class Assets {
   /// assets/images/435683558_1800428857129651_7987915713530941523_n.jpg
   static const String images43568355818004288571296517987915713530941523N = "assets/images/435683558_1800428857129651_7987915713530941523_n.jpg";
 
+  /// Assets for imagesAiOff
+  /// assets/images/ai_off.svg
+  static const String imagesAiOff = "assets/images/ai_off.svg";
+
   /// Assets for imagesArabic
   /// assets/images/arabic.svg
   static const String imagesArabic = "assets/images/arabic.svg";
@@ -48,6 +52,10 @@ class Assets {
   /// Assets for imagesFaceId
   /// assets/images/faceId.svg
   static const String imagesFaceId = "assets/images/faceId.svg";
+
+  /// Assets for imagesFaceIdddd
+  /// assets/images/face_idddd.jpg
+  static const String imagesFaceIdddd = "assets/images/face_idddd.jpg";
 
   /// Assets for imagesFaceRecognitionActive
   /// assets/images/face_recognition_active.svg

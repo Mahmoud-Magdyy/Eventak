@@ -1,6 +1,5 @@
 import 'package:eventak/core/utils/app_images.dart';
 import 'package:eventak/core/utils/app_styles.dart';
-import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/features/setting/presentation/widgets/custom_list_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +32,6 @@ class PrivacyAndSecurity extends StatelessWidget {
               title: "Change Password",
             ),
             const SizedBox(height: 24,),
-            CustomElevetedButton(onPressed: (){}, text: 'Delete Account', background: Colors.white, color: const Color(0xffFF655C),)
           ],
         ),
       ),

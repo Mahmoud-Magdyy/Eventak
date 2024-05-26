@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
@@ -65,49 +64,49 @@ class _CreateEventPageThreeState extends State<CreateEventPageThree> {
               ),
             ),
              SliverToBoxAdapter(child: District(districtController: context.read<CreateEventCubit>().districtController,)),
-            SliverToBoxAdapter(
+            // SliverToBoxAdapter(
               
-              child: IconButton(
-                  onPressed: () {
-                    selectedImage();
-                  },
-                  icon: const Icon(Icons.camera)),
-            ),
-            SliverFillRemaining(
-              // hasScrollBody: false,
-              fillOverscroll: false,
-              child: GridView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: imageFileList.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 5,
-                  ),
-                  itemBuilder: (context, index) {
-                    return Container(
-                      // height: 100,
-                      // width: 100,
-                      margin: const EdgeInsets.all(5),
-                      decoration: ShapeDecoration(
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                              image: FileImage(
-                            File(
-                              imageFileList[index].path,
-                            ),
+            //   child: IconButton(
+            //       onPressed: () {
+            //         selectedImage();
+            //       },
+            //       icon: const Icon(Icons.camera)),
+            // ),
+            // SliverFillRemaining(
+            //   // hasScrollBody: false,
+            //   fillOverscroll: false,
+            //   child: GridView.builder(
+            //       physics: const NeverScrollableScrollPhysics(),
+            //       itemCount: imageFileList.length,
+            //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            //         crossAxisCount: 2,
+            //         crossAxisSpacing: 5,
+            //       ),
+            //       itemBuilder: (context, index) {
+            //         return Container(
+            //           // height: 100,
+            //           // width: 100,
+            //           margin: const EdgeInsets.all(5),
+            //           decoration: ShapeDecoration(
+            //               image: DecorationImage(
+            //                 fit: BoxFit.cover,
+            //                   image: FileImage(
+            //                 File(
+            //                   imageFileList[index].path,
+            //                 ),
     
-                          )),
-                          shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(8)))),
-                      // child: Image.file(
-                      //   File(
-                      //     imageFileList[index].path,
-                      //   ),
-                      //   fit: BoxFit.cover,
-                      // ),
-                    );
-                  }),
-            )
+            //               )),
+            //               shape: const RoundedRectangleBorder(
+            //                   borderRadius: BorderRadius.all(Radius.circular(8)))),
+            //           // child: Image.file(
+            //           //   File(
+            //           //     imageFileList[index].path,
+            //           //   ),
+            //           //   fit: BoxFit.cover,
+            //           // ),
+            //         );
+            //       }),
+            // )
           ],
         );
       },

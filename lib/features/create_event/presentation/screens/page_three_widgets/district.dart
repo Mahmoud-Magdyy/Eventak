@@ -39,7 +39,7 @@ final TextEditingController districtController;
             ),
             Text(
               '''Name And Address Of The Place You Are Hosting Your Event.
-    This Will Shown In The Details Section.''',
+This Will Shown In The Details Section.''',
               style: AppStyles.styleMedium10(context).copyWith(
                 color: const Color(0xFF8591A0),
               ),

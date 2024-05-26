@@ -16,7 +16,7 @@ class DateOfNewEvent extends StatelessWidget {
           color: AppColors.colorCategoryName,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10),
+                  // topLeft: Radius.circular(10),
                   bottomRight: Radius.circular(10)))),
       width: 32,
       height: 40,

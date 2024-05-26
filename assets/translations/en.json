@@ -18,7 +18,7 @@
     "email": "Email",
     "phone": "Phone Number",
     "userName": "Username",
-    "loginHint": "Phone, Email Or Username",
+    "loginHint": "Email Address",
     "password": "Password",
     "confirmPassword": "Confirm Password",
     
@@ -48,7 +48,7 @@
     "trendingEvents":"Trending Events",
     "categories":"Categories",
     "language":"Language",
-    "newEvents":"New Events",
+    "newEvents":"Main Events",
     "cancel":"Cancel",
     "newEvent":"New Event"
 

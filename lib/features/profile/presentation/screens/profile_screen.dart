@@ -47,14 +47,13 @@ class ProfileScreen extends StatelessWidget {
                             height: 16,
                           ),
                           Text(
-                            context
+                            '${context
                                     .read<ProfileCubit>()
                                     .profileModel!
-                                    .firstName +
-                                context
+                                    .firstName} ${context
                                     .read<ProfileCubit>()
                                     .profileModel!
-                                    .lastName,
+                                    .lastName}',
                             style: AppStyles.styleSemiBold18(context)
                                 .copyWith(color: Colors.black),
                           ),

@@ -24,7 +24,7 @@ class NavBarButtonsNewEvent extends StatelessWidget {
               icon: Icons.confirmation_num_outlined,
             ),
             const SizedBox(
-              width: 4,
+              width: 8,
             ),
             CustomNewEventButton(
               onTap: onTapFavourit,
@@ -38,9 +38,9 @@ class NavBarButtonsNewEvent extends StatelessWidget {
             const SizedBox(
               width: 4,
             ),
-            const CustomNewEventButton(
-              icon: Icons.ios_share_outlined,
-            ),
+            // const CustomNewEventButton(
+            //   icon: Icons.ios_share_outlined,
+            // ),
             const SizedBox(
               width: 4,
             ),

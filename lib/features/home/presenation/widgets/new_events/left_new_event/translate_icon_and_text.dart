@@ -22,12 +22,12 @@ final IconData categoryIcon;
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-           Icon(
-            categoryIcon,
-            size: 8,
-            color: Colors.white,
-          ),
-          const SizedBox(width: 8,),
+          //  Icon(
+          //   categoryIcon,
+          //   size: 8,
+          //   color: Colors.white,
+          // ),
+          // const SizedBox(width: 8,),
           SizedBox(
             height: 8,
             child: Text(nameOfCategoryEvent,

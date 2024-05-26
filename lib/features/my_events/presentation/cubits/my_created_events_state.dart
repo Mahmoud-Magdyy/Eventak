@@ -58,9 +58,13 @@ final class GetUsersErrorState extends MyCreatedEventsState {
 
   GetUsersErrorState({required this.message});
 }
-final class AcceptRequestLoadingState extends MyCreatedEventsState {}
+final class AcceptRequestLoadingState extends MyCreatedEventsState {
+
+}
 final class AcceptRequestSuccessState extends MyCreatedEventsState {
- 
+ final String message;
+
+  AcceptRequestSuccessState(this.message);
 }
 final class AcceptRequestErrorState extends MyCreatedEventsState {
   final String message;
@@ -69,7 +73,9 @@ final class AcceptRequestErrorState extends MyCreatedEventsState {
 }
 final class DeclineRequestLoadingState extends MyCreatedEventsState {}
 final class DeclineRequestSuccessState extends MyCreatedEventsState {
- 
+ final String message;
+
+  DeclineRequestSuccessState(this.message);
 }
 final class DeclineRequestErrorState extends MyCreatedEventsState {
   final String message;

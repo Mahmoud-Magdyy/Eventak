@@ -89,7 +89,7 @@ class MyCreatedEventsCubit extends Cubit<MyCreatedEventsState> {
         await getMyCreatedEventsRepo.acceptRequest(email, nameOfEvent);
     result.fold((l) => emit(AcceptRequestErrorState(message: l)), (r) {
       getMyCreatedEvents();
-      emit(AcceptRequestSuccessState());
+      emit(AcceptRequestSuccessState(r.message));
     });
   }
   // //! decline request
@@ -99,7 +99,12 @@ class MyCreatedEventsCubit extends Cubit<MyCreatedEventsState> {
         await getMyCreatedEventsRepo.declineRequest(email, nameOfEvent);
     result.fold((l) => emit(DeclineRequestErrorState(message: l)), (r) {
       getMyCreatedEvents();
-      emit(DeclineRequestSuccessState());
+      emit(DeclineRequestSuccessState(r.message));
     });
+  }
+  void removeUserFromList(String email) {
+    
+    emit(GetUsersSuccessState()); // Update the state to reflect the change
+    usersEventList.removeWhere((user) => user.email == email);
   }
 }

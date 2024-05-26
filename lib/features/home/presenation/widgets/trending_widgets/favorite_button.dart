@@ -23,7 +23,9 @@ final Widget? widget;
       child: 
       GestureDetector(
         onTap: onTap,
-        child:widget??  Icon(
+        child:widget?? 
+        
+         Icon(
               Icons.favorite_border_outlined,
               size:sizeIcon?? 10,
               color: Colors.orange,

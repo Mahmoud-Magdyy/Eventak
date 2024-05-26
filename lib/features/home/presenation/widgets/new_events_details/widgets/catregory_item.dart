@@ -18,8 +18,8 @@ final String nameOfIconCateogry;
       ),
       child:  Row(
         children: [
-           Icon(icon,color: AppColors.colorCategoryName,size: 16,),
-          const SizedBox(width: 6,),
+          //  Icon(icon,color: AppColors.colorCategoryName,size: 16,),
+          // const SizedBox(width: 6,),
           Text(nameOfIconCateogry,style: AppStyles.styleSemiBold10(context).copyWith(color: AppColors.colorCategoryName),),
         ],
       ),

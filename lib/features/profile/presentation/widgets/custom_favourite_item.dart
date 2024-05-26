@@ -20,7 +20,7 @@ class CustomFavouriteItem extends StatelessWidget {
           // height: 160,
           clipBehavior: Clip.antiAlias,
           decoration: ShapeDecoration(
-            color: Colors.grey.shade200,
+            color: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
@@ -56,6 +56,7 @@ class CustomFavouriteItem extends StatelessWidget {
                               )));
                 },
                 text: 'Show Event',
+                borderColor: Colors.grey,
                 color: Colors.black,
               )
             ],

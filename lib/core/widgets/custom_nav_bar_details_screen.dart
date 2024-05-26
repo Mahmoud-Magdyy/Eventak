@@ -23,8 +23,10 @@ class CustomNavBarDetailsScreen extends StatelessWidget {
         bottom: 24,
       ),
       clipBehavior: Clip.antiAlias,
-      decoration: const ShapeDecoration(
-        shape: RoundedRectangleBorder(side: BorderSide(color: AppColors.grey)),
+      decoration:  const ShapeDecoration(
+        shape: RoundedRectangleBorder(
+          
+          side: BorderSide(color: AppColors.grey,width: 0.5)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,7 +36,7 @@ class CustomNavBarDetailsScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'price',
+                  'Price',
                   style: TextStyle(
                     color: Color(0xFF495154),
                     fontSize: 16,
@@ -77,6 +79,7 @@ class CustomNavBarDetailsScreen extends StatelessWidget {
                     ? const CircularProgressIndicator()
                     : Expanded(
                 child: CustomElevetedButton(
+                  
                         text: state is AddRegisterSuccessState ? 'Pending' : 'Register',
                         background: state is AddRegisterSuccessState
                             ? Colors.orange

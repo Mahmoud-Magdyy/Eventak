@@ -39,7 +39,7 @@ class MyEvents extends StatelessWidget {
               DefaultTabController(
                 length: 2,
                 child: Padding(
-                  padding: const EdgeInsets.only(top:16, left: 16, right: 16),
+                  padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
                   child: Column(
                     children: [
                       Container(
@@ -51,14 +51,14 @@ class MyEvents extends StatelessWidget {
                         ),
                         child: TabBar(
                           labelColor: Colors.white,
-                          dividerHeight: 0,
+                          dividerColor: Colors.transparent,
                           indicatorColor: Colors.transparent,
                           indicator: BoxDecoration(
                             borderRadius: BorderRadius.circular(16),
-                            color: AppColors.primaryColor,
+                            color: AppColors.blue,
                           ),
                           tabs: const [
-                            CustomTabBarButton(text: 'Created',),
+                            CustomTabBarButton(text: 'Created'),
                             CustomTabBarButton(text: 'Requested'),
                           ],
                         ),
@@ -72,9 +72,7 @@ class MyEvents extends StatelessWidget {
                             ),
                             Padding(
                               padding: EdgeInsets.all(8.0),
-                              child: Column(
-                                children: [RequestedItemListView()],
-                              ),
+                              child: RequestedItemListView(),
                             ),
                           ],
                         ),
@@ -83,14 +81,22 @@ class MyEvents extends StatelessWidget {
                   ),
                 ),
               ),
-              if (state is DeleteEventLoadingState)
-                Scaffold(
-                  backgroundColor: Colors.grey.withOpacity(0.2),
-                  body: const Center(
-                    child: CircularProgressIndicator(color: AppColors.primaryColor,),
+              if (state is GetMyCreatedEventsLoadingState ||
+                  state is GetRequestedMyEventsLoadingState)
+                const Center(
+                  child: CircularProgressIndicator(
+                    color: AppColors.primaryColor,
                   ),
                 ),
-                
+              if (state is DeleteEventLoadingState)
+                Container(
+                  color: Colors.grey.withOpacity(0.2),
+                  child: const Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.primaryColor,
+                    ),
+                  ),
+                ),
             ],
           ),
         );

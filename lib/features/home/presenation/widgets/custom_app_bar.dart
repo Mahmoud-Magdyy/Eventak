@@ -29,14 +29,14 @@ class CustomHomeAppBar extends StatelessWidget {
             const SizedBox(
               width: 8,
             ),
-            InkWell(
-              onTap: () {},
-              borderRadius: BorderRadius.circular(16),
-              child: const Icon(Icons.qr_code),
-            ),
-            const SizedBox(
-              width: 8,
-            ),
+            // InkWell(
+            //   onTap: () {},
+            //   borderRadius: BorderRadius.circular(16),
+            //   child: const Icon(Icons.qr_code),
+            // ),
+            // const SizedBox(
+            //   width: 8,
+            // ),
           ],
         )
       ],

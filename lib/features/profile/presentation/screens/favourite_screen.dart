@@ -8,6 +8,7 @@ class FavoritesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xfff4f4f4),
       appBar: AppBar(
         title: Text(
           'Favourites',
