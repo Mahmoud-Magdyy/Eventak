@@ -140,7 +140,7 @@ class EditEventCubit extends Cubit<EditEventState> {
     editIncludedInPriceController.text = eventModel.whatIsIncludedInPrice;
     editDistrictController.text = eventModel.location[Apikeys.district];
     editLocationController.text = eventModel.location[Apikeys.nameOfLocation];
-    editOrgShortDescController.text = eventModel.orgShortDesc;
+    // editOrgShortDescController.text = eventModel.orgShortDesc;
     editStreetController.text = eventModel.location[Apikeys.street];
     editStartTimeController.text = eventModel.startTime;
     editEndTimeController.text = eventModel.endTime;

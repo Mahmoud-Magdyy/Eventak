@@ -32,6 +32,7 @@ class DateAndTime extends StatelessWidget {
               children: [
                 Expanded(
                   child: CustomTextFormField(
+                    readOnly: true,
                       hint: createCubit.startTime,
                       icon: Icons.timer_outlined,
                       suffixIconOnPressed: () {
@@ -71,6 +72,7 @@ class DateAndTime extends StatelessWidget {
                 ),
                 Expanded(
                   child: CustomTextFormField(
+                    readOnly: true,
                       hint: createCubit.endTime,
                       icon: Icons.timer_outlined,
                       suffixIconOnPressed: () {
@@ -89,6 +91,7 @@ class DateAndTime extends StatelessWidget {
               height: 8,
             ),
             CustomTextFormField(
+              
               readOnly: true,
               icon: Icons.calendar_today_outlined,
               suffixIconOnPressed: () async {

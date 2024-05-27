@@ -56,7 +56,13 @@ class _PriceOfTheTicketState extends State<PriceOfTheTicket> {
                             hint: '5',
                             prefixIcon: const Icon(Icons.attach_money_outlined),
                             controller: context.read<CreateEventCubit>().priceInAdvanceOfEventController,
-                            onChanged: (_) => calculateTotalPrice()
+                            onChanged: (_) => calculateTotalPrice(),
+                            validate: (data) {
+                    if (data!.isEmpty) {
+                      return 'Please Enter Price In Advance';
+                    }
+                    return null;
+                  },
                             ),
                         const SizedBox(
                           height: 4,
@@ -77,7 +83,13 @@ class _PriceOfTheTicketState extends State<PriceOfTheTicket> {
                             hint: '5',
                             prefixIcon: const Icon(Icons.attach_money_outlined),
                             controller: context.read<CreateEventCubit>().priceAtTheDoorOfEventController,
-                            onChanged: (_) => calculateTotalPrice()
+                            onChanged: (_) => calculateTotalPrice(),
+                            validate: (data) {
+                    if (data!.isEmpty) {
+                      return 'Please Enter Price At The Door';
+                    }
+                    return null;
+                  },
                             ),
                         const SizedBox(
                           height: 4,

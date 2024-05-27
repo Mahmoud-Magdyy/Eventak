@@ -21,7 +21,7 @@ class CreateEventReposatiry {
     required String nameOfLocation,
     required String street,
     required String district,
-    required String orgShortDesc,
+    // required String orgShortDesc,
     required XFile posterPicture,
   }) async {
     try {
@@ -42,7 +42,7 @@ class CreateEventReposatiry {
         Apikeys.priceInAdvance: priceInAdvance,
         Apikeys.priceAtTheDoor: priceAtTheDoor,
         Apikeys.whatIsIncludedInPrice: whatIsIncludedInPrice,
-        Apikeys.orgShortDesc: orgShortDesc
+        // Apikeys.orgShortDesc: orgShortDesc
       });
       return Right(CreateEventModel.fromJson(response));
     } on ServerException catch (error) {

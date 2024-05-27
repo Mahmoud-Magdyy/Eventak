@@ -6,33 +6,40 @@ import 'package:flutter/material.dart';
 
 class CustomCreateEventAppBar extends StatelessWidget {
   const CustomCreateEventAppBar({
-    super.key, this.nextOnPressed, this.backOnPressed,  this.text,
+    super.key,
+    this.nextOnPressed,
+    this.backOnPressed,
+    this.text, this.next,
+  
   });
-final Function()? nextOnPressed;
-final Function()? backOnPressed;
-final String? text;
+  final Function()? nextOnPressed;
+  final Function()? backOnPressed;
+  final String? text;
+  final String? next;
+
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-         CustomTextButton(
-
-          onPressed: backOnPressed,
-          text: text??AppStrings.back,
-          textColor: const Color(0xFFFF0E00),
-        ),
-        // TextButton(onPressed: (){}, child: const Text('Cancel')),
-        Text(
-          AppStrings.newEvent.tr(context),
-          style: AppStyles.styleSemiBold16(context),
-        ),
-         CustomTextButton(
-          onPressed:nextOnPressed ,
-          text: AppStrings.next,
-          textColor:const Color(0xFF1462D8),
-        ),
-      ],
-    );
+    return  Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            CustomTextButton(
+              onPressed: backOnPressed,
+              text: text ?? AppStrings.back,
+              textColor: const Color(0xFFFF0E00),
+            ),
+            // TextButton(onPressed: (){}, child: const Text('Cancel')),
+            Text(
+              AppStrings.newEvent.tr(context),
+              style: AppStyles.styleSemiBold16(context),
+            ),
+                 CustomTextButton(
+                    onPressed: nextOnPressed,
+                    text:next?? AppStrings.next,
+                    textColor: const Color(0xFF1462D8),
+                  )
+          ],
+        );
+      }
+    
   }
-}
+

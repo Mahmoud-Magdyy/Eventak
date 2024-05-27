@@ -2,7 +2,6 @@ import 'package:eventak/features/create_event/presentation/cubit/create_event_cu
 import 'package:eventak/features/create_event/presentation/cubit/create_event_state.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_two_widgets/descraption.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_two_widgets/description_form.dart';
-import 'package:eventak/features/create_event/presentation/screens/page_two_widgets/face_recognation.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_two_widgets/what_is_include.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,10 +37,10 @@ class CreateEventPageTwo extends StatelessWidget {
               const SizedBox(
                 height: 24,
               ),
-              const FaceRecognition(),
-              const SizedBox(
-                height: 24,
-              ),
+              // const FaceRecognition(),
+              // const SizedBox(
+              //   height: 24,
+              // ),
             ],
           );
         },

@@ -8,7 +8,6 @@ import 'package:eventak/features/create_event/presentation/screens/page_three_wi
 import 'package:eventak/features/create_event/presentation/screens/page_three_widgets/name_of_location.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_three_widgets/street.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_two_widgets/description_form.dart';
-import 'package:eventak/features/create_event/presentation/screens/page_two_widgets/face_recognation.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_two_widgets/what_is_include.dart';
 import 'package:eventak/features/my_events/data/models/my_event_model.dart';
 import 'package:eventak/features/my_events/presentation/cubits/my_created_events_cubit.dart';
@@ -111,10 +110,10 @@ class EditEventScreen extends StatelessWidget {
                           whatIsIncludedInPriceController:
                               editCubit.editIncludedInPriceController,
                         ),
-                        const SizedBox(
-                          height: 24,
-                        ),
-                        const FaceRecognition(),
+                        // const SizedBox(
+                        //   height: 24,
+                        // ),
+                        // const FaceRecognition(),
                         const SizedBox(
                           height: 24,
                         ),

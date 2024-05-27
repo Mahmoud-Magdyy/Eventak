@@ -69,7 +69,7 @@ class NewEeventItem extends StatelessWidget {
                       titlePriceOfEvent: allEventModel.priceInAdvance,
                       subTitlePriceOfEvent: allEventModel.priceAtTheDoor,
                             
-                      onTapFavourit: onTapFavourit,
+                      onTapFavourit:allEventModel.isCreator == false ? onTapFavourit:(){} ,
                       // isSelected: isSelectedFavoriteIcon,
                     ),
                   )

@@ -18,13 +18,7 @@ class FavoritesScreen extends StatelessWidget {
       ),
       body:const Padding(
         padding: EdgeInsets.all(16),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              FavouriteList()
-            ],
-          ),
-        ),
+        child: FavouriteList(),
       ) ,
     );
   }

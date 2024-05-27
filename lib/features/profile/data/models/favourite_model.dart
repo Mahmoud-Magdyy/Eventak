@@ -12,7 +12,7 @@ class FavouriteModel {
   final String priceAtTheDoor;
   final String whatIsIncludedInPrice;
   final String broughtToYouBy;
-  final String orgShortDesc;
+  // final String orgShortDesc;
   final String publishAt;
   final Map<String, dynamic> location;
   final Map<String, dynamic> posterPicture;
@@ -34,7 +34,8 @@ class FavouriteModel {
       required this.priceInAdvance,
       required this.priceAtTheDoor,
       required this.whatIsIncludedInPrice,
-      required this.orgShortDesc});
+      // required this.orgShortDesc
+      });
 
   factory FavouriteModel.fromJson(Map<String, dynamic> json) {
     return FavouriteModel(
@@ -60,7 +61,7 @@ class FavouriteModel {
       priceInAdvance: json['priceInAdvance'],
       priceAtTheDoor: json['priceAtTheDoor'],
       whatIsIncludedInPrice: json['whatIsIncludedInPrice'],
-      orgShortDesc: json['orgShortDesc'],
+      // orgShortDesc: json['orgShortDesc'],
     );
   }
 }

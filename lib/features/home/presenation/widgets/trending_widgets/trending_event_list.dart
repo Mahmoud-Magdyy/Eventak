@@ -39,7 +39,7 @@ class TrendingEventListView extends StatelessWidget {
           );
         } else if (context.read<HomeCubit>().trendingEvents.isEmpty) {
           return const Center(
-            child: Text('No Events'),
+            child: Text('No Trending Events Yet'),
           );
         } else {
           return SizedBox(

@@ -2,11 +2,13 @@
 import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_state.dart';
+import 'package:eventak/features/create_event/presentation/screens/page_four_widgets/check_box.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_three_widgets/district.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_three_widgets/location.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_three_widgets/name_of_location.dart';
 import 'package:eventak/features/create_event/presentation/screens/page_three_widgets/street.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -38,6 +40,7 @@ class _CreateEventPageThreeState extends State<CreateEventPageThree> {
       listener: (context, state) {
       },
       builder: (context, state) {
+        final CreateEventCubit createCubit = BlocProvider.of<CreateEventCubit>(context);
         return CustomScrollView(
           slivers: [
             const SliverToBoxAdapter(
@@ -64,6 +67,8 @@ class _CreateEventPageThreeState extends State<CreateEventPageThree> {
               ),
             ),
              SliverToBoxAdapter(child: District(districtController: context.read<CreateEventCubit>().districtController,)),
+             const SliverToBoxAdapter(child: SizedBox(height: 24,)),
+             SliverToBoxAdapter(child: CheckBox(createCubit: createCubit))
             // SliverToBoxAdapter(
               
             //   child: IconButton(

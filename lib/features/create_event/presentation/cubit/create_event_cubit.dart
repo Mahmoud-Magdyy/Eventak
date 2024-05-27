@@ -156,7 +156,7 @@ class CreateEventCubit extends Cubit<CreateEventState> {
       posterPicture: image!,
       district: districtController.text,
       nameOfLocation:nameOfLocationController.text ,
-      orgShortDesc:orgShortDescController.text ,
+      // orgShortDesc:orgShortDescController.text ,
       street: streetController.text,
       nameOfEvent: nameOfEventController.text,
       description: descriptionOfEventController.text,
@@ -187,5 +187,6 @@ class CreateEventCubit extends Cubit<CreateEventState> {
   }
 //! edit event 
 
-
+ int? currentPage;
+   int? totalPages;
 }

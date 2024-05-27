@@ -11,7 +11,7 @@ class TrendingEeventModel {
   final String priceInAdvance;
   final String priceAtTheDoor;
   final String whatIsIncludedInPrice;
-  final String orgShortDesc;
+  // final String orgShortDesc;
   final String publishAt;
   final String broughtToYouBy;
   final Map<String, dynamic> location;
@@ -34,7 +34,8 @@ class TrendingEeventModel {
       required this.priceInAdvance,
       required this.priceAtTheDoor,
       required this.whatIsIncludedInPrice,
-      required this.orgShortDesc});
+      // required this.orgShortDesc
+      });
 
   factory TrendingEeventModel.fromJson(Map<String, dynamic> json) {
     return TrendingEeventModel(
@@ -59,7 +60,7 @@ class TrendingEeventModel {
       priceInAdvance: json['priceInAdvance'],
       priceAtTheDoor: json['priceAtTheDoor'],
       whatIsIncludedInPrice: json['whatIsIncludedInPrice'],
-      orgShortDesc: json['orgShortDesc'],
+      // orgShortDesc: json['orgShortDesc'],
     );
   }
 }

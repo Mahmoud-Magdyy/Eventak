@@ -4,7 +4,6 @@ import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_cubit.dart';
 import 'package:eventak/features/create_event/presentation/cubit/create_event_state.dart';
-import 'package:eventak/features/create_event/presentation/screens/create_event_page_four.dart';
 import 'package:eventak/features/create_event/presentation/screens/create_event_page_one.dart';
 import 'package:eventak/features/create_event/presentation/screens/create_event_page_three.dart';
 import 'package:eventak/features/create_event/presentation/screens/create_event_page_two.dart';
@@ -53,7 +52,7 @@ class _PageViewEventState extends State<PageViewEvent> {
                     ),
                     const CreateEventPageTwo(),
                     const CreateEventPageThree(),
-                    const CreateEventPageFour(),
+                    // const CreateEventPageFour(),
                   ];
 
                   return Form(
