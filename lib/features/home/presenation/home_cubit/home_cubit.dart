@@ -87,5 +87,35 @@ void removeFromFavourit(String id)async{
       emit(AddRegisterSuccessState(message: r.message.toString()));
     });
   }
-  
+  void toggleFavorite(AllEventModel event) async {
+    final previousState = event.isFavourite;
+    event.isFavourite = !event.isFavourite;
+    emit(FavoriteUpdatedState(event));
+
+    if (event.isFavourite) {
+      final response = await addToFavouritRepo.addToFavourit(event.id);
+      response.fold(
+        (l) {
+          event.isFavourite = previousState;
+          emit(AddToFavouritErrorState(l));
+          emit(FavoriteUpdatedState(event));
+        },
+        (r) {
+          emit(AddToFavouritSuccessState( r.message.toString()));
+        },
+      );
+    } else {
+      final response = await addToFavouritRepo.removeFromFavourit(event.id);
+      response.fold(
+        (l) {
+          event.isFavourite = previousState;
+          emit(RemoveFromFavouritErrorState(l));
+          emit(FavoriteUpdatedState(event));
+        },
+        (r) {
+          emit(RemoveFromFavouritSuccessState( r.message.toString()));
+        },
+      );
+    }
+  }
 }

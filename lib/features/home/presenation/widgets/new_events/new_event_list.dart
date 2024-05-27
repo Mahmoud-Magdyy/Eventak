@@ -23,52 +23,34 @@ class _NewEventListViewState extends State<NewEventListView> {
       listener: (context, state) {
         if (state is AddToFavouritSuccessState) {
           showTwist(state: ToastStates.success, messege: 'Added To Favourite');
-        }
-        if (state is RemoveFromFavouritSuccessState) {
+        } else if (state is RemoveFromFavouritSuccessState) {
           showTwist(
               state: ToastStates.success, messege: 'Removed From Favourite');
+        } else if (state is AddToFavouritErrorState) {
+          showTwist(state: ToastStates.error, messege: state.message);
+        } else if (state is RemoveFromFavouritErrorState) {
+          showTwist(state: ToastStates.error, messege: state.message);
         }
       },
       builder: (context, state) {
         return state is GetAllEventsLoadingState
-                      ? Shimmer.fromColors(
-                          baseColor: Colors.grey[500]!,
-                          highlightColor: Colors.grey[600]!,
-                          child: const ContainerShammer(),
-                        )
-            
+            ? Shimmer.fromColors(
+                baseColor: Colors.grey[500]!,
+                highlightColor: Colors.grey[600]!,
+                child: const ContainerShammer(),
+              )
             : ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: context.read<HomeCubit>().events.length,
                 itemBuilder: (context, index) {
-                  return  NewEeventItem(
-                          onTapFavourit: () async {
-                            setState(() {
-                              context
-                                      .read<HomeCubit>()
-                                      .events[index]
-                                      .isFavourite =
-                                  !context
-                                      .read<HomeCubit>()
-                                      .events[index]
-                                      .isFavourite;
-                            });
-                            if (context
-                                    .read<HomeCubit>()
-                                    .events[index]
-                                    .isFavourite ==
-                                true) {
-                              context.read<HomeCubit>().removeFromFavourit(
-                                  context.read<HomeCubit>().events[index].id);
-                            } else {
-                              context.read<HomeCubit>().addToFavourit(
-                                  context.read<HomeCubit>().events[index].id);
-                            }
-                          },
-                          allEventModel:
-                              context.read<HomeCubit>().events[index],
-                        );
+                  return NewEeventItem(
+                    onTapFavourit: () async {
+                      context.read<HomeCubit>().toggleFavorite(
+                          context.read<HomeCubit>().events[index]);
+                    },
+                    allEventModel: context.read<HomeCubit>().events[index],
+                  );
                 });
       },
     );

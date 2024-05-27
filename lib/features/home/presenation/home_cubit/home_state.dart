@@ -1,4 +1,6 @@
 
+import 'package:eventak/features/home/data/model/all_event_model.dart';
+
 sealed class HomeState {}
 
 final class HomeInitial extends HomeState {}
@@ -58,4 +60,11 @@ final class AddRegisterSuccessState extends HomeState {
   final String message;
 
   AddRegisterSuccessState({required this.message});
+}
+class FavoriteUpdatedState extends HomeState {
+  final AllEventModel event;
+  FavoriteUpdatedState(this.event);
+
+  
+  List<Object> get props => [event];
 }

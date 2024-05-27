@@ -22,7 +22,7 @@ class AllEventModel {
   AllEventModel( 
       {
       required this.id,
-      required this.isFavourite,
+      required this.isFavourite ,
       required this.creatorPicture,
       required this.isCreator,
       required this.nameOfEvent,
@@ -45,7 +45,7 @@ class AllEventModel {
       
       broughtToYouBy: json['broughtToYouBy'],
       isCreator: json['isCreator'],
-      isFavourite: json['IsFavourite'],
+      isFavourite: json['IsFavourite']?? false,
       publishAt: json['publishAt'],
       location: Map<String, dynamic>.from(
         json['location']

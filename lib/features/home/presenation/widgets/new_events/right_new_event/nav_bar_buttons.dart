@@ -32,8 +32,8 @@ class NavBarButtonsNewEvent extends StatelessWidget {
                   //  context.read<HomeCubit>().isSelectedFavoriteIcon
                   allEventModel.
                    isFavourite
-                      ? Icons.favorite_border_outlined
-                      :Icons.favorite  ,
+                      ?  Icons.favorite
+                      :Icons.favorite_border_outlined  ,
             ),
             const SizedBox(
               width: 4,
