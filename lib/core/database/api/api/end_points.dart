@@ -24,6 +24,7 @@ class EndPoint {
   static const String declineRequest = 'register/rejectApproval/';
   static const String editEvent = 'event/updateEvent/';
   static const String editProfile = 'auth/updateUser';
+  static const String deleteAccount = 'auth/deleteMe';
 
   static String recevedCodeEndPoints(id) {
     return '$receviedCode$id';

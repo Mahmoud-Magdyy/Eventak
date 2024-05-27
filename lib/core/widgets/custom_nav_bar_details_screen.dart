@@ -1,3 +1,4 @@
+import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
@@ -23,10 +24,9 @@ class CustomNavBarDetailsScreen extends StatelessWidget {
         bottom: 24,
       ),
       clipBehavior: Clip.antiAlias,
-      decoration:  const ShapeDecoration(
+      decoration: const ShapeDecoration(
         shape: RoundedRectangleBorder(
-          
-          side: BorderSide(color: AppColors.grey,width: 0.5)),
+            side: BorderSide(color: AppColors.grey, width: 0.5)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -73,20 +73,26 @@ class CustomNavBarDetailsScreen extends StatelessWidget {
               ],
             ),
           ),
-          BlocBuilder<HomeCubit, HomeState>(
+          BlocConsumer<HomeCubit, HomeState>(
+            listener: (context, state) {
+              if(state is AddRegisterErrorState){
+                showTwist(state: ToastStates.success, messege: state.message);
+              }
+            },
             builder: (context, state) {
               return state is AddRegisterLoadingState
-                    ? const CircularProgressIndicator()
-                    : Expanded(
-                child: CustomElevetedButton(
-                  
-                        text: state is AddRegisterSuccessState ? 'Pending' : 'Register',
-                        background: state is AddRegisterSuccessState
-                            ? Colors.orange
-                            : const Color(0xFF1561F3),
-                        onPressed:state is  AddRegisterSuccessState ? (){} : onPressed,
+                  ? const Align(
+                    alignment: Alignment.centerLeft,
+                    child: CircularProgressIndicator(color: AppColors.primaryColor,))
+                  : Expanded(
+                      child: CustomElevetedButton(
+                        text: 'Register',
+                        background: const Color(0xFF1561F3),
+                        onPressed: state is AddRegisterSuccessState
+                            ? () {}
+                            : onPressed,
                       ),
-              );
+                    );
             },
           )
         ],

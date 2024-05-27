@@ -56,7 +56,7 @@ class ImagePackerDialog extends StatelessWidget {
               //camera
               ListTile(
                 leading: const Icon(
-                  Icons.camera_alt,
+                  Icons.camera_alt_outlined,
                   color: AppColors.primaryColor,
                 ),
                 title: Text(
@@ -68,7 +68,7 @@ class ImagePackerDialog extends StatelessWidget {
               ),
               ListTile(
                 leading: const Icon(
-                  Icons.photo,
+                  Icons.photo_outlined,
                   color: AppColors.primaryColor,
                 ),
                 title: Text(

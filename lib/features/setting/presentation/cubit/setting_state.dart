@@ -13,3 +13,14 @@ final class LogOutErrorState extends SettingState {
 
   LogOutErrorState(this.message);
 }
+final class DeleteAccountLoadingState extends SettingState {}
+final class DeleteAccountSuccessState extends SettingState {
+  final String message;
+
+  DeleteAccountSuccessState(this.message);
+}
+final class DeleteAccountErrorState extends SettingState {
+  final String message;
+
+  DeleteAccountErrorState(this.message);
+}

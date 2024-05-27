@@ -24,4 +24,11 @@ class SettingCubit extends Cubit<SettingState> {
       },
     );
   }
+  void deleteAccount() async {
+    emit(DeleteAccountLoadingState());
+    final response = await logoutRepo.deleteAccount();
+    response.fold((l) => emit(DeleteAccountErrorState(l)), (r) {
+      emit(DeleteAccountSuccessState(r.status));
+    });
+  }
 }

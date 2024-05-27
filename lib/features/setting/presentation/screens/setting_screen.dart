@@ -100,7 +100,9 @@ class _SettingScreenState extends State<SettingScreen> {
                   color: const Color(0xffFF655C),
                 ),
                 const SizedBox(height: 8,),
-                            CustomElevetedButton(onPressed: (){}, text: 'Delete Account', background: Colors.white, color: const Color(0xffFF655C),)
+                            CustomElevetedButton(onPressed: (){
+                              context.read<SettingCubit>().deleteAccount();
+                            }, text: 'Delete Account', background: Colors.white, color: const Color(0xffFF655C),)
 
               ],
             ),
