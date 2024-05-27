@@ -93,6 +93,10 @@ class Assets {
   /// assets/images/language.svg
   static const String imagesLanguage = "assets/images/language.svg";
 
+  /// Assets for imagesLastLogo
+  /// assets/images/lastLogo.png
+  static const String imagesLastLogo = "assets/images/lastLogo.png";
+
   /// Assets for imagesLightbulb
   /// assets/images/lightbulb.svg
   static const String imagesLightbulb = "assets/images/lightbulb.svg";
@@ -100,6 +104,10 @@ class Assets {
   /// Assets for imagesLogo
   /// assets/images/Logo.svg
   static const String imagesLogo = "assets/images/Logo.svg";
+
+  /// Assets for imagesLogooo
+  /// assets/images/Logooo.png
+  static const String imagesLogooo = "assets/images/Logooo.png";
 
   /// Assets for imagesNotificationsActive
   /// assets/images/notifications_active.svg
