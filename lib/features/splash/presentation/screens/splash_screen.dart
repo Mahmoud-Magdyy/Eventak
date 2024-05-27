@@ -48,7 +48,7 @@ void delayedNavigate(context) {
               ) ==
               null
           ? 
-          navigate(context: context, route: Routes.signIn)
+          navigate(context: context, route: Routes.onBoardingView)
           : navigate(context: context, route: Routes.bottomNavBar);
     });
   
