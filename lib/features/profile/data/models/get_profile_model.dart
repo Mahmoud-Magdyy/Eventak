@@ -3,6 +3,7 @@ class ProfileModel {
   final String id;
   final String firstName;
   final String lastName;
+  final String email;
   final dynamic createdEvent;
   final Map<String, dynamic> profilePic;
 
@@ -13,11 +14,12 @@ class ProfileModel {
       required this.lastName,
       required this.createdEvent,
       required this.profilePic,
+      required this.email,
       });
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) {
     return ProfileModel(
-      
+      email: json['email'],
       firstName: json['firstName'],
       lastName: json['lastName'],
       createdEvent: json['createdEvent'],

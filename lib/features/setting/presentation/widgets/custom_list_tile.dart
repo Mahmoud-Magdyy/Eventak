@@ -28,7 +28,7 @@ class CustomListTile extends StatelessWidget {
           titleTextStyle: AppStyles.styleRegular16(context),
         ),
         const SizedBox(
-          height: 2,
+          height: 16,
         ),
       ],
     );

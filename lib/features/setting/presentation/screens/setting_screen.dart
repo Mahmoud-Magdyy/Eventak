@@ -49,28 +49,28 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
           body: Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                const EdgeInsets.only(left: 16, right: 16,bottom: 24),
             child: Column(
               children: [
                 
-                CustomListTile(
-                  onTap: () {
-                    navigate(
-                        context: context, route: Routes.privacyAndSecurity);
-                  },
-                  image: Assets.imagesShieldLocked,
-                  title: "Privacy & Security",
-                ),
-                CustomListTile(
-                  onTap: () {
-                    navigate(
-                        context: context, route: Routes.languageScreen);
-                  },
-                  image: Assets.imagesLanguage,
-                  title: "Language",
-                ),
+                // CustomListTile(
+                //   onTap: () {
+                //     navigate(
+                //         context: context, route: Routes.privacyAndSecurity);
+                //   },
+                //   image: Assets.imagesShieldLocked,
+                //   title: "Privacy & Security",
+                // ),
+                // CustomListTile(
+                //   onTap: () {
+                //     navigate(
+                //         context: context, route: Routes.languageScreen);
+                //   },
+                //   image: Assets.imagesLanguage,
+                //   title: "Language",
+                // ),
                 const SizedBox(
-                  height: 24,
+                  height: 32,
                 ),
                  CustomListTile(
                   image: Assets.imagesHelp,
