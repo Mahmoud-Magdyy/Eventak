@@ -171,6 +171,7 @@ class CreateEventCubit extends Cubit<CreateEventState> {
     );
     result.fold((l) => emit(CretaeEventErrorState(l)), (r) async {
       createEventModel = r;
+      clearAllFields();
       emit(CretaeEventSuccessState(r.status));
     });
   }
@@ -182,9 +183,9 @@ class CreateEventCubit extends Cubit<CreateEventState> {
     );
     result.fold((l) => emit(CretaeEventErrorState(l)), (r) async {
       createEventModel = r;
-
+      
       emit(CretaeEventSuccessState(r.status));
-       clearAllFields();
+       
     });
   }
 //! edit event 
@@ -202,7 +203,10 @@ class CreateEventCubit extends Cubit<CreateEventState> {
   whatIsIncludedInPriceController.clear();
   districtController.clear();
   nameOfLocationController.clear();
-  // orgShortDescController.clear();
   streetController.clear();
+  dropDownValue = '';  // Reset dropdown value
+  category = '';  // Reset category
+  checkBoxValue = false;  // Reset checkbox value
+  emit(ClearFieldsState());
 }
 }

@@ -27,6 +27,7 @@ class DateOfNewEvent extends StatelessWidget {
             child: SizedBox(
               width: 19,
               child: Text(
+                maxLines: 2,
                 textAlign: TextAlign.center,
                 dayDate,
                 style: AppStyles.styleSemiBold10(context),

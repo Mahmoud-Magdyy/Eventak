@@ -29,9 +29,7 @@ final Widget? widget;
             ),
           )),
         ),
-  //  widget?? const CustomFavoriteButtom(
-    
-  //   heightContainer: 32,widthContainer: 32,sizeIcon: 22,radius: 16,)
+   widget?? const SizedBox(),
       ],
     );
   }

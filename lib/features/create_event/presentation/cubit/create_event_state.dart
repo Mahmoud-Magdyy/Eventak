@@ -3,6 +3,7 @@ sealed class CreateEventState {}
 
 final class CreateEventInitial extends CreateEventState {}
 final class ChangeImageState extends CreateEventState {}
+final class ClearFieldsState extends CreateEventState {}
 final class GetDateLoading extends CreateEventState {}
 final class GetDateSuccess extends CreateEventState {}
 final class GetDateError extends CreateEventState {}
