@@ -69,6 +69,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                               width: 155,
                             ),
                             CustomElevetedButton(
+                              borderColor: AppColors.grey,
                               background: Colors.white,
                               onPressed: () {
                                 navigate(context: context, route: Routes.signIn);

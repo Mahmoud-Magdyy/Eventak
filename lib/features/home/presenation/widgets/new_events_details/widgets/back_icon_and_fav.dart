@@ -1,5 +1,4 @@
 
-import 'package:eventak/features/home/presenation/widgets/trending_widgets/favorite_button.dart';
 import 'package:flutter/material.dart';
 
 class BackIconAndFav extends StatelessWidget {
@@ -30,9 +29,9 @@ final Widget? widget;
             ),
           )),
         ),
-   widget?? const CustomFavoriteButtom(
+  //  widget?? const CustomFavoriteButtom(
     
-    heightContainer: 32,widthContainer: 32,sizeIcon: 22,radius: 16,)
+  //   heightContainer: 32,widthContainer: 32,sizeIcon: 22,radius: 16,)
       ],
     );
   }

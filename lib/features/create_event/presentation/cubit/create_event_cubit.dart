@@ -182,11 +182,27 @@ class CreateEventCubit extends Cubit<CreateEventState> {
     );
     result.fold((l) => emit(CretaeEventErrorState(l)), (r) async {
       createEventModel = r;
+
       emit(CretaeEventSuccessState(r.status));
+       clearAllFields();
     });
   }
 //! edit event 
 
- int? currentPage;
-   int? totalPages;
+ void clearAllFields() {
+  image = null;
+  profileImage = null;
+  dateController.clear();
+  statrTimeOfEventController.clear();
+  endTimeOfEventController.clear();
+  nameOfEventController.clear();
+  descriptionOfEventController.clear();
+  priceInAdvanceOfEventController.clear();
+  priceAtTheDoorOfEventController.clear();
+  whatIsIncludedInPriceController.clear();
+  districtController.clear();
+  nameOfLocationController.clear();
+  // orgShortDescController.clear();
+  streetController.clear();
+}
 }

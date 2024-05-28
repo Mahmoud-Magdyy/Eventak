@@ -54,7 +54,7 @@ class OnBoardingBody extends StatelessWidget {
                   height: 16,
                 ),
                 SizedBox(
-                  width: 290,
+                  width: 305,
                   child: Text(
                     onBoardingData[index].subTitle.tr(context),
                     style: AppStyles.styleMedium18(context),
