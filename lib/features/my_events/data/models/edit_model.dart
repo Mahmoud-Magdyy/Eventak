@@ -44,10 +44,10 @@ class Event {
   final String priceInAdvance;
   final String priceAtTheDoor;
   final String whatIsIncludedInPrice;
-  final String orgShortDesc;
+  // final String orgShortDesc;
   final String userId;
   final int favorites;
-  final List<dynamic> photosOfPlace;
+  // final List<dynamic> photosOfPlace;
   final DateTime createdAt;
   final DateTime updatedAt;
   final int v;
@@ -68,10 +68,10 @@ class Event {
     required this.priceInAdvance,
     required this.priceAtTheDoor,
     required this.whatIsIncludedInPrice,
-    required this.orgShortDesc,
+    // required this.orgShortDesc,
     required this.userId,
     required this.favorites,
-    required this.photosOfPlace,
+    // required this.photosOfPlace,
     required this.createdAt,
     required this.updatedAt,
     required this.v,
@@ -94,10 +94,10 @@ class Event {
       priceInAdvance: json['priceInAdvance'],
       priceAtTheDoor: json['priceAtTheDoor'],
       whatIsIncludedInPrice: json['whatIsIncludedInPrice'],
-      orgShortDesc: json['orgShortDesc'],
+      // orgShortDesc: json['orgShortDesc'],
       userId: json['userId'],
       favorites: json['favorites'],
-      photosOfPlace: List<dynamic>.from(json['photosOfPlace']),
+      // photosOfPlace: List<dynamic>.from(json['photosOfPlace']),
       createdAt: DateTime.parse(json['createdAt']),
       updatedAt: DateTime.parse(json['updatedAt']),
       v: json['__v'],

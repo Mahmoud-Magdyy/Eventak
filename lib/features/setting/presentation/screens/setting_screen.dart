@@ -23,6 +23,9 @@ class _SettingScreenState extends State<SettingScreen> {
   Widget build(BuildContext context) {
     return BlocConsumer<SettingCubit, SettingState>(
       listener: (context, state) {
+        if(state is DeleteAccountSuccessState){
+          navigateReplacment(context: context, route: Routes.signIn);
+        }
         if (state is LogOutSuccessState) {
           showTwist(
                           state: ToastStates.success,
