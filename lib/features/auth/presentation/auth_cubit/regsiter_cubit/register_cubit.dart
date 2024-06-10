@@ -67,7 +67,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     );
     result.fold((l) => emit(SignUpError(l)), (r) async {
       registerModel = r;
-      emit(SignUpSuccess());
+      emit(SignUpSuccess(r.message));
     });
   }
   

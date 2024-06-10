@@ -1,3 +1,4 @@
+import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/core/functions/navigate.dart';
 import 'package:eventak/core/locale/app_loacl.dart';
 import 'package:eventak/core/routers/app_router.dart';
@@ -18,8 +19,9 @@ class CustomFormRegister extends StatelessWidget {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
         if (state is SignUpSuccess) {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(const SnackBar(content: Text('Success')));
+         showTwist(
+                          state: ToastStates.success,
+                          messege: state.message);
           navigateReplacment(context: context, route: Routes.signIn);
         } else if (state is SignUpError) {
           ScaffoldMessenger.of(context)

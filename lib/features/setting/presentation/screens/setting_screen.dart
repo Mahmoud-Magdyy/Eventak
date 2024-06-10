@@ -24,6 +24,7 @@ class _SettingScreenState extends State<SettingScreen> {
     return BlocConsumer<SettingCubit, SettingState>(
       listener: (context, state) {
         if(state is DeleteAccountSuccessState){
+          showTwist(messege: 'Email Is Deleted', state: ToastStates.success);
           navigateReplacment(context: context, route: Routes.signIn);
         }
         if (state is LogOutSuccessState) {

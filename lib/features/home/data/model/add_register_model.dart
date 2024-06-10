@@ -1,47 +1,3 @@
-// import 'package:eventak/core/database/api/api/end_points.dart';
-
-// class AddRegisterModel {
-//   final String id;
-//   final String nameOfEvent;
-//   final String emailOfUser;
-//   final String createrEmail;
-//   final dynamic v;
-  
-//   AddRegisterModel( 
-//       {
-//       required this.v,
-//       required this.emailOfUser,
-//       required this.nameOfEvent,
-//       required this.createrEmail,
-//       required this.id,
-//       });
-
-//   factory AddRegisterModel.fromJson(Map<String, dynamic> json) {
-//     return AddRegisterModel(
-//       v: json['__v'],
-//       createrEmail: json['createrEmail'],
-//       emailOfUser: json['emailOfUser'],
-      
-//       nameOfEvent: json['nameOfEvent'],
-//       id: json['_id'],
-//     );
-//   }
-// }
-
-// class GetRegisterData {
-//   final String message;
-//   final List<AddRegisterModel> data;
-//   factory GetRegisterData.fromJson(Map<String, dynamic> jsonData) {
-//     return GetRegisterData(
-//         message: jsonData[Apikeys.message],
-//         data: (jsonData[Apikeys.data ])
-//             .map<AddRegisterModel>((i) => AddRegisterModel.fromJson(i))
-//             .toList());
-//   }
-//   GetRegisterData( 
-//       {required this.message,required this.data});
-// }
-
 import 'package:eventak/core/database/api/api/end_points.dart';
 
 class UserProfilePic {
@@ -59,7 +15,7 @@ class UserProfilePic {
 }
 
 class User {
-  final UserProfilePic profilePic;
+  final UserProfilePic? profilePic;
   final String id;
   final String firstName;
   final String lastName;
@@ -70,8 +26,8 @@ class User {
   final List<List<String>> favEvent;
   final String createdAt;
   final String updatedAt;
-  final int v;
-  final int createdEvent;
+  final int? v;
+  final int? createdEvent;
 
   User({
     required this.profilePic,
@@ -85,13 +41,13 @@ class User {
     required this.favEvent,
     required this.createdAt,
     required this.updatedAt,
-    required this.v,
-    required this.createdEvent,
+    this.v,
+    this.createdEvent,
   });
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      profilePic: UserProfilePic.fromJson(json['profilePic']),
+      profilePic: json['profilePic'] != null ? UserProfilePic.fromJson(json['profilePic']) : null,
       id: json['_id'],
       firstName: json['firstName'],
       lastName: json['lastName'],
@@ -103,8 +59,8 @@ class User {
           json['favEvent'].map((eventList) => List<String>.from(eventList))),
       createdAt: json['createdAt'],
       updatedAt: json['updatedAt'],
-      v: json['__v'],
-      createdEvent: json['createdEvent'],
+      v: json['__v'] ?? 0,
+      createdEvent: json['createdEvent'] ?? 0,
     );
   }
 }
@@ -126,7 +82,7 @@ class AddRegisterModel {
 
   factory AddRegisterModel.fromJson(Map<String, dynamic> json) {
     return AddRegisterModel(
-      v: json['__v'],
+      v: json['__v'] ?? 0,
       createrEmail: json['createrEmail'],
       nameOfEvent: json['nameOfEvent'],
       idEvent: json['_id'],
