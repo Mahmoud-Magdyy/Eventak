@@ -11,6 +11,9 @@ sharedPreferences = await SharedPreferences.getInstance();
 String? getDataString({required String key}){
   return sharedPreferences.getString(key);
 }
+Future<void> clearAllData() async {
+    await sharedPreferences.clear(); // Clear all data in shared preferences
+  }
 
 Future<bool> saveData({required String key,required dynamic value }) async{
 

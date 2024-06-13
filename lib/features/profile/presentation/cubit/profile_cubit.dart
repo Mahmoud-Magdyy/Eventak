@@ -39,7 +39,9 @@ class ProfileCubit extends Cubit<ProfileState> {
       emit(GetMyFavouriteEventsSuccessState());
     });
   }
-
+void resetCubit() {
+    emit(ProfileInitial());
+  }
   //! edit profle
   XFile? profileImage;
   void editProfileImage(value) {

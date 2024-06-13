@@ -43,7 +43,7 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
             child: Column(
               children: [
                 CustomTextFormField(
-                  prefixIcon: const Icon(Icons.person_2_outlined),
+                  prefixIcon: const Icon(Icons.email_outlined),
                   controller: context.read<SignInCubit>().emailController,
                   hint: AppStrings.loginHint.tr(context),
                   validate: (data) {
