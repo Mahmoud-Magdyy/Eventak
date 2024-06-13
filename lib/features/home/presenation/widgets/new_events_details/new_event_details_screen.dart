@@ -136,6 +136,7 @@ class NewEeventDetails extends StatelessWidget {
               allEventModel!.isCreator
                   ? const SizedBox()
                   : CustomNavBarDetailsScreen(
+                    allEventModel: allEventModel!,
                       onPressed: () {
                         context
                             .read<HomeCubit>()

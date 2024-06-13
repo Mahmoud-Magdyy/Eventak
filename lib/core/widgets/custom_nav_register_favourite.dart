@@ -1,20 +1,20 @@
 import 'package:eventak/core/functions/commns.dart';
 import 'package:eventak/core/utils/app_colors.dart';
 import 'package:eventak/core/widgets/custom_button.dart';
-import 'package:eventak/features/home/data/model/all_event_model.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_state.dart';
+import 'package:eventak/features/profile/data/models/favourite_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CustomNavBarDetailsScreen extends StatelessWidget {
-  const CustomNavBarDetailsScreen({
+class CustomNavBarFavouriteDetailsScreen extends StatelessWidget {
+  const CustomNavBarFavouriteDetailsScreen({
     super.key,
     required this.onPressed,
-   required this.allEventModel,
+   required this.favouriteModel,
   });
   final Function() onPressed;
- final AllEventModel allEventModel;
+ final FavouriteModel favouriteModel;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeCubit, HomeState>(
@@ -57,7 +57,7 @@ class CustomNavBarDetailsScreen extends StatelessWidget {
                     ),
                     Text.rich(TextSpan(children: [
                       TextSpan(
-                        text: allEventModel.priceAtTheDoor,
+                        text: favouriteModel.priceAtTheDoor,
                         style: const TextStyle(
                           color: Colors.black,
                           fontSize: 28,

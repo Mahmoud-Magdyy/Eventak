@@ -1,5 +1,5 @@
 import 'package:eventak/core/utils/app_styles.dart';
-import 'package:eventak/core/widgets/custom_nav_bar_details_screen.dart';
+import 'package:eventak/core/widgets/custom_nav_register_favourite.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
 import 'package:eventak/features/home/presenation/home_cubit/home_state.dart';
 import 'package:eventak/features/home/presenation/widgets/new_events_details/widgets/back_icon_and_fav.dart';
@@ -138,7 +138,8 @@ class FavouritesEeventDetails extends StatelessWidget {
               // favouriteModel!.isCreator
               //     ? const SizedBox()
               //     : 
-                  CustomNavBarDetailsScreen(
+                  CustomNavBarFavouriteDetailsScreen(
+                    favouriteModel: favouriteModel!,
                       onPressed: () {
                         context
                             .read<HomeCubit>()
