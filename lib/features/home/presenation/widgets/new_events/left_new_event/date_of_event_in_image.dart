@@ -25,7 +25,7 @@ class DateOfNewEvent extends StatelessWidget {
         children: [
           FittedBox(
             child: SizedBox(
-              width: 19,
+              width: 28,
               child: Text(
                 maxLines: 2,
                 textAlign: TextAlign.center,

@@ -48,8 +48,9 @@ class CustomMyCreatedEventItemList extends StatelessWidget {
                     width: 16,
                   ),
                   TitleAndSubTitleOfEvent(
+
                     nameOfEvent: myCreatedEventModel.nameOfEvent,
-                    location: myCreatedEventModel.location['street'],
+                    location: myCreatedEventModel.location['street']+', '+myCreatedEventModel.location['nameOfLocation'],
                   )
                 ],
               ),

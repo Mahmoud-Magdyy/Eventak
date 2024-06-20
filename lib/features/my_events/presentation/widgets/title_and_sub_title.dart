@@ -23,7 +23,7 @@ class TitleAndSubTitleOfEvent extends StatelessWidget {
               style: AppStyles.styleBold16(context)),
         ),
         const SizedBox(
-          height: 24,
+          height: 14,
         ),
         Row(
           children: [

@@ -9,6 +9,9 @@ import 'package:eventak/core/widgets/custom_text_field.dart';
 import 'package:eventak/features/auth/presentation/auth_cubit/sign_in_cubit/sign_in_cubit.dart';
 import 'package:eventak/features/auth/presentation/auth_cubit/sign_in_cubit/sign_in_state.dart';
 import 'package:eventak/features/auth/presentation/widgets/forget_password_text_button.dart';
+import 'package:eventak/features/home/presenation/home_cubit/home_cubit.dart';
+import 'package:eventak/features/my_events/presentation/cubits/my_created_events_cubit.dart';
+import 'package:eventak/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,6 +33,13 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
                           messege: 'Login Successfuly');
           // ScaffoldMessenger.of(context)
           //     .showSnackBar(SnackBar(content: Text(state.message)));
+           context.read<HomeCubit>().getAllEvents();
+                  context.read<HomeCubit>().getTrendigEvents();
+                  context.read<MyCreatedEventsCubit>().getMyCreatedEvents();
+                  context.read<MyCreatedEventsCubit>().getRequestedMyEvents();
+                  context.read<ProfileCubit>().getProfile();
+                  context.read<ProfileCubit>().getMyFavouriteEvents();
+
           navigateReplacment(context: context, route: Routes.bottomNavBar);
           // print("token isss: ${sl<CacheHelper>().getData(key: 'token')}");
         } else if (state is LoginErrorState) {

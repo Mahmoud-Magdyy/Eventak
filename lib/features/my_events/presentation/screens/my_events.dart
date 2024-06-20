@@ -50,6 +50,7 @@ class MyEvents extends StatelessWidget {
                           ),
                         ),
                         child: TabBar(
+                          overlayColor: const MaterialStatePropertyAll( Colors.transparent),
                           labelColor: Colors.white,
                           dividerColor: Colors.transparent,
                           indicatorColor: Colors.transparent,
@@ -57,6 +58,7 @@ class MyEvents extends StatelessWidget {
                             borderRadius: BorderRadius.circular(16),
                             color: AppColors.blue,
                           ),
+                          indicatorWeight: 1,
                           tabs: const [
                             CustomTabBarButton(text: 'Created'),
                             CustomTabBarButton(text: 'Requested'),

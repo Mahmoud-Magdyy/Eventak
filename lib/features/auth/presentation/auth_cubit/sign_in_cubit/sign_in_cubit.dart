@@ -34,6 +34,8 @@ class SignInCubit extends Cubit<SignInState> {
         value: r.token,
       );
       emit(LoginSuccessState(r.message));
+      clearControllers();
+
     });
   }
   void clearControllers() {
