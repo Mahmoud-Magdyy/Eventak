@@ -56,6 +56,7 @@ bool isSelected = false;
   
   }
  //! add to favourit method
+ AllEventModel? allEventModel;
   final AddToFavouritReposatiry addToFavouritRepo ;
   void addToFavourit(String id)async{
     emit(AddToFavouritLoadingState());

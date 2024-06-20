@@ -35,7 +35,6 @@ class NewEeventDetails extends StatelessWidget {
                   content: Text(state.message),
                 ),
               );
-              
             }
           },
           builder: (context, state) {
@@ -51,11 +50,36 @@ class NewEeventDetails extends StatelessWidget {
                               image: allEventModel!.posterPicture['secure_url'],
                               // image: allEventModel!.imageEvent,
                             ),
-                            const Positioned(
+                            Positioned(
                               top: 30,
                               left: 25,
                               right: 25,
-                              child: BackIconAndFav(),
+                              child: BackIconAndFav(
+                                  widget: InkWell(
+                                onTap: () async {
+                                  context
+                                      .read<HomeCubit>()
+                                      .toggleFavorite(allEventModel!);
+                                },
+                                child: Container(
+                                  width: 32,
+                                  height: 32,
+                                  decoration: ShapeDecoration(
+                                    color: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                  ),
+                                  child: Icon(
+                                    color: Colors.red,
+                                    allEventModel!.isCreator
+                                        ? Icons.how_to_reg_outlined
+                                        : allEventModel!.isFavourite
+                                            ? Icons.favorite
+                                            : Icons.favorite_border_outlined,
+                                  ),
+                                ),
+                              )),
                             )
                           ],
                         ),
@@ -136,12 +160,11 @@ class NewEeventDetails extends StatelessWidget {
               allEventModel!.isCreator
                   ? const SizedBox()
                   : CustomNavBarDetailsScreen(
-                    allEventModel: allEventModel!,
+                      allEventModel: allEventModel!,
                       onPressed: () {
                         context
                             .read<HomeCubit>()
                             .addRegister(allEventModel!.nameOfEvent);
-                            
                       },
                     ),
             ]);
